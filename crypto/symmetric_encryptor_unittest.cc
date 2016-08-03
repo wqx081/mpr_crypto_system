@@ -10,6 +10,7 @@
 
 #include <gtest/gtest.h>
 
+
 TEST(SymmetricEncryptor, CBC_EncryptAndDecrypt) {
 
   std::unique_ptr<crypto::SymmetricKey> key(

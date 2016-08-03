@@ -35,6 +35,9 @@ CPP_SOURCES := \
 	./crypto/symmetric_crypt.cc \
 	\
 	\
+	./threading/time_util.cc \
+	./threading/mutex.cc \
+	./threading/monitor.cc \
 
 CPP_OBJECTS := $(CPP_SOURCES:.cc=.o)
 

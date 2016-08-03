@@ -1,6 +1,4 @@
 #include "crypto/openssl_util.h"
-//#include <openssl/crypto.h>
-//#include <openssl/err.h>
 
 #include "third_party/boringssl/include/openssl/crypto.h"
 #include "third_party/boringssl/include/openssl/err.h"
