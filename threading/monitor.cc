@@ -25,19 +25,19 @@ class Monitor::Impl {
      : owned_mutex_(new Mutex()),
        mutex_(nullptr),
        condInitialized_(false) {
-    init(owned_mutex_.get());
+    Init(owned_mutex_.get());
   }
 
   Impl(Mutex* mutex)
      : mutex_(nullptr),
        condInitialized_(false) {
-    init(mutex);
+    Init(mutex);
   }
 
   Impl(Monitor* monitor)
      : mutex_(nullptr),
        condInitialized_(false) {
-    init(&(monitor->mutex()));
+    Init(&(monitor->mutex()));
   }
 
   ~Impl() { Cleanup(); }
@@ -134,7 +134,7 @@ class Monitor::Impl {
 
  private:
 
-  void init(Mutex* mutex) {
+  void Init(Mutex* mutex) {
     mutex_ = mutex;
 
     if (pthread_cond_init(&pthread_cond_, nullptr) == 0) {

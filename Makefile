@@ -1,13 +1,11 @@
 CXXFLAGS += -I./
 CXXFLAGS += -I./third_party/boringssl/include
-CXXFLAGS += -I./third_party/libsm4/
 CXXFLAGS += -std=c++11 -Wall -g -c -o
 
 LIB_FILES :=-lglog -lgflags -L/usr/local/lib -lgtest -lgtest_main -lpthread -lz -lminizip \
 	./third_party/boringssl/build/crypto/libcrypto.a \
 	./third_party/boringssl/build/ssl/libssl.a \
 	./third_party/boringssl/build/decrepit/libdecrepit.a \
-	-L./third_party/libsm4/ -lmpr_sm4 \
 
 CPP_SOURCES := \
 	./base/string_piece.cc \
@@ -38,6 +36,8 @@ CPP_SOURCES := \
 	./threading/time_util.cc \
 	./threading/mutex.cc \
 	./threading/monitor.cc \
+	./threading/thread_factory.cc \
+	./threading/thread_manager.cc \
 
 CPP_OBJECTS := $(CPP_SOURCES:.cc=.o)
 
@@ -50,6 +50,10 @@ TESTS := \
 	\
 	./crypto/symmetric_key_unittest \
 	./crypto/symmetric_encryptor_unittest \
+	\
+	\
+	./threading/thread_factory_unittest \
+	./threading/thread_manager_unittest \
 	
 
 all: $(CPP_OBJECTS) $(TESTS)
@@ -93,9 +97,22 @@ all: $(CPP_OBJECTS) $(TESTS)
 ./crypto/symmetric_encryptor_unittest.o: ./crypto/symmetric_encryptor_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
+./threading/thread_factory_unittest: ./threading/thread_factory_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./threading/thread_factory_unittest.o: ./threading/thread_factory_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./threading/thread_manager_unittest: ./threading/thread_manager_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./threading/thread_manager_unittest.o: ./threading/thread_manager_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+
 clean:
 	rm -fr base/*.o
-	rm -fr threads/*.o
+	rm -fr threading/*.o
 	rm -fr zip/*.o
 	rm -fr crypto/*.o
 	rm -fr $(TESTS)
