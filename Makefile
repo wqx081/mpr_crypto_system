@@ -8,7 +8,8 @@ LIB_FILES :=-lglog -lgflags -L/usr/local/lib -lgtest -lgtest_main -lpthread -lz 
 	./third_party/boringssl/build/decrepit/libdecrepit.a \
 	\
 	-lnspr4 \
-	-ldl
+	-ldl \
+	-lmysqlclient
 
 CPP_SOURCES := \
 	./base/string_piece.cc \
@@ -44,9 +45,16 @@ CPP_SOURCES := \
 	\
 	\
 	./db/connection_info.cc \
+	./db/connection_data.cc \
 	./db/shared_object.cc \
 	./db/backend/statement.cc \
-#	./db/driver_manager.cc \
+	./db/backend/connection.cc \
+	./db/backend/driver.cc \
+	./db/connection_pool.cc \
+	./db/driver_manager.cc \
+	\
+	./db/drivers/mysql/connection.cc \
+	./db/drivers/mysql/mysql_result.cc \
 
 CPP_OBJECTS := $(CPP_SOURCES:.cc=.o)
 
@@ -131,4 +139,5 @@ clean:
 	rm -fr threading/*.o
 	rm -fr zip/*.o
 	rm -fr crypto/*.o
-	rm -fr $(TESTS)
+	@rm -fr $(TESTS)
+	@rm -fr $(CPP_OBJECTS)

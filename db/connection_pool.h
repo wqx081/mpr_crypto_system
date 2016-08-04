@@ -36,8 +36,8 @@ class ConnectionPool : public SimpleRefCounted {
 
  private:
   SimpleRefPtr<backend::Connection> get();
-  struct Data;
-  std::unique_ptr<Data> data_;
+//  struct Data;
+//  std::unique_ptr<Data> data_;
   
   struct Entry {
     Entry() {}
@@ -47,7 +47,7 @@ class ConnectionPool : public SimpleRefCounted {
   typedef std::list<Entry> ConnectionPoolType;
 
   size_t limit_;
-  int life_time_;
+  base::TimeDelta life_time_;
   ConnectionInfo connection_info_;
 
   threading::Mutex lock_;

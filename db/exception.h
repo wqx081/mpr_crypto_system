@@ -21,5 +21,23 @@ class NullValueFetch : public DBException {
 };
 
 
+class EmptyRowAccess : public DBException {
+ public:
+  EmptyRowAccess() : DBException("db::empty_row_access attempt to fetch "
+		  "from empty column") {}
+};
+
+class InvalidColumn : public DBException {
+ public:
+  InvalidColumn() : DBException("db::invalid_column attempt access to "
+		  "invalid column") {}
+};
+
+class InvalidPlaceholder : public DBException {
+ public:
+  InvalidPlaceholder() : DBException("db::invalid_placeholder attempt bind "
+		  "to invalid placeholder") {}
+};
+
 } // namespace db
 #endif // DB_EXCEPTION_H_

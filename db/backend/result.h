@@ -34,7 +34,7 @@ class Result : public SimpleRefCounted {
   virtual bool Fetch(int col, long double& v) = 0;
   virtual bool Fetch(int col, std::string& v) = 0;
   virtual bool Fetch(int col, std::ostream& v) = 0;
-  virtual bool Fetch(int col, base::Time& v) = 0;
+  virtual bool Fetch(int col, base::Time* v) = 0;
   
   virtual bool IsNull(int col) = 0;
   virtual int Columns() = 0;

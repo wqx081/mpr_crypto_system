@@ -11,6 +11,11 @@ class SimpleRefCounted {
       &const_cast<SimpleRefCounted*>(this)->ref_count_);
   }
 
+  bool HasZeroRef() const {
+    return base::AtomicRefCountIsZero(
+      &const_cast<SimpleRefCounted*>(this)->ref_count_);
+  }
+
 // protected: 
   SimpleRefCounted() : ref_count_(0) {}
   virtual ~SimpleRefCounted() {}
