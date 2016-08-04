@@ -1,6 +1,6 @@
-
 #include "threading/monitor.h"
 #include "threading/time_util.h"
+#include "threading/exception.h"
 
 #include <glog/logging.h>
 
@@ -59,10 +59,9 @@ class Monitor::Impl {
       // pthread_cond_timedwait has been observed to return early on
       // various platforms, so comment out this assert.
       //assert(Util::currentTime() >= (now + timeout));
-      //throw TimedOutException();
+      throw TimedOutException();
     } else if (result != 0) {
-      //throw TLibraryException(
-      //  "pthread_cond_wait() or pthread_cond_timedwait() failed");
+      throw base::TLibraryException("pthread_cond_wait() or pthread_cond_timedwait() failed");
     }
   }
 
@@ -143,7 +142,7 @@ class Monitor::Impl {
 
     if (!condInitialized_) {
       Cleanup();
-      //throw SystemResourceException();
+      throw SystemResourceException();
     }
   }
 

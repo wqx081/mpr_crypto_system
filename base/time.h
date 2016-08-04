@@ -165,7 +165,7 @@ class Time final {
   
   static Time Now();
 
-  std::string Format(const std::string format) const;
+  std::string Format(const std::string format=std::string("%Y-%m-%d %H:%M:%S")) const;
 
   static Time NowFromSystemTime();
   static Time UnixEpoch() { return Time(0); }
@@ -192,6 +192,13 @@ class Time final {
   }
   static bool FromLocalExploded(const Exploded& exploded, Time* time) {
     return FromExploded(true, exploded, time);
+  }
+
+  static bool FromString(const char* time_string, Time* parsed_time) {
+    return FromStringInternal(time_string, true, parsed_time);
+  }
+  static bool FromUTCString(const char* time_string, Time* parsed_time) {
+    return FromStringInternal(time_string, false, parsed_time);
   }
 
   //
@@ -247,6 +254,10 @@ class Time final {
   static bool FromExploded(bool is_local,
 		           const Exploded& exploded,
 			   Time* time);
+
+  static bool FromStringInternal(const char* time_string,
+                                 bool is_local,
+                                 Time* parsed_time);
 };
 
 std::ostream& operator<<(std::ostream&, const Time&);

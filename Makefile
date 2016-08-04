@@ -6,6 +6,9 @@ LIB_FILES :=-lglog -lgflags -L/usr/local/lib -lgtest -lgtest_main -lpthread -lz 
 	./third_party/boringssl/build/crypto/libcrypto.a \
 	./third_party/boringssl/build/ssl/libssl.a \
 	./third_party/boringssl/build/decrepit/libdecrepit.a \
+	\
+	-lnspr4 \
+	-ldl
 
 CPP_SOURCES := \
 	./base/string_piece.cc \
@@ -38,6 +41,12 @@ CPP_SOURCES := \
 	./threading/monitor.cc \
 	./threading/thread_factory.cc \
 	./threading/thread_manager.cc \
+	\
+	\
+	./db/connection_info.cc \
+	./db/shared_object.cc \
+	./db/backend/statement.cc \
+#	./db/driver_manager.cc \
 
 CPP_OBJECTS := $(CPP_SOURCES:.cc=.o)
 
@@ -54,6 +63,7 @@ TESTS := \
 	\
 	./threading/thread_factory_unittest \
 	./threading/thread_manager_unittest \
+	./threading/mutex_unittest \
 	
 
 all: $(CPP_OBJECTS) $(TESTS)
@@ -107,6 +117,12 @@ all: $(CPP_OBJECTS) $(TESTS)
 	@echo "  [LINK] $@"
 	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
 ./threading/thread_manager_unittest.o: ./threading/thread_manager_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./threading/mutex_unittest: ./threading/mutex_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./threading/mutex_unittest.o: ./threading/mutex_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
 

@@ -2,6 +2,8 @@
 #include "threading/monitor.h"
 #include "threading/time_util.h"
 
+#include "threading/exception.h"
+
 #include <memory>
 
 #include <assert.h>
@@ -322,7 +324,7 @@ void ThreadManager::Impl::Start() {
     Synchronized s(monitor_);
     if (state_ == ThreadManager::UNINITIALIZED) {
       if (!thread_factory_) {
-        //throw InvalidArgumentException();
+        throw InvalidArgumentException();
       }
       state_ = ThreadManager::STARTED;
       monitor_.NotifyAll();
@@ -368,7 +370,7 @@ void ThreadManager::Impl::RemoveWorker(size_t value) {
   {
     Synchronized s(monitor_);
     if (value > worker_max_count_) {
-//      throw InvalidArgumentException();
+      throw InvalidArgumentException();
     }
 
     worker_max_count_ -= value;
@@ -406,24 +408,20 @@ bool ThreadManager::Impl::CanSleep() {
 }
 
 void ThreadManager::Impl::Add(shared_ptr<Runnable> value, 
-		              int64_t timeout, 
-			      int64_t expiration) {
-  LOG(INFO) << "timeout = " << timeout;
+		                      int64_t timeout, 
+			                  int64_t expiration) {
   Guard g(mutex_, timeout);
-  LOG(INFO) << "---end timeout";
 
   if (!g) {
-    DCHECK(false);
-    //throw TimedOutException();
+    throw TimedOutException();
   }
 
   if (state_ != ThreadManager::STARTED) {
-    //throw IllegalStateException(
-    //    "ThreadManager::Impl::add ThreadManager "
-    //    "not started");
+    throw IllegalStateException(
+      "ThreadManager::Impl::add ThreadManager "
+      "not started");
   }
 
-  LOG(INFO) << "------x";
   RemoveExpiredTasks();
   if (pending_task_count_max_ > 0 && 
       (tasks_.size() >= pending_task_count_max_)) {
@@ -436,7 +434,7 @@ void ThreadManager::Impl::Add(shared_ptr<Runnable> value,
   LOG(INFO) << "------z";
       }
     } else {
-   //   throw TooManyPendingTasksException();
+      throw TooManyPendingTasksException();
     }
   }
 
@@ -453,18 +451,18 @@ void ThreadManager::Impl::Remove(shared_ptr<Runnable> task) {
   (void)task;
   Synchronized s(monitor_);
   if (state_ != ThreadManager::STARTED) {
-//    throw IllegalStateException(
-//        "ThreadManager::Impl::remove ThreadManager not "
-//        "started");
+    throw IllegalStateException(
+        "ThreadManager::Impl::remove ThreadManager not "
+        "started");
   }
 }
 
 std::shared_ptr<Runnable> ThreadManager::Impl::RemoveNextPending() {
   Guard g(mutex_);
   if (state_ != ThreadManager::STARTED) {
-//    throw IllegalStateException(
-//        "ThreadManager::Impl::removeNextPending "
-//        "ThreadManager not started");
+    throw IllegalStateException(
+        "ThreadManager::Impl::removeNextPending "
+        "ThreadManager not started");
   }
 
   if (tasks_.empty()) {

@@ -2,14 +2,27 @@
 #include "threading/thread_factory.h"
 #include "threading/monitor.h"
 #include "threading/time_util.h"
+#include "threading/exception.h"
 
 #include <limits>
 
 #include <glog/logging.h>
 #include <gtest/gtest.h>
 
+#include <chrono>
+
 using namespace threading;
 using namespace base;
+
+#define REQUIRE_EQUAL_TIMEOUT_(timeout, x, y) do { \
+   using std::chrono::steady_clock; \
+   using std::chrono::milliseconds;  \
+   auto end = steady_clock::now() + milliseconds(timeout);  \
+   while ((x) != (y) && steady_clock::now() < end)  {} \
+   EXPECT_EQ(x, y); \
+ } while (0)
+
+#define REQUIRE_EQUAL_TIMEOUT(x, y) REQUIRE_EQUAL_TIMEOUT_(1000, x, y)
 
 class LoadTask : public Runnable {
  public:
@@ -121,162 +134,72 @@ static void LoadTest(size_t num_tasks, int64_t timeout, size_t num_workers) {
 
 }
 
-#if 0
 TEST(ThreadManagerTest, LoadTest) {
   size_t num_tasks = 10000;
   int64_t timeout = 50;
   size_t num_workers = 100;
   LoadTest(num_tasks, timeout, num_workers);
 }
-#endif
 
+#if 0
 ////////////////
 class BlockTask : public Runnable {
  public:
-  BlockTask(Monitor& monitor, Monitor& bmonitor, size_t& count)
+  BlockTask(Monitor* monitor, Monitor* bmonitor, bool* blocked, size_t* count)
     : monitor_(monitor),
       bmonitor_(bmonitor),
-      count_(count) {}
+      blocked_(blocked),
+      count_(count),
+      started_(false) {}
 
   void Run() override {
+    started_ = true;
     {
-      Synchronized s(bmonitor_);
-      bmonitor_.Wait();
+      Synchronized s(*bmonitor_);
+      while (*blocked_) {
+        bmonitor_->Wait();
+      }
     }
 
     {
-      Synchronized s(monitor_);
-      count_--;
-      //LOG(INFO) << "-------count: " << count_;
-      if (count_ == 0) {
-        monitor_.Notify();
+      Synchronized s(*monitor_);
+      (*count_)--;
+      if (*count_ == 0) {
+        monitor_->Notify();
       }
     }
   }
 
-  Monitor& monitor_;  
-  Monitor& bmonitor_;
-  size_t& count_;
+  Monitor* monitor_;  
+  Monitor* bmonitor_;
+  bool* blocked_;
+  size_t* count_;
+  bool started_;
 };
 
-bool BlockTaskTest(int64_t /* timeout */, size_t num_workers) {
-  bool success = false;
-
-  try {
-    Monitor bmonitor;
-    Monitor monitor;
-    
-    size_t pending_task_max_count = num_workers;
-    size_t active_counts[]{num_workers, pending_task_max_count, 1};
-    std::shared_ptr<ThreadManager> thread_manager = 
-      ThreadManager::NewSimpleThreadManager(num_workers, pending_task_max_count);
-    std::shared_ptr<PosixThreadFactory> thread_factory = std::make_shared<PosixThreadFactory>();
-    thread_factory->SetPriority(PosixThreadFactory::HIGHEST);
-    thread_manager->SetThreadFactory(thread_factory);
-    thread_manager->Start();
-    
-    std::set<std::shared_ptr<BlockTask>> tasks;
-    for (size_t ix = 0; ix < num_workers; ++ix) {
-      tasks.insert(std::make_shared<BlockTask>(monitor, bmonitor, active_counts[0]));
-    }
-    for (size_t ix = 0; ix < pending_task_max_count; ++ix) {
-      tasks.insert(std::make_shared<BlockTask>(monitor, bmonitor, active_counts[1]));
-    }
-    for (std::set<std::shared_ptr<BlockTask>>::iterator it = tasks.begin();
-         it != tasks.end();
-         ++it) {
-      thread_manager->Add(*it);
-    }
-
-    LOG(INFO) << "--------------------1";
-
-    if (!(success = (thread_manager->TotalTaskCount() == pending_task_max_count + num_workers))) {
-      //throw Exception("Unexpected pending task count");
-      DCHECK(false);
-    }
-
-    LOG(INFO) << "--------------------2";
-    std::shared_ptr<BlockTask> extra_task = std::make_shared<BlockTask>(monitor,
-		    bmonitor,
-		    active_counts[2]);
-
-    try {
-      thread_manager->Add(extra_task, 1);
-    } catch (...) {
-      LOG(ERROR) << "Should have timed out adding task in excess of pending task count";
-    }
-
-    LOG(INFO) << "--------------------3";
-
-    try {
-      thread_manager->Add(extra_task, -1);
-    } catch (...) {
-    }
-
-    LOG(INFO) << "\t\t\t" << "Pending tasks " << thread_manager->PendingTaskCount();
-
-    LOG(INFO) << "------------------------HERE a";
-
-    {
-      Synchronized s(bmonitor);
-      bmonitor.NotifyAll();
-    }
-
-    LOG(INFO) << "------------------------HERE b";
-
-    {
-      Synchronized s(monitor);
-      while (active_counts[0] != 0) {
-        monitor.Wait();
-      }
-    }
-
-    LOG(INFO) << "\t\t\t" << "Pending tasks " << thread_manager->PendingTaskCount();
-
-    LOG(INFO) << "------------------------HERE 0";
-    thread_manager->Add(extra_task, 1);
-    LOG(INFO) << "-----------------------HERE 1";
-    {
-      Synchronized s(bmonitor);
-      bmonitor.NotifyAll();
-    }
-    LOG(INFO) << "-----------------------HERE 2";
-
-    {
-      Synchronized s(monitor);
-      while (active_counts[1] != 0) {
-        monitor.Wait();
-      }
-    }
-    LOG(INFO) << "-----------------------HERE 3";
-
-    {
-      Synchronized s(bmonitor);
-      bmonitor.NotifyAll();
-    }
-    LOG(INFO) << "-----------------------HERE 3";
-
-    {
-      Synchronized s(monitor);
-      while (active_counts[2] != 0) {
-        monitor.Wait();
-      }
-    }
-    LOG(INFO) << "-----------------------HERE 4";
-
-    if (!(success = (thread_manager->TotalTaskCount() == 0))) {
-    }
-
-  } catch (...) {
-    LOG(ERROR) << "ERROR: "; // << e.what();  
-  }
-
-  LOG(INFO) << "\t\t\t" << (success ? "Success" : "Failure");
-  return success;          
-}
-
 TEST(ThreadManager, BlockTaskTest) {
-  int64_t timeout = 50;
-  size_t num_workers = 3000;
-  EXPECT_TRUE(BlockTaskTest(timeout, num_workers));
+  const size_t num_workers = 8;
+  size_t pending_task_max_count =  num_workers;
+  
+  auto thread_manager = ThreadManager::NewSimpleThreadManager(num_workers, pending_task_max_count);
+  auto thread_factory = std::make_shared<PosixThreadFactory>();
+  thread_manager->SetThreadFactory(thread_factory);
+  thread_manager->Start();
+
+  Monitor monitor;
+  Monitor bmonitor;
+
+  bool blocked1 = true;
+  size_t tasks_count1 = num_workers;
+  std::set<std::shared_ptr<BlockTask>> tasks;
+  for (size_t ix = 0; ix < num_workers; ++ix) {
+    auto task = std::make_shared<BlockTask>(&monitor,
+                                            &bmonitor,
+                                            &blocked1,
+                                            &tasks_count1);
+    tasks.insert(task);
+    thread_manager->Add(task);
+  }
+  REQUIRE_EQUAL_TIMEOUT(thread_manager->TotalTaskCount(), num_workers); 
 }
+#endif

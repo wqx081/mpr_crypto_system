@@ -1,5 +1,6 @@
 #include "threading/thread_factory.h"
 #include "threading/mutex.h"
+#include "threading/exception.h"
 
 #include <assert.h>
 #include <pthread.h>
@@ -86,19 +87,19 @@ void PthreadThread::Start() {
 
   pthread_attr_t thread_attr;
   if (pthread_attr_init(&thread_attr) != 0) {
-      //throw SystemResourceException("pthread_attr_init failed");
+      throw SystemResourceException("pthread_attr_init failed");
   }
 
   if(pthread_attr_setdetachstate(&thread_attr,
                                  detached_ ?
                                  PTHREAD_CREATE_DETACHED :
                                  PTHREAD_CREATE_JOINABLE) != 0) {
-      //throw SystemResourceException("pthread_attr_setdetachstate failed");
+      throw SystemResourceException("pthread_attr_setdetachstate failed");
   }
 
   // Set thread stack size
   if (pthread_attr_setstacksize(&thread_attr, MB * stackSize_) != 0) {
-    //throw SystemResourceException("pthread_attr_setstacksize failed");
+    throw SystemResourceException("pthread_attr_setstacksize failed");
   }
 
   // Create reference
@@ -111,7 +112,7 @@ void PthreadThread::Start() {
 	             &thread_attr, 
 		     ThreadMain, 
 		     (void*)selfRef) != 0) {
-    //throw SystemResourceException("pthread_create failed");
+    throw SystemResourceException("pthread_create failed");
   }
 
   // Now that we have a thread, we can set the name we've been given, if any.
