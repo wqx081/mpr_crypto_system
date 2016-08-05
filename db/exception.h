@@ -39,5 +39,11 @@ class InvalidPlaceholder : public DBException {
 		  "to invalid placeholder") {}
 };
 
+class MultipleRowsQuery : public DBException {
+ public:
+  MultipleRowsQuery() : DBException("db::multiple_rows_query multiple rows result for a "
+                                    "single row request") {}
+};
+
 } // namespace db
 #endif // DB_EXCEPTION_H_

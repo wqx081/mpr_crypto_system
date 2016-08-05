@@ -51,6 +51,11 @@ CPP_SOURCES := \
 	./db/shared_object.cc \
 	./db/driver_manager.cc \
 	\
+	./db/frontend/result.cc \
+	./db/frontend/session.cc \
+	./db/frontend/statement.cc \
+	./db/frontend/transaction.cc \
+	\
 	./db/backend/statement.cc \
 	./db/backend/connection.cc \
 	./db/backend/driver.cc \
@@ -136,6 +141,9 @@ all: $(CPP_OBJECTS) $(TESTS)
 ./threading/mutex_unittest.o: ./threading/mutex_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
+
+db_clean:
+	`find ./db -name "*.o" | xarg rm -fr`
 
 clean:
 	rm -fr base/*.o
