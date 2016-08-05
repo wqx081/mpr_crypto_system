@@ -404,5 +404,4 @@ class PreMysqlStatement : public backend::Statement {
 
 } // namespace mysql_backend
 } // namespace db
-
 #endif

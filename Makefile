@@ -46,15 +46,18 @@ CPP_SOURCES := \
 	\
 	./db/connection_info.cc \
 	./db/connection_data.cc \
+	./db/connection_pool.cc \
+	./db/connections_manager.cc \
 	./db/shared_object.cc \
+	./db/driver_manager.cc \
+	\
 	./db/backend/statement.cc \
 	./db/backend/connection.cc \
 	./db/backend/driver.cc \
-	./db/connection_pool.cc \
-	./db/driver_manager.cc \
 	\
-	./db/drivers/mysql/connection.cc \
+	./db/drivers/mysql/mysql_connection.cc \
 	./db/drivers/mysql/mysql_result.cc \
+	./db/drivers/mysql/mysql_statement.cc \
 
 CPP_OBJECTS := $(CPP_SOURCES:.cc=.o)
 

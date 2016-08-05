@@ -40,13 +40,6 @@ class Result : public SimpleRefCounted {
   virtual int Columns() = 0;
   virtual int NameToColumn(const std::string& name) = 0;
   virtual std::string ColumnToName(int col) = 0;
-
-#if 0
- private:
-  struct Data;
-  std::unique_ptr<Data> data_;
-#endif
-
 };
 
 } // namespace backend

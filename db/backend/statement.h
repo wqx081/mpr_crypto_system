@@ -44,8 +44,6 @@ class Statement : public SimpleRefCounted {
   void SetCache(StatementsCache* cache);
 
  private:
-//  struct Data;
-//  std::unique_ptr<Data> data_;
   StatementsCache* cache_;
 };
 
