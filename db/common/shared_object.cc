@@ -1,5 +1,5 @@
-#include "db/shared_object.h"
-#include "db/exception.h"
+#include "db/common/shared_object.h"
+#include "db/common/exception.h"
 
 #include <string>
 #include <dlfcn.h>

@@ -1,5 +1,5 @@
-#ifndef DB_CONNECTION_DATA_H_
-#define DB_CONNECTION_DATA_H_
+#ifndef DB_COMMON_CONNECTION_DATA_H_
+#define DB_COMMON_CONNECTION_DATA_H_
 #include "base/macros.h"
 #include <memory>
 
@@ -18,4 +18,4 @@ class ConnectionData {
 };
 
 } // namespace db
-#endif // DB_CONNECTION_DATA_H_
+#endif // DB_COMMON_CONNECTION_DATA_H_

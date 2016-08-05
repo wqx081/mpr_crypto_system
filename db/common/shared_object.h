@@ -1,7 +1,7 @@
-#ifndef DB_SHARED_OBJECT_H_
-#define DB_SHARED_OBJECT_H_
+#ifndef DB_COMMON_SHARED_OBJECT_H_
+#define DB_COMMON_SHARED_OBJECT_H_
 #include "base/macros.h"
-#include "db/simple_ref_counted.h"
+#include "db/common/simple_ref_counted.h"
 
 #include <string>
 
@@ -40,4 +40,4 @@ class SharedObject : public SimpleRefCounted {
 };
 
 } // namespace db
-#endif // DB_SHARED_OBJECT_H_
+#endif // DB_COMMON_SHARED_OBJECT_H_

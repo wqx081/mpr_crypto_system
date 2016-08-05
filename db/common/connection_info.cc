@@ -1,5 +1,5 @@
-#include "db/connection_info.h"
-#include "db/exception.h"
+#include "db/common/connection_info.h"
+#include "db/common/exception.h"
 
 #include <algorithm>
 #include <functional>

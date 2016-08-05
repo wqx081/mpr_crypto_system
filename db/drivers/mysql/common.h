@@ -1,20 +1,15 @@
 #ifndef DB_DRIVERS_MYSQL_COMMON_H_
 #define DB_DRIVERS_MYSQL_COMMON_H_
-#include <mysql/mysql.h>
-#include "db/backend/connection.h"
-#include "db/backend/result.h"
-#include "db/backend/driver.h"
-#include "db/backend/statement.h"
+#include "db/common/exception.h"
+#include "db/common/numeric_util.h"
 
-#include "db/exception.h"
-#include "db/numeric_util.h"
+#include <mysql/mysql.h>
 #include <sstream>
 #include <vector>
 #include <limits>
 #include <iomanip>
 #include <stdlib.h>
 #include <string.h>
-
 #include <iostream>
 
 namespace db {
@@ -26,6 +21,6 @@ class MyException : public db::DBException {
     : DBException("db::mysql::" + msg) {}
 };
 
-} // namespace mysql_backend
 } // namespace db
-#endif // DB_DRIVERS_MYSQL_COMMON_H_
+} // namespace db
+#endif //DB_DRIVERS_MYSQL_COMMON_H_

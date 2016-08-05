@@ -1,5 +1,5 @@
-#ifndef DB_EXCEPTION_H_
-#define DB_EXCEPTION_H_
+#ifndef DB_COMMON_EXCEPTION_H_
+#define DB_COMMON_EXCEPTION_H_
 #include <stdexcept>
 #include <string>
 
@@ -46,4 +46,4 @@ class MultipleRowsQuery : public DBException {
 };
 
 } // namespace db
-#endif // DB_EXCEPTION_H_
+#endif // DB_COMMON_EXCEPTION_H_

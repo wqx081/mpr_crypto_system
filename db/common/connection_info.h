@@ -1,5 +1,5 @@
-#ifndef DB_CONNECTION_INFO_H_
-#define DB_CONNECTION_INFO_H_
+#ifndef DB_COMMON_CONNECTION_INFO_H_
+#define DB_COMMON_CONNECTION_INFO_H_
 #include <string>
 #include <map>
 

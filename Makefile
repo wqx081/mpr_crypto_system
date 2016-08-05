@@ -44,25 +44,17 @@ CPP_SOURCES := \
 	./threading/thread_manager.cc \
 	\
 	\
-	./db/connection_info.cc \
-	./db/connection_data.cc \
-	./db/connection_pool.cc \
-	./db/connections_manager.cc \
-	./db/shared_object.cc \
-	./db/driver_manager.cc \
+	./db/common/connection_data.cc \
+	./db/common/connection_info.cc \
+	./db/common/shared_object.cc \
 	\
-	./db/frontend/result.cc \
-	./db/frontend/session.cc \
-	./db/frontend/statement.cc \
-	./db/frontend/transaction.cc \
+	./db/backend/db_result.cc \
+	./db/backend/db_statement.cc \
+	./db/backend/db_connection.cc \
+	./db/backend/db_driver.cc \
 	\
-	./db/backend/statement.cc \
-	./db/backend/connection.cc \
-	./db/backend/driver.cc \
-	\
-	./db/drivers/mysql/mysql_connection.cc \
-	./db/drivers/mysql/mysql_result.cc \
-	./db/drivers/mysql/mysql_statement.cc \
+	./db/drivers/mysql/mysql_direct_result.cc \
+	./db/drivers/mysql/mysql_direct_statement.cc \
 
 CPP_OBJECTS := $(CPP_SOURCES:.cc=.o)
 

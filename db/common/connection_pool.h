@@ -1,10 +1,11 @@
 #ifndef DB_CONNECTION_POOL_H_
 #define DB_CONNECTION_POOL_H_
+
 #include "base/macros.h"
 #include "base/time.h"
 
-#include "db/simple_ref_counted.h"
-#include "db/connection_info.h"
+#include "db/common/simple_ref_counted.h"
+#include "db/common/connection_info.h"
 
 #include "threading/mutex.h"
 #include <memory>
@@ -12,36 +13,37 @@
 
 namespace db {
 
-namespace backend {
+class DBConnection;
+using DBConnectionPtr = SimpleRefPtr<DBConnection>;
+class ConnectionPool;
+using ConnectionPoolPtr = SimpleRefPtr<ConnectionPool>;
 
-class Connection;
-
-} // namespace backend
 
 class ConnectionPool : public SimpleRefCounted {
  public:
-  static SimpleRefPtr<ConnectionPool> NewConnectionPool(const std::string& connection_tr);
-  static SimpleRefPtr<ConnectionPool> NewConnectionPool(const ConnectionInfo& connection_info);
+  static ConnectionPoolPtr NewConnectionPool(const std::string& connection_tr);
+  static ConnectionPoolPtr NewConnectionPool(const ConnectionInfo& connection_info);
 
   typedef SimpleRefPtr<ConnectionPool> pointer;
 
   ~ConnectionPool();
 
-  SimpleRefPtr<backend::Connection> Open();
+  DBConnectionPtr Open();
   void GC();
   void Clear();
   
   // internal
-  void Put(backend::Connection* connection);
+  // TODO
+  void Put(DBConnection* connection) {(void)connection; }
 
  private:
-  SimpleRefPtr<backend::Connection> get();
+  DBConnectionPtr get();
 //  struct Data;
 //  std::unique_ptr<Data> data_;
   
   struct Entry {
     Entry() {}
-    SimpleRefPtr<backend::Connection> connection;
+    DBConnectionPtr db_connection;
     base::Time last_used;
   };
   typedef std::list<Entry> ConnectionPoolType;

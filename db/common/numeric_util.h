@@ -1,6 +1,8 @@
-#ifndef DB_NUMERIC_UTIL_H_
-#define DB_NUMERIC_UTIL_H_
-#include "db/exception.h"
+#ifndef DB_COMMON_NUMERIC_UTIL_H_
+#define DB_COMMON_NUMERIC_UTIL_H_
+
+#include "db/common/exception.h"
+
 #include <string>
 #include <sstream>
 #include <limits>
@@ -45,4 +47,4 @@ T ParseNumber(const std::string& s, std::istringstream& ss) {
 }
 
 } // namespace db
-#endif // DB_NUMERIC_UTIL_H_
+#endif // DB_COMMON_NUMERIC_UTIL_H_
