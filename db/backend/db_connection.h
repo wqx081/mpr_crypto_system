@@ -18,16 +18,18 @@ class DBConnection : public SimpleRefCounted {
   void SetDriver(DBLoadableDriverPtr driver);
   static void Dispose(DBConnection* connection);
   DBStatementPtr Prepare(const std::string& query);
-  DBStatementPtr GetPreparedStatement(const std::string& query);
+  DBStatementPtr GetPrepareStatement(const std::string& query);
   DBStatementPtr GetPreparedUncachedStatement(const std::string& query);
-  DBStatementPtr GetStatement(const std::string& query);
+  DBStatementPtr GetDirectStatement(const std::string& query);
 
   // API
   virtual void Begin() = 0;
   virtual void Commit() = 0;
   virtual void Rollback() = 0;
-  virtual DBStatement* PrepareStatement(const std::string& query) = 0;
-  virtual DBStatement* NewStatement(const std::string& query) = 0;
+
+  virtual DBStatement* NewPrepareStatement(const std::string& query) = 0;
+  virtual DBStatement* NewDirectStatement(const std::string& query) = 0;
+
   virtual std::string Escape(const base::StringPiece& str) = 0;
   virtual std::string Escape(const char* begin, const char* end) = 0;
   virtual std::string Driver() = 0;

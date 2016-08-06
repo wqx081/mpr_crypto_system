@@ -17,34 +17,34 @@ struct DBConnection::Data {
 
 DBStatementPtr DBConnection::Prepare(const std::string& query) {
   if (default_is_prepared_) {
-    return GetPreparedStatement(query);
+    return GetPrepareStatement(query);
   } else {
-    return GetStatement(query);
+    return GetDirectStatement(query);
   }
 }
 
-DBStatementPtr DBConnection::GetStatement(const std::string& query) {
-  DBStatementPtr statement = NewStatement(query);
+DBStatementPtr DBConnection::GetDirectStatement(const std::string& query) {
+  DBStatementPtr statement = NewDirectStatement(query);
   return statement;
 }
 
-DBStatementPtr DBConnection::GetPreparedStatement(const std::string& query) {
+DBStatementPtr DBConnection::GetPrepareStatement(const std::string& query) {
 
   DBStatementPtr statement;
   if (!cache_.IsActive()) {
-    statement = PrepareStatement(query);
+    statement = NewPrepareStatement(query);
     return statement;
   }
   statement = cache_.Fetch(query);
   if (!statement) {
-    statement = PrepareStatement(query);
+    statement = NewPrepareStatement(query);
   }
   statement->SetCache(&cache_);
   return statement;
 }
 
 DBStatementPtr DBConnection::GetPreparedUncachedStatement(const std::string& query) {
-  DBStatementPtr statement = PrepareStatement(query);
+  DBStatementPtr statement = NewPrepareStatement(query);
   return statement;
 }
 

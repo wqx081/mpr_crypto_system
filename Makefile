@@ -55,6 +55,9 @@ CPP_SOURCES := \
 	\
 	./db/drivers/mysql/mysql_direct_result.cc \
 	./db/drivers/mysql/mysql_direct_statement.cc \
+	./db/drivers/mysql/mysql_prepare_result.cc \
+	./db/drivers/mysql/mysql_prepare_statement.cc \
+	./db/drivers/mysql/mysql_connection.cc \
 
 CPP_OBJECTS := $(CPP_SOURCES:.cc=.o)
 
