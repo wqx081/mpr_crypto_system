@@ -51,6 +51,7 @@ class DBStaticDriver : public DBDriver {
   ConnectFunctionType connect_fn_;
 };
 
+using DBDriverPtr = SimpleRefPtr<DBDriver>;
 using DBLoadableDriverPtr = SimpleRefPtr<DBLoadableDriver>;
 using DBStaticDriverPtr = SimpleRefPtr<DBStaticDriver>;
 
