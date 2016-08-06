@@ -48,6 +48,9 @@ CPP_SOURCES := \
 	./db/common/connection_info.cc \
 	./db/common/shared_object.cc \
 	\
+	./db/frontend/result.cc \
+	./db/frontend/statement.cc \
+	\
 	./db/backend/db_result.cc \
 	./db/backend/db_statement.cc \
 	./db/backend/db_connection.cc \

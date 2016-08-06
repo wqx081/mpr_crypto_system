@@ -3,6 +3,8 @@
 
 namespace db {
 
+const int MysqlPrepareResult::BindData::kMaxBufferLength;
+
 MysqlPrepareResult::MysqlPrepareResult(MYSQL_STMT* stmt)
   : native_statement_(stmt),
     current_row_(0),

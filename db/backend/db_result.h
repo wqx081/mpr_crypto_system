@@ -42,5 +42,7 @@ class DBResult : public SimpleRefCounted {
   virtual ~DBResult() {}
 };
 
+using DBResultPtr = SimpleRefPtr<DBResult>;
+
 } // namespace db
 #endif // DB_BACKEND_DB_RESULT_H_

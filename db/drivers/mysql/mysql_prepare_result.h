@@ -13,7 +13,7 @@ class MysqlPrepareResult : public DBResult {
       memset(&buf, 0, sizeof(buf));
     }
 
-    const static int kMaxBufferLength = 128;
+    static const int kMaxBufferLength = 128;
     char buf[kMaxBufferLength];
     std::vector<char> vbuf;
     char* ptr;
