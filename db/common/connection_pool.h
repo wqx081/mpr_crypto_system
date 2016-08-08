@@ -33,8 +33,7 @@ class ConnectionPool : public SimpleRefCounted {
   void Clear();
   
   // internal
-  // TODO
-  void Put(DBConnection* connection) {(void)connection; }
+  void Put(DBConnection* connection); 
 
  private:
   DBConnectionPtr get();

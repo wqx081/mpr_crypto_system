@@ -39,5 +39,7 @@ class SharedObject : public SimpleRefCounted {
   DISALLOW_COPY_AND_ASSIGN(SharedObject);
 };
 
+using SharedObjectPtr = SimpleRefPtr<SharedObject>;
+
 } // namespace db
 #endif // DB_COMMON_SHARED_OBJECT_H_

@@ -1,25 +1,25 @@
-#include "db/connection_pool.h"
-#include "db/driver_manager.h"
-#include "db/connection_info.h"
-#include "db/simple_ref_counted.h"
-#include "db/backend/connection.h"
+#include "db/common/connection_pool.h"
+#include "db/common/driver_manager.h"
+#include "db/common/connection_info.h"
+#include "db/common/simple_ref_counted.h"
 #include "base/time.h"
 #include "threading/mutex.h"
+
 
 #include <stdlib.h>
 
 namespace db {
 
-SimpleRefPtr<ConnectionPool>
+ConnectionPoolPtr
 ConnectionPool::NewConnectionPool(const ConnectionInfo& connection_info) {
-  SimpleRefPtr<ConnectionPool> pool = new ConnectionPool(connection_info);
+  ConnectionPoolPtr pool = new ConnectionPool(connection_info);
   return pool;
 }
 
-SimpleRefPtr<ConnectionPool>
+ConnectionPoolPtr
 ConnectionPool::NewConnectionPool(const std::string& connection_string) {
   ConnectionInfo info(connection_string);
-  SimpleRefPtr<ConnectionPool> pool = new ConnectionPool(info);
+  ConnectionPoolPtr pool = new ConnectionPool(info);
   return pool;
 }
 
@@ -34,24 +34,24 @@ ConnectionPool::ConnectionPool(const ConnectionInfo& connection_info)
 ConnectionPool::~ConnectionPool() {}
 
 
-SimpleRefPtr<backend::Connection> ConnectionPool::Open() {
+DBConnectionPtr ConnectionPool::Open() {
   if (limit_ == 0) {
     return DriverManager::GetInstance().Connect(connection_info_);
   }
-  SimpleRefPtr<backend::Connection> connection = get();
+  DBConnectionPtr connection = get();
   if (!connection) {
     connection = DriverManager::GetInstance().Connect(connection_info_);
   }
-  connection->SetPool(this);
+  connection->SetConnectionPool(this);
   return connection;
 }
 
-SimpleRefPtr<backend::Connection>
+DBConnectionPtr
 ConnectionPool::get() {
   if (limit_ == 0) {
     return 0;
   }
-  SimpleRefPtr<backend::Connection> connection;
+  DBConnectionPtr connection;
   ConnectionPoolType garbage;
   base::Time now = base::Time::Now();  
   {
@@ -72,7 +72,7 @@ ConnectionPool::get() {
       }
     }
     if (!connection_pool_.empty()) {
-      connection = connection_pool_.back().connection;
+      connection = connection_pool_.back().db_connection;
       connection_pool_.pop_back();
       size_--;
     }
@@ -80,8 +80,8 @@ ConnectionPool::get() {
   return connection;
 }
 
-void ConnectionPool::Put(backend::Connection* connection) {
-  std::unique_ptr<backend::Connection> conn(connection);
+void ConnectionPool::Put(DBConnection* connection) {
+  std::unique_ptr<DBConnection> conn(connection);
   if (limit_ == 0) {
     return;
   }
@@ -93,7 +93,7 @@ void ConnectionPool::Put(backend::Connection* connection) {
     if (conn.get()) {
       connection_pool_.push_back(Entry());
       connection_pool_.back().last_used = now;
-      connection_pool_.back().connection = conn.release();
+      connection_pool_.back().db_connection = conn.release();
       size_++;
     }
 

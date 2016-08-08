@@ -18,6 +18,14 @@ namespace db {
 class DriverManager {
  public:
   static DriverManager& GetInstance();
+  void InstallDriver(const base::StringPiece& name, DBDriverPtr driver);
+  void CollectUnused();
+  void AddSearchPath(const std::string&);
+  void UseDefaultSearchPath(bool v);
+  void ClearSearchPaths();
+
+  DBConnection* Connect(const ConnectionInfo& info);
+  DBConnection* Connect(const std::string& str);
 
  private:
   using DBDriversType = std::map<std::string, DBDriverPtr>;

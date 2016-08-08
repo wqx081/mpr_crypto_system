@@ -16,9 +16,9 @@
 
 namespace db {
 
-class ConnectionManager final {
+class ConnectionsManager final {
  public:
-  static ConnectionManager& GetInstance();
+  static ConnectionsManager& GetInstance();
   DBConnectionPtr Open(const ConnectionInfo& info);
   DBConnectionPtr Open(const std::string& str);
   void GC();
@@ -30,10 +30,10 @@ class ConnectionManager final {
   ConnectionsType connections_;
 
   // for singleton pattern
-  ConnectionManager();
-  ~ConnectionManager();
+  ConnectionsManager();
+  ~ConnectionsManager();
 
-  DISALLOW_COPY_AND_ASSIGN(ConnectionManager);
+  DISALLOW_COPY_AND_ASSIGN(ConnectionsManager);
 };
 
 } // namespace
