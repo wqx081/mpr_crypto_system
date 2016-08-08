@@ -23,6 +23,7 @@ CPP_SOURCES := \
 	./base/file_enumerator.cc \
 	./base/scoped_file.cc \
 	./base/ref_counted.cc \
+	./base/test/opaque_ref_counted.cc \
 	./base/once.cc \
 	./base/location.cc \
 	\
@@ -44,7 +45,7 @@ CPP_SOURCES := \
 	./threading/thread_manager.cc \
 	\
 	\
-	./db/common/connection_data.cc \
+#	./db/common/connection_data.cc \
 	./db/common/connection_info.cc \
 	./db/common/shared_object.cc \
 	\
@@ -68,6 +69,7 @@ CPP_OBJECTS := $(CPP_SOURCES:.cc=.o)
 TESTS := \
 	./base/file_path_unittest \
 	./base/once_unittest \
+	./base/ref_counted_unittest \
 	./zip/zip_reader_unittest \
 	./zip/zip_unittest \
 	\
@@ -138,6 +140,13 @@ all: $(CPP_OBJECTS) $(TESTS)
 	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
 ./threading/mutex_unittest.o: ./threading/mutex_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./base/ref_counted_unittest: ./base/ref_counted_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./base/ref_counted_unittest.o: ./base/ref_counted_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
 
 
 db_clean:

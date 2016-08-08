@@ -86,6 +86,17 @@ struct DefaultRefCountedThreadSafeTraits {
   }
 };
 
+// A thread-safe variant of RefCounted<T>
+//
+// class MyFoo : public base::RefCountedThreadSafe<MyFoo> {
+//  ...
+// };
+//
+// If you're using the default trait, then you shuld add compile time
+// asserts that no one else is deleting your object. i.e.
+//   private:
+//    friend class base::RefCountedThreadSafe<MyFoo>;
+//    ~MyFoo();
 template<typename T, typename Traits = DefaultRefCountedThreadSafeTraits<T>>
 class RefCountedThreadSafe : public RefCountedThreadSafeBase {
  public:
@@ -123,7 +134,27 @@ class RefCountedData
   ~RefCountedData() {}
 };
 
+} // namespace base
+
 //////////
+//
+// A smart pointer class for reference counted objects.
+// Use this class instead of calling AddRef and Release manually on a 
+// reference counted object to avoid common leaks caused by forgetting
+// to Release an object reference.
+//
+// Sample Usage:
+//
+// class MyFoo : public RefCounted<MyFoo> {
+//  ...
+// };
+//
+// void some_func() {
+//  scoped_ptr<MyFoo> foo = new MyFoo();
+//  foo->Method(param);
+//  // |foo| is released when this function returns
+// }
+//
 template<typename T>
 class scoped_ref_ptr {
  public:
@@ -173,7 +204,7 @@ class scoped_ref_ptr {
 
   T& operator*() const {
     assert(ptr_ != nullptr);
-    return ptr_;
+    return *ptr_;
   }
 
   T* operator->() const {
@@ -312,5 +343,4 @@ std::ostream& operator<<(std::ostream& out, const scoped_ref_ptr<T>& p) {
   return out << p.get();
 }
 
-} // namespace base
 #endif // BASE_REF_COUNTED_H_
