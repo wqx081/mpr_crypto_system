@@ -5,7 +5,7 @@
 
 namespace {
 
-const db::ConnectionInfo info("mysql:host='172.16.2.110';user='root';password='111111';database='mpr_userdb'");
+const db::ConnectionInfo info("mysql:host='localhost';user='root';password='111111';database='cookbook'");
 
 } // namespace
 

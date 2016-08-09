@@ -56,28 +56,8 @@ CPP_SOURCES := \
 	./db/drivers/mysql/mysql_connector.cc \
 	./db/drivers/mysql/mysql_direct_result.cc \
 	./db/drivers/mysql/mysql_direct_statement.cc \
-	./db/drivers/mysql/mysql_connection.cc \
-#	./db/common/connection_data.cc \
-	./db/common/connection_info.cc \
-	./db/common/shared_object.cc \
-	./db/common/connection_manager.cc \
-	./db/common/connection_pool.cc \
-	./db/common/driver_manager.cc \
-	\
-	./db/frontend/result.cc \
-	./db/frontend/statement.cc \
-	./db/frontend/session.cc \
-	./db/frontend/transaction.cc \
-	\
-	./db/backend/db_result.cc \
-	./db/backend/db_statement.cc \
-	./db/backend/db_connection.cc \
-	./db/backend/db_driver.cc \
-	\
-	./db/drivers/mysql/mysql_direct_result.cc \
-	./db/drivers/mysql/mysql_direct_statement.cc \
-	./db/drivers/mysql/mysql_prepare_result.cc \
-	./db/drivers/mysql/mysql_prepare_statement.cc \
+	./db/drivers/mysql/mysql_prepared_result.cc \
+	./db/drivers/mysql/mysql_prepared_statement.cc \
 	./db/drivers/mysql/mysql_connection.cc \
 
 CPP_OBJECTS := $(CPP_SOURCES:.cc=.o)

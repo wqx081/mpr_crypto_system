@@ -20,6 +20,7 @@ class MysqlConnection : public DBConnection {
   virtual void Begin() override;
   virtual void Commit() override;
   virtual void Rollback() override;
+  virtual DBStatement* NewPreparedStatement(const std::string& query) override;
   virtual DBStatement* NewDirectStatement(const std::string& query) override;
   virtual std::string Escape(const std::string& query) override;
   virtual std::string Escape(const char* str) override;

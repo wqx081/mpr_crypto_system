@@ -1,5 +1,6 @@
 #include "db/drivers/mysql/mysql_connection.h"
 #include "db/drivers/mysql/mysql_direct_statement.h"
+#include "db/drivers/mysql/mysql_prepared_statement.h"
 #include "db/backend/db_connection.h"
 
 namespace db {
@@ -74,6 +75,11 @@ void MysqlConnection::Rollback() {
 DBStatement*
 MysqlConnection::NewDirectStatement(const std::string& query) {
   return new MysqlDirectStatement(query, native_connection_);
+}
+
+DBStatement*
+MysqlConnection::NewPreparedStatement(const std::string& query) {
+  return new MysqlPreparedStatement(query, native_connection_);
 }
 
 std::string MysqlConnection::Escape(const std::string& str) {

@@ -26,9 +26,33 @@ DBConnection::~DBConnection() {
   ClearCache();
 }
 
+scoped_ref_ptr<DBStatement>
+DBConnection::Prepare(const std::string& query) {
+  if (default_is_prepared_) {
+    return GetPreparedStatement(query);
+  } else {
+    return GetDirectStatement(query);
+  }
+}
+
 scoped_ref_ptr<DBStatement> 
 DBConnection::GetDirectStatement(const std::string& query) {
   scoped_ref_ptr<DBStatement> result(NewDirectStatement(query));
+  return result;
+}
+
+scoped_ref_ptr<DBStatement>
+DBConnection::GetPreparedStatement(const std::string& query) {
+  scoped_ref_ptr<DBStatement> result;
+  if (!cache_.IsActive()) {
+    result = NewPreparedStatement(query);
+    return result;
+  }
+  result = cache_.Fetch(query);
+  if (!result) {
+    result = NewPreparedStatement(query);
+  }
+  result->Cache(&cache_);
   return result;
 }
 

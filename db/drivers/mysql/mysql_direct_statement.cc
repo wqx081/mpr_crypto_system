@@ -85,7 +85,7 @@ void MysqlDirectStatement::BindNull(int col) {
   At(col) = "NULL";
 }
 
-int64_t MysqlDirectStatement::SeuqnceLast(const std::string& /**/) {
+int64_t MysqlDirectStatement::SequenceLast(const std::string& /**/) {
   return ::mysql_insert_id(native_connection_);
 }
 

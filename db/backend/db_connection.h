@@ -10,11 +10,17 @@ namespace db {
 class DBConnection : public base::RefCountedThreadSafe<DBConnection> {
  public:
   DBConnection(const ConnectionInfo&);
+
+  scoped_ref_ptr<DBStatement> Prepare(const std::string& query);
   scoped_ref_ptr<DBStatement> GetDirectStatement(const std::string& query);
+  scoped_ref_ptr<DBStatement> GetPreparedStatement(const std::string& query);
+  scoped_ref_ptr<DBStatement> GetPreparedUncahcedStatement(const std::string& query);
+
 
   virtual void Begin() = 0;
   virtual void Commit() = 0;
   virtual void Rollback() = 0;
+  virtual DBStatement* NewPreparedStatement(const std::string& query) = 0;
   virtual DBStatement* NewDirectStatement(const std::string& query) = 0;
   virtual std::string Escape(const std::string& ) = 0;
   virtual std::string Escape(const char* str) = 0;

@@ -47,7 +47,7 @@ class MysqlDirectStatement : public DBStatement {
   virtual void Bind(int col, double v) override;
   virtual void BindNull(int col) override;
 
-  virtual int64_t SeuqnceLast(const std::string& sequence) override;
+  virtual int64_t SequenceLast(const std::string& sequence) override;
   virtual uint64_t Affected() override;
 
   virtual MysqlDirectResult* Query() override;

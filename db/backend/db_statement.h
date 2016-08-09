@@ -29,13 +29,15 @@ class DBStatement : public base::RefCountedThreadSafe<DBStatement> {
   virtual void Bind(int col, double v) = 0;
   virtual void BindNull(int col) = 0;
 
-  virtual int64_t SeuqnceLast(const std::string& sequence) = 0;
+  virtual int64_t SequenceLast(const std::string& sequence) = 0;
   virtual uint64_t Affected() = 0;
   
   virtual DBResult* Query() = 0;
   virtual void Execute() = 0;
   
-  void Cache(DBStatementCache* cache);
+  void Cache(DBStatementCache* cache) {
+    cache_ = cache;
+  }
   
  protected:
   virtual ~DBStatement();
