@@ -3,49 +3,36 @@
 
 namespace db {
 
-DBStatement::DBStatement() : cache_(nullptr) {}
+DBStatement::DBStatement() 
+  : cache_(nullptr) {}
 
-void DBStatement::SetCache(DBStatementsCache* cache) {
-  cache_ = cache;
-}
-
-// static
-void DBStatement::Dispose(DBStatement* self) {
-  if (!self) {
-    return;
-  }
-
-  DBStatementsCache* cache = self->cache_;
-  self->cache_ = nullptr;
+DBStatement::~DBStatement() {
+  DBStatementCache* cache = cache_;
+  cache_ = nullptr;
   if (cache) {
-    cache->Put(self);
-  } else {
-    delete self;
+    cache_->Put(this);
   }
 }
 
-// Cache
-struct DBStatementsCache::Data {
-
-  Data() : size(0), max_size(0) {}
-
+struct DBStatementCache::Data {
   struct Entry;
   using DBStatementsType = std::map<std::string, Entry>;
-  using LRUType = std::list<DBStatementsType::iterator>;
+  using LruType = std::list<DBStatementsType::iterator>;
   struct Entry {
-    DBStatementPtr db_statement;
-    LRUType::iterator lru_ptr;
+    scoped_ref_ptr<DBStatement> db_statement;  
+    LruType::iterator lru_ptr;
   };
 
   DBStatementsType db_statements;
-  LRUType lru;
+  LruType lru;
   size_t size;
   size_t max_size;
 
-  void Insert(DBStatementPtr statement) {
+  Data() : size(0), max_size(0) {}
+
+  void Insert(scoped_ref_ptr<DBStatement> statement) {
     DBStatementsType::iterator it;
-    if ((it = db_statements.find(statement->SqlQuery())) 
-        != db_statements.end()) {
+    if ((it = db_statements.find(statement->SqlQuery())) != db_statements.end()) {
       it->second.db_statement = statement;
       lru.erase(it->second.lru_ptr);
       lru.push_front(it);
@@ -53,23 +40,20 @@ struct DBStatementsCache::Data {
     } else {
       if (size > 0 && size >= max_size) {
         db_statements.erase(lru.back());
-	lru.pop_back();
-	size--;
+        lru.pop_back();
+        size--;
       }
-
-      std::pair<DBStatementsType::iterator, bool> ret = 
-	      db_statements.insert(std::make_pair(statement->SqlQuery(),
-				                  Entry()));
-      it = ret.first;
+      auto item = db_statements.insert(std::make_pair(statement->SqlQuery(), Entry()));
+      it = item.first;
       it->second.db_statement = statement;
       lru.push_front(it);
       it->second.lru_ptr = lru.begin();
       size++;
     }
   }
-
-  DBStatementPtr Fetch(const std::string& query) {
-    DBStatementPtr result;
+  
+  scoped_ref_ptr<DBStatement> Fetch(const std::string& query) {
+    scoped_ref_ptr<DBStatement> result;
     DBStatementsType::iterator it = db_statements.find(query);
     if (it == db_statements.end()) {
       return result;
@@ -86,41 +70,41 @@ struct DBStatementsCache::Data {
     db_statements.clear();
     size = 0;
   }
+
 };
 
+DBStatementCache::DBStatementCache() {}
 
-DBStatementsCache::DBStatementsCache() {}
-void DBStatementsCache::SetSize(size_t n) {
+void DBStatementCache::SetSize(size_t n) {
   if (n != 0 && !IsActive()) {
     data_.reset(new Data());
     data_->max_size = n;
-  }
+  }  
 }
 
-void DBStatementsCache::Put(DBStatement* statement) {
+void DBStatementCache::Put(scoped_ref_ptr<DBStatement> statement) {
   if (!IsActive()) {
-    delete statement;
+    statement = nullptr;
   }
-  DBStatementPtr p(statement);
-  p->Reset();
-  data_->Insert(p);
+  statement->Reset();
+  data_->Insert(statement);
 }
 
-DBStatementPtr DBStatementsCache::Fetch(const std::string& query) {
+scoped_ref_ptr<DBStatement> DBStatementCache::Fetch(const std::string& query) {
   if (!IsActive()) {
-    return 0;
+    return nullptr;
   }
   return data_->Fetch(query);
 }
 
-void DBStatementsCache::Clear() {
+void DBStatementCache::Clear() {
   data_->Clear();
 }
 
-bool DBStatementsCache::IsActive() {
+DBStatementCache::~DBStatementCache() {}
+
+bool DBStatementCache::IsActive() {
   return data_.get() != nullptr;
 }
-
-DBStatementsCache::~DBStatementsCache() {}
 
 } // namespace db

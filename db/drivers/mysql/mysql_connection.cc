@@ -1,6 +1,6 @@
 #include "db/drivers/mysql/mysql_connection.h"
 #include "db/drivers/mysql/mysql_direct_statement.h"
-#include "db/drivers/mysql/mysql_prepare_statement.h"
+#include "db/backend/db_connection.h"
 
 namespace db {
 
@@ -9,9 +9,7 @@ MysqlConnection::MysqlConnection(const ConnectionInfo& info)
     native_connection_(nullptr) {
 
   native_connection_ = ::mysql_init(nullptr);
-  if (!native_connection_) {
-    throw mysql_backend::MyException("db:mysql failed to create native connection");
-  }
+  DCHECK(native_connection_);
 
   std::string host = info.Get("host","");
   char const *phost = host.empty() ? 0 : host.c_str();
@@ -25,32 +23,37 @@ MysqlConnection::MysqlConnection(const ConnectionInfo& info)
   std::string unix_socket = info.Get("unix_socket","");
   char const *punix_socket = unix_socket.empty() ? 0 : unix_socket.c_str();
 
-  // connecting
-  if (!::mysql_real_connect(native_connection_,
-                            phost,
-                            puser,
-                            ppassword,
-                            pdatabase,
-                            port,
-                            punix_socket,
-                            0)) {
-    std::string msg("Unknown");
-    try {
-      msg = ::mysql_error(native_connection_);
-    } catch (...) {
+  if(info.Has("opt_read_timeout")) {
+    if(unsigned read_timeout = info.Get("opt_read_timeout", 0)) {
+      MysqlSetOption(MYSQL_OPT_READ_TIMEOUT, &read_timeout);
     }
-    throw mysql_backend::MyException(msg);
   }
-}
-
-MysqlConnection::~MysqlConnection() {
-  ::mysql_close(native_connection_);
-}
-
-void MysqlConnection::Execute(const base::StringPiece& s) {
-  if (::mysql_real_query(native_connection_, s.data(), s.size())) {
-    throw mysql_backend::MyException(::mysql_error(native_connection_));
+  if(info.Has("opt_reconnect")) {
+    if(unsigned reconnect = info.Get("opt_reconnect", 1)) {
+      my_bool value = reconnect;
+      MysqlSetOption(MYSQL_OPT_RECONNECT, &value);
+    }
   }
+
+  if(info.Has("opt_write_timeout")) {
+    if(unsigned write_timeout = info.Get("opt_write_timeout", 0)) {
+      MysqlSetOption(MYSQL_OPT_WRITE_TIMEOUT, &write_timeout);
+    }
+  }
+  std::string set_charset_name = info.Get("set_charset_name", "");
+  if(!set_charset_name.empty()) {
+    MysqlSetOption(MYSQL_SET_CHARSET_NAME, set_charset_name.c_str());
+  }
+
+
+  DCHECK(::mysql_real_connect(native_connection_,
+                              phost,
+                              puser,
+                              ppassword,
+                              pdatabase,
+                              port,
+                              punix_socket,
+                              0) != 0);
 }
 
 void MysqlConnection::Begin() {
@@ -68,16 +71,17 @@ void MysqlConnection::Rollback() {
   }
 }
 
-DBStatement* MysqlConnection::NewPrepareStatement(const std::string& query) {
-  return new MysqlPrepareStatement(query, native_connection_);
-}
-
-DBStatement* MysqlConnection::NewDirectStatement(const std::string& query) {
+DBStatement*
+MysqlConnection::NewDirectStatement(const std::string& query) {
   return new MysqlDirectStatement(query, native_connection_);
 }
 
-std::string MysqlConnection::Escape(const base::StringPiece& str) {
-  return Escape(str.data(), str.data() + str.size());
+std::string MysqlConnection::Escape(const std::string& str) {
+  return Escape(str.c_str(), str.c_str() + str.size());
+}
+
+std::string MysqlConnection::Escape(const char* str) {
+  return Escape(str, str + strlen(str));
 }
 
 std::string MysqlConnection::Escape(const char* begin, const char* end) {
@@ -88,18 +92,4 @@ std::string MysqlConnection::Escape(const char* begin, const char* end) {
   return result;
 }
 
-void MysqlConnection::MysqlSetOption(mysql_option option, const void* arg) {
-  if (::mysql_options(native_connection_, option, static_cast<const char *>(arg))) {
-    throw mysql_backend::MyException("db::mysql failed to set option");
-  }
-}
-
 } // namespace db
-
-extern "C" {
-
-db::DBConnection* db_mysql_get_connection(const db::ConnectionInfo& info) {
-  return new db::MysqlConnection(info);
-}
-
-} // extern "C"

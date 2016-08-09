@@ -42,5 +42,21 @@ bool EndsWith(StringPiece str,
 
 char* WriteInto(std::string* str, size_t length_with_null);
 
+// Trim
+enum TrimPositions {
+  TRIM_NONE    = 0,
+  TRIM_LEADING = 1,
+  TRIM_TRAILING= 2,
+  TRIM_ALL     = TRIM_LEADING | TRIM_TRAILING,
+};
+
+bool TrimString(const std::string& input,
+                StringPiece trim_chars,
+                std::string* output);
+
+StringPiece TrimString(StringPiece input,
+                       const StringPiece& trim_chars,
+                       TrimPositions positions);
+
 } // namespace
 #endif // BASE_STRING_UTIL_H_

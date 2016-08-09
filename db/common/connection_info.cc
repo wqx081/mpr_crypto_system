@@ -1,131 +1,123 @@
 #include "db/common/connection_info.h"
-#include "db/common/exception.h"
 
-#include <algorithm>
-#include <functional>
+#include "base/string_piece.h"
+#include "base/string_util.h"
+
+#include <stdio.h>
+#include <string.h>
 #include <sstream>
 #include <locale>
+
+#include <glog/logging.h>
 
 namespace db {
 
 namespace {
+static const base::StringPiece kTrimWhiteSpace = " \t\r\n\f";
+size_t knpos = std::string::npos;
 
-static inline std::string& ltrim(std::string &s) {
-    s.erase(s.begin(), std::find_if(s.begin(), s.end(),
-            std::not1(std::ptr_fun<int, int>(std::isspace))));
-    return s;
-}
+} // namespace 
 
-static inline std::string& rtrim(std::string &s) {
-    s.erase(std::find_if(s.rbegin(), s.rend(),
-            std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
-    return s;
-}
+void ConnectionInfo::Init() {
+  properties.clear();
 
-static inline std::string trim(std::string s) {
-    return ltrim(rtrim(s));
-}
+  // get dirver
+  size_t pos = connection_string.find(':');
+  CHECK_NE(pos, knpos) << "db:Invalid connection string - no dirver";
+  driver = connection_string.substr(0, pos);  
+  pos++;
 
-} // namespace
-
-// static
-void ConnectionInfo::ParseConnectionString(const std::string& cs,
-                                           std::string& driver_name,
-                                           std::map<std::string, std::string>& params) {
-  params.clear();
-  auto p = cs.find(':'); 
-  if (p == std::string::npos) {
-    throw DBException("db::Invalid connection string - no dirver given");
-  }
-  driver_name = cs.substr(0, p);
-  p++;
-  while (p < cs.size()) {
-    size_t n = cs.find('=', p);
-    if (n == std::string::npos) {
-      throw DBException("db::Invalid connection string - invalid property");
-    }
-
-    std::string key = trim(cs.substr(p, n-p));
-    p = n + 1;
+  while (pos < connection_string.size()) {
+    size_t n = connection_string.find('=', pos);
+    CHECK_NE(n, knpos) << "db:Invalid connection string - invalid property";
+    std::string key;
+    base::TrimString(connection_string.substr(pos, n - pos),
+                     kTrimWhiteSpace,
+                     &key);
+    pos = n + 1;
     std::string value;
-    while (p < cs.size() && ::isspace(cs[p])) {
-      ++p;
+    while (pos < connection_string.size() && 
+           kTrimWhiteSpace.find(connection_string[pos]) != knpos) {
+      pos++;
     }
-    if (p >= cs.size()) {
-      // nothing to do
-    } else if (cs[p] == '\'') {
-      p++;
+    if (pos >= connection_string.size()) {
+    // nothing
+    } else if (connection_string[pos] == '\'') {
+      pos++;
       while (true) {
-        if (p >= cs.size()) {
-          throw DBException("db::Invalid connection string unterminated string");
-        }
-        if (cs[p] == '\'') {
-          if (p + 1 < cs.size() && cs[p + 1] == '\'') {
+        DCHECK(pos < connection_string.size()) << "db:Invalid connection string "
+                    "- unterminated string";
+        if (connection_string[pos] == '\'') {
+          if (pos + 1 < connection_string.size() &&
+              connection_string[pos + 1] == '\'') {
             value += '\'';
-            p += 2;
+            pos += 2;
           } else {
-            p++;
+            pos++;
             break;
-          }
+          } 
         } else {
-          value += cs[p];
-          p++;
+          value += connection_string[pos];
+          pos++;
         }
       }
     } else {
-      size_t n = cs.find(';', p);
-      if (n == std::string::npos) {
-        value = trim(cs.substr(p));
-        p = cs.size();
+      size_t n = connection_string.find(';', pos);
+      if (n == knpos) {
+        base::TrimString(connection_string.substr(pos),
+                         kTrimWhiteSpace,
+                         &value);
+        pos = connection_string.size();
       } else {
-        value = trim(cs.substr(n, n - p));
-        p = n;
+        base::TrimString(connection_string.substr(pos, n - pos),
+                         kTrimWhiteSpace,
+                         &value);
+        pos = n;
       }
     }
-    if (params.find(key) != params.end()) {
-      throw DBException("db::Invalid connection string duplicate key");
-    }
-    params[key] = value;
-    while (p < cs.size()) {
-      char c = cs[p];
-      if (::isspace(c)) {
-        ++p;
-      } else if (c == ';') {
-        ++p;
+    // if
+    DCHECK(properties.find(key) == properties.end()) << "db:invalid connection string - "
+           "duplicate key";
+    properties[key] = value;
+    while (pos < connection_string.size()) {
+      char c = connection_string[pos];
+      if (kTrimWhiteSpace.find(c) != knpos) {
+        ++pos;
+      } else {
+        ++pos;
         break;
       }
     }
   }
 }
 
-std::string ConnectionInfo::Get(const std::string& prop,
+std::string ConnectionInfo::Get(const std::string& key, 
                                 const std::string& default_value) const {
-  properties_type::const_iterator it = properties.find(prop);
+  PropertiesType::const_iterator it = properties.find(key);
   if (it == properties.end()) {
     return default_value;
+  } else {
+    return it->second;
   }
-  return it->second;
 }
 
-int ConnectionInfo::Get(const std::string& prop, int default_value) const {
-  properties_type::const_iterator it = properties.find(prop);
+int ConnectionInfo::Get(const std::string& key, int default_value) const {
+  PropertiesType::const_iterator it = properties.find(key);  
   if (it == properties.end()) {
     return default_value;
   }
-
   std::istringstream ss;
   ss.imbue(std::locale::classic());
   ss.str(it->second);
-  int val;
-  ss >> val;
-  if (!ss || !ss.eof()) {
-    throw DBException("db::connection_info property " + prop + " expected to be integer value");
-  } 
-  return val;
+  int value;
+  ss >> value;
+  //TODO
+  return value;  
 }
 
-bool ConnectionInfo::Has(const std::string& prop) const {
-  return properties.find(prop) != properties.end();
+bool ConnectionInfo::Has(const std::string& key) const {
+  return properties.find(key) != properties.end();
 }
 
 } // namespace db
+

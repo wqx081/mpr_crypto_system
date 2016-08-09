@@ -1,7 +1,7 @@
 #include "db/drivers/mysql/mysql_direct_result.h"
 
 namespace db {
-
+  
 DBResult::NextRowStatus MysqlDirectResult::HasNext() {
   if (!native_result_) {
     return kLastRowReached;
@@ -25,99 +25,70 @@ bool MysqlDirectResult::Next() {
   return true;
 }
 
-const char* MysqlDirectResult::At(int col) {
-  if (!native_result_) {
-    throw EmptyRowAccess();
-  }
-  if (col < 0 || col >= columns_) {
-    throw InvalidColumn();
-  }
-  return native_row_[col];
-}
-
-const char* MysqlDirectResult::At(int col, size_t& len) {
-  if (!native_result_) {
-    throw EmptyRowAccess();
-  }
-  if (col < 0 || col >= columns_) {
-    throw InvalidColumn();
-  }
-  unsigned long* lengths = ::mysql_fetch_lengths(native_result_);
-  if (lengths == nullptr) {
-    throw mysql_backend::MyException("Can't get length of column");
-  }
-  len = lengths[col];
-  return native_row_[col];
-}
-
-bool MysqlDirectResult::Fetch(int col, short& v) {
+bool MysqlDirectResult::Fetch(int col, int16_t& v) {
   return DoFetch(col, v);
 }
 
-bool MysqlDirectResult::Fetch(int col, unsigned short& v) {
+bool MysqlDirectResult::Fetch(int col, uint16_t& v) {
   return DoFetch(col, v);
 }
 
-bool MysqlDirectResult::Fetch(int col, int& v) {
+bool MysqlDirectResult::Fetch(int col, int32_t& v) {
   return DoFetch(col, v);
 }
-bool MysqlDirectResult::Fetch(int col, unsigned int& v) {
+
+bool MysqlDirectResult::Fetch(int col, uint32_t& v) {
   return DoFetch(col, v);
 }
-bool MysqlDirectResult::Fetch(int col, long& v) {
+
+bool MysqlDirectResult::Fetch(int col, int64_t& v) {
   return DoFetch(col, v);
 }
-bool MysqlDirectResult::Fetch(int col, unsigned long& v) {
+
+bool MysqlDirectResult::Fetch(int col, uint64_t& v) {
   return DoFetch(col, v);
 }
-bool MysqlDirectResult::Fetch(int col, long long& v) {
-  return DoFetch(col, v);
-}
-bool MysqlDirectResult::Fetch(int col, unsigned long long& v) {
-  return DoFetch(col, v);
-}
+
 bool MysqlDirectResult::Fetch(int col, float& v) {
   return DoFetch(col, v);
 }
+
 bool MysqlDirectResult::Fetch(int col, double& v) {
-  return DoFetch(col, v);
-}
-bool MysqlDirectResult::Fetch(int col, long double& v) {
   return DoFetch(col, v);
 }
 
 bool MysqlDirectResult::Fetch(int col, std::string& v) {
   size_t len;
-  const char* sp = At(col, len);
-  if (!sp) {
+  const char* str = At(col, len);
+  if (!str) {
     return false;
   }
-  v.assign(sp, len);
+  v.assign(str, len);
   return true;
 }
 
-bool MysqlDirectResult::Fetch(int col, std::ostream& v) {
+bool MysqlDirectResult::Fetch(int col, std::ostream& out) {
   size_t len;
-  const char* sp = At(col, len);
-  if (!sp) {
+  const char* str = At(col, len);
+  if (!str) {
     return false;
   }
-  v.write(sp, len);
+  out.write(str, len);
   return true;
 }
 
 bool MysqlDirectResult::Fetch(int col, base::Time* v) {
   size_t len;
-  const char* sp = At(col, len);
-  if (!sp) {
+  const char* str = At(col, len);
+  if (!str) {
     return false;
   }
-  std::string t(sp, len);
+  std::string t(str, len);
   return base::Time::FromString(t.c_str(), v);
 }
 
 bool MysqlDirectResult::IsNull(int col) {
-  return At(col) == 0;
+  return At(col) == nullptr;
 }
 
 int MysqlDirectResult::Columns() {
@@ -125,28 +96,19 @@ int MysqlDirectResult::Columns() {
 }
 
 std::string MysqlDirectResult::ColumnToName(int col) {
-  if (col < 0 || col >= columns_) {
-    throw InvalidColumn();
-  }
-  if (!native_result_) {
-    throw EmptyRowAccess();
-  }
+  DCHECK(col >= 0 && col <= columns_);  
+  DCHECK(native_result_);
+  
   MYSQL_FIELD* fields = ::mysql_fetch_fields(native_result_);
-  if (!fields) {
-    throw mysql_backend::MyException("Internal error empty fields");
-  }
+  DCHECK(fields);
   return fields[col].name;
 }
 
-int MysqlDirectResult::NameToColumn(const base::StringPiece& name) {
-  if (!native_result_) {
-    throw EmptyRowAccess();
-  }
+int MysqlDirectResult::NameToColumn(const std::string& name) {
+  DCHECK(native_result_);
   MYSQL_FIELD* fields = ::mysql_fetch_fields(native_result_);
-  if (!fields) {
-    throw mysql_backend::MyException("Internal error empty fields");
-  }
-  for (int i = 0; i < columns_; ++i) {
+  DCHECK(fields);
+  for (int i=0; i < columns_; ++i) {
     if (name == fields[i].name) {
       return i;
     }
@@ -154,4 +116,4 @@ int MysqlDirectResult::NameToColumn(const base::StringPiece& name) {
   return -1;
 }
 
-} // namespace db
+} //

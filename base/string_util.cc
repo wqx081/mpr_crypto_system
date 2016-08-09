@@ -102,4 +102,55 @@ char* WriteInto(std::string* str, size_t length_with_null) {
   return &((*str)[0]);
 }
 
+
+template<typename Str>
+TrimPositions TrimStringT(const Str& input,
+                          BasicStringPiece<Str> trim_chars,
+                          TrimPositions positions,
+                          Str* output) {
+  BasicStringPiece<Str> input_piece(input);
+  const size_t last_char = input.length() - 1;
+  const size_t first_good_char = (positions & TRIM_LEADING) ?
+      input_piece.find_first_not_of(trim_chars) : 0;
+  const size_t last_good_char = (positions & TRIM_TRAILING) ?
+      input_piece.find_last_not_of(trim_chars) : last_char; 
+      
+  if (input.empty() ||
+            (first_good_char == Str::npos) || (last_good_char == Str::npos)) {
+    bool input_was_empty = input.empty();  // in case output == &input 
+    output->clear();
+    return input_was_empty ? TRIM_NONE : positions;
+  } 
+  
+  *output =
+      input.substr(first_good_char, last_good_char - first_good_char + 1);
+      
+  return static_cast<TrimPositions>(
+      ((first_good_char == 0) ? TRIM_NONE : TRIM_LEADING) |
+      ((last_good_char == last_char) ? TRIM_NONE : TRIM_TRAILING));
+}     
+
+bool TrimString(const std::string& input,
+                StringPiece trim_chars,
+                std::string* output) {
+  return TrimStringT(input, trim_chars, TRIM_ALL, output) != TRIM_NONE;
+} 
+
+template<typename Str>
+BasicStringPiece<Str> TrimStringPieceT(BasicStringPiece<Str> input,
+                                       BasicStringPiece<Str> trim_chars,
+                                       TrimPositions positions) {
+  size_t begin = (positions & TRIM_LEADING) ?
+      input.find_first_not_of(trim_chars) : 0;
+  size_t end = (positions & TRIM_TRAILING) ?
+      input.find_last_not_of(trim_chars) + 1 : input.size();
+  return input.substr(begin, end - begin);
+}
+
+StringPiece TrimString(StringPiece input,
+                       const StringPiece& trim_chars,
+                       TrimPositions positions) {
+  return TrimStringPieceT(input, trim_chars, positions);
+}
+
 } // namespace base

@@ -12,10 +12,13 @@ LIB_FILES :=-lglog -lgflags -L/usr/local/lib -lgtest -lgtest_main -lpthread -lz 
 	-lmysqlclient
 
 CPP_SOURCES := \
+	./base/ascii_ctype.cc \
+	./base/numbers.cc \
 	./base/string_piece.cc \
 	./base/string_util.cc \
 	./base/string_printf.cc \
 	./base/string_encode.cc \
+	./base/pickle.cc \
 	./base/time.cc \
 	./base/file_path.cc \
 	./base/file.cc \
@@ -45,6 +48,15 @@ CPP_SOURCES := \
 	./threading/thread_manager.cc \
 	\
 	\
+	./db/common/connection_info.cc \
+	./db/backend/db_statement.cc \
+	./db/backend/db_connection.cc \
+	./db/backend/connector_interface.cc \
+	\
+	./db/drivers/mysql/mysql_connector.cc \
+	./db/drivers/mysql/mysql_direct_result.cc \
+	./db/drivers/mysql/mysql_direct_statement.cc \
+	./db/drivers/mysql/mysql_connection.cc \
 #	./db/common/connection_data.cc \
 	./db/common/connection_info.cc \
 	./db/common/shared_object.cc \
@@ -75,6 +87,7 @@ TESTS := \
 	./base/file_path_unittest \
 	./base/once_unittest \
 	./base/ref_counted_unittest \
+	./base/pickle_unittest \
 	./zip/zip_reader_unittest \
 	./zip/zip_unittest \
 	\
@@ -102,6 +115,12 @@ all: $(CPP_OBJECTS) $(TESTS)
 	@echo "  [LINK] $@"
 	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
 ./base/once_unittest.o: ./base/once_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./base/pickle_unittest: ./base/pickle_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./base/pickle_unittest.o: ./base/pickle_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
 ./zip/zip_reader_unittest: ./zip/zip_reader_unittest.o
