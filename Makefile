@@ -98,6 +98,9 @@ TESTS := \
 	./threading/thread_factory_unittest \
 	./threading/thread_manager_unittest \
 	./threading/mutex_unittest \
+	\
+	\
+	./db/drivers/mysql/mysql_connection_unittest \
 	
 
 all: $(CPP_OBJECTS) $(TESTS)
@@ -172,6 +175,11 @@ all: $(CPP_OBJECTS) $(TESTS)
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
 
+./db/drivers/mysql/mysql_connection_unittest: ./db/drivers/mysql/mysql_connection_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./db/drivers/mysql/mysql_connection_unittest.o: ./db/drivers/mysql/mysql_connection_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
 db_clean:
 	`find ./db -name "*.o" | xarg rm -fr`
