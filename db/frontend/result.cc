@@ -56,14 +56,18 @@ bool Result::Next() {
 }
 
 
-int Result::Index(const std::string& name) {
+int Result::Index(const std::string& name) const {
   int col = db_result_->NameToColumn(name);
-  DCHECK(col >= 0);
+  if (col < 0) {
+    InvalidColumn();
+  }
   return col;
 }
 
 std::string Result::Name(int col) {
-  DCHECK(col >= 0 && col < Columns());
+  if (col < 0 || col >= Columns()) {
+    throw InvalidColumn();
+  }
   return db_result_->ColumnToName(col);
 }
 
@@ -78,7 +82,7 @@ void Result::RewindColumn() {
   current_column_ = 0;
 }
 
-bool Result::Empty() {
+bool Result::Empty() const {
   if (!db_result_) {
     return true;
   }
@@ -94,14 +98,16 @@ void Result::Clear() {
 }
 
 void Result::Check() {
-  DCHECK(!Empty());
+  if (Empty()) {
+    throw EmptyRowAccess();
+  }
 }
 
-bool Result::IsNull(int col) {
+bool Result::IsNull(int col) const {
   return db_result_->IsNull(col);
 }
 
-bool Result::IsNull(const std::string& name) {
+bool Result::IsNull(const std::string& name) const {
   return IsNull(Index(name));
 }
 
@@ -115,7 +121,7 @@ bool Result::Fetch(int col, float& v) { return db_result_->Fetch(col, v); }
 bool Result::Fetch(int col, double& v) { return db_result_->Fetch(col, v); }
 bool Result::Fetch(int col, std::string& v) { return db_result_->Fetch(col, v); }
 bool Result::Fetch(int col, std::ostream& v) { return db_result_->Fetch(col, v); }
-bool Result::Fetch(int col, base::Time* v) { return db_result_->Fetch(col, v); }
+bool Result::Fetch(int col, base::Time& v) { return db_result_->Fetch(col, &v); }
 
 
 
@@ -146,8 +152,8 @@ bool Result::Fetch(const std::string& name, double& v) {
 bool Result::Fetch(const std::string& name, std::string& v) {
   return db_result_->Fetch(Index(name), v);
 }
-bool Result::Fetch(const std::string& name, base::Time* v) {
-  return db_result_->Fetch(Index(name), v);
+bool Result::Fetch(const std::string& name, base::Time& v) {
+  return db_result_->Fetch(Index(name), &v);
 }
 bool Result::Fetch(const std::string& name, std::ostream& v) {
   return db_result_->Fetch(Index(name), v);
@@ -172,15 +178,19 @@ bool Result::Fetch(int64_t& v) {
 bool Result::Fetch(uint64_t& v) {
   return db_result_->Fetch(current_column_++, v);
 }
+
+bool Result::Fetch(double& v) {
+  return db_result_->Fetch(current_column_++, v);
+}
+
 bool Result::Fetch(std::string& v) {
   return db_result_->Fetch(current_column_++, v);
 }
 bool Result::Fetch(std::ostream& v) {
   return db_result_->Fetch(current_column_++, v);
 }
-bool Result::Fetch(base::Time* v) {
-  return db_result_->Fetch(current_column_++, v);
+bool Result::Fetch(base::Time& v) {
+  return db_result_->Fetch(current_column_++, &v);
 }
-
 
 } // namespace db

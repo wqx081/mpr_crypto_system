@@ -501,3 +501,29 @@ TEST(RefCountedUnitTest, TestOverloadResolutionMove) {
   scoped_ref_ptr<Other> other2(other);
   EXPECT_EQ(other2, Overloaded(std::move(other)));
 }
+
+
+// xiang
+template<typename T>
+struct DBRefCountedThreadSafeTraits {
+  static void Destruct(const T* x) {
+    T::Despose(x);
+  }  
+};
+
+class TestDestruct : public base::RefCountedThreadSafe<TestDestruct, 
+                                                       DBRefCountedThreadSafeTraits<TestDestruct>> {
+ public:
+  TestDestruct() {}
+  ~TestDestruct() { LOG(INFO) << "~TestDestruct()"; }
+  static void Despose(const TestDestruct* x) {
+    LOG(INFO) << "Desponse";
+    delete x;
+  }
+};
+
+TEST(TestDestruct, Basic) {
+  scoped_ref_ptr<TestDestruct> t = new TestDestruct();
+  EXPECT_TRUE(true);
+}
+

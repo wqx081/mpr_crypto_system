@@ -2,12 +2,14 @@
 #define DB_BACKEND_DB_CONNECTION_H_
 #include "db/backend/common.h"
 #include "db/backend/db_statement.h"
+#include "db/common/db_ref_counted_traits.h"
 
 #include "base/ref_counted.h"
 
 namespace db {
 
-class DBConnection : public base::RefCountedThreadSafe<DBConnection> {
+class DBConnection : public base::RefCountedThreadSafe<DBConnection,
+                                  DBRefCountedThreadSafeTraits<DBConnection>> {
  public:
   DBConnection(const ConnectionInfo&);
 
@@ -35,8 +37,9 @@ class DBConnection : public base::RefCountedThreadSafe<DBConnection> {
   bool recyclable() const;
   void set_recyclable(bool value);
 
- protected:
   virtual ~DBConnection();
+
+  static void Dispose(DBConnection* self);
 
  private:
   DBStatementCache cache_;  
@@ -45,8 +48,6 @@ class DBConnection : public base::RefCountedThreadSafe<DBConnection> {
   unsigned recyclable_ : 1;
   unsigned reserverd_ : 29;
 
- private:
-  friend base::RefCountedThreadSafe<DBConnection>;
 };
 
 } // namespace db

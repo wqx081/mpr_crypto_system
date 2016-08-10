@@ -97,10 +97,20 @@ MysqlPreparedResult* MysqlPreparedStatement::Query() {
 
 void MysqlPreparedStatement::Execute() {
   BindAll();
-  DCHECK(::mysql_stmt_execute(native_statement_) == 0);
-  DCHECK(::mysql_stmt_store_result(native_statement_) == 0);
+  if (mysql_stmt_execute(native_statement_)) {
+    throw MysqlException(::mysql_stmt_error(native_statement_));
+  }
+
+  if (mysql_stmt_store_result(native_statement_)) {
+    throw MysqlException(::mysql_stmt_error(native_statement_));
+  }
+
+  //TODO
   MYSQL_RES* r = ::mysql_stmt_result_metadata(native_statement_);
-  DCHECK(r);
+  if (r) {
+    ::mysql_free_result(r);
+    //throw MysqlException("Calling Execute() on query!");
+  }
 }
 
 } // namespace db

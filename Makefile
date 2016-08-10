@@ -59,6 +59,12 @@ CPP_SOURCES := \
 	./db/drivers/mysql/mysql_prepared_result.cc \
 	./db/drivers/mysql/mysql_prepared_statement.cc \
 	./db/drivers/mysql/mysql_connection.cc \
+	\
+	./db/frontend/result.cc \
+	./db/frontend/statement.cc \
+	./db/frontend/session.cc \
+	./db/frontend/transaction.cc \
+
 
 CPP_OBJECTS := $(CPP_SOURCES:.cc=.o)
 
@@ -81,6 +87,7 @@ TESTS := \
 	\
 	\
 	./db/drivers/mysql/mysql_connection_unittest \
+	./db/frontend/frontend_unittest \
 	
 
 all: $(CPP_OBJECTS) $(TESTS)
@@ -159,6 +166,12 @@ all: $(CPP_OBJECTS) $(TESTS)
 	@echo "  [LINK] $@"
 	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
 ./db/drivers/mysql/mysql_connection_unittest.o: ./db/drivers/mysql/mysql_connection_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./db/frontend/frontend_unittest: ./db/frontend/frontend_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./db/frontend/frontend_unittest.o: ./db/frontend/frontend_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
 db_clean:

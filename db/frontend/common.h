@@ -110,5 +110,25 @@ class Functor {
 class Session;
 using OnceFunctor = details::Functor<Session>;
 
+
+class DBConnectionThrowGuard {
+ public:
+  DBConnectionThrowGuard(const scoped_ref_ptr<DBConnection>& conn)
+    : db_connection_(conn.get()) {}
+
+  void Done() {
+    db_connection_ = nullptr;
+  }
+
+  ~DBConnectionThrowGuard() {
+    if (db_connection_ && std::uncaught_exception()) {
+      db_connection_->set_recyclable(false);
+    }
+  }
+
+ private:
+  DBConnection* db_connection_;
+};
+
 } // namespace db
 #endif // DB_FRONTEND_COMMON_H_

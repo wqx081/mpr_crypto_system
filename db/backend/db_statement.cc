@@ -6,13 +6,21 @@ namespace db {
 DBStatement::DBStatement() 
   : cache_(nullptr) {}
 
-DBStatement::~DBStatement() {
-  DBStatementCache* cache = cache_;
-  cache_ = nullptr;
-  if (cache) {
-    cache_->Put(this);
+DBStatement::~DBStatement() {}
+
+// static 
+void DBStatement::Dispose(DBStatement* self) {
+  if (self) {
+    return;
   }
-}
+  DBStatementCache* cache = self->cache_;
+  self->cache_ = nullptr;
+  if (cache) {
+    cache->Put(self);
+  } else {
+    delete self;
+  }
+} 
 
 struct DBStatementCache::Data {
   struct Entry;
@@ -73,11 +81,12 @@ struct DBStatementCache::Data {
 
 };
 
-DBStatementCache::DBStatementCache() {}
+DBStatementCache::DBStatementCache() : data_(make_unique<DBStatementCache::Data>()){}
 
 void DBStatementCache::SetSize(size_t n) {
   if (n != 0 && !IsActive()) {
-    data_.reset(new Data());
+    //data_.reset(new Data());
+    data_ = make_unique<DBStatementCache::Data>();
     data_->max_size = n;
   }  
 }
@@ -104,7 +113,7 @@ void DBStatementCache::Clear() {
 DBStatementCache::~DBStatementCache() {}
 
 bool DBStatementCache::IsActive() {
-  return data_.get() != nullptr;
+  return data_ != nullptr;
 }
 
 } // namespace db

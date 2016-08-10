@@ -54,6 +54,26 @@ class Statement {
   void Execute();
 
   Statement& operator<<(const std::string& v);
+  Statement& operator<<(const char* str);
+  Statement& operator<<(const base::Time& v);
+  Statement& operator<<(std::istream& v);
+  Statement& operator<<(void (*manipulator)(Statement& statement));
+
+  Result operator<<(Result (*manipulator)(Statement& statement));
+  
+  template<typename T>
+  Statement& operator<<(const tags::UseTag<T>& val) {
+    if (val.tag == kNullValue) {
+      return BindNull();
+    } else {
+      return Bind(val.value);
+    }
+  }
+
+  template<typename T>
+  Statement& operator<<(T v) {
+    return Bind(v);
+  }
 
  private:
   Statement(scoped_ref_ptr<DBStatement> db_statement,
@@ -66,6 +86,19 @@ class Statement {
  private:
   friend class Session;
 };
+
+// sql << "delete from test" << db::Execute;
+inline void Execute(Statement& statement) {
+  statement.Execute();
+}
+
+inline void Null(Statement& statement) {
+  statement.BindNull();
+}
+
+inline Result Row(Statement& statement) {
+  return statement.Row();
+}
 
 } // namespace db
 #endif // DB_FRONTEND_STATEMENT_H_

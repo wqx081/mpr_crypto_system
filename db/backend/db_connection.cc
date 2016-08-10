@@ -9,9 +9,8 @@ DBConnection::DBConnection(const ConnectionInfo& info)
   if (cache_size > 0) {
     cache_.SetSize(cache_size);
   }
-  //TODO
-  std::string def_is_prep = info.Get("@use_prepared","off");
 
+  std::string def_is_prep = info.Get("@use_prepared","on");
   if(def_is_prep == "on")
     default_is_prepared_ = 1;
   else if(def_is_prep == "off")
@@ -23,7 +22,15 @@ DBConnection::DBConnection(const ConnectionInfo& info)
 
 //TODO
 DBConnection::~DBConnection() {
-  ClearCache();
+}
+
+// static
+void DBConnection::Dispose(DBConnection* self) {
+  if (!self) {
+    return;
+  }
+  //TODO
+  self->ClearCache();
 }
 
 scoped_ref_ptr<DBStatement>
@@ -54,6 +61,11 @@ DBConnection::GetPreparedStatement(const std::string& query) {
   }
   result->Cache(&cache_);
   return result;
+}
+
+scoped_ref_ptr<DBStatement>
+DBConnection::GetPreparedUncahcedStatement(const std::string& query) {
+  return NewPreparedStatement(query);
 }
 
 bool DBConnection::once_called() const {

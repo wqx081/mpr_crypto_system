@@ -38,11 +38,7 @@ class DBResult : public base::RefCountedThreadSafe<DBResult> {
   virtual int NameToColumn(const std::string& name) = 0;
   virtual std::string ColumnToName(int col) = 0;
 
- protected:
   virtual ~DBResult(){}
-
- private:
-  friend class base::RefCountedThreadSafe<DBResult>;
 };
 
 } // namespace db

@@ -8,19 +8,20 @@ class Result {
  public:
   Result();
   ~Result();
-  Result(const Result& other);
+  Result(const Result&);
   const Result& operator=(const Result&);
-
+  
   int Columns();
   bool Next();
-  int Index(const std::string& name);
+  int Index(const std::string& name) const;
   int FindColumn(const std::string& name);
   std::string Name(int col);
-  bool IsNull(int col);
-  bool IsNull(const std::string& name);
+
+  bool IsNull(int col) const ;
+  bool IsNull(const std::string& name) const;
   void Clear();
   void RewindColumn();
-  bool Empty();
+  bool Empty() const;
 
   bool Fetch(int col, int16_t& v);
   bool Fetch(int col, uint16_t& v);
@@ -31,7 +32,7 @@ class Result {
   bool Fetch(int col, float& v);
   bool Fetch(int col, double& v);
   bool Fetch(int col, std::string& v);
-  bool Fetch(int col, base::Time* v);
+  bool Fetch(int col, base::Time& v);
   bool Fetch(int col, std::ostream& v);
 
   bool Fetch(const std::string& name, int16_t& v);
@@ -43,7 +44,7 @@ class Result {
   bool Fetch(const std::string& name, float& v);
   bool Fetch(const std::string& name, double& v);
   bool Fetch(const std::string& name, std::string& v);
-  bool Fetch(const std::string& name, base::Time* v);
+  bool Fetch(const std::string& name, base::Time& v);
   bool Fetch(const std::string& name, std::ostream& v);
 
   bool Fetch(int16_t& v);
@@ -55,16 +56,18 @@ class Result {
   bool Fetch(float& v);
   bool Fetch(double& v);
   bool Fetch(std::string& v);
-  bool Fetch(base::Time* v);
+  bool Fetch(base::Time& v);
   bool Fetch(std::ostream& v);
 
   template<typename T>
   T get(const std::string& name) {
     T v = T();
-    DCHECK(Fetch(name, v));
+    if (!Fetch(name, v)) {
+      throw NullValueFetch();
+    }
     return v;
   }
-
+  
   template<typename T>
   T get(const std::string& name, const T& def) {
     T v = T();
@@ -77,7 +80,9 @@ class Result {
   template<typename T>
   T get(int col) {
     T v = T();
-    DCHECK(Fetch(col, v));
+    if (!Fetch(col, v)) {
+      return NullValueFetch();
+    }
     return v;
   }
 
@@ -107,20 +112,20 @@ class Result {
   }
 
  private:
-  Result(scoped_ref_ptr<DBResult> db_result,
-         scoped_ref_ptr<DBStatement> db_statement,
-	 scoped_ref_ptr<DBConnection> db_connection);
+
+  Result(scoped_ref_ptr<DBResult> res,
+         scoped_ref_ptr<DBStatement> statement,
+         scoped_ref_ptr<DBConnection> conn);
 
   void Check();
-  
+  friend class Statement;
+
   bool eof_;
   bool fetched_;
   int current_column_;
   scoped_ref_ptr<DBResult> db_result_;
   scoped_ref_ptr<DBStatement> db_statement_;
   scoped_ref_ptr<DBConnection> db_connection_;
-
-  friend class Statement;
 };
 
 } // namespace db

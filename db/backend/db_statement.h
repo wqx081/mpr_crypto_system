@@ -2,6 +2,7 @@
 #define DB_BACKEND_DB_STATEMENT_H_
 #include "db/backend/common.h"
 #include "db/backend/db_result.h"
+#include "db/common/db_ref_counted_traits.h"
 #include "base/ref_counted.h"
 #include "base/time.h"
 #include "base/macros.h"
@@ -10,7 +11,8 @@ namespace db {
 
 class DBStatementCache;
 
-class DBStatement : public base::RefCountedThreadSafe<DBStatement> {
+class DBStatement : public base::RefCountedThreadSafe<DBStatement,
+                                 DBRefCountedThreadSafeTraits<DBStatement>> {
  public:
   DBStatement();
 
@@ -39,13 +41,11 @@ class DBStatement : public base::RefCountedThreadSafe<DBStatement> {
     cache_ = cache;
   }
   
- protected:
   virtual ~DBStatement();
+  static void Dispose(DBStatement* self);
 
  private:
   DBStatementCache* cache_;
-  friend base::RefCountedThreadSafe<DBStatement>;
-
 };
 
 class DBStatementCache {
