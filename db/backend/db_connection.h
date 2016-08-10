@@ -3,6 +3,7 @@
 #include "db/backend/common.h"
 #include "db/backend/db_statement.h"
 #include "db/common/db_ref_counted_traits.h"
+#include "db/common/connection_pool.h"
 
 #include "base/ref_counted.h"
 
@@ -12,6 +13,9 @@ class DBConnection : public base::RefCountedThreadSafe<DBConnection,
                                   DBRefCountedThreadSafeTraits<DBConnection>> {
  public:
   DBConnection(const ConnectionInfo&);
+
+  void set_connection_pool(scoped_ref_ptr<ConnectionPool> connection_pool);
+  scoped_ref_ptr<ConnectionPool> connection_pool();
 
   scoped_ref_ptr<DBStatement> Prepare(const std::string& query);
   scoped_ref_ptr<DBStatement> GetDirectStatement(const std::string& query);
@@ -43,6 +47,8 @@ class DBConnection : public base::RefCountedThreadSafe<DBConnection,
 
  private:
   DBStatementCache cache_;  
+
+  scoped_ref_ptr<ConnectionPool> connection_pool_;
   unsigned default_is_prepared_ : 1;
   unsigned once_called_ : 1;
   unsigned recyclable_ : 1;

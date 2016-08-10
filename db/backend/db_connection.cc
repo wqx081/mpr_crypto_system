@@ -3,7 +3,8 @@
 namespace db {
 
 DBConnection::DBConnection(const ConnectionInfo& info)
-  : once_called_(0),
+  : connection_pool_(nullptr),
+    once_called_(0),
     recyclable_(0) {
   int cache_size = info.Get("@stmt_cache_size", 64);
   if (cache_size > 0) {
@@ -29,8 +30,25 @@ void DBConnection::Dispose(DBConnection* self) {
   if (!self) {
     return;
   }
-  //TODO
-  self->ClearCache();
+  scoped_ref_ptr<ConnectionPool> pool = self->connection_pool_;
+  self->connection_pool_ = nullptr;
+  if (pool && self->recyclable()) {
+    pool->Put(self);
+  } else {
+    self->ClearCache();
+    delete self;
+    //TODO
+    // dirver
+  }
+}
+
+scoped_ref_ptr<ConnectionPool>
+DBConnection::connection_pool() {
+  return connection_pool_;
+}
+
+void DBConnection::set_connection_pool(scoped_ref_ptr<ConnectionPool> pool) {
+  connection_pool_ = pool;
 }
 
 scoped_ref_ptr<DBStatement>

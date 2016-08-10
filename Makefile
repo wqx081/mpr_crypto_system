@@ -49,6 +49,8 @@ CPP_SOURCES := \
 	\
 	\
 	./db/common/connection_info.cc \
+	./db/common/connection_pool.cc \
+	./db/common/connection_manager.cc \
 	./db/backend/db_result.cc \
 	./db/backend/db_statement.cc \
 	./db/backend/db_connection.cc \

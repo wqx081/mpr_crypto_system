@@ -1,6 +1,6 @@
 #include "db/frontend/session.h"
 #include "db/common/connection_info.h"
-#include "db/backend/connector_interface.h"
+#include "db/common/connection_manager.h"
 
 namespace db {
 
@@ -46,14 +46,11 @@ Session::Session(const std::string& str, const OnceFunctor& f) {
 }
 
 void Session::Open(const std::string& str) {
-  ConnectionInfo info(str);
-  Open(info);
+  db_connection_ = ConnectionManager::GetInstance().Open(str);
 }
 
 void Session::Open(const ConnectionInfo& info) {
-  std::unique_ptr<ConnectorInterface> connector;
-  DCHECK(NewConnector(info, &connector));
-  db_connection_ = connector->Connect();
+  db_connection_ = ConnectionManager::GetInstance().Open(info);
 }
 
 void Session::Close() {

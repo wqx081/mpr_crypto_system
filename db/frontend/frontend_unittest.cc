@@ -10,7 +10,7 @@
 namespace db {
 
 TEST(Frontend, Basic) {
-  std::string connection_info = "mysql:user='root'; password='111111'; database='test_db'";
+  std::string connection_info = "mysql:user='root'; password='111111'; database='test_db';@pool_size=2";
 
   Session sql(connection_info);
 
