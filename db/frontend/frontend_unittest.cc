@@ -46,7 +46,7 @@ TEST(Frontend, Basic) {
     //INSERT
     {
       Statement statement = sql << "INSERT INTO test(n,f,t,name) VALUES (?,?,?,?)"
-                 << Use(10, db::kNullValue)
+                 << Use(10, db::kNotNullValue)
                  << Use(3.14, db::kNullValue)
                  << Use(now, db::kNotNullValue)
                  << Use("Hello \'World\'", db::kNotNullValue)
@@ -67,11 +67,24 @@ TEST(Frontend, Basic) {
       db::NullTagType tag;
       result >> id >> k >> db::Into(f, tag) >> t >> name; 
       LOG(INFO) << id << ' ' << k << ' ' << f << ' ' << name << ' ' << t.Format();
-      EXPECT_EQ(id, n+1);
-      EXPECT_EQ(10, k);
-      EXPECT_EQ(3.14, f);
-      EXPECT_EQ("Hello 'World'", name);
+
+      EXPECT_TRUE(id == n+1);
+      EXPECT_TRUE(k == 10);
+      EXPECT_TRUE(n == 0 ? f == 3.14: f == -1);
+      EXPECT_TRUE(n == 0 ? tag==db::kNotNullValue : tag==db::kNullValue);
+      EXPECT_TRUE(now.Format() == t.Format());
+      EXPECT_TRUE(name == "Hello 'World'");
+      n++;
     }
+    EXPECT_EQ(n, 2);
+ 
+    result = sql << "SELECT n FROM test WHERE id=?" << 1 << db::Row;
+    EXPECT_TRUE(!result.Empty());
+    int32_t val;
+    result >> val;
+    EXPECT_TRUE(val == 10); 
+    result.Clear();
+
   } catch (...) {
   }
   EXPECT_TRUE(true);

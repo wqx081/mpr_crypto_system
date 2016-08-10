@@ -229,9 +229,12 @@ void SysTimeToTimeStruct(SysTime t, struct tm* timestruct, bool is_local) {
 }
 
 static const int64_t kWindowsEpochDeltaSeconds = INT64_C(11644473600);
-const int64_t kWindowsEpochDeltaMicroseconds =
-      kWindowsEpochDeltaSeconds * base::Time::kMicrosecondsPerSecond;
-const int64_t  Time::kTimeTToMicrosecondsOffset = kWindowsEpochDeltaMicroseconds;
+
+const int64_t Time::kWindowsEpochDeltaMicroseconds =
+    kWindowsEpochDeltaSeconds * Time::kMicrosecondsPerSecond;
+
+const int64_t Time::kTimeTToMicrosecondsOffset = kWindowsEpochDeltaMicroseconds;
+
 
 void Time::Explode(bool is_local, Exploded* exploded) const {
   int64_t microseconds = us_ - kWindowsEpochDeltaMicroseconds;

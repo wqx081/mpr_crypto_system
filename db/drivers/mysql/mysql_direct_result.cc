@@ -84,7 +84,7 @@ bool MysqlDirectResult::Fetch(int col, base::Time* v) {
     return false;
   }
   std::string t(str, len);
-  return base::Time::FromString(t.c_str(), v);
+  return DBResult::ParseTimeString(t.c_str(), v);
 }
 
 bool MysqlDirectResult::IsNull(int col) {

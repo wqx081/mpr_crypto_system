@@ -128,6 +128,8 @@ class TimeDelta final {
 
 class Time final {
  public:
+  static const int64_t kWindowsEpochDeltaMicroseconds;
+#if 0
   static const int64_t kMillisecondsPerSecond = 1000;
   static const int64_t kMicrosecondsPerMillisecond = 1000;
   static const int64_t kMicrosecondsPerSecond = kMicrosecondsPerMillisecond *
@@ -139,7 +141,24 @@ class Time final {
   static const int64_t kNanosecondsPerMicrosecond = 1000;
   static const int64_t kNanosecondsPerSecond = kNanosecondsPerMicrosecond *
                                                kMicrosecondsPerSecond;
+#endif
   static const int64_t kTimeTToMicrosecondsOffset;
+  static const int64_t kHoursPerDay = 24;
+  static const int64_t kMillisecondsPerSecond = 1000;
+  static const int64_t kMillisecondsPerDay =
+      kMillisecondsPerSecond * 60 * 60 * kHoursPerDay;
+  static const int64_t kMicrosecondsPerMillisecond = 1000;
+  static const int64_t kMicrosecondsPerSecond =
+      kMicrosecondsPerMillisecond * kMillisecondsPerSecond;
+  static const int64_t kMicrosecondsPerMinute = kMicrosecondsPerSecond * 60;
+  static const int64_t kMicrosecondsPerHour = kMicrosecondsPerMinute * 60;
+  static const int64_t kMicrosecondsPerDay =
+      kMicrosecondsPerHour * kHoursPerDay;
+  static const int64_t kMicrosecondsPerWeek = kMicrosecondsPerDay * 7;
+  static const int64_t kNanosecondsPerMicrosecond = 1000;
+  static const int64_t kNanosecondsPerSecond =
+      kNanosecondsPerMicrosecond * kMicrosecondsPerSecond;
+
 
   struct Exploded {
     int year;

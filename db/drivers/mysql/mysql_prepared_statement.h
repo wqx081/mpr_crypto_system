@@ -36,9 +36,9 @@ class MysqlPreparedStatement : public DBStatement {
       bind->is_null = &is_null;
       if (!is_null) {
         bind->buffer_type = is_blob ? MYSQL_TYPE_BLOB : MYSQL_TYPE_STRING;
-	bind->buffer = buffer;
-	bind->buffer_length = length;
-	bind->length = &length;
+	    bind->buffer = buffer;
+	    bind->buffer_length = length;
+	    bind->length = &length;
       } else {
         bind->buffer_type = MYSQL_TYPE_NULL;
       }

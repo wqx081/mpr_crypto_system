@@ -49,6 +49,7 @@ CPP_SOURCES := \
 	\
 	\
 	./db/common/connection_info.cc \
+	./db/backend/db_result.cc \
 	./db/backend/db_statement.cc \
 	./db/backend/db_connection.cc \
 	./db/backend/connector_interface.cc \
@@ -74,6 +75,7 @@ TESTS := \
 	./base/once_unittest \
 	./base/ref_counted_unittest \
 	./base/pickle_unittest \
+	./base/time_unittest \
 	./zip/zip_reader_unittest \
 	./zip/zip_unittest \
 	\
@@ -99,6 +101,12 @@ all: $(CPP_OBJECTS) $(TESTS)
 	@echo "  [LINK] $@"
 	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
 ./base/file_path_unittest.o: ./base/file_path_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./base/time_unittest: ./base/time_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./base/time_unittest.o: ./base/time_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
 ./base/once_unittest: ./base/once_unittest.o

@@ -128,7 +128,7 @@ bool MysqlPreparedResult::Fetch(int col, base::Time* v) {
   if (!Fetch(col, t)) {
     return false;
   }
-  return base::Time::FromString(t.c_str(), v);
+  return ParseTimeString(t.c_str(), v);
 }
 
 bool MysqlPreparedResult::IsNull(int col) {

@@ -38,6 +38,9 @@ class DBResult : public base::RefCountedThreadSafe<DBResult> {
   virtual int NameToColumn(const std::string& name) = 0;
   virtual std::string ColumnToName(int col) = 0;
 
+  virtual bool ParseTimeString(const char* str, base::Time* v, 
+                               const std::string& default_format=std::string("%Y-%m-%d %H:%M:%S"));
+
   virtual ~DBResult(){}
 };
 
