@@ -1,0 +1,37 @@
+CC = gcc
+CPP = g++
+
+CFLAG = -O2 -c -D_XOPEN_SOURCE=600 -D_BSD_SOURCE
+CFLAGS = $(CFLAG) -I.
+
+LIBS = -L../ -lsm2
+
+CPPFLAGS += -Wall
+CPPFLAGS += -Wpointer-arith
+CPPFLAGS += -Wno-cast-qual
+CPPFLAGS += -Wno-deprecated
+CPPFLAGS += -g -c
+CPPFLAGS += -I.
+
+OBJS =  MPRAsymmCrypt_s.o	\
+		
+
+TARGET = libmpr_wrap_sm2.a
+
+%.o:%.c
+	$(CC) $(CFLAGS) $< -o $@ $(LIBS)
+
+%.o:%.cpp
+	$(CPP) $(CPPFLAGS) $< -o $@ $(LIBS)
+
+all:$(OBJS)
+	ar rc $(TARGET) $(OBJS);
+	ranlib $(TARGET)
+
+test:main.o
+	$(CPP) -o test_app main.o $(LIBS)
+
+clean:
+	rm -f $(OBJS)
+	rm -f $(TARGET)
+	rm -f main.o
