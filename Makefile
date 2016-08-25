@@ -6,6 +6,7 @@ LIB_FILES :=-lglog -lgflags -L/usr/local/lib -lgtest -lgtest_main -lpthread -lz 
 	./third_party/boringssl/build/crypto/libcrypto.a \
 	./third_party/boringssl/build/ssl/libssl.a \
 	./third_party/boringssl/build/decrepit/libdecrepit.a \
+	-L./third_party/libsm2/ -lmpr_sm2  \
 	\
 	-lnspr4 \
 	-ldl \
@@ -18,6 +19,7 @@ CPP_SOURCES := \
 	./base/string_util.cc \
 	./base/string_printf.cc \
 	./base/string_encode.cc \
+	./base/status.cc \
 	./base/pickle.cc \
 	./base/time.cc \
 	./base/file_path.cc \
@@ -39,6 +41,8 @@ CPP_SOURCES := \
 	./crypto/symmetric_key.cc \
 	./crypto/symmetric_encryptor.cc \
 	./crypto/symmetric_crypt.cc \
+	./crypto/sm2_util.cc \
+	./crypto/asymmetric_padding.cc \
 	\
 	\
 	./threading/time_util.cc \
@@ -78,11 +82,15 @@ TESTS := \
 	./base/ref_counted_unittest \
 	./base/pickle_unittest \
 	./base/time_unittest \
+	./base/numbers_unittest \
 	./zip/zip_reader_unittest \
 	./zip/zip_unittest \
 	\
 	./crypto/symmetric_key_unittest \
 	./crypto/symmetric_encryptor_unittest \
+	./crypto/sm2_unittest \
+	./crypto/sm2_util_unittest \
+	./crypto/asymmetric_padding_unittest \
 	\
 	\
 	./threading/thread_factory_unittest \
@@ -123,6 +131,12 @@ all: $(CPP_OBJECTS) $(TESTS)
 ./base/pickle_unittest.o: ./base/pickle_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
+./base/numbers_unittest: ./base/numbers_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./base/numbers_unittest.o: ./base/numbers_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
 ./zip/zip_reader_unittest: ./zip/zip_reader_unittest.o
 	@echo "  [LINK] $@"
 	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
@@ -133,6 +147,24 @@ all: $(CPP_OBJECTS) $(TESTS)
 	@echo "  [LINK] $@"
 	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
 ./zip/zip_unittest.o: ./zip/zip_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./crypto/sm2_unittest: ./crypto/sm2_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./crypto/sm2_unittest.o: ./crypto/sm2_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./crypto/sm2_util_unittest: ./crypto/sm2_util_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./crypto/sm2_util_unittest.o: ./crypto/sm2_util_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./crypto/asymmetric_padding_unittest: ./crypto/asymmetric_padding_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./crypto/asymmetric_padding_unittest.o: ./crypto/asymmetric_padding_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
 ./crypto/symmetric_key_unittest: ./crypto/symmetric_key_unittest.o
