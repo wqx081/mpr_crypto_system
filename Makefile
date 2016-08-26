@@ -42,7 +42,9 @@ CPP_SOURCES := \
 	./crypto/symmetric_encryptor.cc \
 	./crypto/symmetric_crypt.cc \
 	./crypto/sm2_util.cc \
+	./crypto/sm2_access_point.cc \
 	./crypto/asymmetric_padding.cc \
+	./crypto/asymmetric_key.cc \
 	\
 	\
 	./threading/time_util.cc \
@@ -91,6 +93,7 @@ TESTS := \
 	./crypto/sm2_unittest \
 	./crypto/sm2_util_unittest \
 	./crypto/asymmetric_padding_unittest \
+	./crypto/sm2_access_point_unittest \
 	\
 	\
 	./threading/thread_factory_unittest \
@@ -153,6 +156,12 @@ all: $(CPP_OBJECTS) $(TESTS)
 	@echo "  [LINK] $@"
 	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
 ./crypto/sm2_unittest.o: ./crypto/sm2_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./crypto/sm2_access_point_unittest: ./crypto/sm2_access_point_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./crypto/sm2_access_point_unittest.o: ./crypto/sm2_access_point_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
 ./crypto/sm2_util_unittest: ./crypto/sm2_util_unittest.o

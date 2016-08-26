@@ -12,6 +12,7 @@
 
 #include <utility>
 #include <vector>
+#include <mutex>
 
 namespace crypto {
 
@@ -23,7 +24,8 @@ class Sm2AccessPoint {
  public:
   
   enum KeyBits {
-    kKey256Bits = 0,
+    kKeyBitsNone = 0,
+    kKey256Bits,
     kKey192Bits
   };
 
@@ -42,8 +44,20 @@ class Sm2AccessPoint {
   void set_padding_strategy(std::shared_ptr<PaddingInterface> v);
   //TODO(wqx): Signature And Veirfy
  private:
+  static const int kSm2BlockSize = 32; // bytes
+
   Sm2AccessPoint();
   std::shared_ptr<PaddingInterface> padding_strategy_;
+  std::mutex access_mutex_;
+  
+  int KeyBitsToInternal(KeyBits key_bits) {
+    switch (key_bits) {
+      case kKey256Bits: return 256;
+      case kKey192Bits: return 192;
+      default: return 0;
+    }
+  }
+
   DISALLOW_COPY_AND_ASSIGN(Sm2AccessPoint);
 };
 

@@ -78,8 +78,7 @@ base::Status Sm2Util::PublicEncrypt(const uint8_t* public_key,
                                     const uint8_t* plaintext, int plaintext_len,
                                     uint8_t* cipher, int* cipher_len) {
   // DCHECK(len == 48 || len == 64) 
-  if (public_key_len != 48 ||
-      public_key_len != 64) {
+  if (public_key_len != 48 && public_key_len != 64) {
     return base::Status(base::Code::INVALID_ARGUMENT, "public key len invalid");
   }
   
@@ -114,8 +113,7 @@ Sm2Util::PrivateDecrypt(const uint8_t* private_key,
                         uint8_t* plaintext, int* plaintext_len) {
 
   // DCHECK(len == 48 || len == 64) 
-  if (private_key_len != 24 ||
-      private_key_len != 32) {
+  if (private_key_len != 24 && private_key_len != 32) {
     return base::Status(base::Code::INVALID_ARGUMENT, "private key len invalid");
   }
 
@@ -149,8 +147,7 @@ Sm2Util::Sign(const uint8_t* private_key, int private_key_len,
               uint8_t* signature, int* signature_len) {
 
   // DCHECK(len == 48 || len == 64) 
-  if (private_key_len != 24 ||
-      private_key_len != 32) {
+  if (private_key_len != 24 && private_key_len != 32) {
     return base::Status(base::Code::INVALID_ARGUMENT, "private key len invalid");
   }
 
@@ -181,8 +178,7 @@ Sm2Util::Verify(const uint8_t* public_key, int public_key_len,
                 uint8_t* signature, int signature_len) {
   int ret = 0;
   // DCHECK(len == 48 || len == 64) 
-  if (public_key_len != 48 ||
-      public_key_len != 64) {
+  if (public_key_len != 48 && public_key_len != 64) {
     return base::Status(base::Code::INVALID_ARGUMENT, "public key len invalid");
   }
   
