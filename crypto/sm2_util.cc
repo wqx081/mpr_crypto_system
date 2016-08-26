@@ -84,6 +84,8 @@ base::Status Sm2Util::PublicEncrypt(const uint8_t* public_key,
   
   int ret = 0;
   CipherImpl cipher_impl;
+  memset(&cipher_impl, 0, sizeof(cipher_impl));
+
   PublicKeyImpl pub_key_impl = PublicKeyImplFromBuffer(public_key, public_key_len);
   ret = SNF_ExternalEncrypt_ECC(nullptr,
                                 SGD_SM2_3,
@@ -248,6 +250,7 @@ bool Sm2Util::CipherToBuffer(const CipherImpl& cipher, uint8_t* buffer, int* len
   memcpy(buffer + offset, cipher.M, BitsToBytes(cipher.mbits));
   offset += BitsToBytes(cipher.mbits);
 
+  *len = offset;
   return true;
 }
 
@@ -259,7 +262,7 @@ Sm2Util::CipherFromBuffer(uint8_t* buffer, int len, int bits) {
   memset(&impl, 0, sizeof(impl));
 
   impl.bits = bits;
-  impl.mbits = (len - impl.bits / 4) - sizeof(impl.C) * 8;
+  impl.mbits = (len - impl.bits / 4 - sizeof(impl.C)) * 8;
   memcpy(impl.x, buffer + offset, BitsToBytes(impl.bits));
   offset += BitsToBytes(impl.bits);
 

@@ -41,6 +41,7 @@ class Sm2Util {
                                       uint8_t* public_key,  int* public_key_len,
                                       uint8_t* private_key, int* private_key_len);
 
+  //@param plaintext_len <= 32 (bytes)
   static base::Status PublicEncrypt(const uint8_t* public_key, 
                                     int public_key_len,
                                     const uint8_t* plaintext, 

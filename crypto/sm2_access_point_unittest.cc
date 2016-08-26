@@ -20,7 +20,7 @@ const char* kMediaKeyPath = "#EXT-X-KEY:METHOD=AES-128,URI=\"http://172.16.2.129
 
 const char* kVideoKeyPathAnchor= "{video_key_path}";
 
-const int kMaxWorkers = 1000;
+const int kMaxWorkers = 10;
 
 bool Replace(std::string& str, const std::string& from, const std::string& to) {
     size_t start_pos = str.find(from);
