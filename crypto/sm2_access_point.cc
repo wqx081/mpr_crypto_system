@@ -4,6 +4,8 @@
 #include "crypto/asymmetric_padding.h"
 #include "base/status.h"
 
+#include "third_party/libsm2/MPRAsymmCrypt.h"
+
 namespace crypto {
 
 const int Sm2AccessPoint::kSm2BlockSize;
@@ -115,5 +117,67 @@ bool Sm2AccessPoint::PublickKeyEncrypt(const std::vector<uint8_t>& public_key,
   return true;
 }
 
+bool Sm2AccessPoint::PrivateKeyDecrypt(const std::vector<uint8_t>& private_key,
+                                       const base::StringPiece& cipher,
+                                       std::string* output) {
+  //LOCK
+  std::lock_guard<std::mutex> lock(access_mutex_);
+  if (cipher.empty() || private_key.empty()) {
+    return false;
+  } 
+  output->clear();
+
+  base::Status status;
+  std::vector<std::array<unsigned char, 128>> result;
+  int plaintext_len = 128;
+  std::array<unsigned char, 128> plaintext;
+  size_t count = cipher.size() / 128;
+  size_t index = 0;
+
+  while (count > 0) {
+    //block = cipher.substr(index, kSm2BlockSize).as_string();
+    LOG(INFO) << "----x";
+#if 0
+    status = Sm2Util::PrivateDecrypt(private_key.data(), private_key.size(),
+                                     (const uint8_t *)(cipher.data() + index),
+                                     128,
+                                     plaintext.data(), &plaintext_len);
+    
+    LOG(INFO) << "----y";
+    if (!status.ok()) {
+      LOG(ERROR) << "PrivateDecrypt Error: " << status.ToString();
+      return false;
+    }
+#endif
+   DCHECK_EQ(MPRAsymmCrypt_PrvDecrypt(SM2, 
+                                   private_key.data(), (unsigned int)private_key.size(),
+                                   (unsigned char *)(cipher.data() + index), 128,
+                                   plaintext.data(), (unsigned int *)&plaintext_len) , 0);
+
+    result.push_back(plaintext);
+
+    index += kSm2BlockSize;
+    count--;
+  }
+
+  std::string str;
+  for (index = 0; index < result.size() - 1; ++index) {
+    str += std::string((char*)result[index].data(), result[index].size());
+  }
+  // Trim the last one block Padding
+  std::string block;
+  block = std::string((char*)result[index + 1].data(), result[index + 1].size()); 
+  padding_strategy_->TrimPadding(block, 128);
+  str += block;
+
+  output->swap(str);
+  return true;
+}
+
+void Sm2AccessPoint::set_padding_strategy(std::shared_ptr<PaddingInterface> v) {
+  //LOCK
+  std::lock_guard<std::mutex> lock(access_mutex_);
+  padding_strategy_ = v; 
+}
 
 } // namespace crypto

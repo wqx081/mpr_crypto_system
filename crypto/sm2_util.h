@@ -9,6 +9,7 @@
 
 #include <stdint.h>
 #include "base/status.h"
+#include "crypto/type.h"
 #include "third_party/libsm2/sm2/native_sm2.h"
 
 namespace crypto {
@@ -22,14 +23,14 @@ class Sm2Util {
   using CipherImpl = ECCCipherEx;
   using SignatureImpl = ECCSignatureEx;
 
-  static PublicKeyImpl PublicKeyImplFromBuffer(const uint8_t* buffer, int len);
-  static PrivateKeyImpl PrivateKeyImplFromBuffer(const uint8_t* buffer, int len);
+  static PublicKeyImpl PublicKeyImplFromBuffer(const Byte* buffer, int len);
+  static PrivateKeyImpl PrivateKeyImplFromBuffer(const Byte* buffer, int len);
    
   static int CipherLength(const CipherImpl& cipher);
-  static bool CipherToBuffer(const CipherImpl& impl, uint8_t* buffer, int* len);
-  static CipherImpl CipherFromBuffer(uint8_t* buffer, int len, int bits);
+  static bool CipherToBuffer(const CipherImpl& impl, Byte* buffer, int* len);
+  static CipherImpl CipherFromBuffer(Byte* buffer, int len, int bits);
 
-  static void SignatureToBuffer(const SignatureImpl& signature, uint8_t* buffer, int *len);
+  static void SignatureToBuffer(const SignatureImpl& signature, Byte* buffer, int *len);
   static SignatureImpl SignatureFromBuffer(uint8_t* buffer, int bits);
 
 ////// APIs
@@ -38,30 +39,30 @@ class Sm2Util {
   //@param public_key_len >= 0x41 (65)
   //@param private_key_len >= 0x20 (32)
   static base::Status GenerateKeyPair(int key_bits,
-                                      uint8_t* public_key,  int* public_key_len,
-                                      uint8_t* private_key, int* private_key_len);
+                                      Byte* public_key,  int* public_key_len,
+                                      Byte* private_key, int* private_key_len);
 
   //@param plaintext_len <= 32 (bytes)
-  static base::Status PublicEncrypt(const uint8_t* public_key, 
+  static base::Status PublicEncrypt(const Byte* public_key, 
                                     int public_key_len,
-                                    const uint8_t* plaintext, 
+                                    const Byte* plaintext, 
                                     int plaintext_len,
-                                    uint8_t* cipher, int* cipher_len);
+                                    Byte* cipher, int* cipher_len);
 
-  static base::Status PrivateDecrypt(const uint8_t* private_key, 
+  static base::Status PrivateDecrypt(const Byte* private_key, 
                                      int private_key_len,
-                                     const uint8_t* cipher, int cipher_len,
-                                     uint8_t* plaintext, int* plaintext_len);
+                                     const Byte* cipher, int cipher_len,
+                                     Byte* plaintext, int* plaintext_len);
 
-  static base::Status Sign(const uint8_t* private_key, int private_key_len,
-                           const uint8_t* data, int data_len,
-                           const uint8_t* sign_id, int sign_id_len,
-                           uint8_t* signature, int* signature_len);
+  static base::Status Sign(const Byte* private_key, int private_key_len,
+                           const Byte* data, int data_len,
+                           const Byte* sign_id, int sign_id_len,
+                           Byte* signature, int* signature_len);
 
-  static base::Status Verify(const uint8_t* public_key, int public_key_len,
-                             const uint8_t* data, int data_len,
-                             const uint8_t* sign_id, int sign_id_len,
-                             uint8_t* signature, int signature_len);
+  static base::Status Verify(const Byte* public_key, int public_key_len,
+                             const Byte* data, int data_len,
+                             const Byte* sign_id, int sign_id_len,
+                             Byte* signature, int signature_len);
 };
 
 } // namespace crypto

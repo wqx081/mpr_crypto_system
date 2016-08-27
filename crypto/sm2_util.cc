@@ -51,9 +51,9 @@ const char* ErrorNumberToString(int errnum) {
 } // namespace
 
 base::Status Sm2Util::GenerateKeyPair(int key_bits,
-                                      uint8_t* public_key,
+                                      Byte* public_key,
                                       int* public_key_len,
-                                      uint8_t* private_key,
+                                      Byte* private_key,
                                       int* private_key_len) {
   int ret = 0;
 
@@ -73,10 +73,10 @@ base::Status Sm2Util::GenerateKeyPair(int key_bits,
   return base::Status::OK();
 } 
 
-base::Status Sm2Util::PublicEncrypt(const uint8_t* public_key,
+base::Status Sm2Util::PublicEncrypt(const Byte* public_key,
                                     int public_key_len,
-                                    const uint8_t* plaintext, int plaintext_len,
-                                    uint8_t* cipher, int* cipher_len) {
+                                    const Byte* plaintext, int plaintext_len,
+                                    Byte* cipher, int* cipher_len) {
   // DCHECK(len == 48 || len == 64) 
   if (public_key_len != 48 && public_key_len != 64) {
     return base::Status(base::Code::INVALID_ARGUMENT, "public key len invalid");
@@ -90,7 +90,7 @@ base::Status Sm2Util::PublicEncrypt(const uint8_t* public_key,
   ret = SNF_ExternalEncrypt_ECC(nullptr,
                                 SGD_SM2_3,
                                 &pub_key_impl,
-                                (uint8_t *)plaintext,
+                                (Byte*)plaintext,
                                 plaintext_len,
                                 &cipher_impl);
   if (ret != SDR_OK) {
@@ -109,10 +109,10 @@ base::Status Sm2Util::PublicEncrypt(const uint8_t* public_key,
 }
 
 base::Status
-Sm2Util::PrivateDecrypt(const uint8_t* private_key,
+Sm2Util::PrivateDecrypt(const Byte* private_key,
                         int private_key_len,
-                        const uint8_t* cipher, int cipher_len,
-                        uint8_t* plaintext, int* plaintext_len) {
+                        const Byte* cipher, int cipher_len,
+                        Byte* plaintext, int* plaintext_len) {
 
   // DCHECK(len == 48 || len == 64) 
   if (private_key_len != 24 && private_key_len != 32) {
@@ -143,10 +143,10 @@ Sm2Util::PrivateDecrypt(const uint8_t* private_key,
 }
 
 base::Status
-Sm2Util::Sign(const uint8_t* private_key, int private_key_len,
-              const uint8_t* data, int data_len,
-              const uint8_t* sign_id, int sign_id_len,
-              uint8_t* signature, int* signature_len) {
+Sm2Util::Sign(const Byte* private_key, int private_key_len,
+              const Byte* data, int data_len,
+              const Byte* sign_id, int sign_id_len,
+              Byte* signature, int* signature_len) {
 
   // DCHECK(len == 48 || len == 64) 
   if (private_key_len != 24 && private_key_len != 32) {
@@ -174,10 +174,10 @@ Sm2Util::Sign(const uint8_t* private_key, int private_key_len,
 }
 
 base::Status 
-Sm2Util::Verify(const uint8_t* public_key, int public_key_len,
-                const uint8_t* data, int data_len,
-                const uint8_t* sign_id, int sign_id_len,
-                uint8_t* signature, int signature_len) {
+Sm2Util::Verify(const Byte* public_key, int public_key_len,
+                const Byte* data, int data_len,
+                const Byte* sign_id, int sign_id_len,
+                Byte* signature, int signature_len) {
   int ret = 0;
   // DCHECK(len == 48 || len == 64) 
   if (public_key_len != 48 && public_key_len != 64) {
@@ -209,7 +209,7 @@ Sm2Util::Verify(const uint8_t* public_key, int public_key_len,
 // Helpers
 
 Sm2Util::PublicKeyImpl 
-Sm2Util::PublicKeyImplFromBuffer(const uint8_t* buffer, int len) {
+Sm2Util::PublicKeyImplFromBuffer(const Byte* buffer, int len) {
   // DCHECK(len == 48 || len == 64) 
   PublicKeyImpl impl;
   ::memset(&impl, 0, sizeof(impl));
@@ -220,7 +220,7 @@ Sm2Util::PublicKeyImplFromBuffer(const uint8_t* buffer, int len) {
 }
 
 Sm2Util::PrivateKeyImpl
-Sm2Util::PrivateKeyImplFromBuffer(const uint8_t* buffer, int len) {
+Sm2Util::PrivateKeyImplFromBuffer(const Byte* buffer, int len) {
   // DCHECK(len == 24 || len == 32) 
   PrivateKeyImpl impl;
   memset(&impl, 0, sizeof(impl));
@@ -235,7 +235,7 @@ int Sm2Util::CipherLength(const CipherImpl& cipher) {
        + BitsToBytes(cipher.mbits);
 }
 
-bool Sm2Util::CipherToBuffer(const CipherImpl& cipher, uint8_t* buffer, int* len) {
+bool Sm2Util::CipherToBuffer(const CipherImpl& cipher, Byte* buffer, int* len) {
   int offset = 0;
   if (*len < CipherLength(cipher)) {
     return false;
@@ -255,7 +255,7 @@ bool Sm2Util::CipherToBuffer(const CipherImpl& cipher, uint8_t* buffer, int* len
 }
 
 Sm2Util::CipherImpl
-Sm2Util::CipherFromBuffer(uint8_t* buffer, int len, int bits) {
+Sm2Util::CipherFromBuffer(Byte* buffer, int len, int bits) {
   CipherImpl impl;
   int offset = 0;
 
@@ -279,7 +279,7 @@ Sm2Util::CipherFromBuffer(uint8_t* buffer, int len, int bits) {
 }
 
 void Sm2Util::SignatureToBuffer(const SignatureImpl& impl,
-                                uint8_t* buffer,
+                                Byte* buffer,
                                 int* len) {
   *len = impl.bits / 4;
   memcpy(buffer, impl.r, *len / 2);
@@ -287,7 +287,7 @@ void Sm2Util::SignatureToBuffer(const SignatureImpl& impl,
 }
 
 Sm2Util::SignatureImpl
-Sm2Util::SignatureFromBuffer(uint8_t* buffer, int bits) {
+Sm2Util::SignatureFromBuffer(Byte* buffer, int bits) {
   SignatureImpl impl;
 
   memset(&impl, 0, sizeof(impl));

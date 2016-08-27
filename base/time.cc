@@ -7,7 +7,7 @@
 #include <sys/time.h>
 #include <unistd.h>
 
-#include <nspr/prtime.h>
+//#include <nspr/prtime.h>
 
 #include <ostream>
 
@@ -350,6 +350,7 @@ bool Time::FromStringInternal(const char* time_string,
   if (time_string[0] == '\0')
     return false;
 
+#if 0
   PRTime result_time = 0;
   PRStatus result = PR_ParseTimeString(time_string,
                                        is_local ? PR_FALSE : PR_TRUE,
@@ -359,6 +360,8 @@ bool Time::FromStringInternal(const char* time_string,
 
   result_time += kTimeTToMicrosecondsOffset;
   *parsed_time = Time(result_time);
+#endif
+  //TODO(wqx):
   return true;
 }
 

@@ -46,6 +46,9 @@ CPP_SOURCES := \
 	./crypto/asymmetric_padding.cc \
 	./crypto/asymmetric_key.cc \
 	\
+	./crypto/memory_input_stream.cc \
+	./crypto/memory_output_stream.cc \
+	\
 	\
 	./threading/time_util.cc \
 	./threading/mutex.cc \
@@ -54,7 +57,7 @@ CPP_SOURCES := \
 	./threading/thread_manager.cc \
 	\
 	\
-	./db/common/connection_info.cc \
+#	./db/common/connection_info.cc \
 	./db/common/connection_pool.cc \
 	./db/common/connection_manager.cc \
 	./db/backend/db_result.cc \
@@ -95,13 +98,15 @@ TESTS := \
 	./crypto/asymmetric_padding_unittest \
 	./crypto/sm2_access_point_unittest \
 	\
+	./crypto/memory_input_stream_unittest \
+	./crypto/memory_output_stream_unittest \
 	\
 	./threading/thread_factory_unittest \
 	./threading/thread_manager_unittest \
 	./threading/mutex_unittest \
 	\
 	\
-	./db/drivers/mysql/mysql_connection_unittest \
+#	./db/drivers/mysql/mysql_connection_unittest \
 	./db/frontend/frontend_unittest \
 	
 
@@ -187,6 +192,32 @@ all: $(CPP_OBJECTS) $(TESTS)
 	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
 ./crypto/symmetric_encryptor_unittest.o: ./crypto/symmetric_encryptor_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./crypto/memory_input_stream_unittest: ./crypto/memory_input_stream_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./crypto/memory_input_stream_unittest.o: ./crypto/memory_input_stream_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./crypto/memory_output_stream_unittest: ./crypto/memory_output_stream_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./crypto/memory_output_stream_unittest.o: ./crypto/memory_output_stream_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ./threading/thread_factory_unittest: ./threading/thread_factory_unittest.o
 	@echo "  [LINK] $@"

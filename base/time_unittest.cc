@@ -1,7 +1,7 @@
 #include "base/time.h"
 #include <gtest/gtest.h>
 #include <glog/logging.h>
-#include <nspr/prtime.h>
+//#include <nspr/prtime.h>
 
 #include <stdio.h>
 #include <stdlib.h>
