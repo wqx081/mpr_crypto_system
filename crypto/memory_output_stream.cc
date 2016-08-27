@@ -50,5 +50,8 @@ size_t MemoryOutputStream::size() const {
   return data_.size();
 }
 
+std::string MemoryOutputStream::ToString() {
+  return std::string((char *)data_.data(), data_.size());
+}
 
 } // namespace crypto

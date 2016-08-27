@@ -3,6 +3,7 @@
 //
 #ifndef CRYPTO_HTYPE_H_
 #define CRYPTO_HTYPE_H_
+#include <stdint.h>
 #include <stddef.h>
 #include <vector>
 

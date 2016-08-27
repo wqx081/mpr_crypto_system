@@ -48,6 +48,7 @@ CPP_SOURCES := \
 	\
 	./crypto/memory_input_stream.cc \
 	./crypto/memory_output_stream.cc \
+	./crypto/sm2_asymmetric_encryptor.cc \
 	\
 	\
 	./threading/time_util.cc \
@@ -100,6 +101,7 @@ TESTS := \
 	\
 	./crypto/memory_input_stream_unittest \
 	./crypto/memory_output_stream_unittest \
+	./crypto/sm2_asymmetric_encryptor_unittest \
 	\
 	./threading/thread_factory_unittest \
 	./threading/thread_manager_unittest \
@@ -203,6 +205,12 @@ all: $(CPP_OBJECTS) $(TESTS)
 	@echo "  [LINK] $@"
 	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
 ./crypto/memory_output_stream_unittest.o: ./crypto/memory_output_stream_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./crypto/sm2_asymmetric_encryptor_unittest: ./crypto/sm2_asymmetric_encryptor_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./crypto/sm2_asymmetric_encryptor_unittest.o: ./crypto/sm2_asymmetric_encryptor_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
 

@@ -18,7 +18,9 @@ class MemoryOutputStream : public OutputStream {
   virtual void Write(ByteVector* buffer) override;
   virtual void Write(ByteVector* buffer, size_t offset, size_t length) override;
   virtual void Write(Byte* buffer, size_t offset, size_t length) override;
-  virtual void Write(Byte b);
+  virtual void Write(Byte b) override;
+
+  virtual std::string ToString() override;
 
   Byte* data();
   size_t size() const;

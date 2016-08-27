@@ -4,6 +4,7 @@
 #ifndef CRYPTO_OUTPUT_STREAM_H_
 #define CRYPTO_OUTPUT_STREAM_H_
 #include "crypto/type.h"
+#include <string>
 
 namespace crypto {
 
@@ -17,7 +18,7 @@ class OutputStream {
   virtual void Write(Byte n) = 0;
   virtual void Write(ByteVector* buffer, size_t offset, size_t length) = 0;
   virtual void Write(Byte* buffer, size_t offset, size_t length) = 0;
-
+  virtual std::string ToString() = 0;
 };
 
 } // namespace crypto
