@@ -1,0 +1,114 @@
+//@Author: WangQixiang (wangqx at mpreader.com)
+//@Date: 2016/08/29
+syntax = "proto3";
+
+package crypto;
+
+//////////////// Symmetric
+// EBC
+// CBC
+
+enum SymmetricKeyBits {
+  SymmetricKeyBitsUnknown = 0;
+  SymmetricKey128Bits = 128;
+  SymmetricKey256Bits = 256;
+}
+
+message CreateCbcKeyRequest {
+  SymmetricKeyBits key_bits = 1;
+}
+
+message CreateCbcKeyResponse {
+  string key = 1;
+}
+
+message CbcEncryptFileRequest {
+  string key = 1;
+  string iv = 2;
+  string file_path = 3;
+}
+
+message CbcEncryptFileResponse {
+}
+
+message CbcDecryptFileRequest {
+  string key = 1;
+  string iv = 2;
+  string file_path = 3;
+}
+
+message CbcDecryptFileResponse {
+}
+
+
+service SymmetricService {
+  rpc CreateCbcKey(CreateCbcKeyRequest) returns (CreateCbcKeyResponse);
+  //TODO 
+  //rpc CbcEncryptString(CbcEncryptStringRequest) returns (CbcEncryptStringResponse);
+  rpc CbcEncryptFile(CbcEncryptFileRequest) returns (CbcEncryptFileResponse);
+  //TODO
+  //rpc CbcDecryptString(CbcDecryptStringRequest) returns (CbcDecryptStringResponse);
+  rpc CbcDecryptFile(CbcDecryptFileRequest) returns (CbcDecryptFileResponse);
+
+
+// TODO(wqx):
+//  rpc CreateEbcKey(CreateEbcKeyRequest) returns (CreateEbcKeyResponse);
+}
+
+//////////////// Asymmetric
+// RSA & SM2 
+
+enum AsymmetricType {
+  AsymmetricTypeUnknown = 0;
+  SM2 = 1;
+  RSA = 2;
+}
+
+enum AsymmetricKeyBits {
+  KeyBitsUnknown = 0;
+  KEY192BITS = 192;
+  KEY256BITS = 256;
+  KEY1024BITS= 1024; // Only for rsa
+}
+
+message CreateKeyPairRequest { 
+  AsymmetricType type = 1;
+  AsymmetricKeyBits key_bits = 2; 
+}
+
+message CreateKeyPairResponse {
+  string public_key = 2;
+  string private_key = 3; 
+}
+
+//
+message PublicKeyEncryptRequest {
+  AsymmetricType type = 1;
+  string public_key = 2;
+  string plaintext = 3;
+}
+
+message PublicKeyEncryptResponse {
+  string cipher = 2;
+}
+
+message PrivateKeyDecryptRequest {
+  AsymmetricType type = 1;
+  string private_key = 2;
+  string cipher = 3;
+}
+
+message PrivateKeyDecryptResponse {
+  string plaintext = 2;  
+}
+
+service AsymmetricService {
+  rpc CreateKeyPair(CreateKeyPairRequest) 
+        returns (CreateKeyPairResponse);
+  rpc PublicKeyEncrypt(PublicKeyEncryptRequest) 
+        returns (PublicKeyEncryptResponse);
+  rpc PrivateKeyDecrypt(PrivateKeyDecryptRequest) 
+        returns (PrivateKeyDecryptResponse);
+  // TODO(wqx):
+  // signature & verify
+}

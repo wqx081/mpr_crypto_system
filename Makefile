@@ -1,4 +1,5 @@
 CXXFLAGS += -I./
+CXXFLAGS += -I./protos
 CXXFLAGS += -I./third_party/boringssl/include
 CXXFLAGS += -std=c++11 -Wall -g -c -o
 
@@ -8,9 +9,16 @@ LIB_FILES :=-lglog -lgflags -L/usr/local/lib -lgtest -lgtest_main -lpthread -lz 
 	./third_party/boringssl/build/decrepit/libdecrepit.a \
 	-L./third_party/libsm2/ -lmpr_sm2  \
 	\
-	-lnspr4 \
+	-L/usr/local/lib -lgrpc++ -lgrpc -lgrpc++_reflection \
+	-lprotobuf -lpthread -ldl
+#	-lnspr4 \
 	-ldl \
 	-lmysqlclient
+
+PROTOC = protoc
+GRPC_CPP_PLUGIN=grpc_cpp_plugin
+GRPC_CPP_PLUGIN_PATH ?= `which $(GRPC_CPP_PLUGIN)`
+PROTOS_PATH = ./protos
 
 CPP_SOURCES := \
 	./base/ascii_ctype.cc \
@@ -50,6 +58,8 @@ CPP_SOURCES := \
 	./crypto/memory_output_stream.cc \
 	./crypto/sm2_asymmetric_encryptor.cc \
 	\
+	./protos/crypto_server.pb.cc \
+	./protos/crypto_server.grpc.pb.cc \
 	\
 	./threading/time_util.cc \
 	./threading/mutex.cc \
@@ -81,7 +91,6 @@ CPP_SOURCES := \
 
 CPP_OBJECTS := $(CPP_SOURCES:.cc=.o)
 
-
 TESTS := \
 	./base/file_path_unittest \
 	./base/once_unittest \
@@ -103,6 +112,7 @@ TESTS := \
 	./crypto/memory_output_stream_unittest \
 	./crypto/sm2_asymmetric_encryptor_unittest \
 	\
+	\
 	./threading/thread_factory_unittest \
 	./threading/thread_manager_unittest \
 	./threading/mutex_unittest \
@@ -116,6 +126,21 @@ all: $(CPP_OBJECTS) $(TESTS)
 .cc.o:
 	@echo "  [CXX]  $@"
 	@$(CXX) $(CXXFLAGS) $@ $<
+
+
+vpath %.proto $(PROTOS_PATH)
+
+.PRECIOUS: %.grpc.pb.cc
+%.grpc.pb.cc: %.proto
+	@echo "  [GEN]  $@"
+	@$(PROTOC) -I $(PROTOS_PATH) --grpc_out=$(PROTOS_PATH) --plugin=protoc-gen-grpc=$(GRPC_CPP_PLUGIN_PATH) $<
+
+.PRECIOUS: %.pb.cc
+%.pb.cc: %.proto
+	@echo "  [GEN]  $@"
+	@$(PROTOC) -I $(PROTOS_PATH) --cpp_out=$(PROTOS_PATH) $<
+
+#############
 
 ./base/file_path_unittest: ./base/file_path_unittest.o
 	@echo "  [LINK] $@"

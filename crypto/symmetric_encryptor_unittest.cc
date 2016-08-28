@@ -8,8 +8,39 @@
 #include "third_party/libsm4/MPRSymmCrypt.h"
 #endif // MPR_SM4_TEST
 
+#include "base/file.h"
+#include "base/file_path.h"
+#include "base/file_util.h"
+
 #include <gtest/gtest.h>
 
+TEST(SymmetricEncryptor, CBC_ts) {
+  std::string key_string;
+  base::ReadFileToString(base::FilePath("/home/wqx/Downloads/hls/video.key"),
+		  &key_string);
+  std::unique_ptr<crypto::SymmetricKey> key(
+		  crypto::SymmetricKey::Import(
+			  crypto::SymmetricKey::AES,
+			  key_string));
+  EXPECT_TRUE(key.get());
+
+  std::string iv("the iv: 16 bytes");
+  EXPECT_EQ(16U, iv.size());
+
+  
+  std::shared_ptr<crypto::SymmetricCrypt> crypt = 
+    std::make_shared<crypto::CBCSymmetricCrypt>(iv);
+  crypto::SymmetricEncryptor encryptor(key.get());
+  encryptor.SetCrypt(crypt.get());
+
+  std::string file_content;
+  base::ReadFileToString(base::FilePath("/home/wqx/Downloads/hls/orig/my0.ts"),
+		  &file_content);
+  std::string file_cipher;
+  EXPECT_TRUE(encryptor.Encrypt(file_content, &file_cipher));
+  base::WriteFile(base::FilePath("/home/wqx/Downloads/hls/my0.ts"),
+		  file_cipher.data(), file_cipher.size());
+}
 
 TEST(SymmetricEncryptor, CBC_EncryptAndDecrypt) {
 
