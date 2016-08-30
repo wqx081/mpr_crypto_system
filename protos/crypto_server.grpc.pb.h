@@ -33,33 +33,61 @@ class SymmetricService GRPC_FINAL {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status CreateCbcKey(::grpc::ClientContext* context, const ::crypto::CreateCbcKeyRequest& request, ::crypto::CreateCbcKeyResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CreateCbcKeyResponse>> AsyncCreateCbcKey(::grpc::ClientContext* context, const ::crypto::CreateCbcKeyRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CreateCbcKeyResponse>>(AsyncCreateCbcKeyRaw(context, request, cq));
+    virtual ::grpc::Status CreateSymmetricKey(::grpc::ClientContext* context, const ::crypto::CreateSymmetricKeyRequest& request, ::crypto::CreateSymmetricKeyResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CreateSymmetricKeyResponse>> AsyncCreateSymmetricKey(::grpc::ClientContext* context, const ::crypto::CreateSymmetricKeyRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CreateSymmetricKeyResponse>>(AsyncCreateSymmetricKeyRaw(context, request, cq));
     }
-    // TODO 
-    // rpc CbcEncryptString(CbcEncryptStringRequest) returns (CbcEncryptStringResponse);
+    // CBC
     virtual ::grpc::Status CbcEncryptFile(::grpc::ClientContext* context, const ::crypto::CbcEncryptFileRequest& request, ::crypto::CbcEncryptFileResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CbcEncryptFileResponse>> AsyncCbcEncryptFile(::grpc::ClientContext* context, const ::crypto::CbcEncryptFileRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CbcEncryptFileResponse>>(AsyncCbcEncryptFileRaw(context, request, cq));
     }
-    // TODO
-    // rpc CbcDecryptString(CbcDecryptStringRequest) returns (CbcDecryptStringResponse);
     virtual ::grpc::Status CbcDecryptFile(::grpc::ClientContext* context, const ::crypto::CbcDecryptFileRequest& request, ::crypto::CbcDecryptFileResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CbcDecryptFileResponse>> AsyncCbcDecryptFile(::grpc::ClientContext* context, const ::crypto::CbcDecryptFileRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CbcDecryptFileResponse>>(AsyncCbcDecryptFileRaw(context, request, cq));
     }
+    virtual ::grpc::Status CbcEncryptString(::grpc::ClientContext* context, const ::crypto::CbcEncryptStringRequest& request, ::crypto::CbcEncryptStringResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CbcEncryptStringResponse>> AsyncCbcEncryptString(::grpc::ClientContext* context, const ::crypto::CbcEncryptStringRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CbcEncryptStringResponse>>(AsyncCbcEncryptStringRaw(context, request, cq));
+    }
+    virtual ::grpc::Status CbcDecryptString(::grpc::ClientContext* context, const ::crypto::CbcDecryptStringRequest& request, ::crypto::CbcDecryptStringResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CbcDecryptStringResponse>> AsyncCbcDecryptString(::grpc::ClientContext* context, const ::crypto::CbcDecryptStringRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CbcDecryptStringResponse>>(AsyncCbcDecryptStringRaw(context, request, cq));
+    }
+    // ECB
+    virtual ::grpc::Status EcbEncryptFile(::grpc::ClientContext* context, const ::crypto::EcbEncryptFileRequest& request, ::crypto::EcbEncryptFileResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::EcbEncryptFileResponse>> AsyncEcbEncryptFile(::grpc::ClientContext* context, const ::crypto::EcbEncryptFileRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::EcbEncryptFileResponse>>(AsyncEcbEncryptFileRaw(context, request, cq));
+    }
+    virtual ::grpc::Status EcbDecryptFile(::grpc::ClientContext* context, const ::crypto::EcbDecryptFileRequest& request, ::crypto::EcbDecryptFileResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::EcbDecryptFileResponse>> AsyncEcbDecryptFile(::grpc::ClientContext* context, const ::crypto::EcbDecryptFileRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::EcbDecryptFileResponse>>(AsyncEcbDecryptFileRaw(context, request, cq));
+    }
+    virtual ::grpc::Status EcbEncryptString(::grpc::ClientContext* context, const ::crypto::EcbEncryptStringRequest& request, ::crypto::EcbEncryptStringResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::EcbEncryptStringResponse>> AsyncEcbEncryptString(::grpc::ClientContext* context, const ::crypto::EcbEncryptStringRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::EcbEncryptStringResponse>>(AsyncEcbEncryptStringRaw(context, request, cq));
+    }
+    virtual ::grpc::Status EcbDecryptString(::grpc::ClientContext* context, const ::crypto::EcbDecryptStringRequest& request, ::crypto::EcbDecryptStringResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::EcbDecryptStringResponse>> AsyncEcbDecryptString(::grpc::ClientContext* context, const ::crypto::EcbDecryptStringRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::crypto::EcbDecryptStringResponse>>(AsyncEcbDecryptStringRaw(context, request, cq));
+    }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CreateCbcKeyResponse>* AsyncCreateCbcKeyRaw(::grpc::ClientContext* context, const ::crypto::CreateCbcKeyRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CreateSymmetricKeyResponse>* AsyncCreateSymmetricKeyRaw(::grpc::ClientContext* context, const ::crypto::CreateSymmetricKeyRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CbcEncryptFileResponse>* AsyncCbcEncryptFileRaw(::grpc::ClientContext* context, const ::crypto::CbcEncryptFileRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CbcDecryptFileResponse>* AsyncCbcDecryptFileRaw(::grpc::ClientContext* context, const ::crypto::CbcDecryptFileRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CbcEncryptStringResponse>* AsyncCbcEncryptStringRaw(::grpc::ClientContext* context, const ::crypto::CbcEncryptStringRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::crypto::CbcDecryptStringResponse>* AsyncCbcDecryptStringRaw(::grpc::ClientContext* context, const ::crypto::CbcDecryptStringRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::crypto::EcbEncryptFileResponse>* AsyncEcbEncryptFileRaw(::grpc::ClientContext* context, const ::crypto::EcbEncryptFileRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::crypto::EcbDecryptFileResponse>* AsyncEcbDecryptFileRaw(::grpc::ClientContext* context, const ::crypto::EcbDecryptFileRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::crypto::EcbEncryptStringResponse>* AsyncEcbEncryptStringRaw(::grpc::ClientContext* context, const ::crypto::EcbEncryptStringRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::crypto::EcbDecryptStringResponse>* AsyncEcbDecryptStringRaw(::grpc::ClientContext* context, const ::crypto::EcbDecryptStringRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub GRPC_FINAL : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status CreateCbcKey(::grpc::ClientContext* context, const ::crypto::CreateCbcKeyRequest& request, ::crypto::CreateCbcKeyResponse* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::CreateCbcKeyResponse>> AsyncCreateCbcKey(::grpc::ClientContext* context, const ::crypto::CreateCbcKeyRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::CreateCbcKeyResponse>>(AsyncCreateCbcKeyRaw(context, request, cq));
+    ::grpc::Status CreateSymmetricKey(::grpc::ClientContext* context, const ::crypto::CreateSymmetricKeyRequest& request, ::crypto::CreateSymmetricKeyResponse* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::CreateSymmetricKeyResponse>> AsyncCreateSymmetricKey(::grpc::ClientContext* context, const ::crypto::CreateSymmetricKeyRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::CreateSymmetricKeyResponse>>(AsyncCreateSymmetricKeyRaw(context, request, cq));
     }
     ::grpc::Status CbcEncryptFile(::grpc::ClientContext* context, const ::crypto::CbcEncryptFileRequest& request, ::crypto::CbcEncryptFileResponse* response) GRPC_OVERRIDE;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::CbcEncryptFileResponse>> AsyncCbcEncryptFile(::grpc::ClientContext* context, const ::crypto::CbcEncryptFileRequest& request, ::grpc::CompletionQueue* cq) {
@@ -69,15 +97,51 @@ class SymmetricService GRPC_FINAL {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::CbcDecryptFileResponse>> AsyncCbcDecryptFile(::grpc::ClientContext* context, const ::crypto::CbcDecryptFileRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::CbcDecryptFileResponse>>(AsyncCbcDecryptFileRaw(context, request, cq));
     }
+    ::grpc::Status CbcEncryptString(::grpc::ClientContext* context, const ::crypto::CbcEncryptStringRequest& request, ::crypto::CbcEncryptStringResponse* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::CbcEncryptStringResponse>> AsyncCbcEncryptString(::grpc::ClientContext* context, const ::crypto::CbcEncryptStringRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::CbcEncryptStringResponse>>(AsyncCbcEncryptStringRaw(context, request, cq));
+    }
+    ::grpc::Status CbcDecryptString(::grpc::ClientContext* context, const ::crypto::CbcDecryptStringRequest& request, ::crypto::CbcDecryptStringResponse* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::CbcDecryptStringResponse>> AsyncCbcDecryptString(::grpc::ClientContext* context, const ::crypto::CbcDecryptStringRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::CbcDecryptStringResponse>>(AsyncCbcDecryptStringRaw(context, request, cq));
+    }
+    ::grpc::Status EcbEncryptFile(::grpc::ClientContext* context, const ::crypto::EcbEncryptFileRequest& request, ::crypto::EcbEncryptFileResponse* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::EcbEncryptFileResponse>> AsyncEcbEncryptFile(::grpc::ClientContext* context, const ::crypto::EcbEncryptFileRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::EcbEncryptFileResponse>>(AsyncEcbEncryptFileRaw(context, request, cq));
+    }
+    ::grpc::Status EcbDecryptFile(::grpc::ClientContext* context, const ::crypto::EcbDecryptFileRequest& request, ::crypto::EcbDecryptFileResponse* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::EcbDecryptFileResponse>> AsyncEcbDecryptFile(::grpc::ClientContext* context, const ::crypto::EcbDecryptFileRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::EcbDecryptFileResponse>>(AsyncEcbDecryptFileRaw(context, request, cq));
+    }
+    ::grpc::Status EcbEncryptString(::grpc::ClientContext* context, const ::crypto::EcbEncryptStringRequest& request, ::crypto::EcbEncryptStringResponse* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::EcbEncryptStringResponse>> AsyncEcbEncryptString(::grpc::ClientContext* context, const ::crypto::EcbEncryptStringRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::EcbEncryptStringResponse>>(AsyncEcbEncryptStringRaw(context, request, cq));
+    }
+    ::grpc::Status EcbDecryptString(::grpc::ClientContext* context, const ::crypto::EcbDecryptStringRequest& request, ::crypto::EcbDecryptStringResponse* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::EcbDecryptStringResponse>> AsyncEcbDecryptString(::grpc::ClientContext* context, const ::crypto::EcbDecryptStringRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::crypto::EcbDecryptStringResponse>>(AsyncEcbDecryptStringRaw(context, request, cq));
+    }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    ::grpc::ClientAsyncResponseReader< ::crypto::CreateCbcKeyResponse>* AsyncCreateCbcKeyRaw(::grpc::ClientContext* context, const ::crypto::CreateCbcKeyRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::crypto::CreateSymmetricKeyResponse>* AsyncCreateSymmetricKeyRaw(::grpc::ClientContext* context, const ::crypto::CreateSymmetricKeyRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::crypto::CbcEncryptFileResponse>* AsyncCbcEncryptFileRaw(::grpc::ClientContext* context, const ::crypto::CbcEncryptFileRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
     ::grpc::ClientAsyncResponseReader< ::crypto::CbcDecryptFileResponse>* AsyncCbcDecryptFileRaw(::grpc::ClientContext* context, const ::crypto::CbcDecryptFileRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    const ::grpc::RpcMethod rpcmethod_CreateCbcKey_;
+    ::grpc::ClientAsyncResponseReader< ::crypto::CbcEncryptStringResponse>* AsyncCbcEncryptStringRaw(::grpc::ClientContext* context, const ::crypto::CbcEncryptStringRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::crypto::CbcDecryptStringResponse>* AsyncCbcDecryptStringRaw(::grpc::ClientContext* context, const ::crypto::CbcDecryptStringRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::crypto::EcbEncryptFileResponse>* AsyncEcbEncryptFileRaw(::grpc::ClientContext* context, const ::crypto::EcbEncryptFileRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::crypto::EcbDecryptFileResponse>* AsyncEcbDecryptFileRaw(::grpc::ClientContext* context, const ::crypto::EcbDecryptFileRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::crypto::EcbEncryptStringResponse>* AsyncEcbEncryptStringRaw(::grpc::ClientContext* context, const ::crypto::EcbEncryptStringRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::crypto::EcbDecryptStringResponse>* AsyncEcbDecryptStringRaw(::grpc::ClientContext* context, const ::crypto::EcbDecryptStringRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    const ::grpc::RpcMethod rpcmethod_CreateSymmetricKey_;
     const ::grpc::RpcMethod rpcmethod_CbcEncryptFile_;
     const ::grpc::RpcMethod rpcmethod_CbcDecryptFile_;
+    const ::grpc::RpcMethod rpcmethod_CbcEncryptString_;
+    const ::grpc::RpcMethod rpcmethod_CbcDecryptString_;
+    const ::grpc::RpcMethod rpcmethod_EcbEncryptFile_;
+    const ::grpc::RpcMethod rpcmethod_EcbDecryptFile_;
+    const ::grpc::RpcMethod rpcmethod_EcbEncryptString_;
+    const ::grpc::RpcMethod rpcmethod_EcbDecryptString_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -85,31 +149,35 @@ class SymmetricService GRPC_FINAL {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status CreateCbcKey(::grpc::ServerContext* context, const ::crypto::CreateCbcKeyRequest* request, ::crypto::CreateCbcKeyResponse* response);
-    // TODO 
-    // rpc CbcEncryptString(CbcEncryptStringRequest) returns (CbcEncryptStringResponse);
+    virtual ::grpc::Status CreateSymmetricKey(::grpc::ServerContext* context, const ::crypto::CreateSymmetricKeyRequest* request, ::crypto::CreateSymmetricKeyResponse* response);
+    // CBC
     virtual ::grpc::Status CbcEncryptFile(::grpc::ServerContext* context, const ::crypto::CbcEncryptFileRequest* request, ::crypto::CbcEncryptFileResponse* response);
-    // TODO
-    // rpc CbcDecryptString(CbcDecryptStringRequest) returns (CbcDecryptStringResponse);
     virtual ::grpc::Status CbcDecryptFile(::grpc::ServerContext* context, const ::crypto::CbcDecryptFileRequest* request, ::crypto::CbcDecryptFileResponse* response);
+    virtual ::grpc::Status CbcEncryptString(::grpc::ServerContext* context, const ::crypto::CbcEncryptStringRequest* request, ::crypto::CbcEncryptStringResponse* response);
+    virtual ::grpc::Status CbcDecryptString(::grpc::ServerContext* context, const ::crypto::CbcDecryptStringRequest* request, ::crypto::CbcDecryptStringResponse* response);
+    // ECB
+    virtual ::grpc::Status EcbEncryptFile(::grpc::ServerContext* context, const ::crypto::EcbEncryptFileRequest* request, ::crypto::EcbEncryptFileResponse* response);
+    virtual ::grpc::Status EcbDecryptFile(::grpc::ServerContext* context, const ::crypto::EcbDecryptFileRequest* request, ::crypto::EcbDecryptFileResponse* response);
+    virtual ::grpc::Status EcbEncryptString(::grpc::ServerContext* context, const ::crypto::EcbEncryptStringRequest* request, ::crypto::EcbEncryptStringResponse* response);
+    virtual ::grpc::Status EcbDecryptString(::grpc::ServerContext* context, const ::crypto::EcbDecryptStringRequest* request, ::crypto::EcbDecryptStringResponse* response);
   };
   template <class BaseClass>
-  class WithAsyncMethod_CreateCbcKey : public BaseClass {
+  class WithAsyncMethod_CreateSymmetricKey : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_CreateCbcKey() {
+    WithAsyncMethod_CreateSymmetricKey() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_CreateCbcKey() GRPC_OVERRIDE {
+    ~WithAsyncMethod_CreateSymmetricKey() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateCbcKey(::grpc::ServerContext* context, const ::crypto::CreateCbcKeyRequest* request, ::crypto::CreateCbcKeyResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status CreateSymmetricKey(::grpc::ServerContext* context, const ::crypto::CreateSymmetricKeyRequest* request, ::crypto::CreateSymmetricKeyResponse* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestCreateCbcKey(::grpc::ServerContext* context, ::crypto::CreateCbcKeyRequest* request, ::grpc::ServerAsyncResponseWriter< ::crypto::CreateCbcKeyResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestCreateSymmetricKey(::grpc::ServerContext* context, ::crypto::CreateSymmetricKeyRequest* request, ::grpc::ServerAsyncResponseWriter< ::crypto::CreateSymmetricKeyResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -153,20 +221,140 @@ class SymmetricService GRPC_FINAL {
       ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_CreateCbcKey<WithAsyncMethod_CbcEncryptFile<WithAsyncMethod_CbcDecryptFile<Service > > > AsyncService;
   template <class BaseClass>
-  class WithGenericMethod_CreateCbcKey : public BaseClass {
+  class WithAsyncMethod_CbcEncryptString : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_CreateCbcKey() {
-      ::grpc::Service::MarkMethodGeneric(0);
+    WithAsyncMethod_CbcEncryptString() {
+      ::grpc::Service::MarkMethodAsync(3);
     }
-    ~WithGenericMethod_CreateCbcKey() GRPC_OVERRIDE {
+    ~WithAsyncMethod_CbcEncryptString() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status CreateCbcKey(::grpc::ServerContext* context, const ::crypto::CreateCbcKeyRequest* request, ::crypto::CreateCbcKeyResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status CbcEncryptString(::grpc::ServerContext* context, const ::crypto::CbcEncryptStringRequest* request, ::crypto::CbcEncryptStringResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCbcEncryptString(::grpc::ServerContext* context, ::crypto::CbcEncryptStringRequest* request, ::grpc::ServerAsyncResponseWriter< ::crypto::CbcEncryptStringResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_CbcDecryptString : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_CbcDecryptString() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_CbcDecryptString() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CbcDecryptString(::grpc::ServerContext* context, const ::crypto::CbcDecryptStringRequest* request, ::crypto::CbcDecryptStringResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCbcDecryptString(::grpc::ServerContext* context, ::crypto::CbcDecryptStringRequest* request, ::grpc::ServerAsyncResponseWriter< ::crypto::CbcDecryptStringResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_EcbEncryptFile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_EcbEncryptFile() {
+      ::grpc::Service::MarkMethodAsync(5);
+    }
+    ~WithAsyncMethod_EcbEncryptFile() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status EcbEncryptFile(::grpc::ServerContext* context, const ::crypto::EcbEncryptFileRequest* request, ::crypto::EcbEncryptFileResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestEcbEncryptFile(::grpc::ServerContext* context, ::crypto::EcbEncryptFileRequest* request, ::grpc::ServerAsyncResponseWriter< ::crypto::EcbEncryptFileResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_EcbDecryptFile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_EcbDecryptFile() {
+      ::grpc::Service::MarkMethodAsync(6);
+    }
+    ~WithAsyncMethod_EcbDecryptFile() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status EcbDecryptFile(::grpc::ServerContext* context, const ::crypto::EcbDecryptFileRequest* request, ::crypto::EcbDecryptFileResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestEcbDecryptFile(::grpc::ServerContext* context, ::crypto::EcbDecryptFileRequest* request, ::grpc::ServerAsyncResponseWriter< ::crypto::EcbDecryptFileResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_EcbEncryptString : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_EcbEncryptString() {
+      ::grpc::Service::MarkMethodAsync(7);
+    }
+    ~WithAsyncMethod_EcbEncryptString() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status EcbEncryptString(::grpc::ServerContext* context, const ::crypto::EcbEncryptStringRequest* request, ::crypto::EcbEncryptStringResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestEcbEncryptString(::grpc::ServerContext* context, ::crypto::EcbEncryptStringRequest* request, ::grpc::ServerAsyncResponseWriter< ::crypto::EcbEncryptStringResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(7, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_EcbDecryptString : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_EcbDecryptString() {
+      ::grpc::Service::MarkMethodAsync(8);
+    }
+    ~WithAsyncMethod_EcbDecryptString() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status EcbDecryptString(::grpc::ServerContext* context, const ::crypto::EcbDecryptStringRequest* request, ::crypto::EcbDecryptStringResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestEcbDecryptString(::grpc::ServerContext* context, ::crypto::EcbDecryptStringRequest* request, ::grpc::ServerAsyncResponseWriter< ::crypto::EcbDecryptStringResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(8, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_CreateSymmetricKey<WithAsyncMethod_CbcEncryptFile<WithAsyncMethod_CbcDecryptFile<WithAsyncMethod_CbcEncryptString<WithAsyncMethod_CbcDecryptString<WithAsyncMethod_EcbEncryptFile<WithAsyncMethod_EcbDecryptFile<WithAsyncMethod_EcbEncryptString<WithAsyncMethod_EcbDecryptString<Service > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithGenericMethod_CreateSymmetricKey : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_CreateSymmetricKey() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_CreateSymmetricKey() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CreateSymmetricKey(::grpc::ServerContext* context, const ::crypto::CreateSymmetricKeyRequest* request, ::crypto::CreateSymmetricKeyResponse* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -201,6 +389,108 @@ class SymmetricService GRPC_FINAL {
     }
     // disable synchronous version of this method
     ::grpc::Status CbcDecryptFile(::grpc::ServerContext* context, const ::crypto::CbcDecryptFileRequest* request, ::crypto::CbcDecryptFileResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_CbcEncryptString : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_CbcEncryptString() {
+      ::grpc::Service::MarkMethodGeneric(3);
+    }
+    ~WithGenericMethod_CbcEncryptString() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CbcEncryptString(::grpc::ServerContext* context, const ::crypto::CbcEncryptStringRequest* request, ::crypto::CbcEncryptStringResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_CbcDecryptString : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_CbcDecryptString() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_CbcDecryptString() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CbcDecryptString(::grpc::ServerContext* context, const ::crypto::CbcDecryptStringRequest* request, ::crypto::CbcDecryptStringResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_EcbEncryptFile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_EcbEncryptFile() {
+      ::grpc::Service::MarkMethodGeneric(5);
+    }
+    ~WithGenericMethod_EcbEncryptFile() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status EcbEncryptFile(::grpc::ServerContext* context, const ::crypto::EcbEncryptFileRequest* request, ::crypto::EcbEncryptFileResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_EcbDecryptFile : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_EcbDecryptFile() {
+      ::grpc::Service::MarkMethodGeneric(6);
+    }
+    ~WithGenericMethod_EcbDecryptFile() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status EcbDecryptFile(::grpc::ServerContext* context, const ::crypto::EcbDecryptFileRequest* request, ::crypto::EcbDecryptFileResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_EcbEncryptString : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_EcbEncryptString() {
+      ::grpc::Service::MarkMethodGeneric(7);
+    }
+    ~WithGenericMethod_EcbEncryptString() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status EcbEncryptString(::grpc::ServerContext* context, const ::crypto::EcbEncryptStringRequest* request, ::crypto::EcbEncryptStringResponse* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_EcbDecryptString : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_EcbDecryptString() {
+      ::grpc::Service::MarkMethodGeneric(8);
+    }
+    ~WithGenericMethod_EcbDecryptString() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status EcbDecryptString(::grpc::ServerContext* context, const ::crypto::EcbDecryptStringRequest* request, ::crypto::EcbDecryptStringResponse* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }

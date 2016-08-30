@@ -49,6 +49,7 @@ CPP_SOURCES := \
 	./crypto/symmetric_key.cc \
 	./crypto/symmetric_encryptor.cc \
 	./crypto/symmetric_crypt.cc \
+	./crypto/symmetric_util.cc \
 	./crypto/sm2_util.cc \
 	./crypto/sm2_access_point.cc \
 	./crypto/asymmetric_padding.cc \
@@ -56,10 +57,15 @@ CPP_SOURCES := \
 	\
 	./crypto/memory_input_stream.cc \
 	./crypto/memory_output_stream.cc \
+	./crypto/file_input_stream.cc \
+	./crypto/file_output_stream.cc \
 	./crypto/sm2_asymmetric_encryptor.cc \
 	\
 	./protos/crypto_server.pb.cc \
 	./protos/crypto_server.grpc.pb.cc \
+	\
+	./service/symmetric_service.cc \
+	./service/asymmetric_service.cc \
 	\
 	./threading/time_util.cc \
 	./threading/mutex.cc \
@@ -67,27 +73,6 @@ CPP_SOURCES := \
 	./threading/thread_factory.cc \
 	./threading/thread_manager.cc \
 	\
-	\
-#	./db/common/connection_info.cc \
-	./db/common/connection_pool.cc \
-	./db/common/connection_manager.cc \
-	./db/backend/db_result.cc \
-	./db/backend/db_statement.cc \
-	./db/backend/db_connection.cc \
-	./db/backend/connector_interface.cc \
-	\
-	./db/drivers/mysql/mysql_connector.cc \
-	./db/drivers/mysql/mysql_direct_result.cc \
-	./db/drivers/mysql/mysql_direct_statement.cc \
-	./db/drivers/mysql/mysql_prepared_result.cc \
-	./db/drivers/mysql/mysql_prepared_statement.cc \
-	./db/drivers/mysql/mysql_connection.cc \
-	\
-	./db/frontend/result.cc \
-	./db/frontend/statement.cc \
-	./db/frontend/session.cc \
-	./db/frontend/transaction.cc \
-
 
 CPP_OBJECTS := $(CPP_SOURCES:.cc=.o)
 
@@ -110,16 +95,18 @@ TESTS := \
 	\
 	./crypto/memory_input_stream_unittest \
 	./crypto/memory_output_stream_unittest \
-	./crypto/sm2_asymmetric_encryptor_unittest \
+	./crypto/file_input_stream_unittest \
 	\
+	./crypto/sm2_asymmetric_encryptor_unittest \
+	./crypto/symmetric_util_unittest \
+	\
+	./service/crypto_server \
 	\
 	./threading/thread_factory_unittest \
 	./threading/thread_manager_unittest \
 	./threading/mutex_unittest \
 	\
 	\
-#	./db/drivers/mysql/mysql_connection_unittest \
-	./db/frontend/frontend_unittest \
 	
 
 all: $(CPP_OBJECTS) $(TESTS)
@@ -232,6 +219,18 @@ vpath %.proto $(PROTOS_PATH)
 ./crypto/memory_output_stream_unittest.o: ./crypto/memory_output_stream_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
+./crypto/file_input_stream_unittest: ./crypto/file_input_stream_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./crypto/file_input_stream_unittest.o: ./crypto/file_input_stream_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
+./crypto/symmetric_util_unittest: ./crypto/symmetric_util_unittest.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./crypto/symmetric_util_unittest.o: ./crypto/symmetric_util_unittest.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
+
 ./crypto/sm2_asymmetric_encryptor_unittest: ./crypto/sm2_asymmetric_encryptor_unittest.o
 	@echo "  [LINK] $@"
 	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
@@ -239,17 +238,11 @@ vpath %.proto $(PROTOS_PATH)
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
 
-
-
-
-
-
-
-
-
-
-
-
+./service/crypto_server: ./service/crypto_server.o
+	@echo "  [LINK] $@"
+	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
+./service/crypto_server.o: ./service/crypto_server.cc
+	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
 
 ./threading/thread_factory_unittest: ./threading/thread_factory_unittest.o
@@ -274,19 +267,6 @@ vpath %.proto $(PROTOS_PATH)
 	@echo "  [LINK] $@"
 	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
 ./base/ref_counted_unittest.o: ./base/ref_counted_unittest.cc
-	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
-
-
-./db/drivers/mysql/mysql_connection_unittest: ./db/drivers/mysql/mysql_connection_unittest.o
-	@echo "  [LINK] $@"
-	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
-./db/drivers/mysql/mysql_connection_unittest.o: ./db/drivers/mysql/mysql_connection_unittest.cc
-	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
-
-./db/frontend/frontend_unittest: ./db/frontend/frontend_unittest.o
-	@echo "  [LINK] $@"
-	@$(CXX) -o $@ $< $(CPP_OBJECTS) $(LIB_FILES)
-./db/frontend/frontend_unittest.o: ./db/frontend/frontend_unittest.cc
 	@$(CXX) -Wno-unused-variable $(CXXFLAGS) $@ $<
 
 db_clean:

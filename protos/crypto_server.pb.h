@@ -39,12 +39,24 @@ void protobuf_ShutdownFile_crypto_5fserver_2eproto();
 
 class CbcDecryptFileRequest;
 class CbcDecryptFileResponse;
+class CbcDecryptStringRequest;
+class CbcDecryptStringResponse;
 class CbcEncryptFileRequest;
 class CbcEncryptFileResponse;
-class CreateCbcKeyRequest;
-class CreateCbcKeyResponse;
+class CbcEncryptStringRequest;
+class CbcEncryptStringResponse;
 class CreateKeyPairRequest;
 class CreateKeyPairResponse;
+class CreateSymmetricKeyRequest;
+class CreateSymmetricKeyResponse;
+class EcbDecryptFileRequest;
+class EcbDecryptFileResponse;
+class EcbDecryptStringRequest;
+class EcbDecryptStringResponse;
+class EcbEncryptFileRequest;
+class EcbEncryptFileResponse;
+class EcbEncryptStringRequest;
+class EcbEncryptStringResponse;
 class PrivateKeyDecryptRequest;
 class PrivateKeyDecryptResponse;
 class PublicKeyEncryptRequest;
@@ -119,32 +131,32 @@ inline bool AsymmetricKeyBits_Parse(
 }
 // ===================================================================
 
-class CreateCbcKeyRequest : public ::google::protobuf::Message {
+class CreateSymmetricKeyRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.CreateSymmetricKeyRequest) */ {
  public:
-  CreateCbcKeyRequest();
-  virtual ~CreateCbcKeyRequest();
+  CreateSymmetricKeyRequest();
+  virtual ~CreateSymmetricKeyRequest();
 
-  CreateCbcKeyRequest(const CreateCbcKeyRequest& from);
+  CreateSymmetricKeyRequest(const CreateSymmetricKeyRequest& from);
 
-  inline CreateCbcKeyRequest& operator=(const CreateCbcKeyRequest& from) {
+  inline CreateSymmetricKeyRequest& operator=(const CreateSymmetricKeyRequest& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const CreateCbcKeyRequest& default_instance();
+  static const CreateSymmetricKeyRequest& default_instance();
 
-  void Swap(CreateCbcKeyRequest* other);
+  void Swap(CreateSymmetricKeyRequest* other);
 
   // implements Message ----------------------------------------------
 
-  inline CreateCbcKeyRequest* New() const { return New(NULL); }
+  inline CreateSymmetricKeyRequest* New() const { return New(NULL); }
 
-  CreateCbcKeyRequest* New(::google::protobuf::Arena* arena) const;
+  CreateSymmetricKeyRequest* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const CreateCbcKeyRequest& from);
-  void MergeFrom(const CreateCbcKeyRequest& from);
+  void CopyFrom(const CreateSymmetricKeyRequest& from);
+  void MergeFrom(const CreateSymmetricKeyRequest& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -153,13 +165,17 @@ class CreateCbcKeyRequest : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(CreateCbcKeyRequest* other);
+  void InternalSwap(CreateSymmetricKeyRequest* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -181,7 +197,7 @@ class CreateCbcKeyRequest : public ::google::protobuf::Message {
   ::crypto::SymmetricKeyBits key_bits() const;
   void set_key_bits(::crypto::SymmetricKeyBits value);
 
-  // @@protoc_insertion_point(class_scope:crypto.CreateCbcKeyRequest)
+  // @@protoc_insertion_point(class_scope:crypto.CreateSymmetricKeyRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -193,36 +209,36 @@ class CreateCbcKeyRequest : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
 
   void InitAsDefaultInstance();
-  static CreateCbcKeyRequest* default_instance_;
+  static CreateSymmetricKeyRequest* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class CreateCbcKeyResponse : public ::google::protobuf::Message {
+class CreateSymmetricKeyResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.CreateSymmetricKeyResponse) */ {
  public:
-  CreateCbcKeyResponse();
-  virtual ~CreateCbcKeyResponse();
+  CreateSymmetricKeyResponse();
+  virtual ~CreateSymmetricKeyResponse();
 
-  CreateCbcKeyResponse(const CreateCbcKeyResponse& from);
+  CreateSymmetricKeyResponse(const CreateSymmetricKeyResponse& from);
 
-  inline CreateCbcKeyResponse& operator=(const CreateCbcKeyResponse& from) {
+  inline CreateSymmetricKeyResponse& operator=(const CreateSymmetricKeyResponse& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const CreateCbcKeyResponse& default_instance();
+  static const CreateSymmetricKeyResponse& default_instance();
 
-  void Swap(CreateCbcKeyResponse* other);
+  void Swap(CreateSymmetricKeyResponse* other);
 
   // implements Message ----------------------------------------------
 
-  inline CreateCbcKeyResponse* New() const { return New(NULL); }
+  inline CreateSymmetricKeyResponse* New() const { return New(NULL); }
 
-  CreateCbcKeyResponse* New(::google::protobuf::Arena* arena) const;
+  CreateSymmetricKeyResponse* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const CreateCbcKeyResponse& from);
-  void MergeFrom(const CreateCbcKeyResponse& from);
+  void CopyFrom(const CreateSymmetricKeyResponse& from);
+  void MergeFrom(const CreateSymmetricKeyResponse& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -231,13 +247,17 @@ class CreateCbcKeyResponse : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(CreateCbcKeyResponse* other);
+  void InternalSwap(CreateSymmetricKeyResponse* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -264,7 +284,7 @@ class CreateCbcKeyResponse : public ::google::protobuf::Message {
   ::std::string* release_key();
   void set_allocated_key(::std::string* key);
 
-  // @@protoc_insertion_point(class_scope:crypto.CreateCbcKeyResponse)
+  // @@protoc_insertion_point(class_scope:crypto.CreateSymmetricKeyResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -276,11 +296,11 @@ class CreateCbcKeyResponse : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
 
   void InitAsDefaultInstance();
-  static CreateCbcKeyResponse* default_instance_;
+  static CreateSymmetricKeyResponse* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class CbcEncryptFileRequest : public ::google::protobuf::Message {
+class CbcEncryptFileRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.CbcEncryptFileRequest) */ {
  public:
   CbcEncryptFileRequest();
   virtual ~CbcEncryptFileRequest();
@@ -314,7 +334,11 @@ class CbcEncryptFileRequest : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -358,16 +382,27 @@ class CbcEncryptFileRequest : public ::google::protobuf::Message {
   ::std::string* release_iv();
   void set_allocated_iv(::std::string* iv);
 
-  // optional string file_path = 3;
-  void clear_file_path();
-  static const int kFilePathFieldNumber = 3;
-  const ::std::string& file_path() const;
-  void set_file_path(const ::std::string& value);
-  void set_file_path(const char* value);
-  void set_file_path(const char* value, size_t size);
-  ::std::string* mutable_file_path();
-  ::std::string* release_file_path();
-  void set_allocated_file_path(::std::string* file_path);
+  // optional string file_source_path = 3;
+  void clear_file_source_path();
+  static const int kFileSourcePathFieldNumber = 3;
+  const ::std::string& file_source_path() const;
+  void set_file_source_path(const ::std::string& value);
+  void set_file_source_path(const char* value);
+  void set_file_source_path(const char* value, size_t size);
+  ::std::string* mutable_file_source_path();
+  ::std::string* release_file_source_path();
+  void set_allocated_file_source_path(::std::string* file_source_path);
+
+  // optional string file_target_path = 4;
+  void clear_file_target_path();
+  static const int kFileTargetPathFieldNumber = 4;
+  const ::std::string& file_target_path() const;
+  void set_file_target_path(const ::std::string& value);
+  void set_file_target_path(const char* value);
+  void set_file_target_path(const char* value, size_t size);
+  ::std::string* mutable_file_target_path();
+  ::std::string* release_file_target_path();
+  void set_allocated_file_target_path(::std::string* file_target_path);
 
   // @@protoc_insertion_point(class_scope:crypto.CbcEncryptFileRequest)
  private:
@@ -376,7 +411,8 @@ class CbcEncryptFileRequest : public ::google::protobuf::Message {
   bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr key_;
   ::google::protobuf::internal::ArenaStringPtr iv_;
-  ::google::protobuf::internal::ArenaStringPtr file_path_;
+  ::google::protobuf::internal::ArenaStringPtr file_source_path_;
+  ::google::protobuf::internal::ArenaStringPtr file_target_path_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
   friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
@@ -387,7 +423,7 @@ class CbcEncryptFileRequest : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class CbcEncryptFileResponse : public ::google::protobuf::Message {
+class CbcEncryptFileResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.CbcEncryptFileResponse) */ {
  public:
   CbcEncryptFileResponse();
   virtual ~CbcEncryptFileResponse();
@@ -421,7 +457,11 @@ class CbcEncryptFileResponse : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -458,7 +498,7 @@ class CbcEncryptFileResponse : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class CbcDecryptFileRequest : public ::google::protobuf::Message {
+class CbcDecryptFileRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.CbcDecryptFileRequest) */ {
  public:
   CbcDecryptFileRequest();
   virtual ~CbcDecryptFileRequest();
@@ -492,7 +532,11 @@ class CbcDecryptFileRequest : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -536,16 +580,27 @@ class CbcDecryptFileRequest : public ::google::protobuf::Message {
   ::std::string* release_iv();
   void set_allocated_iv(::std::string* iv);
 
-  // optional string file_path = 3;
-  void clear_file_path();
-  static const int kFilePathFieldNumber = 3;
-  const ::std::string& file_path() const;
-  void set_file_path(const ::std::string& value);
-  void set_file_path(const char* value);
-  void set_file_path(const char* value, size_t size);
-  ::std::string* mutable_file_path();
-  ::std::string* release_file_path();
-  void set_allocated_file_path(::std::string* file_path);
+  // optional string file_source_path = 3;
+  void clear_file_source_path();
+  static const int kFileSourcePathFieldNumber = 3;
+  const ::std::string& file_source_path() const;
+  void set_file_source_path(const ::std::string& value);
+  void set_file_source_path(const char* value);
+  void set_file_source_path(const char* value, size_t size);
+  ::std::string* mutable_file_source_path();
+  ::std::string* release_file_source_path();
+  void set_allocated_file_source_path(::std::string* file_source_path);
+
+  // optional string file_target_path = 4;
+  void clear_file_target_path();
+  static const int kFileTargetPathFieldNumber = 4;
+  const ::std::string& file_target_path() const;
+  void set_file_target_path(const ::std::string& value);
+  void set_file_target_path(const char* value);
+  void set_file_target_path(const char* value, size_t size);
+  ::std::string* mutable_file_target_path();
+  ::std::string* release_file_target_path();
+  void set_allocated_file_target_path(::std::string* file_target_path);
 
   // @@protoc_insertion_point(class_scope:crypto.CbcDecryptFileRequest)
  private:
@@ -554,7 +609,8 @@ class CbcDecryptFileRequest : public ::google::protobuf::Message {
   bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr key_;
   ::google::protobuf::internal::ArenaStringPtr iv_;
-  ::google::protobuf::internal::ArenaStringPtr file_path_;
+  ::google::protobuf::internal::ArenaStringPtr file_source_path_;
+  ::google::protobuf::internal::ArenaStringPtr file_target_path_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
   friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
@@ -565,7 +621,7 @@ class CbcDecryptFileRequest : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class CbcDecryptFileResponse : public ::google::protobuf::Message {
+class CbcDecryptFileResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.CbcDecryptFileResponse) */ {
  public:
   CbcDecryptFileResponse();
   virtual ~CbcDecryptFileResponse();
@@ -599,7 +655,11 @@ class CbcDecryptFileResponse : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -636,7 +696,1147 @@ class CbcDecryptFileResponse : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class CreateKeyPairRequest : public ::google::protobuf::Message {
+class CbcEncryptStringRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.CbcEncryptStringRequest) */ {
+ public:
+  CbcEncryptStringRequest();
+  virtual ~CbcEncryptStringRequest();
+
+  CbcEncryptStringRequest(const CbcEncryptStringRequest& from);
+
+  inline CbcEncryptStringRequest& operator=(const CbcEncryptStringRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CbcEncryptStringRequest& default_instance();
+
+  void Swap(CbcEncryptStringRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CbcEncryptStringRequest* New() const { return New(NULL); }
+
+  CbcEncryptStringRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CbcEncryptStringRequest& from);
+  void MergeFrom(const CbcEncryptStringRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CbcEncryptStringRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
+
+  // optional string iv = 2;
+  void clear_iv();
+  static const int kIvFieldNumber = 2;
+  const ::std::string& iv() const;
+  void set_iv(const ::std::string& value);
+  void set_iv(const char* value);
+  void set_iv(const char* value, size_t size);
+  ::std::string* mutable_iv();
+  ::std::string* release_iv();
+  void set_allocated_iv(::std::string* iv);
+
+  // optional string plaintext = 3;
+  void clear_plaintext();
+  static const int kPlaintextFieldNumber = 3;
+  const ::std::string& plaintext() const;
+  void set_plaintext(const ::std::string& value);
+  void set_plaintext(const char* value);
+  void set_plaintext(const char* value, size_t size);
+  ::std::string* mutable_plaintext();
+  ::std::string* release_plaintext();
+  void set_allocated_plaintext(::std::string* plaintext);
+
+  // @@protoc_insertion_point(class_scope:crypto.CbcEncryptStringRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr key_;
+  ::google::protobuf::internal::ArenaStringPtr iv_;
+  ::google::protobuf::internal::ArenaStringPtr plaintext_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
+  friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
+  friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static CbcEncryptStringRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CbcEncryptStringResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.CbcEncryptStringResponse) */ {
+ public:
+  CbcEncryptStringResponse();
+  virtual ~CbcEncryptStringResponse();
+
+  CbcEncryptStringResponse(const CbcEncryptStringResponse& from);
+
+  inline CbcEncryptStringResponse& operator=(const CbcEncryptStringResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CbcEncryptStringResponse& default_instance();
+
+  void Swap(CbcEncryptStringResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CbcEncryptStringResponse* New() const { return New(NULL); }
+
+  CbcEncryptStringResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CbcEncryptStringResponse& from);
+  void MergeFrom(const CbcEncryptStringResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CbcEncryptStringResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string cipher = 1;
+  void clear_cipher();
+  static const int kCipherFieldNumber = 1;
+  const ::std::string& cipher() const;
+  void set_cipher(const ::std::string& value);
+  void set_cipher(const char* value);
+  void set_cipher(const char* value, size_t size);
+  ::std::string* mutable_cipher();
+  ::std::string* release_cipher();
+  void set_allocated_cipher(::std::string* cipher);
+
+  // @@protoc_insertion_point(class_scope:crypto.CbcEncryptStringResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr cipher_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
+  friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
+  friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static CbcEncryptStringResponse* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CbcDecryptStringRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.CbcDecryptStringRequest) */ {
+ public:
+  CbcDecryptStringRequest();
+  virtual ~CbcDecryptStringRequest();
+
+  CbcDecryptStringRequest(const CbcDecryptStringRequest& from);
+
+  inline CbcDecryptStringRequest& operator=(const CbcDecryptStringRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CbcDecryptStringRequest& default_instance();
+
+  void Swap(CbcDecryptStringRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CbcDecryptStringRequest* New() const { return New(NULL); }
+
+  CbcDecryptStringRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CbcDecryptStringRequest& from);
+  void MergeFrom(const CbcDecryptStringRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CbcDecryptStringRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
+
+  // optional string iv = 2;
+  void clear_iv();
+  static const int kIvFieldNumber = 2;
+  const ::std::string& iv() const;
+  void set_iv(const ::std::string& value);
+  void set_iv(const char* value);
+  void set_iv(const char* value, size_t size);
+  ::std::string* mutable_iv();
+  ::std::string* release_iv();
+  void set_allocated_iv(::std::string* iv);
+
+  // optional string cipher = 3;
+  void clear_cipher();
+  static const int kCipherFieldNumber = 3;
+  const ::std::string& cipher() const;
+  void set_cipher(const ::std::string& value);
+  void set_cipher(const char* value);
+  void set_cipher(const char* value, size_t size);
+  ::std::string* mutable_cipher();
+  ::std::string* release_cipher();
+  void set_allocated_cipher(::std::string* cipher);
+
+  // @@protoc_insertion_point(class_scope:crypto.CbcDecryptStringRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr key_;
+  ::google::protobuf::internal::ArenaStringPtr iv_;
+  ::google::protobuf::internal::ArenaStringPtr cipher_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
+  friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
+  friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static CbcDecryptStringRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CbcDecryptStringResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.CbcDecryptStringResponse) */ {
+ public:
+  CbcDecryptStringResponse();
+  virtual ~CbcDecryptStringResponse();
+
+  CbcDecryptStringResponse(const CbcDecryptStringResponse& from);
+
+  inline CbcDecryptStringResponse& operator=(const CbcDecryptStringResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CbcDecryptStringResponse& default_instance();
+
+  void Swap(CbcDecryptStringResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline CbcDecryptStringResponse* New() const { return New(NULL); }
+
+  CbcDecryptStringResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CbcDecryptStringResponse& from);
+  void MergeFrom(const CbcDecryptStringResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(CbcDecryptStringResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string plaintext = 1;
+  void clear_plaintext();
+  static const int kPlaintextFieldNumber = 1;
+  const ::std::string& plaintext() const;
+  void set_plaintext(const ::std::string& value);
+  void set_plaintext(const char* value);
+  void set_plaintext(const char* value, size_t size);
+  ::std::string* mutable_plaintext();
+  ::std::string* release_plaintext();
+  void set_allocated_plaintext(::std::string* plaintext);
+
+  // @@protoc_insertion_point(class_scope:crypto.CbcDecryptStringResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr plaintext_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
+  friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
+  friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static CbcDecryptStringResponse* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EcbEncryptFileRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.EcbEncryptFileRequest) */ {
+ public:
+  EcbEncryptFileRequest();
+  virtual ~EcbEncryptFileRequest();
+
+  EcbEncryptFileRequest(const EcbEncryptFileRequest& from);
+
+  inline EcbEncryptFileRequest& operator=(const EcbEncryptFileRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EcbEncryptFileRequest& default_instance();
+
+  void Swap(EcbEncryptFileRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline EcbEncryptFileRequest* New() const { return New(NULL); }
+
+  EcbEncryptFileRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EcbEncryptFileRequest& from);
+  void MergeFrom(const EcbEncryptFileRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(EcbEncryptFileRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
+
+  // optional string file_source_path = 2;
+  void clear_file_source_path();
+  static const int kFileSourcePathFieldNumber = 2;
+  const ::std::string& file_source_path() const;
+  void set_file_source_path(const ::std::string& value);
+  void set_file_source_path(const char* value);
+  void set_file_source_path(const char* value, size_t size);
+  ::std::string* mutable_file_source_path();
+  ::std::string* release_file_source_path();
+  void set_allocated_file_source_path(::std::string* file_source_path);
+
+  // optional string file_target_path = 3;
+  void clear_file_target_path();
+  static const int kFileTargetPathFieldNumber = 3;
+  const ::std::string& file_target_path() const;
+  void set_file_target_path(const ::std::string& value);
+  void set_file_target_path(const char* value);
+  void set_file_target_path(const char* value, size_t size);
+  ::std::string* mutable_file_target_path();
+  ::std::string* release_file_target_path();
+  void set_allocated_file_target_path(::std::string* file_target_path);
+
+  // @@protoc_insertion_point(class_scope:crypto.EcbEncryptFileRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr key_;
+  ::google::protobuf::internal::ArenaStringPtr file_source_path_;
+  ::google::protobuf::internal::ArenaStringPtr file_target_path_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
+  friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
+  friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static EcbEncryptFileRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EcbEncryptFileResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.EcbEncryptFileResponse) */ {
+ public:
+  EcbEncryptFileResponse();
+  virtual ~EcbEncryptFileResponse();
+
+  EcbEncryptFileResponse(const EcbEncryptFileResponse& from);
+
+  inline EcbEncryptFileResponse& operator=(const EcbEncryptFileResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EcbEncryptFileResponse& default_instance();
+
+  void Swap(EcbEncryptFileResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline EcbEncryptFileResponse* New() const { return New(NULL); }
+
+  EcbEncryptFileResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EcbEncryptFileResponse& from);
+  void MergeFrom(const EcbEncryptFileResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(EcbEncryptFileResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:crypto.EcbEncryptFileResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
+  friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
+  friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static EcbEncryptFileResponse* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EcbDecryptFileRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.EcbDecryptFileRequest) */ {
+ public:
+  EcbDecryptFileRequest();
+  virtual ~EcbDecryptFileRequest();
+
+  EcbDecryptFileRequest(const EcbDecryptFileRequest& from);
+
+  inline EcbDecryptFileRequest& operator=(const EcbDecryptFileRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EcbDecryptFileRequest& default_instance();
+
+  void Swap(EcbDecryptFileRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline EcbDecryptFileRequest* New() const { return New(NULL); }
+
+  EcbDecryptFileRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EcbDecryptFileRequest& from);
+  void MergeFrom(const EcbDecryptFileRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(EcbDecryptFileRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
+
+  // optional string file_source_path = 2;
+  void clear_file_source_path();
+  static const int kFileSourcePathFieldNumber = 2;
+  const ::std::string& file_source_path() const;
+  void set_file_source_path(const ::std::string& value);
+  void set_file_source_path(const char* value);
+  void set_file_source_path(const char* value, size_t size);
+  ::std::string* mutable_file_source_path();
+  ::std::string* release_file_source_path();
+  void set_allocated_file_source_path(::std::string* file_source_path);
+
+  // optional string file_target_path = 3;
+  void clear_file_target_path();
+  static const int kFileTargetPathFieldNumber = 3;
+  const ::std::string& file_target_path() const;
+  void set_file_target_path(const ::std::string& value);
+  void set_file_target_path(const char* value);
+  void set_file_target_path(const char* value, size_t size);
+  ::std::string* mutable_file_target_path();
+  ::std::string* release_file_target_path();
+  void set_allocated_file_target_path(::std::string* file_target_path);
+
+  // @@protoc_insertion_point(class_scope:crypto.EcbDecryptFileRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr key_;
+  ::google::protobuf::internal::ArenaStringPtr file_source_path_;
+  ::google::protobuf::internal::ArenaStringPtr file_target_path_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
+  friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
+  friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static EcbDecryptFileRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EcbDecryptFileResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.EcbDecryptFileResponse) */ {
+ public:
+  EcbDecryptFileResponse();
+  virtual ~EcbDecryptFileResponse();
+
+  EcbDecryptFileResponse(const EcbDecryptFileResponse& from);
+
+  inline EcbDecryptFileResponse& operator=(const EcbDecryptFileResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EcbDecryptFileResponse& default_instance();
+
+  void Swap(EcbDecryptFileResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline EcbDecryptFileResponse* New() const { return New(NULL); }
+
+  EcbDecryptFileResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EcbDecryptFileResponse& from);
+  void MergeFrom(const EcbDecryptFileResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(EcbDecryptFileResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:crypto.EcbDecryptFileResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
+  friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
+  friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static EcbDecryptFileResponse* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EcbEncryptStringRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.EcbEncryptStringRequest) */ {
+ public:
+  EcbEncryptStringRequest();
+  virtual ~EcbEncryptStringRequest();
+
+  EcbEncryptStringRequest(const EcbEncryptStringRequest& from);
+
+  inline EcbEncryptStringRequest& operator=(const EcbEncryptStringRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EcbEncryptStringRequest& default_instance();
+
+  void Swap(EcbEncryptStringRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline EcbEncryptStringRequest* New() const { return New(NULL); }
+
+  EcbEncryptStringRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EcbEncryptStringRequest& from);
+  void MergeFrom(const EcbEncryptStringRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(EcbEncryptStringRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
+
+  // optional string plaintext = 2;
+  void clear_plaintext();
+  static const int kPlaintextFieldNumber = 2;
+  const ::std::string& plaintext() const;
+  void set_plaintext(const ::std::string& value);
+  void set_plaintext(const char* value);
+  void set_plaintext(const char* value, size_t size);
+  ::std::string* mutable_plaintext();
+  ::std::string* release_plaintext();
+  void set_allocated_plaintext(::std::string* plaintext);
+
+  // @@protoc_insertion_point(class_scope:crypto.EcbEncryptStringRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr key_;
+  ::google::protobuf::internal::ArenaStringPtr plaintext_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
+  friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
+  friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static EcbEncryptStringRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EcbEncryptStringResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.EcbEncryptStringResponse) */ {
+ public:
+  EcbEncryptStringResponse();
+  virtual ~EcbEncryptStringResponse();
+
+  EcbEncryptStringResponse(const EcbEncryptStringResponse& from);
+
+  inline EcbEncryptStringResponse& operator=(const EcbEncryptStringResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EcbEncryptStringResponse& default_instance();
+
+  void Swap(EcbEncryptStringResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline EcbEncryptStringResponse* New() const { return New(NULL); }
+
+  EcbEncryptStringResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EcbEncryptStringResponse& from);
+  void MergeFrom(const EcbEncryptStringResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(EcbEncryptStringResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string cipher = 1;
+  void clear_cipher();
+  static const int kCipherFieldNumber = 1;
+  const ::std::string& cipher() const;
+  void set_cipher(const ::std::string& value);
+  void set_cipher(const char* value);
+  void set_cipher(const char* value, size_t size);
+  ::std::string* mutable_cipher();
+  ::std::string* release_cipher();
+  void set_allocated_cipher(::std::string* cipher);
+
+  // @@protoc_insertion_point(class_scope:crypto.EcbEncryptStringResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr cipher_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
+  friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
+  friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static EcbEncryptStringResponse* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EcbDecryptStringRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.EcbDecryptStringRequest) */ {
+ public:
+  EcbDecryptStringRequest();
+  virtual ~EcbDecryptStringRequest();
+
+  EcbDecryptStringRequest(const EcbDecryptStringRequest& from);
+
+  inline EcbDecryptStringRequest& operator=(const EcbDecryptStringRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EcbDecryptStringRequest& default_instance();
+
+  void Swap(EcbDecryptStringRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline EcbDecryptStringRequest* New() const { return New(NULL); }
+
+  EcbDecryptStringRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EcbDecryptStringRequest& from);
+  void MergeFrom(const EcbDecryptStringRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(EcbDecryptStringRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
+
+  // optional string cipher = 2;
+  void clear_cipher();
+  static const int kCipherFieldNumber = 2;
+  const ::std::string& cipher() const;
+  void set_cipher(const ::std::string& value);
+  void set_cipher(const char* value);
+  void set_cipher(const char* value, size_t size);
+  ::std::string* mutable_cipher();
+  ::std::string* release_cipher();
+  void set_allocated_cipher(::std::string* cipher);
+
+  // @@protoc_insertion_point(class_scope:crypto.EcbDecryptStringRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr key_;
+  ::google::protobuf::internal::ArenaStringPtr cipher_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
+  friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
+  friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static EcbDecryptStringRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EcbDecryptStringResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.EcbDecryptStringResponse) */ {
+ public:
+  EcbDecryptStringResponse();
+  virtual ~EcbDecryptStringResponse();
+
+  EcbDecryptStringResponse(const EcbDecryptStringResponse& from);
+
+  inline EcbDecryptStringResponse& operator=(const EcbDecryptStringResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EcbDecryptStringResponse& default_instance();
+
+  void Swap(EcbDecryptStringResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  inline EcbDecryptStringResponse* New() const { return New(NULL); }
+
+  EcbDecryptStringResponse* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EcbDecryptStringResponse& from);
+  void MergeFrom(const EcbDecryptStringResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(EcbDecryptStringResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string plaintext = 1;
+  void clear_plaintext();
+  static const int kPlaintextFieldNumber = 1;
+  const ::std::string& plaintext() const;
+  void set_plaintext(const ::std::string& value);
+  void set_plaintext(const char* value);
+  void set_plaintext(const char* value, size_t size);
+  ::std::string* mutable_plaintext();
+  ::std::string* release_plaintext();
+  void set_allocated_plaintext(::std::string* plaintext);
+
+  // @@protoc_insertion_point(class_scope:crypto.EcbDecryptStringResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::internal::ArenaStringPtr plaintext_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_crypto_5fserver_2eproto();
+  friend void protobuf_AssignDesc_crypto_5fserver_2eproto();
+  friend void protobuf_ShutdownFile_crypto_5fserver_2eproto();
+
+  void InitAsDefaultInstance();
+  static EcbDecryptStringResponse* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CreateKeyPairRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.CreateKeyPairRequest) */ {
  public:
   CreateKeyPairRequest();
   virtual ~CreateKeyPairRequest();
@@ -670,7 +1870,11 @@ class CreateKeyPairRequest : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -721,7 +1925,7 @@ class CreateKeyPairRequest : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class CreateKeyPairResponse : public ::google::protobuf::Message {
+class CreateKeyPairResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.CreateKeyPairResponse) */ {
  public:
   CreateKeyPairResponse();
   virtual ~CreateKeyPairResponse();
@@ -755,7 +1959,11 @@ class CreateKeyPairResponse : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -816,7 +2024,7 @@ class CreateKeyPairResponse : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class PublicKeyEncryptRequest : public ::google::protobuf::Message {
+class PublicKeyEncryptRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.PublicKeyEncryptRequest) */ {
  public:
   PublicKeyEncryptRequest();
   virtual ~PublicKeyEncryptRequest();
@@ -850,7 +2058,11 @@ class PublicKeyEncryptRequest : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -918,7 +2130,7 @@ class PublicKeyEncryptRequest : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class PublicKeyEncryptResponse : public ::google::protobuf::Message {
+class PublicKeyEncryptResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.PublicKeyEncryptResponse) */ {
  public:
   PublicKeyEncryptResponse();
   virtual ~PublicKeyEncryptResponse();
@@ -952,7 +2164,11 @@ class PublicKeyEncryptResponse : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -974,9 +2190,9 @@ class PublicKeyEncryptResponse : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string cipher = 2;
+  // optional string cipher = 1;
   void clear_cipher();
-  static const int kCipherFieldNumber = 2;
+  static const int kCipherFieldNumber = 1;
   const ::std::string& cipher() const;
   void set_cipher(const ::std::string& value);
   void set_cipher(const char* value);
@@ -1001,7 +2217,7 @@ class PublicKeyEncryptResponse : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class PrivateKeyDecryptRequest : public ::google::protobuf::Message {
+class PrivateKeyDecryptRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.PrivateKeyDecryptRequest) */ {
  public:
   PrivateKeyDecryptRequest();
   virtual ~PrivateKeyDecryptRequest();
@@ -1035,7 +2251,11 @@ class PrivateKeyDecryptRequest : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -1103,7 +2323,7 @@ class PrivateKeyDecryptRequest : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class PrivateKeyDecryptResponse : public ::google::protobuf::Message {
+class PrivateKeyDecryptResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:crypto.PrivateKeyDecryptResponse) */ {
  public:
   PrivateKeyDecryptResponse();
   virtual ~PrivateKeyDecryptResponse();
@@ -1137,7 +2357,11 @@ class PrivateKeyDecryptResponse : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -1159,9 +2383,9 @@ class PrivateKeyDecryptResponse : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional string plaintext = 2;
+  // optional string plaintext = 1;
   void clear_plaintext();
-  static const int kPlaintextFieldNumber = 2;
+  static const int kPlaintextFieldNumber = 1;
   const ::std::string& plaintext() const;
   void set_plaintext(const ::std::string& value);
   void set_plaintext(const char* value);
@@ -1190,67 +2414,68 @@ class PrivateKeyDecryptResponse : public ::google::protobuf::Message {
 // ===================================================================
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
-// CreateCbcKeyRequest
+// CreateSymmetricKeyRequest
 
 // optional .crypto.SymmetricKeyBits key_bits = 1;
-inline void CreateCbcKeyRequest::clear_key_bits() {
+inline void CreateSymmetricKeyRequest::clear_key_bits() {
   key_bits_ = 0;
 }
-inline ::crypto::SymmetricKeyBits CreateCbcKeyRequest::key_bits() const {
-  // @@protoc_insertion_point(field_get:crypto.CreateCbcKeyRequest.key_bits)
+inline ::crypto::SymmetricKeyBits CreateSymmetricKeyRequest::key_bits() const {
+  // @@protoc_insertion_point(field_get:crypto.CreateSymmetricKeyRequest.key_bits)
   return static_cast< ::crypto::SymmetricKeyBits >(key_bits_);
 }
-inline void CreateCbcKeyRequest::set_key_bits(::crypto::SymmetricKeyBits value) {
+inline void CreateSymmetricKeyRequest::set_key_bits(::crypto::SymmetricKeyBits value) {
   
   key_bits_ = value;
-  // @@protoc_insertion_point(field_set:crypto.CreateCbcKeyRequest.key_bits)
+  // @@protoc_insertion_point(field_set:crypto.CreateSymmetricKeyRequest.key_bits)
 }
 
 // -------------------------------------------------------------------
 
-// CreateCbcKeyResponse
+// CreateSymmetricKeyResponse
 
 // optional string key = 1;
-inline void CreateCbcKeyResponse::clear_key() {
+inline void CreateSymmetricKeyResponse::clear_key() {
   key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& CreateCbcKeyResponse::key() const {
-  // @@protoc_insertion_point(field_get:crypto.CreateCbcKeyResponse.key)
+inline const ::std::string& CreateSymmetricKeyResponse::key() const {
+  // @@protoc_insertion_point(field_get:crypto.CreateSymmetricKeyResponse.key)
   return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void CreateCbcKeyResponse::set_key(const ::std::string& value) {
+inline void CreateSymmetricKeyResponse::set_key(const ::std::string& value) {
   
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:crypto.CreateCbcKeyResponse.key)
+  // @@protoc_insertion_point(field_set:crypto.CreateSymmetricKeyResponse.key)
 }
-inline void CreateCbcKeyResponse::set_key(const char* value) {
+inline void CreateSymmetricKeyResponse::set_key(const char* value) {
   
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:crypto.CreateCbcKeyResponse.key)
+  // @@protoc_insertion_point(field_set_char:crypto.CreateSymmetricKeyResponse.key)
 }
-inline void CreateCbcKeyResponse::set_key(const char* value, size_t size) {
+inline void CreateSymmetricKeyResponse::set_key(const char* value, size_t size) {
   
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:crypto.CreateCbcKeyResponse.key)
+  // @@protoc_insertion_point(field_set_pointer:crypto.CreateSymmetricKeyResponse.key)
 }
-inline ::std::string* CreateCbcKeyResponse::mutable_key() {
+inline ::std::string* CreateSymmetricKeyResponse::mutable_key() {
   
-  // @@protoc_insertion_point(field_mutable:crypto.CreateCbcKeyResponse.key)
+  // @@protoc_insertion_point(field_mutable:crypto.CreateSymmetricKeyResponse.key)
   return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* CreateCbcKeyResponse::release_key() {
+inline ::std::string* CreateSymmetricKeyResponse::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.CreateSymmetricKeyResponse.key)
   
   return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void CreateCbcKeyResponse::set_allocated_key(::std::string* key) {
+inline void CreateSymmetricKeyResponse::set_allocated_key(::std::string* key) {
   if (key != NULL) {
     
   } else {
     
   }
   key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
-  // @@protoc_insertion_point(field_set_allocated:crypto.CreateCbcKeyResponse.key)
+  // @@protoc_insertion_point(field_set_allocated:crypto.CreateSymmetricKeyResponse.key)
 }
 
 // -------------------------------------------------------------------
@@ -1287,6 +2512,7 @@ inline ::std::string* CbcEncryptFileRequest::mutable_key() {
   return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CbcEncryptFileRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptFileRequest.key)
   
   return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1330,6 +2556,7 @@ inline ::std::string* CbcEncryptFileRequest::mutable_iv() {
   return iv_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CbcEncryptFileRequest::release_iv() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptFileRequest.iv)
   
   return iv_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1343,47 +2570,92 @@ inline void CbcEncryptFileRequest::set_allocated_iv(::std::string* iv) {
   // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptFileRequest.iv)
 }
 
-// optional string file_path = 3;
-inline void CbcEncryptFileRequest::clear_file_path() {
-  file_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string file_source_path = 3;
+inline void CbcEncryptFileRequest::clear_file_source_path() {
+  file_source_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& CbcEncryptFileRequest::file_path() const {
-  // @@protoc_insertion_point(field_get:crypto.CbcEncryptFileRequest.file_path)
-  return file_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& CbcEncryptFileRequest::file_source_path() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcEncryptFileRequest.file_source_path)
+  return file_source_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void CbcEncryptFileRequest::set_file_path(const ::std::string& value) {
+inline void CbcEncryptFileRequest::set_file_source_path(const ::std::string& value) {
   
-  file_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:crypto.CbcEncryptFileRequest.file_path)
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcEncryptFileRequest.file_source_path)
 }
-inline void CbcEncryptFileRequest::set_file_path(const char* value) {
+inline void CbcEncryptFileRequest::set_file_source_path(const char* value) {
   
-  file_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptFileRequest.file_path)
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptFileRequest.file_source_path)
 }
-inline void CbcEncryptFileRequest::set_file_path(const char* value, size_t size) {
+inline void CbcEncryptFileRequest::set_file_source_path(const char* value, size_t size) {
   
-  file_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptFileRequest.file_path)
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptFileRequest.file_source_path)
 }
-inline ::std::string* CbcEncryptFileRequest::mutable_file_path() {
+inline ::std::string* CbcEncryptFileRequest::mutable_file_source_path() {
   
-  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptFileRequest.file_path)
-  return file_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptFileRequest.file_source_path)
+  return file_source_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* CbcEncryptFileRequest::release_file_path() {
+inline ::std::string* CbcEncryptFileRequest::release_file_source_path() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptFileRequest.file_source_path)
   
-  return file_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return file_source_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void CbcEncryptFileRequest::set_allocated_file_path(::std::string* file_path) {
-  if (file_path != NULL) {
+inline void CbcEncryptFileRequest::set_allocated_file_source_path(::std::string* file_source_path) {
+  if (file_source_path != NULL) {
     
   } else {
     
   }
-  file_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_path);
-  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptFileRequest.file_path)
+  file_source_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_source_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptFileRequest.file_source_path)
+}
+
+// optional string file_target_path = 4;
+inline void CbcEncryptFileRequest::clear_file_target_path() {
+  file_target_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CbcEncryptFileRequest::file_target_path() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcEncryptFileRequest.file_target_path)
+  return file_target_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcEncryptFileRequest::set_file_target_path(const ::std::string& value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcEncryptFileRequest.file_target_path)
+}
+inline void CbcEncryptFileRequest::set_file_target_path(const char* value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptFileRequest.file_target_path)
+}
+inline void CbcEncryptFileRequest::set_file_target_path(const char* value, size_t size) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptFileRequest.file_target_path)
+}
+inline ::std::string* CbcEncryptFileRequest::mutable_file_target_path() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptFileRequest.file_target_path)
+  return file_target_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CbcEncryptFileRequest::release_file_target_path() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptFileRequest.file_target_path)
+  
+  return file_target_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcEncryptFileRequest::set_allocated_file_target_path(::std::string* file_target_path) {
+  if (file_target_path != NULL) {
+    
+  } else {
+    
+  }
+  file_target_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_target_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptFileRequest.file_target_path)
 }
 
 // -------------------------------------------------------------------
@@ -1424,6 +2696,7 @@ inline ::std::string* CbcDecryptFileRequest::mutable_key() {
   return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CbcDecryptFileRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptFileRequest.key)
   
   return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1467,6 +2740,7 @@ inline ::std::string* CbcDecryptFileRequest::mutable_iv() {
   return iv_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CbcDecryptFileRequest::release_iv() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptFileRequest.iv)
   
   return iv_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1480,52 +2754,1025 @@ inline void CbcDecryptFileRequest::set_allocated_iv(::std::string* iv) {
   // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptFileRequest.iv)
 }
 
-// optional string file_path = 3;
-inline void CbcDecryptFileRequest::clear_file_path() {
-  file_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string file_source_path = 3;
+inline void CbcDecryptFileRequest::clear_file_source_path() {
+  file_source_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& CbcDecryptFileRequest::file_path() const {
-  // @@protoc_insertion_point(field_get:crypto.CbcDecryptFileRequest.file_path)
-  return file_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& CbcDecryptFileRequest::file_source_path() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcDecryptFileRequest.file_source_path)
+  return file_source_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void CbcDecryptFileRequest::set_file_path(const ::std::string& value) {
+inline void CbcDecryptFileRequest::set_file_source_path(const ::std::string& value) {
   
-  file_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:crypto.CbcDecryptFileRequest.file_path)
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcDecryptFileRequest.file_source_path)
 }
-inline void CbcDecryptFileRequest::set_file_path(const char* value) {
+inline void CbcDecryptFileRequest::set_file_source_path(const char* value) {
   
-  file_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptFileRequest.file_path)
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptFileRequest.file_source_path)
 }
-inline void CbcDecryptFileRequest::set_file_path(const char* value, size_t size) {
+inline void CbcDecryptFileRequest::set_file_source_path(const char* value, size_t size) {
   
-  file_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptFileRequest.file_path)
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptFileRequest.file_source_path)
 }
-inline ::std::string* CbcDecryptFileRequest::mutable_file_path() {
+inline ::std::string* CbcDecryptFileRequest::mutable_file_source_path() {
   
-  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptFileRequest.file_path)
-  return file_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptFileRequest.file_source_path)
+  return file_source_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* CbcDecryptFileRequest::release_file_path() {
+inline ::std::string* CbcDecryptFileRequest::release_file_source_path() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptFileRequest.file_source_path)
   
-  return file_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return file_source_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void CbcDecryptFileRequest::set_allocated_file_path(::std::string* file_path) {
-  if (file_path != NULL) {
+inline void CbcDecryptFileRequest::set_allocated_file_source_path(::std::string* file_source_path) {
+  if (file_source_path != NULL) {
     
   } else {
     
   }
-  file_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_path);
-  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptFileRequest.file_path)
+  file_source_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_source_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptFileRequest.file_source_path)
+}
+
+// optional string file_target_path = 4;
+inline void CbcDecryptFileRequest::clear_file_target_path() {
+  file_target_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CbcDecryptFileRequest::file_target_path() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcDecryptFileRequest.file_target_path)
+  return file_target_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcDecryptFileRequest::set_file_target_path(const ::std::string& value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcDecryptFileRequest.file_target_path)
+}
+inline void CbcDecryptFileRequest::set_file_target_path(const char* value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptFileRequest.file_target_path)
+}
+inline void CbcDecryptFileRequest::set_file_target_path(const char* value, size_t size) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptFileRequest.file_target_path)
+}
+inline ::std::string* CbcDecryptFileRequest::mutable_file_target_path() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptFileRequest.file_target_path)
+  return file_target_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CbcDecryptFileRequest::release_file_target_path() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptFileRequest.file_target_path)
+  
+  return file_target_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcDecryptFileRequest::set_allocated_file_target_path(::std::string* file_target_path) {
+  if (file_target_path != NULL) {
+    
+  } else {
+    
+  }
+  file_target_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_target_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptFileRequest.file_target_path)
 }
 
 // -------------------------------------------------------------------
 
 // CbcDecryptFileResponse
+
+// -------------------------------------------------------------------
+
+// CbcEncryptStringRequest
+
+// optional string key = 1;
+inline void CbcEncryptStringRequest::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CbcEncryptStringRequest::key() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcEncryptStringRequest.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcEncryptStringRequest::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcEncryptStringRequest.key)
+}
+inline void CbcEncryptStringRequest::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptStringRequest.key)
+}
+inline void CbcEncryptStringRequest::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptStringRequest.key)
+}
+inline ::std::string* CbcEncryptStringRequest::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptStringRequest.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CbcEncryptStringRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptStringRequest.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcEncryptStringRequest::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptStringRequest.key)
+}
+
+// optional string iv = 2;
+inline void CbcEncryptStringRequest::clear_iv() {
+  iv_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CbcEncryptStringRequest::iv() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcEncryptStringRequest.iv)
+  return iv_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcEncryptStringRequest::set_iv(const ::std::string& value) {
+  
+  iv_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcEncryptStringRequest.iv)
+}
+inline void CbcEncryptStringRequest::set_iv(const char* value) {
+  
+  iv_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptStringRequest.iv)
+}
+inline void CbcEncryptStringRequest::set_iv(const char* value, size_t size) {
+  
+  iv_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptStringRequest.iv)
+}
+inline ::std::string* CbcEncryptStringRequest::mutable_iv() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptStringRequest.iv)
+  return iv_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CbcEncryptStringRequest::release_iv() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptStringRequest.iv)
+  
+  return iv_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcEncryptStringRequest::set_allocated_iv(::std::string* iv) {
+  if (iv != NULL) {
+    
+  } else {
+    
+  }
+  iv_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), iv);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptStringRequest.iv)
+}
+
+// optional string plaintext = 3;
+inline void CbcEncryptStringRequest::clear_plaintext() {
+  plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CbcEncryptStringRequest::plaintext() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcEncryptStringRequest.plaintext)
+  return plaintext_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcEncryptStringRequest::set_plaintext(const ::std::string& value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcEncryptStringRequest.plaintext)
+}
+inline void CbcEncryptStringRequest::set_plaintext(const char* value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptStringRequest.plaintext)
+}
+inline void CbcEncryptStringRequest::set_plaintext(const char* value, size_t size) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptStringRequest.plaintext)
+}
+inline ::std::string* CbcEncryptStringRequest::mutable_plaintext() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptStringRequest.plaintext)
+  return plaintext_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CbcEncryptStringRequest::release_plaintext() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptStringRequest.plaintext)
+  
+  return plaintext_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcEncryptStringRequest::set_allocated_plaintext(::std::string* plaintext) {
+  if (plaintext != NULL) {
+    
+  } else {
+    
+  }
+  plaintext_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), plaintext);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptStringRequest.plaintext)
+}
+
+// -------------------------------------------------------------------
+
+// CbcEncryptStringResponse
+
+// optional string cipher = 1;
+inline void CbcEncryptStringResponse::clear_cipher() {
+  cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CbcEncryptStringResponse::cipher() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcEncryptStringResponse.cipher)
+  return cipher_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcEncryptStringResponse::set_cipher(const ::std::string& value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcEncryptStringResponse.cipher)
+}
+inline void CbcEncryptStringResponse::set_cipher(const char* value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptStringResponse.cipher)
+}
+inline void CbcEncryptStringResponse::set_cipher(const char* value, size_t size) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptStringResponse.cipher)
+}
+inline ::std::string* CbcEncryptStringResponse::mutable_cipher() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptStringResponse.cipher)
+  return cipher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CbcEncryptStringResponse::release_cipher() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptStringResponse.cipher)
+  
+  return cipher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcEncryptStringResponse::set_allocated_cipher(::std::string* cipher) {
+  if (cipher != NULL) {
+    
+  } else {
+    
+  }
+  cipher_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cipher);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptStringResponse.cipher)
+}
+
+// -------------------------------------------------------------------
+
+// CbcDecryptStringRequest
+
+// optional string key = 1;
+inline void CbcDecryptStringRequest::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CbcDecryptStringRequest::key() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcDecryptStringRequest.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcDecryptStringRequest::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcDecryptStringRequest.key)
+}
+inline void CbcDecryptStringRequest::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptStringRequest.key)
+}
+inline void CbcDecryptStringRequest::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptStringRequest.key)
+}
+inline ::std::string* CbcDecryptStringRequest::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptStringRequest.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CbcDecryptStringRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptStringRequest.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcDecryptStringRequest::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptStringRequest.key)
+}
+
+// optional string iv = 2;
+inline void CbcDecryptStringRequest::clear_iv() {
+  iv_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CbcDecryptStringRequest::iv() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcDecryptStringRequest.iv)
+  return iv_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcDecryptStringRequest::set_iv(const ::std::string& value) {
+  
+  iv_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcDecryptStringRequest.iv)
+}
+inline void CbcDecryptStringRequest::set_iv(const char* value) {
+  
+  iv_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptStringRequest.iv)
+}
+inline void CbcDecryptStringRequest::set_iv(const char* value, size_t size) {
+  
+  iv_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptStringRequest.iv)
+}
+inline ::std::string* CbcDecryptStringRequest::mutable_iv() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptStringRequest.iv)
+  return iv_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CbcDecryptStringRequest::release_iv() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptStringRequest.iv)
+  
+  return iv_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcDecryptStringRequest::set_allocated_iv(::std::string* iv) {
+  if (iv != NULL) {
+    
+  } else {
+    
+  }
+  iv_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), iv);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptStringRequest.iv)
+}
+
+// optional string cipher = 3;
+inline void CbcDecryptStringRequest::clear_cipher() {
+  cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CbcDecryptStringRequest::cipher() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcDecryptStringRequest.cipher)
+  return cipher_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcDecryptStringRequest::set_cipher(const ::std::string& value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcDecryptStringRequest.cipher)
+}
+inline void CbcDecryptStringRequest::set_cipher(const char* value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptStringRequest.cipher)
+}
+inline void CbcDecryptStringRequest::set_cipher(const char* value, size_t size) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptStringRequest.cipher)
+}
+inline ::std::string* CbcDecryptStringRequest::mutable_cipher() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptStringRequest.cipher)
+  return cipher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CbcDecryptStringRequest::release_cipher() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptStringRequest.cipher)
+  
+  return cipher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcDecryptStringRequest::set_allocated_cipher(::std::string* cipher) {
+  if (cipher != NULL) {
+    
+  } else {
+    
+  }
+  cipher_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cipher);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptStringRequest.cipher)
+}
+
+// -------------------------------------------------------------------
+
+// CbcDecryptStringResponse
+
+// optional string plaintext = 1;
+inline void CbcDecryptStringResponse::clear_plaintext() {
+  plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& CbcDecryptStringResponse::plaintext() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcDecryptStringResponse.plaintext)
+  return plaintext_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcDecryptStringResponse::set_plaintext(const ::std::string& value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcDecryptStringResponse.plaintext)
+}
+inline void CbcDecryptStringResponse::set_plaintext(const char* value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptStringResponse.plaintext)
+}
+inline void CbcDecryptStringResponse::set_plaintext(const char* value, size_t size) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptStringResponse.plaintext)
+}
+inline ::std::string* CbcDecryptStringResponse::mutable_plaintext() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptStringResponse.plaintext)
+  return plaintext_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* CbcDecryptStringResponse::release_plaintext() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptStringResponse.plaintext)
+  
+  return plaintext_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void CbcDecryptStringResponse::set_allocated_plaintext(::std::string* plaintext) {
+  if (plaintext != NULL) {
+    
+  } else {
+    
+  }
+  plaintext_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), plaintext);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptStringResponse.plaintext)
+}
+
+// -------------------------------------------------------------------
+
+// EcbEncryptFileRequest
+
+// optional string key = 1;
+inline void EcbEncryptFileRequest::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& EcbEncryptFileRequest::key() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbEncryptFileRequest.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbEncryptFileRequest::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbEncryptFileRequest.key)
+}
+inline void EcbEncryptFileRequest::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbEncryptFileRequest.key)
+}
+inline void EcbEncryptFileRequest::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbEncryptFileRequest.key)
+}
+inline ::std::string* EcbEncryptFileRequest::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbEncryptFileRequest.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* EcbEncryptFileRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.EcbEncryptFileRequest.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbEncryptFileRequest::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbEncryptFileRequest.key)
+}
+
+// optional string file_source_path = 2;
+inline void EcbEncryptFileRequest::clear_file_source_path() {
+  file_source_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& EcbEncryptFileRequest::file_source_path() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbEncryptFileRequest.file_source_path)
+  return file_source_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbEncryptFileRequest::set_file_source_path(const ::std::string& value) {
+  
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbEncryptFileRequest.file_source_path)
+}
+inline void EcbEncryptFileRequest::set_file_source_path(const char* value) {
+  
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbEncryptFileRequest.file_source_path)
+}
+inline void EcbEncryptFileRequest::set_file_source_path(const char* value, size_t size) {
+  
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbEncryptFileRequest.file_source_path)
+}
+inline ::std::string* EcbEncryptFileRequest::mutable_file_source_path() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbEncryptFileRequest.file_source_path)
+  return file_source_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* EcbEncryptFileRequest::release_file_source_path() {
+  // @@protoc_insertion_point(field_release:crypto.EcbEncryptFileRequest.file_source_path)
+  
+  return file_source_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbEncryptFileRequest::set_allocated_file_source_path(::std::string* file_source_path) {
+  if (file_source_path != NULL) {
+    
+  } else {
+    
+  }
+  file_source_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_source_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbEncryptFileRequest.file_source_path)
+}
+
+// optional string file_target_path = 3;
+inline void EcbEncryptFileRequest::clear_file_target_path() {
+  file_target_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& EcbEncryptFileRequest::file_target_path() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbEncryptFileRequest.file_target_path)
+  return file_target_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbEncryptFileRequest::set_file_target_path(const ::std::string& value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbEncryptFileRequest.file_target_path)
+}
+inline void EcbEncryptFileRequest::set_file_target_path(const char* value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbEncryptFileRequest.file_target_path)
+}
+inline void EcbEncryptFileRequest::set_file_target_path(const char* value, size_t size) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbEncryptFileRequest.file_target_path)
+}
+inline ::std::string* EcbEncryptFileRequest::mutable_file_target_path() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbEncryptFileRequest.file_target_path)
+  return file_target_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* EcbEncryptFileRequest::release_file_target_path() {
+  // @@protoc_insertion_point(field_release:crypto.EcbEncryptFileRequest.file_target_path)
+  
+  return file_target_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbEncryptFileRequest::set_allocated_file_target_path(::std::string* file_target_path) {
+  if (file_target_path != NULL) {
+    
+  } else {
+    
+  }
+  file_target_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_target_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbEncryptFileRequest.file_target_path)
+}
+
+// -------------------------------------------------------------------
+
+// EcbEncryptFileResponse
+
+// -------------------------------------------------------------------
+
+// EcbDecryptFileRequest
+
+// optional string key = 1;
+inline void EcbDecryptFileRequest::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& EcbDecryptFileRequest::key() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbDecryptFileRequest.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbDecryptFileRequest::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbDecryptFileRequest.key)
+}
+inline void EcbDecryptFileRequest::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbDecryptFileRequest.key)
+}
+inline void EcbDecryptFileRequest::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbDecryptFileRequest.key)
+}
+inline ::std::string* EcbDecryptFileRequest::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbDecryptFileRequest.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* EcbDecryptFileRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.EcbDecryptFileRequest.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbDecryptFileRequest::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbDecryptFileRequest.key)
+}
+
+// optional string file_source_path = 2;
+inline void EcbDecryptFileRequest::clear_file_source_path() {
+  file_source_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& EcbDecryptFileRequest::file_source_path() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbDecryptFileRequest.file_source_path)
+  return file_source_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbDecryptFileRequest::set_file_source_path(const ::std::string& value) {
+  
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbDecryptFileRequest.file_source_path)
+}
+inline void EcbDecryptFileRequest::set_file_source_path(const char* value) {
+  
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbDecryptFileRequest.file_source_path)
+}
+inline void EcbDecryptFileRequest::set_file_source_path(const char* value, size_t size) {
+  
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbDecryptFileRequest.file_source_path)
+}
+inline ::std::string* EcbDecryptFileRequest::mutable_file_source_path() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbDecryptFileRequest.file_source_path)
+  return file_source_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* EcbDecryptFileRequest::release_file_source_path() {
+  // @@protoc_insertion_point(field_release:crypto.EcbDecryptFileRequest.file_source_path)
+  
+  return file_source_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbDecryptFileRequest::set_allocated_file_source_path(::std::string* file_source_path) {
+  if (file_source_path != NULL) {
+    
+  } else {
+    
+  }
+  file_source_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_source_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbDecryptFileRequest.file_source_path)
+}
+
+// optional string file_target_path = 3;
+inline void EcbDecryptFileRequest::clear_file_target_path() {
+  file_target_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& EcbDecryptFileRequest::file_target_path() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbDecryptFileRequest.file_target_path)
+  return file_target_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbDecryptFileRequest::set_file_target_path(const ::std::string& value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbDecryptFileRequest.file_target_path)
+}
+inline void EcbDecryptFileRequest::set_file_target_path(const char* value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbDecryptFileRequest.file_target_path)
+}
+inline void EcbDecryptFileRequest::set_file_target_path(const char* value, size_t size) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbDecryptFileRequest.file_target_path)
+}
+inline ::std::string* EcbDecryptFileRequest::mutable_file_target_path() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbDecryptFileRequest.file_target_path)
+  return file_target_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* EcbDecryptFileRequest::release_file_target_path() {
+  // @@protoc_insertion_point(field_release:crypto.EcbDecryptFileRequest.file_target_path)
+  
+  return file_target_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbDecryptFileRequest::set_allocated_file_target_path(::std::string* file_target_path) {
+  if (file_target_path != NULL) {
+    
+  } else {
+    
+  }
+  file_target_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_target_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbDecryptFileRequest.file_target_path)
+}
+
+// -------------------------------------------------------------------
+
+// EcbDecryptFileResponse
+
+// -------------------------------------------------------------------
+
+// EcbEncryptStringRequest
+
+// optional string key = 1;
+inline void EcbEncryptStringRequest::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& EcbEncryptStringRequest::key() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbEncryptStringRequest.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbEncryptStringRequest::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbEncryptStringRequest.key)
+}
+inline void EcbEncryptStringRequest::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbEncryptStringRequest.key)
+}
+inline void EcbEncryptStringRequest::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbEncryptStringRequest.key)
+}
+inline ::std::string* EcbEncryptStringRequest::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbEncryptStringRequest.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* EcbEncryptStringRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.EcbEncryptStringRequest.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbEncryptStringRequest::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbEncryptStringRequest.key)
+}
+
+// optional string plaintext = 2;
+inline void EcbEncryptStringRequest::clear_plaintext() {
+  plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& EcbEncryptStringRequest::plaintext() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbEncryptStringRequest.plaintext)
+  return plaintext_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbEncryptStringRequest::set_plaintext(const ::std::string& value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbEncryptStringRequest.plaintext)
+}
+inline void EcbEncryptStringRequest::set_plaintext(const char* value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbEncryptStringRequest.plaintext)
+}
+inline void EcbEncryptStringRequest::set_plaintext(const char* value, size_t size) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbEncryptStringRequest.plaintext)
+}
+inline ::std::string* EcbEncryptStringRequest::mutable_plaintext() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbEncryptStringRequest.plaintext)
+  return plaintext_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* EcbEncryptStringRequest::release_plaintext() {
+  // @@protoc_insertion_point(field_release:crypto.EcbEncryptStringRequest.plaintext)
+  
+  return plaintext_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbEncryptStringRequest::set_allocated_plaintext(::std::string* plaintext) {
+  if (plaintext != NULL) {
+    
+  } else {
+    
+  }
+  plaintext_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), plaintext);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbEncryptStringRequest.plaintext)
+}
+
+// -------------------------------------------------------------------
+
+// EcbEncryptStringResponse
+
+// optional string cipher = 1;
+inline void EcbEncryptStringResponse::clear_cipher() {
+  cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& EcbEncryptStringResponse::cipher() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbEncryptStringResponse.cipher)
+  return cipher_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbEncryptStringResponse::set_cipher(const ::std::string& value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbEncryptStringResponse.cipher)
+}
+inline void EcbEncryptStringResponse::set_cipher(const char* value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbEncryptStringResponse.cipher)
+}
+inline void EcbEncryptStringResponse::set_cipher(const char* value, size_t size) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbEncryptStringResponse.cipher)
+}
+inline ::std::string* EcbEncryptStringResponse::mutable_cipher() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbEncryptStringResponse.cipher)
+  return cipher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* EcbEncryptStringResponse::release_cipher() {
+  // @@protoc_insertion_point(field_release:crypto.EcbEncryptStringResponse.cipher)
+  
+  return cipher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbEncryptStringResponse::set_allocated_cipher(::std::string* cipher) {
+  if (cipher != NULL) {
+    
+  } else {
+    
+  }
+  cipher_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cipher);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbEncryptStringResponse.cipher)
+}
+
+// -------------------------------------------------------------------
+
+// EcbDecryptStringRequest
+
+// optional string key = 1;
+inline void EcbDecryptStringRequest::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& EcbDecryptStringRequest::key() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbDecryptStringRequest.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbDecryptStringRequest::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbDecryptStringRequest.key)
+}
+inline void EcbDecryptStringRequest::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbDecryptStringRequest.key)
+}
+inline void EcbDecryptStringRequest::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbDecryptStringRequest.key)
+}
+inline ::std::string* EcbDecryptStringRequest::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbDecryptStringRequest.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* EcbDecryptStringRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.EcbDecryptStringRequest.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbDecryptStringRequest::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbDecryptStringRequest.key)
+}
+
+// optional string cipher = 2;
+inline void EcbDecryptStringRequest::clear_cipher() {
+  cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& EcbDecryptStringRequest::cipher() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbDecryptStringRequest.cipher)
+  return cipher_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbDecryptStringRequest::set_cipher(const ::std::string& value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbDecryptStringRequest.cipher)
+}
+inline void EcbDecryptStringRequest::set_cipher(const char* value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbDecryptStringRequest.cipher)
+}
+inline void EcbDecryptStringRequest::set_cipher(const char* value, size_t size) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbDecryptStringRequest.cipher)
+}
+inline ::std::string* EcbDecryptStringRequest::mutable_cipher() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbDecryptStringRequest.cipher)
+  return cipher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* EcbDecryptStringRequest::release_cipher() {
+  // @@protoc_insertion_point(field_release:crypto.EcbDecryptStringRequest.cipher)
+  
+  return cipher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbDecryptStringRequest::set_allocated_cipher(::std::string* cipher) {
+  if (cipher != NULL) {
+    
+  } else {
+    
+  }
+  cipher_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cipher);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbDecryptStringRequest.cipher)
+}
+
+// -------------------------------------------------------------------
+
+// EcbDecryptStringResponse
+
+// optional string plaintext = 1;
+inline void EcbDecryptStringResponse::clear_plaintext() {
+  plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& EcbDecryptStringResponse::plaintext() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbDecryptStringResponse.plaintext)
+  return plaintext_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbDecryptStringResponse::set_plaintext(const ::std::string& value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbDecryptStringResponse.plaintext)
+}
+inline void EcbDecryptStringResponse::set_plaintext(const char* value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbDecryptStringResponse.plaintext)
+}
+inline void EcbDecryptStringResponse::set_plaintext(const char* value, size_t size) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbDecryptStringResponse.plaintext)
+}
+inline ::std::string* EcbDecryptStringResponse::mutable_plaintext() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbDecryptStringResponse.plaintext)
+  return plaintext_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* EcbDecryptStringResponse::release_plaintext() {
+  // @@protoc_insertion_point(field_release:crypto.EcbDecryptStringResponse.plaintext)
+  
+  return plaintext_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void EcbDecryptStringResponse::set_allocated_plaintext(::std::string* plaintext) {
+  if (plaintext != NULL) {
+    
+  } else {
+    
+  }
+  plaintext_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), plaintext);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbDecryptStringResponse.plaintext)
+}
 
 // -------------------------------------------------------------------
 
@@ -1593,6 +3840,7 @@ inline ::std::string* CreateKeyPairResponse::mutable_public_key() {
   return public_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CreateKeyPairResponse::release_public_key() {
+  // @@protoc_insertion_point(field_release:crypto.CreateKeyPairResponse.public_key)
   
   return public_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1636,6 +3884,7 @@ inline ::std::string* CreateKeyPairResponse::mutable_private_key() {
   return private_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* CreateKeyPairResponse::release_private_key() {
+  // @@protoc_insertion_point(field_release:crypto.CreateKeyPairResponse.private_key)
   
   return private_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1697,6 +3946,7 @@ inline ::std::string* PublicKeyEncryptRequest::mutable_public_key() {
   return public_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* PublicKeyEncryptRequest::release_public_key() {
+  // @@protoc_insertion_point(field_release:crypto.PublicKeyEncryptRequest.public_key)
   
   return public_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1740,6 +3990,7 @@ inline ::std::string* PublicKeyEncryptRequest::mutable_plaintext() {
   return plaintext_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* PublicKeyEncryptRequest::release_plaintext() {
+  // @@protoc_insertion_point(field_release:crypto.PublicKeyEncryptRequest.plaintext)
   
   return plaintext_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1757,7 +4008,7 @@ inline void PublicKeyEncryptRequest::set_allocated_plaintext(::std::string* plai
 
 // PublicKeyEncryptResponse
 
-// optional string cipher = 2;
+// optional string cipher = 1;
 inline void PublicKeyEncryptResponse::clear_cipher() {
   cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1787,6 +4038,7 @@ inline ::std::string* PublicKeyEncryptResponse::mutable_cipher() {
   return cipher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* PublicKeyEncryptResponse::release_cipher() {
+  // @@protoc_insertion_point(field_release:crypto.PublicKeyEncryptResponse.cipher)
   
   return cipher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1848,6 +4100,7 @@ inline ::std::string* PrivateKeyDecryptRequest::mutable_private_key() {
   return private_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* PrivateKeyDecryptRequest::release_private_key() {
+  // @@protoc_insertion_point(field_release:crypto.PrivateKeyDecryptRequest.private_key)
   
   return private_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1891,6 +4144,7 @@ inline ::std::string* PrivateKeyDecryptRequest::mutable_cipher() {
   return cipher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* PrivateKeyDecryptRequest::release_cipher() {
+  // @@protoc_insertion_point(field_release:crypto.PrivateKeyDecryptRequest.cipher)
   
   return cipher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1908,7 +4162,7 @@ inline void PrivateKeyDecryptRequest::set_allocated_cipher(::std::string* cipher
 
 // PrivateKeyDecryptResponse
 
-// optional string plaintext = 2;
+// optional string plaintext = 1;
 inline void PrivateKeyDecryptResponse::clear_plaintext() {
   plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1938,6 +4192,7 @@ inline ::std::string* PrivateKeyDecryptResponse::mutable_plaintext() {
   return plaintext_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 inline ::std::string* PrivateKeyDecryptResponse::release_plaintext() {
+  // @@protoc_insertion_point(field_release:crypto.PrivateKeyDecryptResponse.plaintext)
   
   return plaintext_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1952,6 +4207,30 @@ inline void PrivateKeyDecryptResponse::set_allocated_plaintext(::std::string* pl
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

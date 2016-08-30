@@ -14,11 +14,11 @@ class MemoryOutputStream : public OutputStream {
 
   // OutputStream
   virtual void Close() override;
-  virtual void Flush() override;
-  virtual void Write(ByteVector* buffer) override;
-  virtual void Write(ByteVector* buffer, size_t offset, size_t length) override;
-  virtual void Write(Byte* buffer, size_t offset, size_t length) override;
-  virtual void Write(Byte b) override;
+  virtual bool Flush() override;
+  virtual int Write(ByteVector* buffer) override;
+  virtual int Write(ByteVector* buffer, size_t offset, size_t length) override;
+  virtual int Write(Byte* buffer, size_t offset, size_t length) override;
+  virtual int Write(Byte b) override;
 
   virtual std::string ToString() override;
 

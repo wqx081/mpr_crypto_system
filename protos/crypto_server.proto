@@ -14,18 +14,20 @@ enum SymmetricKeyBits {
   SymmetricKey256Bits = 256;
 }
 
-message CreateCbcKeyRequest {
+message CreateSymmetricKeyRequest {
   SymmetricKeyBits key_bits = 1;
 }
 
-message CreateCbcKeyResponse {
+message CreateSymmetricKeyResponse {
   string key = 1;
 }
 
+// CBC
 message CbcEncryptFileRequest {
   string key = 1;
   string iv = 2;
-  string file_path = 3;
+  string file_source_path = 3;
+  string file_target_path = 4;
 }
 
 message CbcEncryptFileResponse {
@@ -34,25 +36,86 @@ message CbcEncryptFileResponse {
 message CbcDecryptFileRequest {
   string key = 1;
   string iv = 2;
-  string file_path = 3;
+  string file_source_path = 3;
+  string file_target_path = 4;
 }
 
 message CbcDecryptFileResponse {
 }
 
+message CbcEncryptStringRequest {
+  string key = 1;
+  string iv = 2;
+  string plaintext = 3;
+}
+
+message CbcEncryptStringResponse {
+  string cipher = 1; // HexEncode string
+}
+
+message CbcDecryptStringRequest {
+  string key = 1;
+  string iv = 2;
+  string cipher = 3; // HexEncode string
+}
+
+message CbcDecryptStringResponse {
+  string plaintext = 1;
+}
+
+// ECB
+message EcbEncryptFileRequest {
+  string key = 1;
+  string file_source_path = 2;
+  string file_target_path = 3;
+}
+
+message EcbEncryptFileResponse {
+}
+
+message EcbDecryptFileRequest {
+  string key = 1;
+  string file_source_path = 2;
+  string file_target_path = 3;
+}
+
+message EcbDecryptFileResponse {
+}
+
+message EcbEncryptStringRequest {
+  string key = 1;
+  string plaintext = 2;
+}
+
+message EcbEncryptStringResponse {
+  string cipher = 1; // HexEncode string
+}
+
+message EcbDecryptStringRequest {
+  string key = 1;
+  string cipher = 2; // HexEncode string
+}
+
+message EcbDecryptStringResponse {
+  string plaintext = 1;
+}
 
 service SymmetricService {
-  rpc CreateCbcKey(CreateCbcKeyRequest) returns (CreateCbcKeyResponse);
-  //TODO 
-  //rpc CbcEncryptString(CbcEncryptStringRequest) returns (CbcEncryptStringResponse);
+  rpc CreateSymmetricKey(CreateSymmetricKeyRequest) returns (CreateSymmetricKeyResponse);
+
+  // CBC
   rpc CbcEncryptFile(CbcEncryptFileRequest) returns (CbcEncryptFileResponse);
-  //TODO
-  //rpc CbcDecryptString(CbcDecryptStringRequest) returns (CbcDecryptStringResponse);
   rpc CbcDecryptFile(CbcDecryptFileRequest) returns (CbcDecryptFileResponse);
 
+  rpc CbcEncryptString(CbcEncryptStringRequest) returns (CbcEncryptStringResponse);
+  rpc CbcDecryptString(CbcDecryptStringRequest) returns (CbcDecryptStringResponse);
 
-// TODO(wqx):
-//  rpc CreateEbcKey(CreateEbcKeyRequest) returns (CreateEbcKeyResponse);
+  // ECB
+  rpc EcbEncryptFile(EcbEncryptFileRequest) returns (EcbEncryptFileResponse);
+  rpc EcbDecryptFile(EcbDecryptFileRequest) returns (EcbDecryptFileResponse);
+
+  rpc EcbEncryptString(EcbEncryptStringRequest) returns (EcbEncryptStringResponse);
+  rpc EcbDecryptString(EcbDecryptStringRequest) returns (EcbDecryptStringResponse);
 }
 
 //////////////// Asymmetric
@@ -89,7 +152,7 @@ message PublicKeyEncryptRequest {
 }
 
 message PublicKeyEncryptResponse {
-  string cipher = 2;
+  string cipher = 1;
 }
 
 message PrivateKeyDecryptRequest {
@@ -99,16 +162,13 @@ message PrivateKeyDecryptRequest {
 }
 
 message PrivateKeyDecryptResponse {
-  string plaintext = 2;  
+  string plaintext = 1;  
 }
 
 service AsymmetricService {
-  rpc CreateKeyPair(CreateKeyPairRequest) 
-        returns (CreateKeyPairResponse);
-  rpc PublicKeyEncrypt(PublicKeyEncryptRequest) 
-        returns (PublicKeyEncryptResponse);
-  rpc PrivateKeyDecrypt(PrivateKeyDecryptRequest) 
-        returns (PrivateKeyDecryptResponse);
+  rpc CreateKeyPair(CreateKeyPairRequest) returns (CreateKeyPairResponse);
+  rpc PublicKeyEncrypt(PublicKeyEncryptRequest) returns (PublicKeyEncryptResponse);
+  rpc PrivateKeyDecrypt(PrivateKeyDecryptRequest) returns (PrivateKeyDecryptResponse);
   // TODO(wqx):
   // signature & verify
 }

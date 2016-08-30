@@ -21,12 +21,12 @@ namespace crypto {
 
 namespace {
 
-const ::google::protobuf::Descriptor* CreateCbcKeyRequest_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* CreateSymmetricKeyRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  CreateCbcKeyRequest_reflection_ = NULL;
-const ::google::protobuf::Descriptor* CreateCbcKeyResponse_descriptor_ = NULL;
+  CreateSymmetricKeyRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CreateSymmetricKeyResponse_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  CreateCbcKeyResponse_reflection_ = NULL;
+  CreateSymmetricKeyResponse_reflection_ = NULL;
 const ::google::protobuf::Descriptor* CbcEncryptFileRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CbcEncryptFileRequest_reflection_ = NULL;
@@ -39,6 +39,42 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* CbcDecryptFileResponse_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CbcDecryptFileResponse_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CbcEncryptStringRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CbcEncryptStringRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CbcEncryptStringResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CbcEncryptStringResponse_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CbcDecryptStringRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CbcDecryptStringRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CbcDecryptStringResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CbcDecryptStringResponse_reflection_ = NULL;
+const ::google::protobuf::Descriptor* EcbEncryptFileRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  EcbEncryptFileRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* EcbEncryptFileResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  EcbEncryptFileResponse_reflection_ = NULL;
+const ::google::protobuf::Descriptor* EcbDecryptFileRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  EcbDecryptFileRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* EcbDecryptFileResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  EcbDecryptFileResponse_reflection_ = NULL;
+const ::google::protobuf::Descriptor* EcbEncryptStringRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  EcbEncryptStringRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* EcbEncryptStringResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  EcbEncryptStringResponse_reflection_ = NULL;
+const ::google::protobuf::Descriptor* EcbDecryptStringRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  EcbDecryptStringRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* EcbDecryptStringResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  EcbDecryptStringResponse_reflection_ = NULL;
 const ::google::protobuf::Descriptor* CreateKeyPairRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CreateKeyPairRequest_reflection_ = NULL;
@@ -64,47 +100,49 @@ const ::google::protobuf::EnumDescriptor* AsymmetricKeyBits_descriptor_ = NULL;
 }  // namespace
 
 
+void protobuf_AssignDesc_crypto_5fserver_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AssignDesc_crypto_5fserver_2eproto() {
   protobuf_AddDesc_crypto_5fserver_2eproto();
   const ::google::protobuf::FileDescriptor* file =
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "crypto_server.proto");
   GOOGLE_CHECK(file != NULL);
-  CreateCbcKeyRequest_descriptor_ = file->message_type(0);
-  static const int CreateCbcKeyRequest_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCbcKeyRequest, key_bits_),
+  CreateSymmetricKeyRequest_descriptor_ = file->message_type(0);
+  static const int CreateSymmetricKeyRequest_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSymmetricKeyRequest, key_bits_),
   };
-  CreateCbcKeyRequest_reflection_ =
+  CreateSymmetricKeyRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      CreateCbcKeyRequest_descriptor_,
-      CreateCbcKeyRequest::default_instance_,
-      CreateCbcKeyRequest_offsets_,
+      CreateSymmetricKeyRequest_descriptor_,
+      CreateSymmetricKeyRequest::default_instance_,
+      CreateSymmetricKeyRequest_offsets_,
       -1,
       -1,
       -1,
-      sizeof(CreateCbcKeyRequest),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCbcKeyRequest, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCbcKeyRequest, _is_default_instance_));
-  CreateCbcKeyResponse_descriptor_ = file->message_type(1);
-  static const int CreateCbcKeyResponse_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCbcKeyResponse, key_),
+      sizeof(CreateSymmetricKeyRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSymmetricKeyRequest, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSymmetricKeyRequest, _is_default_instance_));
+  CreateSymmetricKeyResponse_descriptor_ = file->message_type(1);
+  static const int CreateSymmetricKeyResponse_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSymmetricKeyResponse, key_),
   };
-  CreateCbcKeyResponse_reflection_ =
+  CreateSymmetricKeyResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      CreateCbcKeyResponse_descriptor_,
-      CreateCbcKeyResponse::default_instance_,
-      CreateCbcKeyResponse_offsets_,
+      CreateSymmetricKeyResponse_descriptor_,
+      CreateSymmetricKeyResponse::default_instance_,
+      CreateSymmetricKeyResponse_offsets_,
       -1,
       -1,
       -1,
-      sizeof(CreateCbcKeyResponse),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCbcKeyResponse, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateCbcKeyResponse, _is_default_instance_));
+      sizeof(CreateSymmetricKeyResponse),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSymmetricKeyResponse, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSymmetricKeyResponse, _is_default_instance_));
   CbcEncryptFileRequest_descriptor_ = file->message_type(2);
-  static const int CbcEncryptFileRequest_offsets_[3] = {
+  static const int CbcEncryptFileRequest_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptFileRequest, key_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptFileRequest, iv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptFileRequest, file_path_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptFileRequest, file_source_path_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptFileRequest, file_target_path_),
   };
   CbcEncryptFileRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -132,10 +170,11 @@ void protobuf_AssignDesc_crypto_5fserver_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptFileResponse, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptFileResponse, _is_default_instance_));
   CbcDecryptFileRequest_descriptor_ = file->message_type(4);
-  static const int CbcDecryptFileRequest_offsets_[3] = {
+  static const int CbcDecryptFileRequest_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptFileRequest, key_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptFileRequest, iv_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptFileRequest, file_path_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptFileRequest, file_source_path_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptFileRequest, file_target_path_),
   };
   CbcDecryptFileRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -162,7 +201,195 @@ void protobuf_AssignDesc_crypto_5fserver_2eproto() {
       sizeof(CbcDecryptFileResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptFileResponse, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptFileResponse, _is_default_instance_));
-  CreateKeyPairRequest_descriptor_ = file->message_type(6);
+  CbcEncryptStringRequest_descriptor_ = file->message_type(6);
+  static const int CbcEncryptStringRequest_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptStringRequest, key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptStringRequest, iv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptStringRequest, plaintext_),
+  };
+  CbcEncryptStringRequest_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      CbcEncryptStringRequest_descriptor_,
+      CbcEncryptStringRequest::default_instance_,
+      CbcEncryptStringRequest_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(CbcEncryptStringRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptStringRequest, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptStringRequest, _is_default_instance_));
+  CbcEncryptStringResponse_descriptor_ = file->message_type(7);
+  static const int CbcEncryptStringResponse_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptStringResponse, cipher_),
+  };
+  CbcEncryptStringResponse_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      CbcEncryptStringResponse_descriptor_,
+      CbcEncryptStringResponse::default_instance_,
+      CbcEncryptStringResponse_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(CbcEncryptStringResponse),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptStringResponse, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcEncryptStringResponse, _is_default_instance_));
+  CbcDecryptStringRequest_descriptor_ = file->message_type(8);
+  static const int CbcDecryptStringRequest_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptStringRequest, key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptStringRequest, iv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptStringRequest, cipher_),
+  };
+  CbcDecryptStringRequest_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      CbcDecryptStringRequest_descriptor_,
+      CbcDecryptStringRequest::default_instance_,
+      CbcDecryptStringRequest_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(CbcDecryptStringRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptStringRequest, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptStringRequest, _is_default_instance_));
+  CbcDecryptStringResponse_descriptor_ = file->message_type(9);
+  static const int CbcDecryptStringResponse_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptStringResponse, plaintext_),
+  };
+  CbcDecryptStringResponse_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      CbcDecryptStringResponse_descriptor_,
+      CbcDecryptStringResponse::default_instance_,
+      CbcDecryptStringResponse_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(CbcDecryptStringResponse),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptStringResponse, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CbcDecryptStringResponse, _is_default_instance_));
+  EcbEncryptFileRequest_descriptor_ = file->message_type(10);
+  static const int EcbEncryptFileRequest_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptFileRequest, key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptFileRequest, file_source_path_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptFileRequest, file_target_path_),
+  };
+  EcbEncryptFileRequest_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      EcbEncryptFileRequest_descriptor_,
+      EcbEncryptFileRequest::default_instance_,
+      EcbEncryptFileRequest_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(EcbEncryptFileRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptFileRequest, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptFileRequest, _is_default_instance_));
+  EcbEncryptFileResponse_descriptor_ = file->message_type(11);
+  static const int EcbEncryptFileResponse_offsets_[1] = {
+  };
+  EcbEncryptFileResponse_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      EcbEncryptFileResponse_descriptor_,
+      EcbEncryptFileResponse::default_instance_,
+      EcbEncryptFileResponse_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(EcbEncryptFileResponse),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptFileResponse, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptFileResponse, _is_default_instance_));
+  EcbDecryptFileRequest_descriptor_ = file->message_type(12);
+  static const int EcbDecryptFileRequest_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptFileRequest, key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptFileRequest, file_source_path_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptFileRequest, file_target_path_),
+  };
+  EcbDecryptFileRequest_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      EcbDecryptFileRequest_descriptor_,
+      EcbDecryptFileRequest::default_instance_,
+      EcbDecryptFileRequest_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(EcbDecryptFileRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptFileRequest, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptFileRequest, _is_default_instance_));
+  EcbDecryptFileResponse_descriptor_ = file->message_type(13);
+  static const int EcbDecryptFileResponse_offsets_[1] = {
+  };
+  EcbDecryptFileResponse_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      EcbDecryptFileResponse_descriptor_,
+      EcbDecryptFileResponse::default_instance_,
+      EcbDecryptFileResponse_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(EcbDecryptFileResponse),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptFileResponse, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptFileResponse, _is_default_instance_));
+  EcbEncryptStringRequest_descriptor_ = file->message_type(14);
+  static const int EcbEncryptStringRequest_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptStringRequest, key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptStringRequest, plaintext_),
+  };
+  EcbEncryptStringRequest_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      EcbEncryptStringRequest_descriptor_,
+      EcbEncryptStringRequest::default_instance_,
+      EcbEncryptStringRequest_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(EcbEncryptStringRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptStringRequest, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptStringRequest, _is_default_instance_));
+  EcbEncryptStringResponse_descriptor_ = file->message_type(15);
+  static const int EcbEncryptStringResponse_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptStringResponse, cipher_),
+  };
+  EcbEncryptStringResponse_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      EcbEncryptStringResponse_descriptor_,
+      EcbEncryptStringResponse::default_instance_,
+      EcbEncryptStringResponse_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(EcbEncryptStringResponse),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptStringResponse, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbEncryptStringResponse, _is_default_instance_));
+  EcbDecryptStringRequest_descriptor_ = file->message_type(16);
+  static const int EcbDecryptStringRequest_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptStringRequest, key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptStringRequest, cipher_),
+  };
+  EcbDecryptStringRequest_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      EcbDecryptStringRequest_descriptor_,
+      EcbDecryptStringRequest::default_instance_,
+      EcbDecryptStringRequest_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(EcbDecryptStringRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptStringRequest, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptStringRequest, _is_default_instance_));
+  EcbDecryptStringResponse_descriptor_ = file->message_type(17);
+  static const int EcbDecryptStringResponse_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptStringResponse, plaintext_),
+  };
+  EcbDecryptStringResponse_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      EcbDecryptStringResponse_descriptor_,
+      EcbDecryptStringResponse::default_instance_,
+      EcbDecryptStringResponse_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(EcbDecryptStringResponse),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptStringResponse, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EcbDecryptStringResponse, _is_default_instance_));
+  CreateKeyPairRequest_descriptor_ = file->message_type(18);
   static const int CreateKeyPairRequest_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateKeyPairRequest, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateKeyPairRequest, key_bits_),
@@ -178,7 +405,7 @@ void protobuf_AssignDesc_crypto_5fserver_2eproto() {
       sizeof(CreateKeyPairRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateKeyPairRequest, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateKeyPairRequest, _is_default_instance_));
-  CreateKeyPairResponse_descriptor_ = file->message_type(7);
+  CreateKeyPairResponse_descriptor_ = file->message_type(19);
   static const int CreateKeyPairResponse_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateKeyPairResponse, public_key_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateKeyPairResponse, private_key_),
@@ -194,7 +421,7 @@ void protobuf_AssignDesc_crypto_5fserver_2eproto() {
       sizeof(CreateKeyPairResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateKeyPairResponse, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateKeyPairResponse, _is_default_instance_));
-  PublicKeyEncryptRequest_descriptor_ = file->message_type(8);
+  PublicKeyEncryptRequest_descriptor_ = file->message_type(20);
   static const int PublicKeyEncryptRequest_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PublicKeyEncryptRequest, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PublicKeyEncryptRequest, public_key_),
@@ -211,7 +438,7 @@ void protobuf_AssignDesc_crypto_5fserver_2eproto() {
       sizeof(PublicKeyEncryptRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PublicKeyEncryptRequest, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PublicKeyEncryptRequest, _is_default_instance_));
-  PublicKeyEncryptResponse_descriptor_ = file->message_type(9);
+  PublicKeyEncryptResponse_descriptor_ = file->message_type(21);
   static const int PublicKeyEncryptResponse_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PublicKeyEncryptResponse, cipher_),
   };
@@ -226,7 +453,7 @@ void protobuf_AssignDesc_crypto_5fserver_2eproto() {
       sizeof(PublicKeyEncryptResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PublicKeyEncryptResponse, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PublicKeyEncryptResponse, _is_default_instance_));
-  PrivateKeyDecryptRequest_descriptor_ = file->message_type(10);
+  PrivateKeyDecryptRequest_descriptor_ = file->message_type(22);
   static const int PrivateKeyDecryptRequest_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PrivateKeyDecryptRequest, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PrivateKeyDecryptRequest, private_key_),
@@ -243,7 +470,7 @@ void protobuf_AssignDesc_crypto_5fserver_2eproto() {
       sizeof(PrivateKeyDecryptRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PrivateKeyDecryptRequest, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PrivateKeyDecryptRequest, _is_default_instance_));
-  PrivateKeyDecryptResponse_descriptor_ = file->message_type(11);
+  PrivateKeyDecryptResponse_descriptor_ = file->message_type(23);
   static const int PrivateKeyDecryptResponse_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PrivateKeyDecryptResponse, plaintext_),
   };
@@ -271,12 +498,13 @@ inline void protobuf_AssignDescriptorsOnce() {
                  &protobuf_AssignDesc_crypto_5fserver_2eproto);
 }
 
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      CreateCbcKeyRequest_descriptor_, &CreateCbcKeyRequest::default_instance());
+      CreateSymmetricKeyRequest_descriptor_, &CreateSymmetricKeyRequest::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      CreateCbcKeyResponse_descriptor_, &CreateCbcKeyResponse::default_instance());
+      CreateSymmetricKeyResponse_descriptor_, &CreateSymmetricKeyResponse::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       CbcEncryptFileRequest_descriptor_, &CbcEncryptFileRequest::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -285,6 +513,30 @@ void protobuf_RegisterTypes(const ::std::string&) {
       CbcDecryptFileRequest_descriptor_, &CbcDecryptFileRequest::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       CbcDecryptFileResponse_descriptor_, &CbcDecryptFileResponse::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      CbcEncryptStringRequest_descriptor_, &CbcEncryptStringRequest::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      CbcEncryptStringResponse_descriptor_, &CbcEncryptStringResponse::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      CbcDecryptStringRequest_descriptor_, &CbcDecryptStringRequest::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      CbcDecryptStringResponse_descriptor_, &CbcDecryptStringResponse::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      EcbEncryptFileRequest_descriptor_, &EcbEncryptFileRequest::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      EcbEncryptFileResponse_descriptor_, &EcbEncryptFileResponse::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      EcbDecryptFileRequest_descriptor_, &EcbDecryptFileRequest::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      EcbDecryptFileResponse_descriptor_, &EcbDecryptFileResponse::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      EcbEncryptStringRequest_descriptor_, &EcbEncryptStringRequest::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      EcbEncryptStringResponse_descriptor_, &EcbEncryptStringResponse::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      EcbDecryptStringRequest_descriptor_, &EcbDecryptStringRequest::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      EcbDecryptStringResponse_descriptor_, &EcbDecryptStringResponse::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       CreateKeyPairRequest_descriptor_, &CreateKeyPairRequest::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -302,10 +554,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_crypto_5fserver_2eproto() {
-  delete CreateCbcKeyRequest::default_instance_;
-  delete CreateCbcKeyRequest_reflection_;
-  delete CreateCbcKeyResponse::default_instance_;
-  delete CreateCbcKeyResponse_reflection_;
+  delete CreateSymmetricKeyRequest::default_instance_;
+  delete CreateSymmetricKeyRequest_reflection_;
+  delete CreateSymmetricKeyResponse::default_instance_;
+  delete CreateSymmetricKeyResponse_reflection_;
   delete CbcEncryptFileRequest::default_instance_;
   delete CbcEncryptFileRequest_reflection_;
   delete CbcEncryptFileResponse::default_instance_;
@@ -314,6 +566,30 @@ void protobuf_ShutdownFile_crypto_5fserver_2eproto() {
   delete CbcDecryptFileRequest_reflection_;
   delete CbcDecryptFileResponse::default_instance_;
   delete CbcDecryptFileResponse_reflection_;
+  delete CbcEncryptStringRequest::default_instance_;
+  delete CbcEncryptStringRequest_reflection_;
+  delete CbcEncryptStringResponse::default_instance_;
+  delete CbcEncryptStringResponse_reflection_;
+  delete CbcDecryptStringRequest::default_instance_;
+  delete CbcDecryptStringRequest_reflection_;
+  delete CbcDecryptStringResponse::default_instance_;
+  delete CbcDecryptStringResponse_reflection_;
+  delete EcbEncryptFileRequest::default_instance_;
+  delete EcbEncryptFileRequest_reflection_;
+  delete EcbEncryptFileResponse::default_instance_;
+  delete EcbEncryptFileResponse_reflection_;
+  delete EcbDecryptFileRequest::default_instance_;
+  delete EcbDecryptFileRequest_reflection_;
+  delete EcbDecryptFileResponse::default_instance_;
+  delete EcbDecryptFileResponse_reflection_;
+  delete EcbEncryptStringRequest::default_instance_;
+  delete EcbEncryptStringRequest_reflection_;
+  delete EcbEncryptStringResponse::default_instance_;
+  delete EcbEncryptStringResponse_reflection_;
+  delete EcbDecryptStringRequest::default_instance_;
+  delete EcbDecryptStringRequest_reflection_;
+  delete EcbDecryptStringResponse::default_instance_;
+  delete EcbDecryptStringResponse_reflection_;
   delete CreateKeyPairRequest::default_instance_;
   delete CreateKeyPairRequest_reflection_;
   delete CreateKeyPairResponse::default_instance_;
@@ -328,6 +604,7 @@ void protobuf_ShutdownFile_crypto_5fserver_2eproto() {
   delete PrivateKeyDecryptResponse_reflection_;
 }
 
+void protobuf_AddDesc_crypto_5fserver_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AddDesc_crypto_5fserver_2eproto() {
   static bool already_here = false;
   if (already_here) return;
@@ -335,66 +612,122 @@ void protobuf_AddDesc_crypto_5fserver_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\023crypto_server.proto\022\006crypto\"A\n\023CreateC"
-    "bcKeyRequest\022*\n\010key_bits\030\001 \001(\0162\030.crypto."
-    "SymmetricKeyBits\"#\n\024CreateCbcKeyResponse"
-    "\022\013\n\003key\030\001 \001(\t\"C\n\025CbcEncryptFileRequest\022\013"
-    "\n\003key\030\001 \001(\t\022\n\n\002iv\030\002 \001(\t\022\021\n\tfile_path\030\003 \001"
-    "(\t\"\030\n\026CbcEncryptFileResponse\"C\n\025CbcDecry"
-    "ptFileRequest\022\013\n\003key\030\001 \001(\t\022\n\n\002iv\030\002 \001(\t\022\021"
-    "\n\tfile_path\030\003 \001(\t\"\030\n\026CbcDecryptFileRespo"
-    "nse\"i\n\024CreateKeyPairRequest\022$\n\004type\030\001 \001("
-    "\0162\026.crypto.AsymmetricType\022+\n\010key_bits\030\002 "
-    "\001(\0162\031.crypto.AsymmetricKeyBits\"@\n\025Create"
-    "KeyPairResponse\022\022\n\npublic_key\030\002 \001(\t\022\023\n\013p"
-    "rivate_key\030\003 \001(\t\"f\n\027PublicKeyEncryptRequ"
-    "est\022$\n\004type\030\001 \001(\0162\026.crypto.AsymmetricTyp"
-    "e\022\022\n\npublic_key\030\002 \001(\t\022\021\n\tplaintext\030\003 \001(\t"
-    "\"*\n\030PublicKeyEncryptResponse\022\016\n\006cipher\030\002"
-    " \001(\t\"e\n\030PrivateKeyDecryptRequest\022$\n\004type"
-    "\030\001 \001(\0162\026.crypto.AsymmetricType\022\023\n\013privat"
-    "e_key\030\002 \001(\t\022\016\n\006cipher\030\003 \001(\t\".\n\031PrivateKe"
-    "yDecryptResponse\022\021\n\tplaintext\030\002 \001(\t*c\n\020S"
-    "ymmetricKeyBits\022\033\n\027SymmetricKeyBitsUnkno"
-    "wn\020\000\022\030\n\023SymmetricKey128Bits\020\200\001\022\030\n\023Symmet"
-    "ricKey256Bits\020\200\002*=\n\016AsymmetricType\022\031\n\025As"
-    "ymmetricTypeUnknown\020\000\022\007\n\003SM2\020\001\022\007\n\003RSA\020\002*"
-    "[\n\021AsymmetricKeyBits\022\022\n\016KeyBitsUnknown\020\000"
-    "\022\017\n\nKEY192BITS\020\300\001\022\017\n\nKEY256BITS\020\200\002\022\020\n\013KE"
-    "Y1024BITS\020\200\0102\377\001\n\020SymmetricService\022I\n\014Cre"
-    "ateCbcKey\022\033.crypto.CreateCbcKeyRequest\032\034"
-    ".crypto.CreateCbcKeyResponse\022O\n\016CbcEncry"
-    "ptFile\022\035.crypto.CbcEncryptFileRequest\032\036."
-    "crypto.CbcEncryptFileResponse\022O\n\016CbcDecr"
-    "yptFile\022\035.crypto.CbcDecryptFileRequest\032\036"
-    ".crypto.CbcDecryptFileResponse2\222\002\n\021Asymm"
-    "etricService\022L\n\rCreateKeyPair\022\034.crypto.C"
-    "reateKeyPairRequest\032\035.crypto.CreateKeyPa"
-    "irResponse\022U\n\020PublicKeyEncrypt\022\037.crypto."
-    "PublicKeyEncryptRequest\032 .crypto.PublicK"
-    "eyEncryptResponse\022X\n\021PrivateKeyDecrypt\022 "
-    ".crypto.PrivateKeyDecryptRequest\032!.crypt"
-    "o.PrivateKeyDecryptResponseb\006proto3", 1595);
+    "\n\023crypto_server.proto\022\006crypto\"G\n\031CreateS"
+    "ymmetricKeyRequest\022*\n\010key_bits\030\001 \001(\0162\030.c"
+    "rypto.SymmetricKeyBits\")\n\032CreateSymmetri"
+    "cKeyResponse\022\013\n\003key\030\001 \001(\t\"d\n\025CbcEncryptF"
+    "ileRequest\022\013\n\003key\030\001 \001(\t\022\n\n\002iv\030\002 \001(\t\022\030\n\020f"
+    "ile_source_path\030\003 \001(\t\022\030\n\020file_target_pat"
+    "h\030\004 \001(\t\"\030\n\026CbcEncryptFileResponse\"d\n\025Cbc"
+    "DecryptFileRequest\022\013\n\003key\030\001 \001(\t\022\n\n\002iv\030\002 "
+    "\001(\t\022\030\n\020file_source_path\030\003 \001(\t\022\030\n\020file_ta"
+    "rget_path\030\004 \001(\t\"\030\n\026CbcDecryptFileRespons"
+    "e\"E\n\027CbcEncryptStringRequest\022\013\n\003key\030\001 \001("
+    "\t\022\n\n\002iv\030\002 \001(\t\022\021\n\tplaintext\030\003 \001(\t\"*\n\030CbcE"
+    "ncryptStringResponse\022\016\n\006cipher\030\001 \001(\t\"B\n\027"
+    "CbcDecryptStringRequest\022\013\n\003key\030\001 \001(\t\022\n\n\002"
+    "iv\030\002 \001(\t\022\016\n\006cipher\030\003 \001(\t\"-\n\030CbcDecryptSt"
+    "ringResponse\022\021\n\tplaintext\030\001 \001(\t\"X\n\025EcbEn"
+    "cryptFileRequest\022\013\n\003key\030\001 \001(\t\022\030\n\020file_so"
+    "urce_path\030\002 \001(\t\022\030\n\020file_target_path\030\003 \001("
+    "\t\"\030\n\026EcbEncryptFileResponse\"X\n\025EcbDecryp"
+    "tFileRequest\022\013\n\003key\030\001 \001(\t\022\030\n\020file_source"
+    "_path\030\002 \001(\t\022\030\n\020file_target_path\030\003 \001(\t\"\030\n"
+    "\026EcbDecryptFileResponse\"9\n\027EcbEncryptStr"
+    "ingRequest\022\013\n\003key\030\001 \001(\t\022\021\n\tplaintext\030\002 \001"
+    "(\t\"*\n\030EcbEncryptStringResponse\022\016\n\006cipher"
+    "\030\001 \001(\t\"6\n\027EcbDecryptStringRequest\022\013\n\003key"
+    "\030\001 \001(\t\022\016\n\006cipher\030\002 \001(\t\"-\n\030EcbDecryptStri"
+    "ngResponse\022\021\n\tplaintext\030\001 \001(\t\"i\n\024CreateK"
+    "eyPairRequest\022$\n\004type\030\001 \001(\0162\026.crypto.Asy"
+    "mmetricType\022+\n\010key_bits\030\002 \001(\0162\031.crypto.A"
+    "symmetricKeyBits\"@\n\025CreateKeyPairRespons"
+    "e\022\022\n\npublic_key\030\002 \001(\t\022\023\n\013private_key\030\003 \001"
+    "(\t\"f\n\027PublicKeyEncryptRequest\022$\n\004type\030\001 "
+    "\001(\0162\026.crypto.AsymmetricType\022\022\n\npublic_ke"
+    "y\030\002 \001(\t\022\021\n\tplaintext\030\003 \001(\t\"*\n\030PublicKeyE"
+    "ncryptResponse\022\016\n\006cipher\030\001 \001(\t\"e\n\030Privat"
+    "eKeyDecryptRequest\022$\n\004type\030\001 \001(\0162\026.crypt"
+    "o.AsymmetricType\022\023\n\013private_key\030\002 \001(\t\022\016\n"
+    "\006cipher\030\003 \001(\t\".\n\031PrivateKeyDecryptRespon"
+    "se\022\021\n\tplaintext\030\001 \001(\t*c\n\020SymmetricKeyBit"
+    "s\022\033\n\027SymmetricKeyBitsUnknown\020\000\022\030\n\023Symmet"
+    "ricKey128Bits\020\200\001\022\030\n\023SymmetricKey256Bits\020"
+    "\200\002*=\n\016AsymmetricType\022\031\n\025AsymmetricTypeUn"
+    "known\020\000\022\007\n\003SM2\020\001\022\007\n\003RSA\020\002*[\n\021AsymmetricK"
+    "eyBits\022\022\n\016KeyBitsUnknown\020\000\022\017\n\nKEY192BITS"
+    "\020\300\001\022\017\n\nKEY256BITS\020\200\002\022\020\n\013KEY1024BITS\020\200\0102\217"
+    "\006\n\020SymmetricService\022[\n\022CreateSymmetricKe"
+    "y\022!.crypto.CreateSymmetricKeyRequest\032\".c"
+    "rypto.CreateSymmetricKeyResponse\022O\n\016CbcE"
+    "ncryptFile\022\035.crypto.CbcEncryptFileReques"
+    "t\032\036.crypto.CbcEncryptFileResponse\022O\n\016Cbc"
+    "DecryptFile\022\035.crypto.CbcDecryptFileReque"
+    "st\032\036.crypto.CbcDecryptFileResponse\022U\n\020Cb"
+    "cEncryptString\022\037.crypto.CbcEncryptString"
+    "Request\032 .crypto.CbcEncryptStringRespons"
+    "e\022U\n\020CbcDecryptString\022\037.crypto.CbcDecryp"
+    "tStringRequest\032 .crypto.CbcDecryptString"
+    "Response\022O\n\016EcbEncryptFile\022\035.crypto.EcbE"
+    "ncryptFileRequest\032\036.crypto.EcbEncryptFil"
+    "eResponse\022O\n\016EcbDecryptFile\022\035.crypto.Ecb"
+    "DecryptFileRequest\032\036.crypto.EcbDecryptFi"
+    "leResponse\022U\n\020EcbEncryptString\022\037.crypto."
+    "EcbEncryptStringRequest\032 .crypto.EcbEncr"
+    "yptStringResponse\022U\n\020EcbDecryptString\022\037."
+    "crypto.EcbDecryptStringRequest\032 .crypto."
+    "EcbDecryptStringResponse2\222\002\n\021AsymmetricS"
+    "ervice\022L\n\rCreateKeyPair\022\034.crypto.CreateK"
+    "eyPairRequest\032\035.crypto.CreateKeyPairResp"
+    "onse\022U\n\020PublicKeyEncrypt\022\037.crypto.Public"
+    "KeyEncryptRequest\032 .crypto.PublicKeyEncr"
+    "yptResponse\022X\n\021PrivateKeyDecrypt\022 .crypt"
+    "o.PrivateKeyDecryptRequest\032!.crypto.Priv"
+    "ateKeyDecryptResponseb\006proto3", 2869);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "crypto_server.proto", &protobuf_RegisterTypes);
-  CreateCbcKeyRequest::default_instance_ = new CreateCbcKeyRequest();
-  CreateCbcKeyResponse::default_instance_ = new CreateCbcKeyResponse();
+  CreateSymmetricKeyRequest::default_instance_ = new CreateSymmetricKeyRequest();
+  CreateSymmetricKeyResponse::default_instance_ = new CreateSymmetricKeyResponse();
   CbcEncryptFileRequest::default_instance_ = new CbcEncryptFileRequest();
   CbcEncryptFileResponse::default_instance_ = new CbcEncryptFileResponse();
   CbcDecryptFileRequest::default_instance_ = new CbcDecryptFileRequest();
   CbcDecryptFileResponse::default_instance_ = new CbcDecryptFileResponse();
+  CbcEncryptStringRequest::default_instance_ = new CbcEncryptStringRequest();
+  CbcEncryptStringResponse::default_instance_ = new CbcEncryptStringResponse();
+  CbcDecryptStringRequest::default_instance_ = new CbcDecryptStringRequest();
+  CbcDecryptStringResponse::default_instance_ = new CbcDecryptStringResponse();
+  EcbEncryptFileRequest::default_instance_ = new EcbEncryptFileRequest();
+  EcbEncryptFileResponse::default_instance_ = new EcbEncryptFileResponse();
+  EcbDecryptFileRequest::default_instance_ = new EcbDecryptFileRequest();
+  EcbDecryptFileResponse::default_instance_ = new EcbDecryptFileResponse();
+  EcbEncryptStringRequest::default_instance_ = new EcbEncryptStringRequest();
+  EcbEncryptStringResponse::default_instance_ = new EcbEncryptStringResponse();
+  EcbDecryptStringRequest::default_instance_ = new EcbDecryptStringRequest();
+  EcbDecryptStringResponse::default_instance_ = new EcbDecryptStringResponse();
   CreateKeyPairRequest::default_instance_ = new CreateKeyPairRequest();
   CreateKeyPairResponse::default_instance_ = new CreateKeyPairResponse();
   PublicKeyEncryptRequest::default_instance_ = new PublicKeyEncryptRequest();
   PublicKeyEncryptResponse::default_instance_ = new PublicKeyEncryptResponse();
   PrivateKeyDecryptRequest::default_instance_ = new PrivateKeyDecryptRequest();
   PrivateKeyDecryptResponse::default_instance_ = new PrivateKeyDecryptResponse();
-  CreateCbcKeyRequest::default_instance_->InitAsDefaultInstance();
-  CreateCbcKeyResponse::default_instance_->InitAsDefaultInstance();
+  CreateSymmetricKeyRequest::default_instance_->InitAsDefaultInstance();
+  CreateSymmetricKeyResponse::default_instance_->InitAsDefaultInstance();
   CbcEncryptFileRequest::default_instance_->InitAsDefaultInstance();
   CbcEncryptFileResponse::default_instance_->InitAsDefaultInstance();
   CbcDecryptFileRequest::default_instance_->InitAsDefaultInstance();
   CbcDecryptFileResponse::default_instance_->InitAsDefaultInstance();
+  CbcEncryptStringRequest::default_instance_->InitAsDefaultInstance();
+  CbcEncryptStringResponse::default_instance_->InitAsDefaultInstance();
+  CbcDecryptStringRequest::default_instance_->InitAsDefaultInstance();
+  CbcDecryptStringResponse::default_instance_->InitAsDefaultInstance();
+  EcbEncryptFileRequest::default_instance_->InitAsDefaultInstance();
+  EcbEncryptFileResponse::default_instance_->InitAsDefaultInstance();
+  EcbDecryptFileRequest::default_instance_->InitAsDefaultInstance();
+  EcbDecryptFileResponse::default_instance_->InitAsDefaultInstance();
+  EcbEncryptStringRequest::default_instance_->InitAsDefaultInstance();
+  EcbEncryptStringResponse::default_instance_->InitAsDefaultInstance();
+  EcbDecryptStringRequest::default_instance_->InitAsDefaultInstance();
+  EcbDecryptStringResponse::default_instance_->InitAsDefaultInstance();
   CreateKeyPairRequest::default_instance_->InitAsDefaultInstance();
   CreateKeyPairResponse::default_instance_->InitAsDefaultInstance();
   PublicKeyEncryptRequest::default_instance_->InitAsDefaultInstance();
@@ -457,90 +790,81 @@ bool AsymmetricKeyBits_IsValid(int value) {
 }
 
 
-namespace {
-
-static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD;
-static void MergeFromFail(int line) {
-  GOOGLE_CHECK(false) << __FILE__ << ":" << line;
-}
-
-}  // namespace
-
-
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int CreateCbcKeyRequest::kKeyBitsFieldNumber;
+const int CreateSymmetricKeyRequest::kKeyBitsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-CreateCbcKeyRequest::CreateCbcKeyRequest()
+CreateSymmetricKeyRequest::CreateSymmetricKeyRequest()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:crypto.CreateCbcKeyRequest)
+  // @@protoc_insertion_point(constructor:crypto.CreateSymmetricKeyRequest)
 }
 
-void CreateCbcKeyRequest::InitAsDefaultInstance() {
+void CreateSymmetricKeyRequest::InitAsDefaultInstance() {
   _is_default_instance_ = true;
 }
 
-CreateCbcKeyRequest::CreateCbcKeyRequest(const CreateCbcKeyRequest& from)
+CreateSymmetricKeyRequest::CreateSymmetricKeyRequest(const CreateSymmetricKeyRequest& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:crypto.CreateCbcKeyRequest)
+  // @@protoc_insertion_point(copy_constructor:crypto.CreateSymmetricKeyRequest)
 }
 
-void CreateCbcKeyRequest::SharedCtor() {
+void CreateSymmetricKeyRequest::SharedCtor() {
     _is_default_instance_ = false;
   _cached_size_ = 0;
   key_bits_ = 0;
 }
 
-CreateCbcKeyRequest::~CreateCbcKeyRequest() {
-  // @@protoc_insertion_point(destructor:crypto.CreateCbcKeyRequest)
+CreateSymmetricKeyRequest::~CreateSymmetricKeyRequest() {
+  // @@protoc_insertion_point(destructor:crypto.CreateSymmetricKeyRequest)
   SharedDtor();
 }
 
-void CreateCbcKeyRequest::SharedDtor() {
+void CreateSymmetricKeyRequest::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void CreateCbcKeyRequest::SetCachedSize(int size) const {
+void CreateSymmetricKeyRequest::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* CreateCbcKeyRequest::descriptor() {
+const ::google::protobuf::Descriptor* CreateSymmetricKeyRequest::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return CreateCbcKeyRequest_descriptor_;
+  return CreateSymmetricKeyRequest_descriptor_;
 }
 
-const CreateCbcKeyRequest& CreateCbcKeyRequest::default_instance() {
+const CreateSymmetricKeyRequest& CreateSymmetricKeyRequest::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
   return *default_instance_;
 }
 
-CreateCbcKeyRequest* CreateCbcKeyRequest::default_instance_ = NULL;
+CreateSymmetricKeyRequest* CreateSymmetricKeyRequest::default_instance_ = NULL;
 
-CreateCbcKeyRequest* CreateCbcKeyRequest::New(::google::protobuf::Arena* arena) const {
-  CreateCbcKeyRequest* n = new CreateCbcKeyRequest;
+CreateSymmetricKeyRequest* CreateSymmetricKeyRequest::New(::google::protobuf::Arena* arena) const {
+  CreateSymmetricKeyRequest* n = new CreateSymmetricKeyRequest;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void CreateCbcKeyRequest::Clear() {
+void CreateSymmetricKeyRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.CreateSymmetricKeyRequest)
   key_bits_ = 0;
 }
 
-bool CreateCbcKeyRequest::MergePartialFromCodedStream(
+bool CreateSymmetricKeyRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:crypto.CreateCbcKeyRequest)
+  // @@protoc_insertion_point(parse_start:crypto.CreateSymmetricKeyRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -574,40 +898,41 @@ bool CreateCbcKeyRequest::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:crypto.CreateCbcKeyRequest)
+  // @@protoc_insertion_point(parse_success:crypto.CreateSymmetricKeyRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:crypto.CreateCbcKeyRequest)
+  // @@protoc_insertion_point(parse_failure:crypto.CreateSymmetricKeyRequest)
   return false;
 #undef DO_
 }
 
-void CreateCbcKeyRequest::SerializeWithCachedSizes(
+void CreateSymmetricKeyRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:crypto.CreateCbcKeyRequest)
+  // @@protoc_insertion_point(serialize_start:crypto.CreateSymmetricKeyRequest)
   // optional .crypto.SymmetricKeyBits key_bits = 1;
   if (this->key_bits() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->key_bits(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:crypto.CreateCbcKeyRequest)
+  // @@protoc_insertion_point(serialize_end:crypto.CreateSymmetricKeyRequest)
 }
 
-::google::protobuf::uint8* CreateCbcKeyRequest::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:crypto.CreateCbcKeyRequest)
+::google::protobuf::uint8* CreateSymmetricKeyRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.CreateSymmetricKeyRequest)
   // optional .crypto.SymmetricKeyBits key_bits = 1;
   if (this->key_bits() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->key_bits(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:crypto.CreateCbcKeyRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.CreateSymmetricKeyRequest)
   return target;
 }
 
-int CreateCbcKeyRequest::ByteSize() const {
+int CreateSymmetricKeyRequest::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.CreateSymmetricKeyRequest)
   int total_size = 0;
 
   // optional .crypto.SymmetricKeyBits key_bits = 1;
@@ -622,75 +947,85 @@ int CreateCbcKeyRequest::ByteSize() const {
   return total_size;
 }
 
-void CreateCbcKeyRequest::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const CreateCbcKeyRequest* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const CreateCbcKeyRequest>(
+void CreateSymmetricKeyRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.CreateSymmetricKeyRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const CreateSymmetricKeyRequest* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const CreateSymmetricKeyRequest>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.CreateSymmetricKeyRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.CreateSymmetricKeyRequest)
     MergeFrom(*source);
   }
 }
 
-void CreateCbcKeyRequest::MergeFrom(const CreateCbcKeyRequest& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+void CreateSymmetricKeyRequest::MergeFrom(const CreateSymmetricKeyRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.CreateSymmetricKeyRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from.key_bits() != 0) {
     set_key_bits(from.key_bits());
   }
 }
 
-void CreateCbcKeyRequest::CopyFrom(const ::google::protobuf::Message& from) {
+void CreateSymmetricKeyRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.CreateSymmetricKeyRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void CreateCbcKeyRequest::CopyFrom(const CreateCbcKeyRequest& from) {
+void CreateSymmetricKeyRequest::CopyFrom(const CreateSymmetricKeyRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.CreateSymmetricKeyRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CreateCbcKeyRequest::IsInitialized() const {
+bool CreateSymmetricKeyRequest::IsInitialized() const {
 
   return true;
 }
 
-void CreateCbcKeyRequest::Swap(CreateCbcKeyRequest* other) {
+void CreateSymmetricKeyRequest::Swap(CreateSymmetricKeyRequest* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void CreateCbcKeyRequest::InternalSwap(CreateCbcKeyRequest* other) {
+void CreateSymmetricKeyRequest::InternalSwap(CreateSymmetricKeyRequest* other) {
   std::swap(key_bits_, other->key_bits_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata CreateCbcKeyRequest::GetMetadata() const {
+::google::protobuf::Metadata CreateSymmetricKeyRequest::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = CreateCbcKeyRequest_descriptor_;
-  metadata.reflection = CreateCbcKeyRequest_reflection_;
+  metadata.descriptor = CreateSymmetricKeyRequest_descriptor_;
+  metadata.reflection = CreateSymmetricKeyRequest_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// CreateCbcKeyRequest
+// CreateSymmetricKeyRequest
 
 // optional .crypto.SymmetricKeyBits key_bits = 1;
-void CreateCbcKeyRequest::clear_key_bits() {
+void CreateSymmetricKeyRequest::clear_key_bits() {
   key_bits_ = 0;
 }
- ::crypto::SymmetricKeyBits CreateCbcKeyRequest::key_bits() const {
-  // @@protoc_insertion_point(field_get:crypto.CreateCbcKeyRequest.key_bits)
+ ::crypto::SymmetricKeyBits CreateSymmetricKeyRequest::key_bits() const {
+  // @@protoc_insertion_point(field_get:crypto.CreateSymmetricKeyRequest.key_bits)
   return static_cast< ::crypto::SymmetricKeyBits >(key_bits_);
 }
- void CreateCbcKeyRequest::set_key_bits(::crypto::SymmetricKeyBits value) {
+ void CreateSymmetricKeyRequest::set_key_bits(::crypto::SymmetricKeyBits value) {
   
   key_bits_ = value;
-  // @@protoc_insertion_point(field_set:crypto.CreateCbcKeyRequest.key_bits)
+  // @@protoc_insertion_point(field_set:crypto.CreateSymmetricKeyRequest.key_bits)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -698,79 +1033,80 @@ void CreateCbcKeyRequest::clear_key_bits() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int CreateCbcKeyResponse::kKeyFieldNumber;
+const int CreateSymmetricKeyResponse::kKeyFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-CreateCbcKeyResponse::CreateCbcKeyResponse()
+CreateSymmetricKeyResponse::CreateSymmetricKeyResponse()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:crypto.CreateCbcKeyResponse)
+  // @@protoc_insertion_point(constructor:crypto.CreateSymmetricKeyResponse)
 }
 
-void CreateCbcKeyResponse::InitAsDefaultInstance() {
+void CreateSymmetricKeyResponse::InitAsDefaultInstance() {
   _is_default_instance_ = true;
 }
 
-CreateCbcKeyResponse::CreateCbcKeyResponse(const CreateCbcKeyResponse& from)
+CreateSymmetricKeyResponse::CreateSymmetricKeyResponse(const CreateSymmetricKeyResponse& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:crypto.CreateCbcKeyResponse)
+  // @@protoc_insertion_point(copy_constructor:crypto.CreateSymmetricKeyResponse)
 }
 
-void CreateCbcKeyResponse::SharedCtor() {
+void CreateSymmetricKeyResponse::SharedCtor() {
     _is_default_instance_ = false;
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-CreateCbcKeyResponse::~CreateCbcKeyResponse() {
-  // @@protoc_insertion_point(destructor:crypto.CreateCbcKeyResponse)
+CreateSymmetricKeyResponse::~CreateSymmetricKeyResponse() {
+  // @@protoc_insertion_point(destructor:crypto.CreateSymmetricKeyResponse)
   SharedDtor();
 }
 
-void CreateCbcKeyResponse::SharedDtor() {
+void CreateSymmetricKeyResponse::SharedDtor() {
   key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
 
-void CreateCbcKeyResponse::SetCachedSize(int size) const {
+void CreateSymmetricKeyResponse::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* CreateCbcKeyResponse::descriptor() {
+const ::google::protobuf::Descriptor* CreateSymmetricKeyResponse::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return CreateCbcKeyResponse_descriptor_;
+  return CreateSymmetricKeyResponse_descriptor_;
 }
 
-const CreateCbcKeyResponse& CreateCbcKeyResponse::default_instance() {
+const CreateSymmetricKeyResponse& CreateSymmetricKeyResponse::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
   return *default_instance_;
 }
 
-CreateCbcKeyResponse* CreateCbcKeyResponse::default_instance_ = NULL;
+CreateSymmetricKeyResponse* CreateSymmetricKeyResponse::default_instance_ = NULL;
 
-CreateCbcKeyResponse* CreateCbcKeyResponse::New(::google::protobuf::Arena* arena) const {
-  CreateCbcKeyResponse* n = new CreateCbcKeyResponse;
+CreateSymmetricKeyResponse* CreateSymmetricKeyResponse::New(::google::protobuf::Arena* arena) const {
+  CreateSymmetricKeyResponse* n = new CreateSymmetricKeyResponse;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void CreateCbcKeyResponse::Clear() {
+void CreateSymmetricKeyResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.CreateSymmetricKeyResponse)
   key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-bool CreateCbcKeyResponse::MergePartialFromCodedStream(
+bool CreateSymmetricKeyResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:crypto.CreateCbcKeyResponse)
+  // @@protoc_insertion_point(parse_start:crypto.CreateSymmetricKeyResponse)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -784,7 +1120,7 @@ bool CreateCbcKeyResponse::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->key().data(), this->key().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "crypto.CreateCbcKeyResponse.key"));
+            "crypto.CreateSymmetricKeyResponse.key"));
         } else {
           goto handle_unusual;
         }
@@ -805,49 +1141,50 @@ bool CreateCbcKeyResponse::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:crypto.CreateCbcKeyResponse)
+  // @@protoc_insertion_point(parse_success:crypto.CreateSymmetricKeyResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:crypto.CreateCbcKeyResponse)
+  // @@protoc_insertion_point(parse_failure:crypto.CreateSymmetricKeyResponse)
   return false;
 #undef DO_
 }
 
-void CreateCbcKeyResponse::SerializeWithCachedSizes(
+void CreateSymmetricKeyResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:crypto.CreateCbcKeyResponse)
+  // @@protoc_insertion_point(serialize_start:crypto.CreateSymmetricKeyResponse)
   // optional string key = 1;
   if (this->key().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->key().data(), this->key().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "crypto.CreateCbcKeyResponse.key");
+      "crypto.CreateSymmetricKeyResponse.key");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->key(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:crypto.CreateCbcKeyResponse)
+  // @@protoc_insertion_point(serialize_end:crypto.CreateSymmetricKeyResponse)
 }
 
-::google::protobuf::uint8* CreateCbcKeyResponse::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:crypto.CreateCbcKeyResponse)
+::google::protobuf::uint8* CreateSymmetricKeyResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.CreateSymmetricKeyResponse)
   // optional string key = 1;
   if (this->key().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->key().data(), this->key().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "crypto.CreateCbcKeyResponse.key");
+      "crypto.CreateSymmetricKeyResponse.key");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->key(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:crypto.CreateCbcKeyResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.CreateSymmetricKeyResponse)
   return target;
 }
 
-int CreateCbcKeyResponse::ByteSize() const {
+int CreateSymmetricKeyResponse::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.CreateSymmetricKeyResponse)
   int total_size = 0;
 
   // optional string key = 1;
@@ -863,105 +1200,116 @@ int CreateCbcKeyResponse::ByteSize() const {
   return total_size;
 }
 
-void CreateCbcKeyResponse::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const CreateCbcKeyResponse* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const CreateCbcKeyResponse>(
+void CreateSymmetricKeyResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.CreateSymmetricKeyResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const CreateSymmetricKeyResponse* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const CreateSymmetricKeyResponse>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.CreateSymmetricKeyResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.CreateSymmetricKeyResponse)
     MergeFrom(*source);
   }
 }
 
-void CreateCbcKeyResponse::MergeFrom(const CreateCbcKeyResponse& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+void CreateSymmetricKeyResponse::MergeFrom(const CreateSymmetricKeyResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.CreateSymmetricKeyResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from.key().size() > 0) {
 
     key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
   }
 }
 
-void CreateCbcKeyResponse::CopyFrom(const ::google::protobuf::Message& from) {
+void CreateSymmetricKeyResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.CreateSymmetricKeyResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void CreateCbcKeyResponse::CopyFrom(const CreateCbcKeyResponse& from) {
+void CreateSymmetricKeyResponse::CopyFrom(const CreateSymmetricKeyResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.CreateSymmetricKeyResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CreateCbcKeyResponse::IsInitialized() const {
+bool CreateSymmetricKeyResponse::IsInitialized() const {
 
   return true;
 }
 
-void CreateCbcKeyResponse::Swap(CreateCbcKeyResponse* other) {
+void CreateSymmetricKeyResponse::Swap(CreateSymmetricKeyResponse* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void CreateCbcKeyResponse::InternalSwap(CreateCbcKeyResponse* other) {
+void CreateSymmetricKeyResponse::InternalSwap(CreateSymmetricKeyResponse* other) {
   key_.Swap(&other->key_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata CreateCbcKeyResponse::GetMetadata() const {
+::google::protobuf::Metadata CreateSymmetricKeyResponse::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = CreateCbcKeyResponse_descriptor_;
-  metadata.reflection = CreateCbcKeyResponse_reflection_;
+  metadata.descriptor = CreateSymmetricKeyResponse_descriptor_;
+  metadata.reflection = CreateSymmetricKeyResponse_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// CreateCbcKeyResponse
+// CreateSymmetricKeyResponse
 
 // optional string key = 1;
-void CreateCbcKeyResponse::clear_key() {
+void CreateSymmetricKeyResponse::clear_key() {
   key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CreateCbcKeyResponse::key() const {
-  // @@protoc_insertion_point(field_get:crypto.CreateCbcKeyResponse.key)
+ const ::std::string& CreateSymmetricKeyResponse::key() const {
+  // @@protoc_insertion_point(field_get:crypto.CreateSymmetricKeyResponse.key)
   return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CreateCbcKeyResponse::set_key(const ::std::string& value) {
+ void CreateSymmetricKeyResponse::set_key(const ::std::string& value) {
   
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:crypto.CreateCbcKeyResponse.key)
+  // @@protoc_insertion_point(field_set:crypto.CreateSymmetricKeyResponse.key)
 }
- void CreateCbcKeyResponse::set_key(const char* value) {
+ void CreateSymmetricKeyResponse::set_key(const char* value) {
   
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:crypto.CreateCbcKeyResponse.key)
+  // @@protoc_insertion_point(field_set_char:crypto.CreateSymmetricKeyResponse.key)
 }
- void CreateCbcKeyResponse::set_key(const char* value, size_t size) {
+ void CreateSymmetricKeyResponse::set_key(const char* value, size_t size) {
   
   key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:crypto.CreateCbcKeyResponse.key)
+  // @@protoc_insertion_point(field_set_pointer:crypto.CreateSymmetricKeyResponse.key)
 }
- ::std::string* CreateCbcKeyResponse::mutable_key() {
+ ::std::string* CreateSymmetricKeyResponse::mutable_key() {
   
-  // @@protoc_insertion_point(field_mutable:crypto.CreateCbcKeyResponse.key)
+  // @@protoc_insertion_point(field_mutable:crypto.CreateSymmetricKeyResponse.key)
   return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CreateCbcKeyResponse::release_key() {
+ ::std::string* CreateSymmetricKeyResponse::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.CreateSymmetricKeyResponse.key)
   
   return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CreateCbcKeyResponse::set_allocated_key(::std::string* key) {
+ void CreateSymmetricKeyResponse::set_allocated_key(::std::string* key) {
   if (key != NULL) {
     
   } else {
     
   }
   key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
-  // @@protoc_insertion_point(field_set_allocated:crypto.CreateCbcKeyResponse.key)
+  // @@protoc_insertion_point(field_set_allocated:crypto.CreateSymmetricKeyResponse.key)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -971,7 +1319,8 @@ void CreateCbcKeyResponse::clear_key() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int CbcEncryptFileRequest::kKeyFieldNumber;
 const int CbcEncryptFileRequest::kIvFieldNumber;
-const int CbcEncryptFileRequest::kFilePathFieldNumber;
+const int CbcEncryptFileRequest::kFileSourcePathFieldNumber;
+const int CbcEncryptFileRequest::kFileTargetPathFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 CbcEncryptFileRequest::CbcEncryptFileRequest()
@@ -998,7 +1347,8 @@ void CbcEncryptFileRequest::SharedCtor() {
   _cached_size_ = 0;
   key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   iv_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  file_path_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_source_path_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_target_path_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 CbcEncryptFileRequest::~CbcEncryptFileRequest() {
@@ -1009,7 +1359,8 @@ CbcEncryptFileRequest::~CbcEncryptFileRequest() {
 void CbcEncryptFileRequest::SharedDtor() {
   key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   iv_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  file_path_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_source_path_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_target_path_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -1040,14 +1391,16 @@ CbcEncryptFileRequest* CbcEncryptFileRequest::New(::google::protobuf::Arena* are
 }
 
 void CbcEncryptFileRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.CbcEncryptFileRequest)
   key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   iv_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  file_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_source_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_target_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool CbcEncryptFileRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:crypto.CbcEncryptFileRequest)
   for (;;) {
@@ -1084,20 +1437,37 @@ bool CbcEncryptFileRequest::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_file_path;
+        if (input->ExpectTag(26)) goto parse_file_source_path;
         break;
       }
 
-      // optional string file_path = 3;
+      // optional string file_source_path = 3;
       case 3: {
         if (tag == 26) {
-         parse_file_path:
+         parse_file_source_path:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_file_path()));
+                input, this->mutable_file_source_path()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->file_path().data(), this->file_path().length(),
+            this->file_source_path().data(), this->file_source_path().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "crypto.CbcEncryptFileRequest.file_path"));
+            "crypto.CbcEncryptFileRequest.file_source_path"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_file_target_path;
+        break;
+      }
+
+      // optional string file_target_path = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_file_target_path:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_file_target_path()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->file_target_path().data(), this->file_target_path().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.CbcEncryptFileRequest.file_target_path"));
         } else {
           goto handle_unusual;
         }
@@ -1149,21 +1519,31 @@ void CbcEncryptFileRequest::SerializeWithCachedSizes(
       2, this->iv(), output);
   }
 
-  // optional string file_path = 3;
-  if (this->file_path().size() > 0) {
+  // optional string file_source_path = 3;
+  if (this->file_source_path().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->file_path().data(), this->file_path().length(),
+      this->file_source_path().data(), this->file_source_path().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "crypto.CbcEncryptFileRequest.file_path");
+      "crypto.CbcEncryptFileRequest.file_source_path");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->file_path(), output);
+      3, this->file_source_path(), output);
+  }
+
+  // optional string file_target_path = 4;
+  if (this->file_target_path().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->file_target_path().data(), this->file_target_path().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcEncryptFileRequest.file_target_path");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->file_target_path(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:crypto.CbcEncryptFileRequest)
 }
 
-::google::protobuf::uint8* CbcEncryptFileRequest::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* CbcEncryptFileRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:crypto.CbcEncryptFileRequest)
   // optional string key = 1;
   if (this->key().size() > 0) {
@@ -1187,15 +1567,26 @@ void CbcEncryptFileRequest::SerializeWithCachedSizes(
         2, this->iv(), target);
   }
 
-  // optional string file_path = 3;
-  if (this->file_path().size() > 0) {
+  // optional string file_source_path = 3;
+  if (this->file_source_path().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->file_path().data(), this->file_path().length(),
+      this->file_source_path().data(), this->file_source_path().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "crypto.CbcEncryptFileRequest.file_path");
+      "crypto.CbcEncryptFileRequest.file_source_path");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->file_path(), target);
+        3, this->file_source_path(), target);
+  }
+
+  // optional string file_target_path = 4;
+  if (this->file_target_path().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->file_target_path().data(), this->file_target_path().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcEncryptFileRequest.file_target_path");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->file_target_path(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:crypto.CbcEncryptFileRequest)
@@ -1203,6 +1594,7 @@ void CbcEncryptFileRequest::SerializeWithCachedSizes(
 }
 
 int CbcEncryptFileRequest::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.CbcEncryptFileRequest)
   int total_size = 0;
 
   // optional string key = 1;
@@ -1219,11 +1611,18 @@ int CbcEncryptFileRequest::ByteSize() const {
         this->iv());
   }
 
-  // optional string file_path = 3;
-  if (this->file_path().size() > 0) {
+  // optional string file_source_path = 3;
+  if (this->file_source_path().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->file_path());
+        this->file_source_path());
+  }
+
+  // optional string file_target_path = 4;
+  if (this->file_target_path().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->file_target_path());
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1233,19 +1632,27 @@ int CbcEncryptFileRequest::ByteSize() const {
 }
 
 void CbcEncryptFileRequest::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.CbcEncryptFileRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   const CbcEncryptFileRequest* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const CbcEncryptFileRequest>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.CbcEncryptFileRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.CbcEncryptFileRequest)
     MergeFrom(*source);
   }
 }
 
 void CbcEncryptFileRequest::MergeFrom(const CbcEncryptFileRequest& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.CbcEncryptFileRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from.key().size() > 0) {
 
     key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
@@ -1254,19 +1661,25 @@ void CbcEncryptFileRequest::MergeFrom(const CbcEncryptFileRequest& from) {
 
     iv_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.iv_);
   }
-  if (from.file_path().size() > 0) {
+  if (from.file_source_path().size() > 0) {
 
-    file_path_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_path_);
+    file_source_path_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_source_path_);
+  }
+  if (from.file_target_path().size() > 0) {
+
+    file_target_path_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_target_path_);
   }
 }
 
 void CbcEncryptFileRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.CbcEncryptFileRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void CbcEncryptFileRequest::CopyFrom(const CbcEncryptFileRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.CbcEncryptFileRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1284,7 +1697,8 @@ void CbcEncryptFileRequest::Swap(CbcEncryptFileRequest* other) {
 void CbcEncryptFileRequest::InternalSwap(CbcEncryptFileRequest* other) {
   key_.Swap(&other->key_);
   iv_.Swap(&other->iv_);
-  file_path_.Swap(&other->file_path_);
+  file_source_path_.Swap(&other->file_source_path_);
+  file_target_path_.Swap(&other->file_target_path_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1330,6 +1744,7 @@ void CbcEncryptFileRequest::clear_key() {
   return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* CbcEncryptFileRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptFileRequest.key)
   
   return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1373,6 +1788,7 @@ void CbcEncryptFileRequest::clear_iv() {
   return iv_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* CbcEncryptFileRequest::release_iv() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptFileRequest.iv)
   
   return iv_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -1386,47 +1802,92 @@ void CbcEncryptFileRequest::clear_iv() {
   // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptFileRequest.iv)
 }
 
-// optional string file_path = 3;
-void CbcEncryptFileRequest::clear_file_path() {
-  file_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string file_source_path = 3;
+void CbcEncryptFileRequest::clear_file_source_path() {
+  file_source_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CbcEncryptFileRequest::file_path() const {
-  // @@protoc_insertion_point(field_get:crypto.CbcEncryptFileRequest.file_path)
-  return file_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& CbcEncryptFileRequest::file_source_path() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcEncryptFileRequest.file_source_path)
+  return file_source_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CbcEncryptFileRequest::set_file_path(const ::std::string& value) {
+ void CbcEncryptFileRequest::set_file_source_path(const ::std::string& value) {
   
-  file_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:crypto.CbcEncryptFileRequest.file_path)
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcEncryptFileRequest.file_source_path)
 }
- void CbcEncryptFileRequest::set_file_path(const char* value) {
+ void CbcEncryptFileRequest::set_file_source_path(const char* value) {
   
-  file_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptFileRequest.file_path)
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptFileRequest.file_source_path)
 }
- void CbcEncryptFileRequest::set_file_path(const char* value, size_t size) {
+ void CbcEncryptFileRequest::set_file_source_path(const char* value, size_t size) {
   
-  file_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptFileRequest.file_path)
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptFileRequest.file_source_path)
 }
- ::std::string* CbcEncryptFileRequest::mutable_file_path() {
+ ::std::string* CbcEncryptFileRequest::mutable_file_source_path() {
   
-  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptFileRequest.file_path)
-  return file_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptFileRequest.file_source_path)
+  return file_source_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CbcEncryptFileRequest::release_file_path() {
+ ::std::string* CbcEncryptFileRequest::release_file_source_path() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptFileRequest.file_source_path)
   
-  return file_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return file_source_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CbcEncryptFileRequest::set_allocated_file_path(::std::string* file_path) {
-  if (file_path != NULL) {
+ void CbcEncryptFileRequest::set_allocated_file_source_path(::std::string* file_source_path) {
+  if (file_source_path != NULL) {
     
   } else {
     
   }
-  file_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_path);
-  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptFileRequest.file_path)
+  file_source_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_source_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptFileRequest.file_source_path)
+}
+
+// optional string file_target_path = 4;
+void CbcEncryptFileRequest::clear_file_target_path() {
+  file_target_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& CbcEncryptFileRequest::file_target_path() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcEncryptFileRequest.file_target_path)
+  return file_target_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcEncryptFileRequest::set_file_target_path(const ::std::string& value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcEncryptFileRequest.file_target_path)
+}
+ void CbcEncryptFileRequest::set_file_target_path(const char* value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptFileRequest.file_target_path)
+}
+ void CbcEncryptFileRequest::set_file_target_path(const char* value, size_t size) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptFileRequest.file_target_path)
+}
+ ::std::string* CbcEncryptFileRequest::mutable_file_target_path() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptFileRequest.file_target_path)
+  return file_target_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* CbcEncryptFileRequest::release_file_target_path() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptFileRequest.file_target_path)
+  
+  return file_target_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcEncryptFileRequest::set_allocated_file_target_path(::std::string* file_target_path) {
+  if (file_target_path != NULL) {
+    
+  } else {
+    
+  }
+  file_target_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_target_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptFileRequest.file_target_path)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1495,11 +1956,12 @@ CbcEncryptFileResponse* CbcEncryptFileResponse::New(::google::protobuf::Arena* a
 }
 
 void CbcEncryptFileResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.CbcEncryptFileResponse)
 }
 
 bool CbcEncryptFileResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:crypto.CbcEncryptFileResponse)
   for (;;) {
@@ -1529,14 +1991,15 @@ void CbcEncryptFileResponse::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:crypto.CbcEncryptFileResponse)
 }
 
-::google::protobuf::uint8* CbcEncryptFileResponse::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* CbcEncryptFileResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:crypto.CbcEncryptFileResponse)
   // @@protoc_insertion_point(serialize_to_array_end:crypto.CbcEncryptFileResponse)
   return target;
 }
 
 int CbcEncryptFileResponse::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.CbcEncryptFileResponse)
   int total_size = 0;
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1546,28 +2009,38 @@ int CbcEncryptFileResponse::ByteSize() const {
 }
 
 void CbcEncryptFileResponse::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.CbcEncryptFileResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   const CbcEncryptFileResponse* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const CbcEncryptFileResponse>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.CbcEncryptFileResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.CbcEncryptFileResponse)
     MergeFrom(*source);
   }
 }
 
 void CbcEncryptFileResponse::MergeFrom(const CbcEncryptFileResponse& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.CbcEncryptFileResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
 }
 
 void CbcEncryptFileResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.CbcEncryptFileResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void CbcEncryptFileResponse::CopyFrom(const CbcEncryptFileResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.CbcEncryptFileResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1605,7 +2078,8 @@ void CbcEncryptFileResponse::InternalSwap(CbcEncryptFileResponse* other) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int CbcDecryptFileRequest::kKeyFieldNumber;
 const int CbcDecryptFileRequest::kIvFieldNumber;
-const int CbcDecryptFileRequest::kFilePathFieldNumber;
+const int CbcDecryptFileRequest::kFileSourcePathFieldNumber;
+const int CbcDecryptFileRequest::kFileTargetPathFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 CbcDecryptFileRequest::CbcDecryptFileRequest()
@@ -1632,7 +2106,8 @@ void CbcDecryptFileRequest::SharedCtor() {
   _cached_size_ = 0;
   key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   iv_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  file_path_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_source_path_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_target_path_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 CbcDecryptFileRequest::~CbcDecryptFileRequest() {
@@ -1643,7 +2118,8 @@ CbcDecryptFileRequest::~CbcDecryptFileRequest() {
 void CbcDecryptFileRequest::SharedDtor() {
   key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   iv_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  file_path_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_source_path_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_target_path_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -1674,14 +2150,16 @@ CbcDecryptFileRequest* CbcDecryptFileRequest::New(::google::protobuf::Arena* are
 }
 
 void CbcDecryptFileRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.CbcDecryptFileRequest)
   key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   iv_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  file_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_source_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_target_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool CbcDecryptFileRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:crypto.CbcDecryptFileRequest)
   for (;;) {
@@ -1718,20 +2196,37 @@ bool CbcDecryptFileRequest::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_file_path;
+        if (input->ExpectTag(26)) goto parse_file_source_path;
         break;
       }
 
-      // optional string file_path = 3;
+      // optional string file_source_path = 3;
       case 3: {
         if (tag == 26) {
-         parse_file_path:
+         parse_file_source_path:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_file_path()));
+                input, this->mutable_file_source_path()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->file_path().data(), this->file_path().length(),
+            this->file_source_path().data(), this->file_source_path().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "crypto.CbcDecryptFileRequest.file_path"));
+            "crypto.CbcDecryptFileRequest.file_source_path"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_file_target_path;
+        break;
+      }
+
+      // optional string file_target_path = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_file_target_path:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_file_target_path()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->file_target_path().data(), this->file_target_path().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.CbcDecryptFileRequest.file_target_path"));
         } else {
           goto handle_unusual;
         }
@@ -1783,21 +2278,31 @@ void CbcDecryptFileRequest::SerializeWithCachedSizes(
       2, this->iv(), output);
   }
 
-  // optional string file_path = 3;
-  if (this->file_path().size() > 0) {
+  // optional string file_source_path = 3;
+  if (this->file_source_path().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->file_path().data(), this->file_path().length(),
+      this->file_source_path().data(), this->file_source_path().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "crypto.CbcDecryptFileRequest.file_path");
+      "crypto.CbcDecryptFileRequest.file_source_path");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->file_path(), output);
+      3, this->file_source_path(), output);
+  }
+
+  // optional string file_target_path = 4;
+  if (this->file_target_path().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->file_target_path().data(), this->file_target_path().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcDecryptFileRequest.file_target_path");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->file_target_path(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:crypto.CbcDecryptFileRequest)
 }
 
-::google::protobuf::uint8* CbcDecryptFileRequest::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* CbcDecryptFileRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:crypto.CbcDecryptFileRequest)
   // optional string key = 1;
   if (this->key().size() > 0) {
@@ -1821,15 +2326,26 @@ void CbcDecryptFileRequest::SerializeWithCachedSizes(
         2, this->iv(), target);
   }
 
-  // optional string file_path = 3;
-  if (this->file_path().size() > 0) {
+  // optional string file_source_path = 3;
+  if (this->file_source_path().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->file_path().data(), this->file_path().length(),
+      this->file_source_path().data(), this->file_source_path().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "crypto.CbcDecryptFileRequest.file_path");
+      "crypto.CbcDecryptFileRequest.file_source_path");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->file_path(), target);
+        3, this->file_source_path(), target);
+  }
+
+  // optional string file_target_path = 4;
+  if (this->file_target_path().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->file_target_path().data(), this->file_target_path().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcDecryptFileRequest.file_target_path");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->file_target_path(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:crypto.CbcDecryptFileRequest)
@@ -1837,6 +2353,7 @@ void CbcDecryptFileRequest::SerializeWithCachedSizes(
 }
 
 int CbcDecryptFileRequest::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.CbcDecryptFileRequest)
   int total_size = 0;
 
   // optional string key = 1;
@@ -1853,11 +2370,18 @@ int CbcDecryptFileRequest::ByteSize() const {
         this->iv());
   }
 
-  // optional string file_path = 3;
-  if (this->file_path().size() > 0) {
+  // optional string file_source_path = 3;
+  if (this->file_source_path().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->file_path());
+        this->file_source_path());
+  }
+
+  // optional string file_target_path = 4;
+  if (this->file_target_path().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->file_target_path());
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1867,19 +2391,27 @@ int CbcDecryptFileRequest::ByteSize() const {
 }
 
 void CbcDecryptFileRequest::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.CbcDecryptFileRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   const CbcDecryptFileRequest* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const CbcDecryptFileRequest>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.CbcDecryptFileRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.CbcDecryptFileRequest)
     MergeFrom(*source);
   }
 }
 
 void CbcDecryptFileRequest::MergeFrom(const CbcDecryptFileRequest& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.CbcDecryptFileRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from.key().size() > 0) {
 
     key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
@@ -1888,19 +2420,25 @@ void CbcDecryptFileRequest::MergeFrom(const CbcDecryptFileRequest& from) {
 
     iv_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.iv_);
   }
-  if (from.file_path().size() > 0) {
+  if (from.file_source_path().size() > 0) {
 
-    file_path_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_path_);
+    file_source_path_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_source_path_);
+  }
+  if (from.file_target_path().size() > 0) {
+
+    file_target_path_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_target_path_);
   }
 }
 
 void CbcDecryptFileRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.CbcDecryptFileRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void CbcDecryptFileRequest::CopyFrom(const CbcDecryptFileRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.CbcDecryptFileRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1918,7 +2456,8 @@ void CbcDecryptFileRequest::Swap(CbcDecryptFileRequest* other) {
 void CbcDecryptFileRequest::InternalSwap(CbcDecryptFileRequest* other) {
   key_.Swap(&other->key_);
   iv_.Swap(&other->iv_);
-  file_path_.Swap(&other->file_path_);
+  file_source_path_.Swap(&other->file_source_path_);
+  file_target_path_.Swap(&other->file_target_path_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1964,6 +2503,7 @@ void CbcDecryptFileRequest::clear_key() {
   return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* CbcDecryptFileRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptFileRequest.key)
   
   return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2007,6 +2547,7 @@ void CbcDecryptFileRequest::clear_iv() {
   return iv_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* CbcDecryptFileRequest::release_iv() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptFileRequest.iv)
   
   return iv_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2020,47 +2561,92 @@ void CbcDecryptFileRequest::clear_iv() {
   // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptFileRequest.iv)
 }
 
-// optional string file_path = 3;
-void CbcDecryptFileRequest::clear_file_path() {
-  file_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string file_source_path = 3;
+void CbcDecryptFileRequest::clear_file_source_path() {
+  file_source_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& CbcDecryptFileRequest::file_path() const {
-  // @@protoc_insertion_point(field_get:crypto.CbcDecryptFileRequest.file_path)
-  return file_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& CbcDecryptFileRequest::file_source_path() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcDecryptFileRequest.file_source_path)
+  return file_source_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CbcDecryptFileRequest::set_file_path(const ::std::string& value) {
+ void CbcDecryptFileRequest::set_file_source_path(const ::std::string& value) {
   
-  file_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:crypto.CbcDecryptFileRequest.file_path)
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcDecryptFileRequest.file_source_path)
 }
- void CbcDecryptFileRequest::set_file_path(const char* value) {
+ void CbcDecryptFileRequest::set_file_source_path(const char* value) {
   
-  file_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptFileRequest.file_path)
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptFileRequest.file_source_path)
 }
- void CbcDecryptFileRequest::set_file_path(const char* value, size_t size) {
+ void CbcDecryptFileRequest::set_file_source_path(const char* value, size_t size) {
   
-  file_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptFileRequest.file_path)
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptFileRequest.file_source_path)
 }
- ::std::string* CbcDecryptFileRequest::mutable_file_path() {
+ ::std::string* CbcDecryptFileRequest::mutable_file_source_path() {
   
-  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptFileRequest.file_path)
-  return file_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptFileRequest.file_source_path)
+  return file_source_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* CbcDecryptFileRequest::release_file_path() {
+ ::std::string* CbcDecryptFileRequest::release_file_source_path() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptFileRequest.file_source_path)
   
-  return file_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return file_source_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void CbcDecryptFileRequest::set_allocated_file_path(::std::string* file_path) {
-  if (file_path != NULL) {
+ void CbcDecryptFileRequest::set_allocated_file_source_path(::std::string* file_source_path) {
+  if (file_source_path != NULL) {
     
   } else {
     
   }
-  file_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_path);
-  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptFileRequest.file_path)
+  file_source_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_source_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptFileRequest.file_source_path)
+}
+
+// optional string file_target_path = 4;
+void CbcDecryptFileRequest::clear_file_target_path() {
+  file_target_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& CbcDecryptFileRequest::file_target_path() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcDecryptFileRequest.file_target_path)
+  return file_target_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcDecryptFileRequest::set_file_target_path(const ::std::string& value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcDecryptFileRequest.file_target_path)
+}
+ void CbcDecryptFileRequest::set_file_target_path(const char* value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptFileRequest.file_target_path)
+}
+ void CbcDecryptFileRequest::set_file_target_path(const char* value, size_t size) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptFileRequest.file_target_path)
+}
+ ::std::string* CbcDecryptFileRequest::mutable_file_target_path() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptFileRequest.file_target_path)
+  return file_target_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* CbcDecryptFileRequest::release_file_target_path() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptFileRequest.file_target_path)
+  
+  return file_target_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcDecryptFileRequest::set_allocated_file_target_path(::std::string* file_target_path) {
+  if (file_target_path != NULL) {
+    
+  } else {
+    
+  }
+  file_target_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_target_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptFileRequest.file_target_path)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -2129,11 +2715,12 @@ CbcDecryptFileResponse* CbcDecryptFileResponse::New(::google::protobuf::Arena* a
 }
 
 void CbcDecryptFileResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.CbcDecryptFileResponse)
 }
 
 bool CbcDecryptFileResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:crypto.CbcDecryptFileResponse)
   for (;;) {
@@ -2163,14 +2750,15 @@ void CbcDecryptFileResponse::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:crypto.CbcDecryptFileResponse)
 }
 
-::google::protobuf::uint8* CbcDecryptFileResponse::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* CbcDecryptFileResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:crypto.CbcDecryptFileResponse)
   // @@protoc_insertion_point(serialize_to_array_end:crypto.CbcDecryptFileResponse)
   return target;
 }
 
 int CbcDecryptFileResponse::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.CbcDecryptFileResponse)
   int total_size = 0;
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -2180,28 +2768,38 @@ int CbcDecryptFileResponse::ByteSize() const {
 }
 
 void CbcDecryptFileResponse::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.CbcDecryptFileResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   const CbcDecryptFileResponse* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const CbcDecryptFileResponse>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.CbcDecryptFileResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.CbcDecryptFileResponse)
     MergeFrom(*source);
   }
 }
 
 void CbcDecryptFileResponse::MergeFrom(const CbcDecryptFileResponse& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.CbcDecryptFileResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
 }
 
 void CbcDecryptFileResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.CbcDecryptFileResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void CbcDecryptFileResponse::CopyFrom(const CbcDecryptFileResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.CbcDecryptFileResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -2231,6 +2829,4188 @@ void CbcDecryptFileResponse::InternalSwap(CbcDecryptFileResponse* other) {
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // CbcDecryptFileResponse
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CbcEncryptStringRequest::kKeyFieldNumber;
+const int CbcEncryptStringRequest::kIvFieldNumber;
+const int CbcEncryptStringRequest::kPlaintextFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+CbcEncryptStringRequest::CbcEncryptStringRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:crypto.CbcEncryptStringRequest)
+}
+
+void CbcEncryptStringRequest::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+CbcEncryptStringRequest::CbcEncryptStringRequest(const CbcEncryptStringRequest& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:crypto.CbcEncryptStringRequest)
+}
+
+void CbcEncryptStringRequest::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  iv_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  plaintext_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+CbcEncryptStringRequest::~CbcEncryptStringRequest() {
+  // @@protoc_insertion_point(destructor:crypto.CbcEncryptStringRequest)
+  SharedDtor();
+}
+
+void CbcEncryptStringRequest::SharedDtor() {
+  key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  iv_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  plaintext_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void CbcEncryptStringRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CbcEncryptStringRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CbcEncryptStringRequest_descriptor_;
+}
+
+const CbcEncryptStringRequest& CbcEncryptStringRequest::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
+  return *default_instance_;
+}
+
+CbcEncryptStringRequest* CbcEncryptStringRequest::default_instance_ = NULL;
+
+CbcEncryptStringRequest* CbcEncryptStringRequest::New(::google::protobuf::Arena* arena) const {
+  CbcEncryptStringRequest* n = new CbcEncryptStringRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void CbcEncryptStringRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.CbcEncryptStringRequest)
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  iv_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool CbcEncryptStringRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:crypto.CbcEncryptStringRequest)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string key = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_key()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->key().data(), this->key().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.CbcEncryptStringRequest.key"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_iv;
+        break;
+      }
+
+      // optional string iv = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_iv:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_iv()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->iv().data(), this->iv().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.CbcEncryptStringRequest.iv"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_plaintext;
+        break;
+      }
+
+      // optional string plaintext = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_plaintext:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_plaintext()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->plaintext().data(), this->plaintext().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.CbcEncryptStringRequest.plaintext"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:crypto.CbcEncryptStringRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:crypto.CbcEncryptStringRequest)
+  return false;
+#undef DO_
+}
+
+void CbcEncryptStringRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:crypto.CbcEncryptStringRequest)
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcEncryptStringRequest.key");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->key(), output);
+  }
+
+  // optional string iv = 2;
+  if (this->iv().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->iv().data(), this->iv().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcEncryptStringRequest.iv");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->iv(), output);
+  }
+
+  // optional string plaintext = 3;
+  if (this->plaintext().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->plaintext().data(), this->plaintext().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcEncryptStringRequest.plaintext");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->plaintext(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:crypto.CbcEncryptStringRequest)
+}
+
+::google::protobuf::uint8* CbcEncryptStringRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.CbcEncryptStringRequest)
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcEncryptStringRequest.key");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->key(), target);
+  }
+
+  // optional string iv = 2;
+  if (this->iv().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->iv().data(), this->iv().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcEncryptStringRequest.iv");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->iv(), target);
+  }
+
+  // optional string plaintext = 3;
+  if (this->plaintext().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->plaintext().data(), this->plaintext().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcEncryptStringRequest.plaintext");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->plaintext(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.CbcEncryptStringRequest)
+  return target;
+}
+
+int CbcEncryptStringRequest::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.CbcEncryptStringRequest)
+  int total_size = 0;
+
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->key());
+  }
+
+  // optional string iv = 2;
+  if (this->iv().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->iv());
+  }
+
+  // optional string plaintext = 3;
+  if (this->plaintext().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->plaintext());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CbcEncryptStringRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.CbcEncryptStringRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const CbcEncryptStringRequest* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const CbcEncryptStringRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.CbcEncryptStringRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.CbcEncryptStringRequest)
+    MergeFrom(*source);
+  }
+}
+
+void CbcEncryptStringRequest::MergeFrom(const CbcEncryptStringRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.CbcEncryptStringRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from.key().size() > 0) {
+
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
+  if (from.iv().size() > 0) {
+
+    iv_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.iv_);
+  }
+  if (from.plaintext().size() > 0) {
+
+    plaintext_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.plaintext_);
+  }
+}
+
+void CbcEncryptStringRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.CbcEncryptStringRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CbcEncryptStringRequest::CopyFrom(const CbcEncryptStringRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.CbcEncryptStringRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CbcEncryptStringRequest::IsInitialized() const {
+
+  return true;
+}
+
+void CbcEncryptStringRequest::Swap(CbcEncryptStringRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CbcEncryptStringRequest::InternalSwap(CbcEncryptStringRequest* other) {
+  key_.Swap(&other->key_);
+  iv_.Swap(&other->iv_);
+  plaintext_.Swap(&other->plaintext_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata CbcEncryptStringRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CbcEncryptStringRequest_descriptor_;
+  metadata.reflection = CbcEncryptStringRequest_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// CbcEncryptStringRequest
+
+// optional string key = 1;
+void CbcEncryptStringRequest::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& CbcEncryptStringRequest::key() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcEncryptStringRequest.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcEncryptStringRequest::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcEncryptStringRequest.key)
+}
+ void CbcEncryptStringRequest::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptStringRequest.key)
+}
+ void CbcEncryptStringRequest::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptStringRequest.key)
+}
+ ::std::string* CbcEncryptStringRequest::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptStringRequest.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* CbcEncryptStringRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptStringRequest.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcEncryptStringRequest::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptStringRequest.key)
+}
+
+// optional string iv = 2;
+void CbcEncryptStringRequest::clear_iv() {
+  iv_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& CbcEncryptStringRequest::iv() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcEncryptStringRequest.iv)
+  return iv_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcEncryptStringRequest::set_iv(const ::std::string& value) {
+  
+  iv_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcEncryptStringRequest.iv)
+}
+ void CbcEncryptStringRequest::set_iv(const char* value) {
+  
+  iv_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptStringRequest.iv)
+}
+ void CbcEncryptStringRequest::set_iv(const char* value, size_t size) {
+  
+  iv_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptStringRequest.iv)
+}
+ ::std::string* CbcEncryptStringRequest::mutable_iv() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptStringRequest.iv)
+  return iv_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* CbcEncryptStringRequest::release_iv() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptStringRequest.iv)
+  
+  return iv_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcEncryptStringRequest::set_allocated_iv(::std::string* iv) {
+  if (iv != NULL) {
+    
+  } else {
+    
+  }
+  iv_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), iv);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptStringRequest.iv)
+}
+
+// optional string plaintext = 3;
+void CbcEncryptStringRequest::clear_plaintext() {
+  plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& CbcEncryptStringRequest::plaintext() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcEncryptStringRequest.plaintext)
+  return plaintext_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcEncryptStringRequest::set_plaintext(const ::std::string& value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcEncryptStringRequest.plaintext)
+}
+ void CbcEncryptStringRequest::set_plaintext(const char* value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptStringRequest.plaintext)
+}
+ void CbcEncryptStringRequest::set_plaintext(const char* value, size_t size) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptStringRequest.plaintext)
+}
+ ::std::string* CbcEncryptStringRequest::mutable_plaintext() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptStringRequest.plaintext)
+  return plaintext_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* CbcEncryptStringRequest::release_plaintext() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptStringRequest.plaintext)
+  
+  return plaintext_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcEncryptStringRequest::set_allocated_plaintext(::std::string* plaintext) {
+  if (plaintext != NULL) {
+    
+  } else {
+    
+  }
+  plaintext_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), plaintext);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptStringRequest.plaintext)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CbcEncryptStringResponse::kCipherFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+CbcEncryptStringResponse::CbcEncryptStringResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:crypto.CbcEncryptStringResponse)
+}
+
+void CbcEncryptStringResponse::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+CbcEncryptStringResponse::CbcEncryptStringResponse(const CbcEncryptStringResponse& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:crypto.CbcEncryptStringResponse)
+}
+
+void CbcEncryptStringResponse::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  cipher_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+CbcEncryptStringResponse::~CbcEncryptStringResponse() {
+  // @@protoc_insertion_point(destructor:crypto.CbcEncryptStringResponse)
+  SharedDtor();
+}
+
+void CbcEncryptStringResponse::SharedDtor() {
+  cipher_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void CbcEncryptStringResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CbcEncryptStringResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CbcEncryptStringResponse_descriptor_;
+}
+
+const CbcEncryptStringResponse& CbcEncryptStringResponse::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
+  return *default_instance_;
+}
+
+CbcEncryptStringResponse* CbcEncryptStringResponse::default_instance_ = NULL;
+
+CbcEncryptStringResponse* CbcEncryptStringResponse::New(::google::protobuf::Arena* arena) const {
+  CbcEncryptStringResponse* n = new CbcEncryptStringResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void CbcEncryptStringResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.CbcEncryptStringResponse)
+  cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool CbcEncryptStringResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:crypto.CbcEncryptStringResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string cipher = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_cipher()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->cipher().data(), this->cipher().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.CbcEncryptStringResponse.cipher"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:crypto.CbcEncryptStringResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:crypto.CbcEncryptStringResponse)
+  return false;
+#undef DO_
+}
+
+void CbcEncryptStringResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:crypto.CbcEncryptStringResponse)
+  // optional string cipher = 1;
+  if (this->cipher().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->cipher().data(), this->cipher().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcEncryptStringResponse.cipher");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->cipher(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:crypto.CbcEncryptStringResponse)
+}
+
+::google::protobuf::uint8* CbcEncryptStringResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.CbcEncryptStringResponse)
+  // optional string cipher = 1;
+  if (this->cipher().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->cipher().data(), this->cipher().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcEncryptStringResponse.cipher");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->cipher(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.CbcEncryptStringResponse)
+  return target;
+}
+
+int CbcEncryptStringResponse::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.CbcEncryptStringResponse)
+  int total_size = 0;
+
+  // optional string cipher = 1;
+  if (this->cipher().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->cipher());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CbcEncryptStringResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.CbcEncryptStringResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const CbcEncryptStringResponse* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const CbcEncryptStringResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.CbcEncryptStringResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.CbcEncryptStringResponse)
+    MergeFrom(*source);
+  }
+}
+
+void CbcEncryptStringResponse::MergeFrom(const CbcEncryptStringResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.CbcEncryptStringResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from.cipher().size() > 0) {
+
+    cipher_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.cipher_);
+  }
+}
+
+void CbcEncryptStringResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.CbcEncryptStringResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CbcEncryptStringResponse::CopyFrom(const CbcEncryptStringResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.CbcEncryptStringResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CbcEncryptStringResponse::IsInitialized() const {
+
+  return true;
+}
+
+void CbcEncryptStringResponse::Swap(CbcEncryptStringResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CbcEncryptStringResponse::InternalSwap(CbcEncryptStringResponse* other) {
+  cipher_.Swap(&other->cipher_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata CbcEncryptStringResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CbcEncryptStringResponse_descriptor_;
+  metadata.reflection = CbcEncryptStringResponse_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// CbcEncryptStringResponse
+
+// optional string cipher = 1;
+void CbcEncryptStringResponse::clear_cipher() {
+  cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& CbcEncryptStringResponse::cipher() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcEncryptStringResponse.cipher)
+  return cipher_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcEncryptStringResponse::set_cipher(const ::std::string& value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcEncryptStringResponse.cipher)
+}
+ void CbcEncryptStringResponse::set_cipher(const char* value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcEncryptStringResponse.cipher)
+}
+ void CbcEncryptStringResponse::set_cipher(const char* value, size_t size) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcEncryptStringResponse.cipher)
+}
+ ::std::string* CbcEncryptStringResponse::mutable_cipher() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcEncryptStringResponse.cipher)
+  return cipher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* CbcEncryptStringResponse::release_cipher() {
+  // @@protoc_insertion_point(field_release:crypto.CbcEncryptStringResponse.cipher)
+  
+  return cipher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcEncryptStringResponse::set_allocated_cipher(::std::string* cipher) {
+  if (cipher != NULL) {
+    
+  } else {
+    
+  }
+  cipher_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cipher);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcEncryptStringResponse.cipher)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CbcDecryptStringRequest::kKeyFieldNumber;
+const int CbcDecryptStringRequest::kIvFieldNumber;
+const int CbcDecryptStringRequest::kCipherFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+CbcDecryptStringRequest::CbcDecryptStringRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:crypto.CbcDecryptStringRequest)
+}
+
+void CbcDecryptStringRequest::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+CbcDecryptStringRequest::CbcDecryptStringRequest(const CbcDecryptStringRequest& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:crypto.CbcDecryptStringRequest)
+}
+
+void CbcDecryptStringRequest::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  iv_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  cipher_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+CbcDecryptStringRequest::~CbcDecryptStringRequest() {
+  // @@protoc_insertion_point(destructor:crypto.CbcDecryptStringRequest)
+  SharedDtor();
+}
+
+void CbcDecryptStringRequest::SharedDtor() {
+  key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  iv_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  cipher_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void CbcDecryptStringRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CbcDecryptStringRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CbcDecryptStringRequest_descriptor_;
+}
+
+const CbcDecryptStringRequest& CbcDecryptStringRequest::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
+  return *default_instance_;
+}
+
+CbcDecryptStringRequest* CbcDecryptStringRequest::default_instance_ = NULL;
+
+CbcDecryptStringRequest* CbcDecryptStringRequest::New(::google::protobuf::Arena* arena) const {
+  CbcDecryptStringRequest* n = new CbcDecryptStringRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void CbcDecryptStringRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.CbcDecryptStringRequest)
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  iv_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool CbcDecryptStringRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:crypto.CbcDecryptStringRequest)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string key = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_key()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->key().data(), this->key().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.CbcDecryptStringRequest.key"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_iv;
+        break;
+      }
+
+      // optional string iv = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_iv:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_iv()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->iv().data(), this->iv().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.CbcDecryptStringRequest.iv"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_cipher;
+        break;
+      }
+
+      // optional string cipher = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_cipher:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_cipher()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->cipher().data(), this->cipher().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.CbcDecryptStringRequest.cipher"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:crypto.CbcDecryptStringRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:crypto.CbcDecryptStringRequest)
+  return false;
+#undef DO_
+}
+
+void CbcDecryptStringRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:crypto.CbcDecryptStringRequest)
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcDecryptStringRequest.key");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->key(), output);
+  }
+
+  // optional string iv = 2;
+  if (this->iv().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->iv().data(), this->iv().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcDecryptStringRequest.iv");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->iv(), output);
+  }
+
+  // optional string cipher = 3;
+  if (this->cipher().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->cipher().data(), this->cipher().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcDecryptStringRequest.cipher");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->cipher(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:crypto.CbcDecryptStringRequest)
+}
+
+::google::protobuf::uint8* CbcDecryptStringRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.CbcDecryptStringRequest)
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcDecryptStringRequest.key");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->key(), target);
+  }
+
+  // optional string iv = 2;
+  if (this->iv().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->iv().data(), this->iv().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcDecryptStringRequest.iv");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->iv(), target);
+  }
+
+  // optional string cipher = 3;
+  if (this->cipher().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->cipher().data(), this->cipher().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcDecryptStringRequest.cipher");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->cipher(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.CbcDecryptStringRequest)
+  return target;
+}
+
+int CbcDecryptStringRequest::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.CbcDecryptStringRequest)
+  int total_size = 0;
+
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->key());
+  }
+
+  // optional string iv = 2;
+  if (this->iv().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->iv());
+  }
+
+  // optional string cipher = 3;
+  if (this->cipher().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->cipher());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CbcDecryptStringRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.CbcDecryptStringRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const CbcDecryptStringRequest* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const CbcDecryptStringRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.CbcDecryptStringRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.CbcDecryptStringRequest)
+    MergeFrom(*source);
+  }
+}
+
+void CbcDecryptStringRequest::MergeFrom(const CbcDecryptStringRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.CbcDecryptStringRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from.key().size() > 0) {
+
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
+  if (from.iv().size() > 0) {
+
+    iv_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.iv_);
+  }
+  if (from.cipher().size() > 0) {
+
+    cipher_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.cipher_);
+  }
+}
+
+void CbcDecryptStringRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.CbcDecryptStringRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CbcDecryptStringRequest::CopyFrom(const CbcDecryptStringRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.CbcDecryptStringRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CbcDecryptStringRequest::IsInitialized() const {
+
+  return true;
+}
+
+void CbcDecryptStringRequest::Swap(CbcDecryptStringRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CbcDecryptStringRequest::InternalSwap(CbcDecryptStringRequest* other) {
+  key_.Swap(&other->key_);
+  iv_.Swap(&other->iv_);
+  cipher_.Swap(&other->cipher_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata CbcDecryptStringRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CbcDecryptStringRequest_descriptor_;
+  metadata.reflection = CbcDecryptStringRequest_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// CbcDecryptStringRequest
+
+// optional string key = 1;
+void CbcDecryptStringRequest::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& CbcDecryptStringRequest::key() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcDecryptStringRequest.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcDecryptStringRequest::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcDecryptStringRequest.key)
+}
+ void CbcDecryptStringRequest::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptStringRequest.key)
+}
+ void CbcDecryptStringRequest::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptStringRequest.key)
+}
+ ::std::string* CbcDecryptStringRequest::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptStringRequest.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* CbcDecryptStringRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptStringRequest.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcDecryptStringRequest::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptStringRequest.key)
+}
+
+// optional string iv = 2;
+void CbcDecryptStringRequest::clear_iv() {
+  iv_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& CbcDecryptStringRequest::iv() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcDecryptStringRequest.iv)
+  return iv_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcDecryptStringRequest::set_iv(const ::std::string& value) {
+  
+  iv_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcDecryptStringRequest.iv)
+}
+ void CbcDecryptStringRequest::set_iv(const char* value) {
+  
+  iv_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptStringRequest.iv)
+}
+ void CbcDecryptStringRequest::set_iv(const char* value, size_t size) {
+  
+  iv_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptStringRequest.iv)
+}
+ ::std::string* CbcDecryptStringRequest::mutable_iv() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptStringRequest.iv)
+  return iv_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* CbcDecryptStringRequest::release_iv() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptStringRequest.iv)
+  
+  return iv_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcDecryptStringRequest::set_allocated_iv(::std::string* iv) {
+  if (iv != NULL) {
+    
+  } else {
+    
+  }
+  iv_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), iv);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptStringRequest.iv)
+}
+
+// optional string cipher = 3;
+void CbcDecryptStringRequest::clear_cipher() {
+  cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& CbcDecryptStringRequest::cipher() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcDecryptStringRequest.cipher)
+  return cipher_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcDecryptStringRequest::set_cipher(const ::std::string& value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcDecryptStringRequest.cipher)
+}
+ void CbcDecryptStringRequest::set_cipher(const char* value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptStringRequest.cipher)
+}
+ void CbcDecryptStringRequest::set_cipher(const char* value, size_t size) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptStringRequest.cipher)
+}
+ ::std::string* CbcDecryptStringRequest::mutable_cipher() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptStringRequest.cipher)
+  return cipher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* CbcDecryptStringRequest::release_cipher() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptStringRequest.cipher)
+  
+  return cipher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcDecryptStringRequest::set_allocated_cipher(::std::string* cipher) {
+  if (cipher != NULL) {
+    
+  } else {
+    
+  }
+  cipher_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cipher);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptStringRequest.cipher)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CbcDecryptStringResponse::kPlaintextFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+CbcDecryptStringResponse::CbcDecryptStringResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:crypto.CbcDecryptStringResponse)
+}
+
+void CbcDecryptStringResponse::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+CbcDecryptStringResponse::CbcDecryptStringResponse(const CbcDecryptStringResponse& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:crypto.CbcDecryptStringResponse)
+}
+
+void CbcDecryptStringResponse::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  plaintext_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+CbcDecryptStringResponse::~CbcDecryptStringResponse() {
+  // @@protoc_insertion_point(destructor:crypto.CbcDecryptStringResponse)
+  SharedDtor();
+}
+
+void CbcDecryptStringResponse::SharedDtor() {
+  plaintext_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void CbcDecryptStringResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CbcDecryptStringResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CbcDecryptStringResponse_descriptor_;
+}
+
+const CbcDecryptStringResponse& CbcDecryptStringResponse::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
+  return *default_instance_;
+}
+
+CbcDecryptStringResponse* CbcDecryptStringResponse::default_instance_ = NULL;
+
+CbcDecryptStringResponse* CbcDecryptStringResponse::New(::google::protobuf::Arena* arena) const {
+  CbcDecryptStringResponse* n = new CbcDecryptStringResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void CbcDecryptStringResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.CbcDecryptStringResponse)
+  plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool CbcDecryptStringResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:crypto.CbcDecryptStringResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string plaintext = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_plaintext()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->plaintext().data(), this->plaintext().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.CbcDecryptStringResponse.plaintext"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:crypto.CbcDecryptStringResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:crypto.CbcDecryptStringResponse)
+  return false;
+#undef DO_
+}
+
+void CbcDecryptStringResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:crypto.CbcDecryptStringResponse)
+  // optional string plaintext = 1;
+  if (this->plaintext().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->plaintext().data(), this->plaintext().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcDecryptStringResponse.plaintext");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->plaintext(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:crypto.CbcDecryptStringResponse)
+}
+
+::google::protobuf::uint8* CbcDecryptStringResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.CbcDecryptStringResponse)
+  // optional string plaintext = 1;
+  if (this->plaintext().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->plaintext().data(), this->plaintext().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.CbcDecryptStringResponse.plaintext");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->plaintext(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.CbcDecryptStringResponse)
+  return target;
+}
+
+int CbcDecryptStringResponse::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.CbcDecryptStringResponse)
+  int total_size = 0;
+
+  // optional string plaintext = 1;
+  if (this->plaintext().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->plaintext());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CbcDecryptStringResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.CbcDecryptStringResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const CbcDecryptStringResponse* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const CbcDecryptStringResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.CbcDecryptStringResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.CbcDecryptStringResponse)
+    MergeFrom(*source);
+  }
+}
+
+void CbcDecryptStringResponse::MergeFrom(const CbcDecryptStringResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.CbcDecryptStringResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from.plaintext().size() > 0) {
+
+    plaintext_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.plaintext_);
+  }
+}
+
+void CbcDecryptStringResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.CbcDecryptStringResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CbcDecryptStringResponse::CopyFrom(const CbcDecryptStringResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.CbcDecryptStringResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CbcDecryptStringResponse::IsInitialized() const {
+
+  return true;
+}
+
+void CbcDecryptStringResponse::Swap(CbcDecryptStringResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void CbcDecryptStringResponse::InternalSwap(CbcDecryptStringResponse* other) {
+  plaintext_.Swap(&other->plaintext_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata CbcDecryptStringResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CbcDecryptStringResponse_descriptor_;
+  metadata.reflection = CbcDecryptStringResponse_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// CbcDecryptStringResponse
+
+// optional string plaintext = 1;
+void CbcDecryptStringResponse::clear_plaintext() {
+  plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& CbcDecryptStringResponse::plaintext() const {
+  // @@protoc_insertion_point(field_get:crypto.CbcDecryptStringResponse.plaintext)
+  return plaintext_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcDecryptStringResponse::set_plaintext(const ::std::string& value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.CbcDecryptStringResponse.plaintext)
+}
+ void CbcDecryptStringResponse::set_plaintext(const char* value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.CbcDecryptStringResponse.plaintext)
+}
+ void CbcDecryptStringResponse::set_plaintext(const char* value, size_t size) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.CbcDecryptStringResponse.plaintext)
+}
+ ::std::string* CbcDecryptStringResponse::mutable_plaintext() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.CbcDecryptStringResponse.plaintext)
+  return plaintext_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* CbcDecryptStringResponse::release_plaintext() {
+  // @@protoc_insertion_point(field_release:crypto.CbcDecryptStringResponse.plaintext)
+  
+  return plaintext_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void CbcDecryptStringResponse::set_allocated_plaintext(::std::string* plaintext) {
+  if (plaintext != NULL) {
+    
+  } else {
+    
+  }
+  plaintext_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), plaintext);
+  // @@protoc_insertion_point(field_set_allocated:crypto.CbcDecryptStringResponse.plaintext)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int EcbEncryptFileRequest::kKeyFieldNumber;
+const int EcbEncryptFileRequest::kFileSourcePathFieldNumber;
+const int EcbEncryptFileRequest::kFileTargetPathFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+EcbEncryptFileRequest::EcbEncryptFileRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:crypto.EcbEncryptFileRequest)
+}
+
+void EcbEncryptFileRequest::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+EcbEncryptFileRequest::EcbEncryptFileRequest(const EcbEncryptFileRequest& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:crypto.EcbEncryptFileRequest)
+}
+
+void EcbEncryptFileRequest::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_source_path_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_target_path_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+EcbEncryptFileRequest::~EcbEncryptFileRequest() {
+  // @@protoc_insertion_point(destructor:crypto.EcbEncryptFileRequest)
+  SharedDtor();
+}
+
+void EcbEncryptFileRequest::SharedDtor() {
+  key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_source_path_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_target_path_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void EcbEncryptFileRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* EcbEncryptFileRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EcbEncryptFileRequest_descriptor_;
+}
+
+const EcbEncryptFileRequest& EcbEncryptFileRequest::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
+  return *default_instance_;
+}
+
+EcbEncryptFileRequest* EcbEncryptFileRequest::default_instance_ = NULL;
+
+EcbEncryptFileRequest* EcbEncryptFileRequest::New(::google::protobuf::Arena* arena) const {
+  EcbEncryptFileRequest* n = new EcbEncryptFileRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void EcbEncryptFileRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.EcbEncryptFileRequest)
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_source_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_target_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool EcbEncryptFileRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:crypto.EcbEncryptFileRequest)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string key = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_key()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->key().data(), this->key().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.EcbEncryptFileRequest.key"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_file_source_path;
+        break;
+      }
+
+      // optional string file_source_path = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_file_source_path:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_file_source_path()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->file_source_path().data(), this->file_source_path().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.EcbEncryptFileRequest.file_source_path"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_file_target_path;
+        break;
+      }
+
+      // optional string file_target_path = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_file_target_path:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_file_target_path()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->file_target_path().data(), this->file_target_path().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.EcbEncryptFileRequest.file_target_path"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:crypto.EcbEncryptFileRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:crypto.EcbEncryptFileRequest)
+  return false;
+#undef DO_
+}
+
+void EcbEncryptFileRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:crypto.EcbEncryptFileRequest)
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbEncryptFileRequest.key");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->key(), output);
+  }
+
+  // optional string file_source_path = 2;
+  if (this->file_source_path().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->file_source_path().data(), this->file_source_path().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbEncryptFileRequest.file_source_path");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->file_source_path(), output);
+  }
+
+  // optional string file_target_path = 3;
+  if (this->file_target_path().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->file_target_path().data(), this->file_target_path().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbEncryptFileRequest.file_target_path");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->file_target_path(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:crypto.EcbEncryptFileRequest)
+}
+
+::google::protobuf::uint8* EcbEncryptFileRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.EcbEncryptFileRequest)
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbEncryptFileRequest.key");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->key(), target);
+  }
+
+  // optional string file_source_path = 2;
+  if (this->file_source_path().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->file_source_path().data(), this->file_source_path().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbEncryptFileRequest.file_source_path");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->file_source_path(), target);
+  }
+
+  // optional string file_target_path = 3;
+  if (this->file_target_path().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->file_target_path().data(), this->file_target_path().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbEncryptFileRequest.file_target_path");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->file_target_path(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.EcbEncryptFileRequest)
+  return target;
+}
+
+int EcbEncryptFileRequest::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.EcbEncryptFileRequest)
+  int total_size = 0;
+
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->key());
+  }
+
+  // optional string file_source_path = 2;
+  if (this->file_source_path().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->file_source_path());
+  }
+
+  // optional string file_target_path = 3;
+  if (this->file_target_path().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->file_target_path());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void EcbEncryptFileRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.EcbEncryptFileRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const EcbEncryptFileRequest* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const EcbEncryptFileRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.EcbEncryptFileRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.EcbEncryptFileRequest)
+    MergeFrom(*source);
+  }
+}
+
+void EcbEncryptFileRequest::MergeFrom(const EcbEncryptFileRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.EcbEncryptFileRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from.key().size() > 0) {
+
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
+  if (from.file_source_path().size() > 0) {
+
+    file_source_path_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_source_path_);
+  }
+  if (from.file_target_path().size() > 0) {
+
+    file_target_path_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_target_path_);
+  }
+}
+
+void EcbEncryptFileRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.EcbEncryptFileRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void EcbEncryptFileRequest::CopyFrom(const EcbEncryptFileRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.EcbEncryptFileRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool EcbEncryptFileRequest::IsInitialized() const {
+
+  return true;
+}
+
+void EcbEncryptFileRequest::Swap(EcbEncryptFileRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void EcbEncryptFileRequest::InternalSwap(EcbEncryptFileRequest* other) {
+  key_.Swap(&other->key_);
+  file_source_path_.Swap(&other->file_source_path_);
+  file_target_path_.Swap(&other->file_target_path_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata EcbEncryptFileRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = EcbEncryptFileRequest_descriptor_;
+  metadata.reflection = EcbEncryptFileRequest_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// EcbEncryptFileRequest
+
+// optional string key = 1;
+void EcbEncryptFileRequest::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& EcbEncryptFileRequest::key() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbEncryptFileRequest.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbEncryptFileRequest::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbEncryptFileRequest.key)
+}
+ void EcbEncryptFileRequest::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbEncryptFileRequest.key)
+}
+ void EcbEncryptFileRequest::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbEncryptFileRequest.key)
+}
+ ::std::string* EcbEncryptFileRequest::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbEncryptFileRequest.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EcbEncryptFileRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.EcbEncryptFileRequest.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbEncryptFileRequest::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbEncryptFileRequest.key)
+}
+
+// optional string file_source_path = 2;
+void EcbEncryptFileRequest::clear_file_source_path() {
+  file_source_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& EcbEncryptFileRequest::file_source_path() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbEncryptFileRequest.file_source_path)
+  return file_source_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbEncryptFileRequest::set_file_source_path(const ::std::string& value) {
+  
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbEncryptFileRequest.file_source_path)
+}
+ void EcbEncryptFileRequest::set_file_source_path(const char* value) {
+  
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbEncryptFileRequest.file_source_path)
+}
+ void EcbEncryptFileRequest::set_file_source_path(const char* value, size_t size) {
+  
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbEncryptFileRequest.file_source_path)
+}
+ ::std::string* EcbEncryptFileRequest::mutable_file_source_path() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbEncryptFileRequest.file_source_path)
+  return file_source_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EcbEncryptFileRequest::release_file_source_path() {
+  // @@protoc_insertion_point(field_release:crypto.EcbEncryptFileRequest.file_source_path)
+  
+  return file_source_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbEncryptFileRequest::set_allocated_file_source_path(::std::string* file_source_path) {
+  if (file_source_path != NULL) {
+    
+  } else {
+    
+  }
+  file_source_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_source_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbEncryptFileRequest.file_source_path)
+}
+
+// optional string file_target_path = 3;
+void EcbEncryptFileRequest::clear_file_target_path() {
+  file_target_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& EcbEncryptFileRequest::file_target_path() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbEncryptFileRequest.file_target_path)
+  return file_target_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbEncryptFileRequest::set_file_target_path(const ::std::string& value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbEncryptFileRequest.file_target_path)
+}
+ void EcbEncryptFileRequest::set_file_target_path(const char* value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbEncryptFileRequest.file_target_path)
+}
+ void EcbEncryptFileRequest::set_file_target_path(const char* value, size_t size) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbEncryptFileRequest.file_target_path)
+}
+ ::std::string* EcbEncryptFileRequest::mutable_file_target_path() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbEncryptFileRequest.file_target_path)
+  return file_target_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EcbEncryptFileRequest::release_file_target_path() {
+  // @@protoc_insertion_point(field_release:crypto.EcbEncryptFileRequest.file_target_path)
+  
+  return file_target_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbEncryptFileRequest::set_allocated_file_target_path(::std::string* file_target_path) {
+  if (file_target_path != NULL) {
+    
+  } else {
+    
+  }
+  file_target_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_target_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbEncryptFileRequest.file_target_path)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+EcbEncryptFileResponse::EcbEncryptFileResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:crypto.EcbEncryptFileResponse)
+}
+
+void EcbEncryptFileResponse::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+EcbEncryptFileResponse::EcbEncryptFileResponse(const EcbEncryptFileResponse& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:crypto.EcbEncryptFileResponse)
+}
+
+void EcbEncryptFileResponse::SharedCtor() {
+    _is_default_instance_ = false;
+  _cached_size_ = 0;
+}
+
+EcbEncryptFileResponse::~EcbEncryptFileResponse() {
+  // @@protoc_insertion_point(destructor:crypto.EcbEncryptFileResponse)
+  SharedDtor();
+}
+
+void EcbEncryptFileResponse::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void EcbEncryptFileResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* EcbEncryptFileResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EcbEncryptFileResponse_descriptor_;
+}
+
+const EcbEncryptFileResponse& EcbEncryptFileResponse::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
+  return *default_instance_;
+}
+
+EcbEncryptFileResponse* EcbEncryptFileResponse::default_instance_ = NULL;
+
+EcbEncryptFileResponse* EcbEncryptFileResponse::New(::google::protobuf::Arena* arena) const {
+  EcbEncryptFileResponse* n = new EcbEncryptFileResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void EcbEncryptFileResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.EcbEncryptFileResponse)
+}
+
+bool EcbEncryptFileResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:crypto.EcbEncryptFileResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0 ||
+        ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:crypto.EcbEncryptFileResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:crypto.EcbEncryptFileResponse)
+  return false;
+#undef DO_
+}
+
+void EcbEncryptFileResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:crypto.EcbEncryptFileResponse)
+  // @@protoc_insertion_point(serialize_end:crypto.EcbEncryptFileResponse)
+}
+
+::google::protobuf::uint8* EcbEncryptFileResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.EcbEncryptFileResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.EcbEncryptFileResponse)
+  return target;
+}
+
+int EcbEncryptFileResponse::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.EcbEncryptFileResponse)
+  int total_size = 0;
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void EcbEncryptFileResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.EcbEncryptFileResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const EcbEncryptFileResponse* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const EcbEncryptFileResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.EcbEncryptFileResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.EcbEncryptFileResponse)
+    MergeFrom(*source);
+  }
+}
+
+void EcbEncryptFileResponse::MergeFrom(const EcbEncryptFileResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.EcbEncryptFileResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+}
+
+void EcbEncryptFileResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.EcbEncryptFileResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void EcbEncryptFileResponse::CopyFrom(const EcbEncryptFileResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.EcbEncryptFileResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool EcbEncryptFileResponse::IsInitialized() const {
+
+  return true;
+}
+
+void EcbEncryptFileResponse::Swap(EcbEncryptFileResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void EcbEncryptFileResponse::InternalSwap(EcbEncryptFileResponse* other) {
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata EcbEncryptFileResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = EcbEncryptFileResponse_descriptor_;
+  metadata.reflection = EcbEncryptFileResponse_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// EcbEncryptFileResponse
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int EcbDecryptFileRequest::kKeyFieldNumber;
+const int EcbDecryptFileRequest::kFileSourcePathFieldNumber;
+const int EcbDecryptFileRequest::kFileTargetPathFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+EcbDecryptFileRequest::EcbDecryptFileRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:crypto.EcbDecryptFileRequest)
+}
+
+void EcbDecryptFileRequest::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+EcbDecryptFileRequest::EcbDecryptFileRequest(const EcbDecryptFileRequest& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:crypto.EcbDecryptFileRequest)
+}
+
+void EcbDecryptFileRequest::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_source_path_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_target_path_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+EcbDecryptFileRequest::~EcbDecryptFileRequest() {
+  // @@protoc_insertion_point(destructor:crypto.EcbDecryptFileRequest)
+  SharedDtor();
+}
+
+void EcbDecryptFileRequest::SharedDtor() {
+  key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_source_path_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_target_path_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void EcbDecryptFileRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* EcbDecryptFileRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EcbDecryptFileRequest_descriptor_;
+}
+
+const EcbDecryptFileRequest& EcbDecryptFileRequest::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
+  return *default_instance_;
+}
+
+EcbDecryptFileRequest* EcbDecryptFileRequest::default_instance_ = NULL;
+
+EcbDecryptFileRequest* EcbDecryptFileRequest::New(::google::protobuf::Arena* arena) const {
+  EcbDecryptFileRequest* n = new EcbDecryptFileRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void EcbDecryptFileRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.EcbDecryptFileRequest)
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_source_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  file_target_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool EcbDecryptFileRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:crypto.EcbDecryptFileRequest)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string key = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_key()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->key().data(), this->key().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.EcbDecryptFileRequest.key"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_file_source_path;
+        break;
+      }
+
+      // optional string file_source_path = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_file_source_path:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_file_source_path()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->file_source_path().data(), this->file_source_path().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.EcbDecryptFileRequest.file_source_path"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_file_target_path;
+        break;
+      }
+
+      // optional string file_target_path = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_file_target_path:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_file_target_path()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->file_target_path().data(), this->file_target_path().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.EcbDecryptFileRequest.file_target_path"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:crypto.EcbDecryptFileRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:crypto.EcbDecryptFileRequest)
+  return false;
+#undef DO_
+}
+
+void EcbDecryptFileRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:crypto.EcbDecryptFileRequest)
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbDecryptFileRequest.key");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->key(), output);
+  }
+
+  // optional string file_source_path = 2;
+  if (this->file_source_path().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->file_source_path().data(), this->file_source_path().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbDecryptFileRequest.file_source_path");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->file_source_path(), output);
+  }
+
+  // optional string file_target_path = 3;
+  if (this->file_target_path().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->file_target_path().data(), this->file_target_path().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbDecryptFileRequest.file_target_path");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->file_target_path(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:crypto.EcbDecryptFileRequest)
+}
+
+::google::protobuf::uint8* EcbDecryptFileRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.EcbDecryptFileRequest)
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbDecryptFileRequest.key");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->key(), target);
+  }
+
+  // optional string file_source_path = 2;
+  if (this->file_source_path().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->file_source_path().data(), this->file_source_path().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbDecryptFileRequest.file_source_path");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->file_source_path(), target);
+  }
+
+  // optional string file_target_path = 3;
+  if (this->file_target_path().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->file_target_path().data(), this->file_target_path().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbDecryptFileRequest.file_target_path");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->file_target_path(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.EcbDecryptFileRequest)
+  return target;
+}
+
+int EcbDecryptFileRequest::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.EcbDecryptFileRequest)
+  int total_size = 0;
+
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->key());
+  }
+
+  // optional string file_source_path = 2;
+  if (this->file_source_path().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->file_source_path());
+  }
+
+  // optional string file_target_path = 3;
+  if (this->file_target_path().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->file_target_path());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void EcbDecryptFileRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.EcbDecryptFileRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const EcbDecryptFileRequest* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const EcbDecryptFileRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.EcbDecryptFileRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.EcbDecryptFileRequest)
+    MergeFrom(*source);
+  }
+}
+
+void EcbDecryptFileRequest::MergeFrom(const EcbDecryptFileRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.EcbDecryptFileRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from.key().size() > 0) {
+
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
+  if (from.file_source_path().size() > 0) {
+
+    file_source_path_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_source_path_);
+  }
+  if (from.file_target_path().size() > 0) {
+
+    file_target_path_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.file_target_path_);
+  }
+}
+
+void EcbDecryptFileRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.EcbDecryptFileRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void EcbDecryptFileRequest::CopyFrom(const EcbDecryptFileRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.EcbDecryptFileRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool EcbDecryptFileRequest::IsInitialized() const {
+
+  return true;
+}
+
+void EcbDecryptFileRequest::Swap(EcbDecryptFileRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void EcbDecryptFileRequest::InternalSwap(EcbDecryptFileRequest* other) {
+  key_.Swap(&other->key_);
+  file_source_path_.Swap(&other->file_source_path_);
+  file_target_path_.Swap(&other->file_target_path_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata EcbDecryptFileRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = EcbDecryptFileRequest_descriptor_;
+  metadata.reflection = EcbDecryptFileRequest_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// EcbDecryptFileRequest
+
+// optional string key = 1;
+void EcbDecryptFileRequest::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& EcbDecryptFileRequest::key() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbDecryptFileRequest.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbDecryptFileRequest::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbDecryptFileRequest.key)
+}
+ void EcbDecryptFileRequest::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbDecryptFileRequest.key)
+}
+ void EcbDecryptFileRequest::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbDecryptFileRequest.key)
+}
+ ::std::string* EcbDecryptFileRequest::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbDecryptFileRequest.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EcbDecryptFileRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.EcbDecryptFileRequest.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbDecryptFileRequest::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbDecryptFileRequest.key)
+}
+
+// optional string file_source_path = 2;
+void EcbDecryptFileRequest::clear_file_source_path() {
+  file_source_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& EcbDecryptFileRequest::file_source_path() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbDecryptFileRequest.file_source_path)
+  return file_source_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbDecryptFileRequest::set_file_source_path(const ::std::string& value) {
+  
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbDecryptFileRequest.file_source_path)
+}
+ void EcbDecryptFileRequest::set_file_source_path(const char* value) {
+  
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbDecryptFileRequest.file_source_path)
+}
+ void EcbDecryptFileRequest::set_file_source_path(const char* value, size_t size) {
+  
+  file_source_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbDecryptFileRequest.file_source_path)
+}
+ ::std::string* EcbDecryptFileRequest::mutable_file_source_path() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbDecryptFileRequest.file_source_path)
+  return file_source_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EcbDecryptFileRequest::release_file_source_path() {
+  // @@protoc_insertion_point(field_release:crypto.EcbDecryptFileRequest.file_source_path)
+  
+  return file_source_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbDecryptFileRequest::set_allocated_file_source_path(::std::string* file_source_path) {
+  if (file_source_path != NULL) {
+    
+  } else {
+    
+  }
+  file_source_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_source_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbDecryptFileRequest.file_source_path)
+}
+
+// optional string file_target_path = 3;
+void EcbDecryptFileRequest::clear_file_target_path() {
+  file_target_path_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& EcbDecryptFileRequest::file_target_path() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbDecryptFileRequest.file_target_path)
+  return file_target_path_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbDecryptFileRequest::set_file_target_path(const ::std::string& value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbDecryptFileRequest.file_target_path)
+}
+ void EcbDecryptFileRequest::set_file_target_path(const char* value) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbDecryptFileRequest.file_target_path)
+}
+ void EcbDecryptFileRequest::set_file_target_path(const char* value, size_t size) {
+  
+  file_target_path_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbDecryptFileRequest.file_target_path)
+}
+ ::std::string* EcbDecryptFileRequest::mutable_file_target_path() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbDecryptFileRequest.file_target_path)
+  return file_target_path_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EcbDecryptFileRequest::release_file_target_path() {
+  // @@protoc_insertion_point(field_release:crypto.EcbDecryptFileRequest.file_target_path)
+  
+  return file_target_path_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbDecryptFileRequest::set_allocated_file_target_path(::std::string* file_target_path) {
+  if (file_target_path != NULL) {
+    
+  } else {
+    
+  }
+  file_target_path_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), file_target_path);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbDecryptFileRequest.file_target_path)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+EcbDecryptFileResponse::EcbDecryptFileResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:crypto.EcbDecryptFileResponse)
+}
+
+void EcbDecryptFileResponse::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+EcbDecryptFileResponse::EcbDecryptFileResponse(const EcbDecryptFileResponse& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:crypto.EcbDecryptFileResponse)
+}
+
+void EcbDecryptFileResponse::SharedCtor() {
+    _is_default_instance_ = false;
+  _cached_size_ = 0;
+}
+
+EcbDecryptFileResponse::~EcbDecryptFileResponse() {
+  // @@protoc_insertion_point(destructor:crypto.EcbDecryptFileResponse)
+  SharedDtor();
+}
+
+void EcbDecryptFileResponse::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void EcbDecryptFileResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* EcbDecryptFileResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EcbDecryptFileResponse_descriptor_;
+}
+
+const EcbDecryptFileResponse& EcbDecryptFileResponse::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
+  return *default_instance_;
+}
+
+EcbDecryptFileResponse* EcbDecryptFileResponse::default_instance_ = NULL;
+
+EcbDecryptFileResponse* EcbDecryptFileResponse::New(::google::protobuf::Arena* arena) const {
+  EcbDecryptFileResponse* n = new EcbDecryptFileResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void EcbDecryptFileResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.EcbDecryptFileResponse)
+}
+
+bool EcbDecryptFileResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:crypto.EcbDecryptFileResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0 ||
+        ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:crypto.EcbDecryptFileResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:crypto.EcbDecryptFileResponse)
+  return false;
+#undef DO_
+}
+
+void EcbDecryptFileResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:crypto.EcbDecryptFileResponse)
+  // @@protoc_insertion_point(serialize_end:crypto.EcbDecryptFileResponse)
+}
+
+::google::protobuf::uint8* EcbDecryptFileResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.EcbDecryptFileResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.EcbDecryptFileResponse)
+  return target;
+}
+
+int EcbDecryptFileResponse::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.EcbDecryptFileResponse)
+  int total_size = 0;
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void EcbDecryptFileResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.EcbDecryptFileResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const EcbDecryptFileResponse* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const EcbDecryptFileResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.EcbDecryptFileResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.EcbDecryptFileResponse)
+    MergeFrom(*source);
+  }
+}
+
+void EcbDecryptFileResponse::MergeFrom(const EcbDecryptFileResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.EcbDecryptFileResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+}
+
+void EcbDecryptFileResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.EcbDecryptFileResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void EcbDecryptFileResponse::CopyFrom(const EcbDecryptFileResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.EcbDecryptFileResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool EcbDecryptFileResponse::IsInitialized() const {
+
+  return true;
+}
+
+void EcbDecryptFileResponse::Swap(EcbDecryptFileResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void EcbDecryptFileResponse::InternalSwap(EcbDecryptFileResponse* other) {
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata EcbDecryptFileResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = EcbDecryptFileResponse_descriptor_;
+  metadata.reflection = EcbDecryptFileResponse_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// EcbDecryptFileResponse
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int EcbEncryptStringRequest::kKeyFieldNumber;
+const int EcbEncryptStringRequest::kPlaintextFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+EcbEncryptStringRequest::EcbEncryptStringRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:crypto.EcbEncryptStringRequest)
+}
+
+void EcbEncryptStringRequest::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+EcbEncryptStringRequest::EcbEncryptStringRequest(const EcbEncryptStringRequest& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:crypto.EcbEncryptStringRequest)
+}
+
+void EcbEncryptStringRequest::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  plaintext_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+EcbEncryptStringRequest::~EcbEncryptStringRequest() {
+  // @@protoc_insertion_point(destructor:crypto.EcbEncryptStringRequest)
+  SharedDtor();
+}
+
+void EcbEncryptStringRequest::SharedDtor() {
+  key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  plaintext_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void EcbEncryptStringRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* EcbEncryptStringRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EcbEncryptStringRequest_descriptor_;
+}
+
+const EcbEncryptStringRequest& EcbEncryptStringRequest::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
+  return *default_instance_;
+}
+
+EcbEncryptStringRequest* EcbEncryptStringRequest::default_instance_ = NULL;
+
+EcbEncryptStringRequest* EcbEncryptStringRequest::New(::google::protobuf::Arena* arena) const {
+  EcbEncryptStringRequest* n = new EcbEncryptStringRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void EcbEncryptStringRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.EcbEncryptStringRequest)
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool EcbEncryptStringRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:crypto.EcbEncryptStringRequest)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string key = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_key()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->key().data(), this->key().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.EcbEncryptStringRequest.key"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_plaintext;
+        break;
+      }
+
+      // optional string plaintext = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_plaintext:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_plaintext()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->plaintext().data(), this->plaintext().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.EcbEncryptStringRequest.plaintext"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:crypto.EcbEncryptStringRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:crypto.EcbEncryptStringRequest)
+  return false;
+#undef DO_
+}
+
+void EcbEncryptStringRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:crypto.EcbEncryptStringRequest)
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbEncryptStringRequest.key");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->key(), output);
+  }
+
+  // optional string plaintext = 2;
+  if (this->plaintext().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->plaintext().data(), this->plaintext().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbEncryptStringRequest.plaintext");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->plaintext(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:crypto.EcbEncryptStringRequest)
+}
+
+::google::protobuf::uint8* EcbEncryptStringRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.EcbEncryptStringRequest)
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbEncryptStringRequest.key");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->key(), target);
+  }
+
+  // optional string plaintext = 2;
+  if (this->plaintext().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->plaintext().data(), this->plaintext().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbEncryptStringRequest.plaintext");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->plaintext(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.EcbEncryptStringRequest)
+  return target;
+}
+
+int EcbEncryptStringRequest::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.EcbEncryptStringRequest)
+  int total_size = 0;
+
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->key());
+  }
+
+  // optional string plaintext = 2;
+  if (this->plaintext().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->plaintext());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void EcbEncryptStringRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.EcbEncryptStringRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const EcbEncryptStringRequest* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const EcbEncryptStringRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.EcbEncryptStringRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.EcbEncryptStringRequest)
+    MergeFrom(*source);
+  }
+}
+
+void EcbEncryptStringRequest::MergeFrom(const EcbEncryptStringRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.EcbEncryptStringRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from.key().size() > 0) {
+
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
+  if (from.plaintext().size() > 0) {
+
+    plaintext_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.plaintext_);
+  }
+}
+
+void EcbEncryptStringRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.EcbEncryptStringRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void EcbEncryptStringRequest::CopyFrom(const EcbEncryptStringRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.EcbEncryptStringRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool EcbEncryptStringRequest::IsInitialized() const {
+
+  return true;
+}
+
+void EcbEncryptStringRequest::Swap(EcbEncryptStringRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void EcbEncryptStringRequest::InternalSwap(EcbEncryptStringRequest* other) {
+  key_.Swap(&other->key_);
+  plaintext_.Swap(&other->plaintext_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata EcbEncryptStringRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = EcbEncryptStringRequest_descriptor_;
+  metadata.reflection = EcbEncryptStringRequest_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// EcbEncryptStringRequest
+
+// optional string key = 1;
+void EcbEncryptStringRequest::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& EcbEncryptStringRequest::key() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbEncryptStringRequest.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbEncryptStringRequest::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbEncryptStringRequest.key)
+}
+ void EcbEncryptStringRequest::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbEncryptStringRequest.key)
+}
+ void EcbEncryptStringRequest::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbEncryptStringRequest.key)
+}
+ ::std::string* EcbEncryptStringRequest::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbEncryptStringRequest.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EcbEncryptStringRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.EcbEncryptStringRequest.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbEncryptStringRequest::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbEncryptStringRequest.key)
+}
+
+// optional string plaintext = 2;
+void EcbEncryptStringRequest::clear_plaintext() {
+  plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& EcbEncryptStringRequest::plaintext() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbEncryptStringRequest.plaintext)
+  return plaintext_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbEncryptStringRequest::set_plaintext(const ::std::string& value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbEncryptStringRequest.plaintext)
+}
+ void EcbEncryptStringRequest::set_plaintext(const char* value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbEncryptStringRequest.plaintext)
+}
+ void EcbEncryptStringRequest::set_plaintext(const char* value, size_t size) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbEncryptStringRequest.plaintext)
+}
+ ::std::string* EcbEncryptStringRequest::mutable_plaintext() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbEncryptStringRequest.plaintext)
+  return plaintext_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EcbEncryptStringRequest::release_plaintext() {
+  // @@protoc_insertion_point(field_release:crypto.EcbEncryptStringRequest.plaintext)
+  
+  return plaintext_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbEncryptStringRequest::set_allocated_plaintext(::std::string* plaintext) {
+  if (plaintext != NULL) {
+    
+  } else {
+    
+  }
+  plaintext_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), plaintext);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbEncryptStringRequest.plaintext)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int EcbEncryptStringResponse::kCipherFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+EcbEncryptStringResponse::EcbEncryptStringResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:crypto.EcbEncryptStringResponse)
+}
+
+void EcbEncryptStringResponse::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+EcbEncryptStringResponse::EcbEncryptStringResponse(const EcbEncryptStringResponse& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:crypto.EcbEncryptStringResponse)
+}
+
+void EcbEncryptStringResponse::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  cipher_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+EcbEncryptStringResponse::~EcbEncryptStringResponse() {
+  // @@protoc_insertion_point(destructor:crypto.EcbEncryptStringResponse)
+  SharedDtor();
+}
+
+void EcbEncryptStringResponse::SharedDtor() {
+  cipher_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void EcbEncryptStringResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* EcbEncryptStringResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EcbEncryptStringResponse_descriptor_;
+}
+
+const EcbEncryptStringResponse& EcbEncryptStringResponse::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
+  return *default_instance_;
+}
+
+EcbEncryptStringResponse* EcbEncryptStringResponse::default_instance_ = NULL;
+
+EcbEncryptStringResponse* EcbEncryptStringResponse::New(::google::protobuf::Arena* arena) const {
+  EcbEncryptStringResponse* n = new EcbEncryptStringResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void EcbEncryptStringResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.EcbEncryptStringResponse)
+  cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool EcbEncryptStringResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:crypto.EcbEncryptStringResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string cipher = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_cipher()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->cipher().data(), this->cipher().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.EcbEncryptStringResponse.cipher"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:crypto.EcbEncryptStringResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:crypto.EcbEncryptStringResponse)
+  return false;
+#undef DO_
+}
+
+void EcbEncryptStringResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:crypto.EcbEncryptStringResponse)
+  // optional string cipher = 1;
+  if (this->cipher().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->cipher().data(), this->cipher().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbEncryptStringResponse.cipher");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->cipher(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:crypto.EcbEncryptStringResponse)
+}
+
+::google::protobuf::uint8* EcbEncryptStringResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.EcbEncryptStringResponse)
+  // optional string cipher = 1;
+  if (this->cipher().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->cipher().data(), this->cipher().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbEncryptStringResponse.cipher");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->cipher(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.EcbEncryptStringResponse)
+  return target;
+}
+
+int EcbEncryptStringResponse::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.EcbEncryptStringResponse)
+  int total_size = 0;
+
+  // optional string cipher = 1;
+  if (this->cipher().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->cipher());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void EcbEncryptStringResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.EcbEncryptStringResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const EcbEncryptStringResponse* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const EcbEncryptStringResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.EcbEncryptStringResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.EcbEncryptStringResponse)
+    MergeFrom(*source);
+  }
+}
+
+void EcbEncryptStringResponse::MergeFrom(const EcbEncryptStringResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.EcbEncryptStringResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from.cipher().size() > 0) {
+
+    cipher_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.cipher_);
+  }
+}
+
+void EcbEncryptStringResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.EcbEncryptStringResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void EcbEncryptStringResponse::CopyFrom(const EcbEncryptStringResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.EcbEncryptStringResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool EcbEncryptStringResponse::IsInitialized() const {
+
+  return true;
+}
+
+void EcbEncryptStringResponse::Swap(EcbEncryptStringResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void EcbEncryptStringResponse::InternalSwap(EcbEncryptStringResponse* other) {
+  cipher_.Swap(&other->cipher_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata EcbEncryptStringResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = EcbEncryptStringResponse_descriptor_;
+  metadata.reflection = EcbEncryptStringResponse_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// EcbEncryptStringResponse
+
+// optional string cipher = 1;
+void EcbEncryptStringResponse::clear_cipher() {
+  cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& EcbEncryptStringResponse::cipher() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbEncryptStringResponse.cipher)
+  return cipher_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbEncryptStringResponse::set_cipher(const ::std::string& value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbEncryptStringResponse.cipher)
+}
+ void EcbEncryptStringResponse::set_cipher(const char* value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbEncryptStringResponse.cipher)
+}
+ void EcbEncryptStringResponse::set_cipher(const char* value, size_t size) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbEncryptStringResponse.cipher)
+}
+ ::std::string* EcbEncryptStringResponse::mutable_cipher() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbEncryptStringResponse.cipher)
+  return cipher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EcbEncryptStringResponse::release_cipher() {
+  // @@protoc_insertion_point(field_release:crypto.EcbEncryptStringResponse.cipher)
+  
+  return cipher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbEncryptStringResponse::set_allocated_cipher(::std::string* cipher) {
+  if (cipher != NULL) {
+    
+  } else {
+    
+  }
+  cipher_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cipher);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbEncryptStringResponse.cipher)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int EcbDecryptStringRequest::kKeyFieldNumber;
+const int EcbDecryptStringRequest::kCipherFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+EcbDecryptStringRequest::EcbDecryptStringRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:crypto.EcbDecryptStringRequest)
+}
+
+void EcbDecryptStringRequest::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+EcbDecryptStringRequest::EcbDecryptStringRequest(const EcbDecryptStringRequest& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:crypto.EcbDecryptStringRequest)
+}
+
+void EcbDecryptStringRequest::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  cipher_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+EcbDecryptStringRequest::~EcbDecryptStringRequest() {
+  // @@protoc_insertion_point(destructor:crypto.EcbDecryptStringRequest)
+  SharedDtor();
+}
+
+void EcbDecryptStringRequest::SharedDtor() {
+  key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  cipher_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void EcbDecryptStringRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* EcbDecryptStringRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EcbDecryptStringRequest_descriptor_;
+}
+
+const EcbDecryptStringRequest& EcbDecryptStringRequest::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
+  return *default_instance_;
+}
+
+EcbDecryptStringRequest* EcbDecryptStringRequest::default_instance_ = NULL;
+
+EcbDecryptStringRequest* EcbDecryptStringRequest::New(::google::protobuf::Arena* arena) const {
+  EcbDecryptStringRequest* n = new EcbDecryptStringRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void EcbDecryptStringRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.EcbDecryptStringRequest)
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool EcbDecryptStringRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:crypto.EcbDecryptStringRequest)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string key = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_key()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->key().data(), this->key().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.EcbDecryptStringRequest.key"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(18)) goto parse_cipher;
+        break;
+      }
+
+      // optional string cipher = 2;
+      case 2: {
+        if (tag == 18) {
+         parse_cipher:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_cipher()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->cipher().data(), this->cipher().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.EcbDecryptStringRequest.cipher"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:crypto.EcbDecryptStringRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:crypto.EcbDecryptStringRequest)
+  return false;
+#undef DO_
+}
+
+void EcbDecryptStringRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:crypto.EcbDecryptStringRequest)
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbDecryptStringRequest.key");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->key(), output);
+  }
+
+  // optional string cipher = 2;
+  if (this->cipher().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->cipher().data(), this->cipher().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbDecryptStringRequest.cipher");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->cipher(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:crypto.EcbDecryptStringRequest)
+}
+
+::google::protobuf::uint8* EcbDecryptStringRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.EcbDecryptStringRequest)
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbDecryptStringRequest.key");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->key(), target);
+  }
+
+  // optional string cipher = 2;
+  if (this->cipher().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->cipher().data(), this->cipher().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbDecryptStringRequest.cipher");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->cipher(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.EcbDecryptStringRequest)
+  return target;
+}
+
+int EcbDecryptStringRequest::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.EcbDecryptStringRequest)
+  int total_size = 0;
+
+  // optional string key = 1;
+  if (this->key().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->key());
+  }
+
+  // optional string cipher = 2;
+  if (this->cipher().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->cipher());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void EcbDecryptStringRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.EcbDecryptStringRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const EcbDecryptStringRequest* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const EcbDecryptStringRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.EcbDecryptStringRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.EcbDecryptStringRequest)
+    MergeFrom(*source);
+  }
+}
+
+void EcbDecryptStringRequest::MergeFrom(const EcbDecryptStringRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.EcbDecryptStringRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from.key().size() > 0) {
+
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
+  if (from.cipher().size() > 0) {
+
+    cipher_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.cipher_);
+  }
+}
+
+void EcbDecryptStringRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.EcbDecryptStringRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void EcbDecryptStringRequest::CopyFrom(const EcbDecryptStringRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.EcbDecryptStringRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool EcbDecryptStringRequest::IsInitialized() const {
+
+  return true;
+}
+
+void EcbDecryptStringRequest::Swap(EcbDecryptStringRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void EcbDecryptStringRequest::InternalSwap(EcbDecryptStringRequest* other) {
+  key_.Swap(&other->key_);
+  cipher_.Swap(&other->cipher_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata EcbDecryptStringRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = EcbDecryptStringRequest_descriptor_;
+  metadata.reflection = EcbDecryptStringRequest_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// EcbDecryptStringRequest
+
+// optional string key = 1;
+void EcbDecryptStringRequest::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& EcbDecryptStringRequest::key() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbDecryptStringRequest.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbDecryptStringRequest::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbDecryptStringRequest.key)
+}
+ void EcbDecryptStringRequest::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbDecryptStringRequest.key)
+}
+ void EcbDecryptStringRequest::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbDecryptStringRequest.key)
+}
+ ::std::string* EcbDecryptStringRequest::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbDecryptStringRequest.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EcbDecryptStringRequest::release_key() {
+  // @@protoc_insertion_point(field_release:crypto.EcbDecryptStringRequest.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbDecryptStringRequest::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbDecryptStringRequest.key)
+}
+
+// optional string cipher = 2;
+void EcbDecryptStringRequest::clear_cipher() {
+  cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& EcbDecryptStringRequest::cipher() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbDecryptStringRequest.cipher)
+  return cipher_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbDecryptStringRequest::set_cipher(const ::std::string& value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbDecryptStringRequest.cipher)
+}
+ void EcbDecryptStringRequest::set_cipher(const char* value) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbDecryptStringRequest.cipher)
+}
+ void EcbDecryptStringRequest::set_cipher(const char* value, size_t size) {
+  
+  cipher_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbDecryptStringRequest.cipher)
+}
+ ::std::string* EcbDecryptStringRequest::mutable_cipher() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbDecryptStringRequest.cipher)
+  return cipher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EcbDecryptStringRequest::release_cipher() {
+  // @@protoc_insertion_point(field_release:crypto.EcbDecryptStringRequest.cipher)
+  
+  return cipher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbDecryptStringRequest::set_allocated_cipher(::std::string* cipher) {
+  if (cipher != NULL) {
+    
+  } else {
+    
+  }
+  cipher_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), cipher);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbDecryptStringRequest.cipher)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int EcbDecryptStringResponse::kPlaintextFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+EcbDecryptStringResponse::EcbDecryptStringResponse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:crypto.EcbDecryptStringResponse)
+}
+
+void EcbDecryptStringResponse::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+EcbDecryptStringResponse::EcbDecryptStringResponse(const EcbDecryptStringResponse& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:crypto.EcbDecryptStringResponse)
+}
+
+void EcbDecryptStringResponse::SharedCtor() {
+    _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  plaintext_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+EcbDecryptStringResponse::~EcbDecryptStringResponse() {
+  // @@protoc_insertion_point(destructor:crypto.EcbDecryptStringResponse)
+  SharedDtor();
+}
+
+void EcbDecryptStringResponse::SharedDtor() {
+  plaintext_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != default_instance_) {
+  }
+}
+
+void EcbDecryptStringResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* EcbDecryptStringResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EcbDecryptStringResponse_descriptor_;
+}
+
+const EcbDecryptStringResponse& EcbDecryptStringResponse::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_crypto_5fserver_2eproto();
+  return *default_instance_;
+}
+
+EcbDecryptStringResponse* EcbDecryptStringResponse::default_instance_ = NULL;
+
+EcbDecryptStringResponse* EcbDecryptStringResponse::New(::google::protobuf::Arena* arena) const {
+  EcbDecryptStringResponse* n = new EcbDecryptStringResponse;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void EcbDecryptStringResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.EcbDecryptStringResponse)
+  plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool EcbDecryptStringResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:crypto.EcbDecryptStringResponse)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string plaintext = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_plaintext()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->plaintext().data(), this->plaintext().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "crypto.EcbDecryptStringResponse.plaintext"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:crypto.EcbDecryptStringResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:crypto.EcbDecryptStringResponse)
+  return false;
+#undef DO_
+}
+
+void EcbDecryptStringResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:crypto.EcbDecryptStringResponse)
+  // optional string plaintext = 1;
+  if (this->plaintext().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->plaintext().data(), this->plaintext().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbDecryptStringResponse.plaintext");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->plaintext(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:crypto.EcbDecryptStringResponse)
+}
+
+::google::protobuf::uint8* EcbDecryptStringResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:crypto.EcbDecryptStringResponse)
+  // optional string plaintext = 1;
+  if (this->plaintext().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->plaintext().data(), this->plaintext().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "crypto.EcbDecryptStringResponse.plaintext");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->plaintext(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:crypto.EcbDecryptStringResponse)
+  return target;
+}
+
+int EcbDecryptStringResponse::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.EcbDecryptStringResponse)
+  int total_size = 0;
+
+  // optional string plaintext = 1;
+  if (this->plaintext().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->plaintext());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void EcbDecryptStringResponse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.EcbDecryptStringResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const EcbDecryptStringResponse* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const EcbDecryptStringResponse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.EcbDecryptStringResponse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.EcbDecryptStringResponse)
+    MergeFrom(*source);
+  }
+}
+
+void EcbDecryptStringResponse::MergeFrom(const EcbDecryptStringResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.EcbDecryptStringResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  if (from.plaintext().size() > 0) {
+
+    plaintext_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.plaintext_);
+  }
+}
+
+void EcbDecryptStringResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.EcbDecryptStringResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void EcbDecryptStringResponse::CopyFrom(const EcbDecryptStringResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.EcbDecryptStringResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool EcbDecryptStringResponse::IsInitialized() const {
+
+  return true;
+}
+
+void EcbDecryptStringResponse::Swap(EcbDecryptStringResponse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void EcbDecryptStringResponse::InternalSwap(EcbDecryptStringResponse* other) {
+  plaintext_.Swap(&other->plaintext_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata EcbDecryptStringResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = EcbDecryptStringResponse_descriptor_;
+  metadata.reflection = EcbDecryptStringResponse_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// EcbDecryptStringResponse
+
+// optional string plaintext = 1;
+void EcbDecryptStringResponse::clear_plaintext() {
+  plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& EcbDecryptStringResponse::plaintext() const {
+  // @@protoc_insertion_point(field_get:crypto.EcbDecryptStringResponse.plaintext)
+  return plaintext_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbDecryptStringResponse::set_plaintext(const ::std::string& value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:crypto.EcbDecryptStringResponse.plaintext)
+}
+ void EcbDecryptStringResponse::set_plaintext(const char* value) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:crypto.EcbDecryptStringResponse.plaintext)
+}
+ void EcbDecryptStringResponse::set_plaintext(const char* value, size_t size) {
+  
+  plaintext_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:crypto.EcbDecryptStringResponse.plaintext)
+}
+ ::std::string* EcbDecryptStringResponse::mutable_plaintext() {
+  
+  // @@protoc_insertion_point(field_mutable:crypto.EcbDecryptStringResponse.plaintext)
+  return plaintext_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* EcbDecryptStringResponse::release_plaintext() {
+  // @@protoc_insertion_point(field_release:crypto.EcbDecryptStringResponse.plaintext)
+  
+  return plaintext_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void EcbDecryptStringResponse::set_allocated_plaintext(::std::string* plaintext) {
+  if (plaintext != NULL) {
+    
+  } else {
+    
+  }
+  plaintext_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), plaintext);
+  // @@protoc_insertion_point(field_set_allocated:crypto.EcbDecryptStringResponse.plaintext)
+}
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
@@ -2302,8 +7082,17 @@ CreateKeyPairRequest* CreateKeyPairRequest::New(::google::protobuf::Arena* arena
 }
 
 void CreateKeyPairRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.CreateKeyPairRequest)
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(CreateKeyPairRequest, f) \
+  _Pragma("clang diagnostic pop")
+#else
 #define ZR_HELPER_(f) reinterpret_cast<char*>(\
   &reinterpret_cast<CreateKeyPairRequest*>(16)->f)
+#endif
 
 #define ZR_(first, last) do {\
   ::memset(&first, 0,\
@@ -2319,7 +7108,7 @@ void CreateKeyPairRequest::Clear() {
 
 bool CreateKeyPairRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:crypto.CreateKeyPairRequest)
   for (;;) {
@@ -2397,8 +7186,8 @@ void CreateKeyPairRequest::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:crypto.CreateKeyPairRequest)
 }
 
-::google::protobuf::uint8* CreateKeyPairRequest::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* CreateKeyPairRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:crypto.CreateKeyPairRequest)
   // optional .crypto.AsymmetricType type = 1;
   if (this->type() != 0) {
@@ -2417,6 +7206,7 @@ void CreateKeyPairRequest::SerializeWithCachedSizes(
 }
 
 int CreateKeyPairRequest::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.CreateKeyPairRequest)
   int total_size = 0;
 
   // optional .crypto.AsymmetricType type = 1;
@@ -2438,19 +7228,27 @@ int CreateKeyPairRequest::ByteSize() const {
 }
 
 void CreateKeyPairRequest::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.CreateKeyPairRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   const CreateKeyPairRequest* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const CreateKeyPairRequest>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.CreateKeyPairRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.CreateKeyPairRequest)
     MergeFrom(*source);
   }
 }
 
 void CreateKeyPairRequest::MergeFrom(const CreateKeyPairRequest& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.CreateKeyPairRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from.type() != 0) {
     set_type(from.type());
   }
@@ -2460,12 +7258,14 @@ void CreateKeyPairRequest::MergeFrom(const CreateKeyPairRequest& from) {
 }
 
 void CreateKeyPairRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.CreateKeyPairRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void CreateKeyPairRequest::CopyFrom(const CreateKeyPairRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.CreateKeyPairRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -2599,13 +7399,14 @@ CreateKeyPairResponse* CreateKeyPairResponse::New(::google::protobuf::Arena* are
 }
 
 void CreateKeyPairResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.CreateKeyPairResponse)
   public_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   private_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool CreateKeyPairResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:crypto.CreateKeyPairResponse)
   for (;;) {
@@ -2693,8 +7494,8 @@ void CreateKeyPairResponse::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:crypto.CreateKeyPairResponse)
 }
 
-::google::protobuf::uint8* CreateKeyPairResponse::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* CreateKeyPairResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:crypto.CreateKeyPairResponse)
   // optional string public_key = 2;
   if (this->public_key().size() > 0) {
@@ -2723,6 +7524,7 @@ void CreateKeyPairResponse::SerializeWithCachedSizes(
 }
 
 int CreateKeyPairResponse::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.CreateKeyPairResponse)
   int total_size = 0;
 
   // optional string public_key = 2;
@@ -2746,19 +7548,27 @@ int CreateKeyPairResponse::ByteSize() const {
 }
 
 void CreateKeyPairResponse::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.CreateKeyPairResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   const CreateKeyPairResponse* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const CreateKeyPairResponse>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.CreateKeyPairResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.CreateKeyPairResponse)
     MergeFrom(*source);
   }
 }
 
 void CreateKeyPairResponse::MergeFrom(const CreateKeyPairResponse& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.CreateKeyPairResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from.public_key().size() > 0) {
 
     public_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.public_key_);
@@ -2770,12 +7580,14 @@ void CreateKeyPairResponse::MergeFrom(const CreateKeyPairResponse& from) {
 }
 
 void CreateKeyPairResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.CreateKeyPairResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void CreateKeyPairResponse::CopyFrom(const CreateKeyPairResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.CreateKeyPairResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -2838,6 +7650,7 @@ void CreateKeyPairResponse::clear_public_key() {
   return public_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* CreateKeyPairResponse::release_public_key() {
+  // @@protoc_insertion_point(field_release:crypto.CreateKeyPairResponse.public_key)
   
   return public_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2881,6 +7694,7 @@ void CreateKeyPairResponse::clear_private_key() {
   return private_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* CreateKeyPairResponse::release_private_key() {
+  // @@protoc_insertion_point(field_release:crypto.CreateKeyPairResponse.private_key)
   
   return private_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -2969,6 +7783,7 @@ PublicKeyEncryptRequest* PublicKeyEncryptRequest::New(::google::protobuf::Arena*
 }
 
 void PublicKeyEncryptRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.PublicKeyEncryptRequest)
   type_ = 0;
   public_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -2976,7 +7791,7 @@ void PublicKeyEncryptRequest::Clear() {
 
 bool PublicKeyEncryptRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:crypto.PublicKeyEncryptRequest)
   for (;;) {
@@ -3086,8 +7901,8 @@ void PublicKeyEncryptRequest::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:crypto.PublicKeyEncryptRequest)
 }
 
-::google::protobuf::uint8* PublicKeyEncryptRequest::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* PublicKeyEncryptRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:crypto.PublicKeyEncryptRequest)
   // optional .crypto.AsymmetricType type = 1;
   if (this->type() != 0) {
@@ -3122,6 +7937,7 @@ void PublicKeyEncryptRequest::SerializeWithCachedSizes(
 }
 
 int PublicKeyEncryptRequest::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.PublicKeyEncryptRequest)
   int total_size = 0;
 
   // optional .crypto.AsymmetricType type = 1;
@@ -3151,19 +7967,27 @@ int PublicKeyEncryptRequest::ByteSize() const {
 }
 
 void PublicKeyEncryptRequest::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.PublicKeyEncryptRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   const PublicKeyEncryptRequest* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const PublicKeyEncryptRequest>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.PublicKeyEncryptRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.PublicKeyEncryptRequest)
     MergeFrom(*source);
   }
 }
 
 void PublicKeyEncryptRequest::MergeFrom(const PublicKeyEncryptRequest& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.PublicKeyEncryptRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from.type() != 0) {
     set_type(from.type());
   }
@@ -3178,12 +8002,14 @@ void PublicKeyEncryptRequest::MergeFrom(const PublicKeyEncryptRequest& from) {
 }
 
 void PublicKeyEncryptRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.PublicKeyEncryptRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void PublicKeyEncryptRequest::CopyFrom(const PublicKeyEncryptRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.PublicKeyEncryptRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -3261,6 +8087,7 @@ void PublicKeyEncryptRequest::clear_public_key() {
   return public_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* PublicKeyEncryptRequest::release_public_key() {
+  // @@protoc_insertion_point(field_release:crypto.PublicKeyEncryptRequest.public_key)
   
   return public_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3304,6 +8131,7 @@ void PublicKeyEncryptRequest::clear_plaintext() {
   return plaintext_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* PublicKeyEncryptRequest::release_plaintext() {
+  // @@protoc_insertion_point(field_release:crypto.PublicKeyEncryptRequest.plaintext)
   
   return plaintext_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3387,12 +8215,13 @@ PublicKeyEncryptResponse* PublicKeyEncryptResponse::New(::google::protobuf::Aren
 }
 
 void PublicKeyEncryptResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.PublicKeyEncryptResponse)
   cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool PublicKeyEncryptResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:crypto.PublicKeyEncryptResponse)
   for (;;) {
@@ -3400,9 +8229,9 @@ bool PublicKeyEncryptResponse::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string cipher = 2;
-      case 2: {
-        if (tag == 18) {
+      // optional string cipher = 1;
+      case 1: {
+        if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_cipher()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -3440,23 +8269,23 @@ failure:
 void PublicKeyEncryptResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:crypto.PublicKeyEncryptResponse)
-  // optional string cipher = 2;
+  // optional string cipher = 1;
   if (this->cipher().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->cipher().data(), this->cipher().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "crypto.PublicKeyEncryptResponse.cipher");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->cipher(), output);
+      1, this->cipher(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:crypto.PublicKeyEncryptResponse)
 }
 
-::google::protobuf::uint8* PublicKeyEncryptResponse::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* PublicKeyEncryptResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:crypto.PublicKeyEncryptResponse)
-  // optional string cipher = 2;
+  // optional string cipher = 1;
   if (this->cipher().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->cipher().data(), this->cipher().length(),
@@ -3464,7 +8293,7 @@ void PublicKeyEncryptResponse::SerializeWithCachedSizes(
       "crypto.PublicKeyEncryptResponse.cipher");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->cipher(), target);
+        1, this->cipher(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:crypto.PublicKeyEncryptResponse)
@@ -3472,9 +8301,10 @@ void PublicKeyEncryptResponse::SerializeWithCachedSizes(
 }
 
 int PublicKeyEncryptResponse::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.PublicKeyEncryptResponse)
   int total_size = 0;
 
-  // optional string cipher = 2;
+  // optional string cipher = 1;
   if (this->cipher().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -3488,19 +8318,27 @@ int PublicKeyEncryptResponse::ByteSize() const {
 }
 
 void PublicKeyEncryptResponse::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.PublicKeyEncryptResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   const PublicKeyEncryptResponse* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const PublicKeyEncryptResponse>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.PublicKeyEncryptResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.PublicKeyEncryptResponse)
     MergeFrom(*source);
   }
 }
 
 void PublicKeyEncryptResponse::MergeFrom(const PublicKeyEncryptResponse& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.PublicKeyEncryptResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from.cipher().size() > 0) {
 
     cipher_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.cipher_);
@@ -3508,12 +8346,14 @@ void PublicKeyEncryptResponse::MergeFrom(const PublicKeyEncryptResponse& from) {
 }
 
 void PublicKeyEncryptResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.PublicKeyEncryptResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void PublicKeyEncryptResponse::CopyFrom(const PublicKeyEncryptResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.PublicKeyEncryptResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -3545,7 +8385,7 @@ void PublicKeyEncryptResponse::InternalSwap(PublicKeyEncryptResponse* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // PublicKeyEncryptResponse
 
-// optional string cipher = 2;
+// optional string cipher = 1;
 void PublicKeyEncryptResponse::clear_cipher() {
   cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3575,6 +8415,7 @@ void PublicKeyEncryptResponse::clear_cipher() {
   return cipher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* PublicKeyEncryptResponse::release_cipher() {
+  // @@protoc_insertion_point(field_release:crypto.PublicKeyEncryptResponse.cipher)
   
   return cipher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3663,6 +8504,7 @@ PrivateKeyDecryptRequest* PrivateKeyDecryptRequest::New(::google::protobuf::Aren
 }
 
 void PrivateKeyDecryptRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.PrivateKeyDecryptRequest)
   type_ = 0;
   private_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   cipher_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -3670,7 +8512,7 @@ void PrivateKeyDecryptRequest::Clear() {
 
 bool PrivateKeyDecryptRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:crypto.PrivateKeyDecryptRequest)
   for (;;) {
@@ -3780,8 +8622,8 @@ void PrivateKeyDecryptRequest::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_end:crypto.PrivateKeyDecryptRequest)
 }
 
-::google::protobuf::uint8* PrivateKeyDecryptRequest::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* PrivateKeyDecryptRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:crypto.PrivateKeyDecryptRequest)
   // optional .crypto.AsymmetricType type = 1;
   if (this->type() != 0) {
@@ -3816,6 +8658,7 @@ void PrivateKeyDecryptRequest::SerializeWithCachedSizes(
 }
 
 int PrivateKeyDecryptRequest::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.PrivateKeyDecryptRequest)
   int total_size = 0;
 
   // optional .crypto.AsymmetricType type = 1;
@@ -3845,19 +8688,27 @@ int PrivateKeyDecryptRequest::ByteSize() const {
 }
 
 void PrivateKeyDecryptRequest::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.PrivateKeyDecryptRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   const PrivateKeyDecryptRequest* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const PrivateKeyDecryptRequest>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.PrivateKeyDecryptRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.PrivateKeyDecryptRequest)
     MergeFrom(*source);
   }
 }
 
 void PrivateKeyDecryptRequest::MergeFrom(const PrivateKeyDecryptRequest& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.PrivateKeyDecryptRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from.type() != 0) {
     set_type(from.type());
   }
@@ -3872,12 +8723,14 @@ void PrivateKeyDecryptRequest::MergeFrom(const PrivateKeyDecryptRequest& from) {
 }
 
 void PrivateKeyDecryptRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.PrivateKeyDecryptRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void PrivateKeyDecryptRequest::CopyFrom(const PrivateKeyDecryptRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.PrivateKeyDecryptRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -3955,6 +8808,7 @@ void PrivateKeyDecryptRequest::clear_private_key() {
   return private_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* PrivateKeyDecryptRequest::release_private_key() {
+  // @@protoc_insertion_point(field_release:crypto.PrivateKeyDecryptRequest.private_key)
   
   return private_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3998,6 +8852,7 @@ void PrivateKeyDecryptRequest::clear_cipher() {
   return cipher_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* PrivateKeyDecryptRequest::release_cipher() {
+  // @@protoc_insertion_point(field_release:crypto.PrivateKeyDecryptRequest.cipher)
   
   return cipher_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -4081,12 +8936,13 @@ PrivateKeyDecryptResponse* PrivateKeyDecryptResponse::New(::google::protobuf::Ar
 }
 
 void PrivateKeyDecryptResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:crypto.PrivateKeyDecryptResponse)
   plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 bool PrivateKeyDecryptResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:crypto.PrivateKeyDecryptResponse)
   for (;;) {
@@ -4094,9 +8950,9 @@ bool PrivateKeyDecryptResponse::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string plaintext = 2;
-      case 2: {
-        if (tag == 18) {
+      // optional string plaintext = 1;
+      case 1: {
+        if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_plaintext()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -4134,23 +8990,23 @@ failure:
 void PrivateKeyDecryptResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:crypto.PrivateKeyDecryptResponse)
-  // optional string plaintext = 2;
+  // optional string plaintext = 1;
   if (this->plaintext().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->plaintext().data(), this->plaintext().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "crypto.PrivateKeyDecryptResponse.plaintext");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->plaintext(), output);
+      1, this->plaintext(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:crypto.PrivateKeyDecryptResponse)
 }
 
-::google::protobuf::uint8* PrivateKeyDecryptResponse::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* PrivateKeyDecryptResponse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:crypto.PrivateKeyDecryptResponse)
-  // optional string plaintext = 2;
+  // optional string plaintext = 1;
   if (this->plaintext().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->plaintext().data(), this->plaintext().length(),
@@ -4158,7 +9014,7 @@ void PrivateKeyDecryptResponse::SerializeWithCachedSizes(
       "crypto.PrivateKeyDecryptResponse.plaintext");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->plaintext(), target);
+        1, this->plaintext(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:crypto.PrivateKeyDecryptResponse)
@@ -4166,9 +9022,10 @@ void PrivateKeyDecryptResponse::SerializeWithCachedSizes(
 }
 
 int PrivateKeyDecryptResponse::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:crypto.PrivateKeyDecryptResponse)
   int total_size = 0;
 
-  // optional string plaintext = 2;
+  // optional string plaintext = 1;
   if (this->plaintext().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -4182,19 +9039,27 @@ int PrivateKeyDecryptResponse::ByteSize() const {
 }
 
 void PrivateKeyDecryptResponse::MergeFrom(const ::google::protobuf::Message& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(generalized_merge_from_start:crypto.PrivateKeyDecryptResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   const PrivateKeyDecryptResponse* source = 
       ::google::protobuf::internal::DynamicCastToGenerated<const PrivateKeyDecryptResponse>(
           &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:crypto.PrivateKeyDecryptResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:crypto.PrivateKeyDecryptResponse)
     MergeFrom(*source);
   }
 }
 
 void PrivateKeyDecryptResponse::MergeFrom(const PrivateKeyDecryptResponse& from) {
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+// @@protoc_insertion_point(class_specific_merge_from_start:crypto.PrivateKeyDecryptResponse)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from.plaintext().size() > 0) {
 
     plaintext_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.plaintext_);
@@ -4202,12 +9067,14 @@ void PrivateKeyDecryptResponse::MergeFrom(const PrivateKeyDecryptResponse& from)
 }
 
 void PrivateKeyDecryptResponse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:crypto.PrivateKeyDecryptResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void PrivateKeyDecryptResponse::CopyFrom(const PrivateKeyDecryptResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:crypto.PrivateKeyDecryptResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -4239,7 +9106,7 @@ void PrivateKeyDecryptResponse::InternalSwap(PrivateKeyDecryptResponse* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // PrivateKeyDecryptResponse
 
-// optional string plaintext = 2;
+// optional string plaintext = 1;
 void PrivateKeyDecryptResponse::clear_plaintext() {
   plaintext_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -4269,6 +9136,7 @@ void PrivateKeyDecryptResponse::clear_plaintext() {
   return plaintext_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
  ::std::string* PrivateKeyDecryptResponse::release_plaintext() {
+  // @@protoc_insertion_point(field_release:crypto.PrivateKeyDecryptResponse.plaintext)
   
   return plaintext_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }

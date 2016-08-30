@@ -16,9 +16,15 @@
 namespace crypto {
 
 static const char* SymmetricService_method_names[] = {
-  "/crypto.SymmetricService/CreateCbcKey",
+  "/crypto.SymmetricService/CreateSymmetricKey",
   "/crypto.SymmetricService/CbcEncryptFile",
   "/crypto.SymmetricService/CbcDecryptFile",
+  "/crypto.SymmetricService/CbcEncryptString",
+  "/crypto.SymmetricService/CbcDecryptString",
+  "/crypto.SymmetricService/EcbEncryptFile",
+  "/crypto.SymmetricService/EcbDecryptFile",
+  "/crypto.SymmetricService/EcbEncryptString",
+  "/crypto.SymmetricService/EcbDecryptString",
 };
 
 std::unique_ptr< SymmetricService::Stub> SymmetricService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -27,17 +33,23 @@ std::unique_ptr< SymmetricService::Stub> SymmetricService::NewStub(const std::sh
 }
 
 SymmetricService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_CreateCbcKey_(SymmetricService_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_CreateSymmetricKey_(SymmetricService_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_CbcEncryptFile_(SymmetricService_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_CbcDecryptFile_(SymmetricService_method_names[2], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CbcEncryptString_(SymmetricService_method_names[3], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CbcDecryptString_(SymmetricService_method_names[4], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_EcbEncryptFile_(SymmetricService_method_names[5], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_EcbDecryptFile_(SymmetricService_method_names[6], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_EcbEncryptString_(SymmetricService_method_names[7], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_EcbDecryptString_(SymmetricService_method_names[8], ::grpc::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status SymmetricService::Stub::CreateCbcKey(::grpc::ClientContext* context, const ::crypto::CreateCbcKeyRequest& request, ::crypto::CreateCbcKeyResponse* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_CreateCbcKey_, context, request, response);
+::grpc::Status SymmetricService::Stub::CreateSymmetricKey(::grpc::ClientContext* context, const ::crypto::CreateSymmetricKeyRequest& request, ::crypto::CreateSymmetricKeyResponse* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_CreateSymmetricKey_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::crypto::CreateCbcKeyResponse>* SymmetricService::Stub::AsyncCreateCbcKeyRaw(::grpc::ClientContext* context, const ::crypto::CreateCbcKeyRequest& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::crypto::CreateCbcKeyResponse>(channel_.get(), cq, rpcmethod_CreateCbcKey_, context, request);
+::grpc::ClientAsyncResponseReader< ::crypto::CreateSymmetricKeyResponse>* SymmetricService::Stub::AsyncCreateSymmetricKeyRaw(::grpc::ClientContext* context, const ::crypto::CreateSymmetricKeyRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::crypto::CreateSymmetricKeyResponse>(channel_.get(), cq, rpcmethod_CreateSymmetricKey_, context, request);
 }
 
 ::grpc::Status SymmetricService::Stub::CbcEncryptFile(::grpc::ClientContext* context, const ::crypto::CbcEncryptFileRequest& request, ::crypto::CbcEncryptFileResponse* response) {
@@ -56,13 +68,61 @@ SymmetricService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& c
   return new ::grpc::ClientAsyncResponseReader< ::crypto::CbcDecryptFileResponse>(channel_.get(), cq, rpcmethod_CbcDecryptFile_, context, request);
 }
 
+::grpc::Status SymmetricService::Stub::CbcEncryptString(::grpc::ClientContext* context, const ::crypto::CbcEncryptStringRequest& request, ::crypto::CbcEncryptStringResponse* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_CbcEncryptString_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::crypto::CbcEncryptStringResponse>* SymmetricService::Stub::AsyncCbcEncryptStringRaw(::grpc::ClientContext* context, const ::crypto::CbcEncryptStringRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::crypto::CbcEncryptStringResponse>(channel_.get(), cq, rpcmethod_CbcEncryptString_, context, request);
+}
+
+::grpc::Status SymmetricService::Stub::CbcDecryptString(::grpc::ClientContext* context, const ::crypto::CbcDecryptStringRequest& request, ::crypto::CbcDecryptStringResponse* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_CbcDecryptString_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::crypto::CbcDecryptStringResponse>* SymmetricService::Stub::AsyncCbcDecryptStringRaw(::grpc::ClientContext* context, const ::crypto::CbcDecryptStringRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::crypto::CbcDecryptStringResponse>(channel_.get(), cq, rpcmethod_CbcDecryptString_, context, request);
+}
+
+::grpc::Status SymmetricService::Stub::EcbEncryptFile(::grpc::ClientContext* context, const ::crypto::EcbEncryptFileRequest& request, ::crypto::EcbEncryptFileResponse* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_EcbEncryptFile_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::crypto::EcbEncryptFileResponse>* SymmetricService::Stub::AsyncEcbEncryptFileRaw(::grpc::ClientContext* context, const ::crypto::EcbEncryptFileRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::crypto::EcbEncryptFileResponse>(channel_.get(), cq, rpcmethod_EcbEncryptFile_, context, request);
+}
+
+::grpc::Status SymmetricService::Stub::EcbDecryptFile(::grpc::ClientContext* context, const ::crypto::EcbDecryptFileRequest& request, ::crypto::EcbDecryptFileResponse* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_EcbDecryptFile_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::crypto::EcbDecryptFileResponse>* SymmetricService::Stub::AsyncEcbDecryptFileRaw(::grpc::ClientContext* context, const ::crypto::EcbDecryptFileRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::crypto::EcbDecryptFileResponse>(channel_.get(), cq, rpcmethod_EcbDecryptFile_, context, request);
+}
+
+::grpc::Status SymmetricService::Stub::EcbEncryptString(::grpc::ClientContext* context, const ::crypto::EcbEncryptStringRequest& request, ::crypto::EcbEncryptStringResponse* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_EcbEncryptString_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::crypto::EcbEncryptStringResponse>* SymmetricService::Stub::AsyncEcbEncryptStringRaw(::grpc::ClientContext* context, const ::crypto::EcbEncryptStringRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::crypto::EcbEncryptStringResponse>(channel_.get(), cq, rpcmethod_EcbEncryptString_, context, request);
+}
+
+::grpc::Status SymmetricService::Stub::EcbDecryptString(::grpc::ClientContext* context, const ::crypto::EcbDecryptStringRequest& request, ::crypto::EcbDecryptStringResponse* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_EcbDecryptString_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::crypto::EcbDecryptStringResponse>* SymmetricService::Stub::AsyncEcbDecryptStringRaw(::grpc::ClientContext* context, const ::crypto::EcbDecryptStringRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::crypto::EcbDecryptStringResponse>(channel_.get(), cq, rpcmethod_EcbDecryptString_, context, request);
+}
+
 SymmetricService::Service::Service() {
   (void)SymmetricService_method_names;
   AddMethod(new ::grpc::RpcServiceMethod(
       SymmetricService_method_names[0],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< SymmetricService::Service, ::crypto::CreateCbcKeyRequest, ::crypto::CreateCbcKeyResponse>(
-          std::mem_fn(&SymmetricService::Service::CreateCbcKey), this)));
+      new ::grpc::RpcMethodHandler< SymmetricService::Service, ::crypto::CreateSymmetricKeyRequest, ::crypto::CreateSymmetricKeyResponse>(
+          std::mem_fn(&SymmetricService::Service::CreateSymmetricKey), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       SymmetricService_method_names[1],
       ::grpc::RpcMethod::NORMAL_RPC,
@@ -73,12 +133,42 @@ SymmetricService::Service::Service() {
       ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< SymmetricService::Service, ::crypto::CbcDecryptFileRequest, ::crypto::CbcDecryptFileResponse>(
           std::mem_fn(&SymmetricService::Service::CbcDecryptFile), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      SymmetricService_method_names[3],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< SymmetricService::Service, ::crypto::CbcEncryptStringRequest, ::crypto::CbcEncryptStringResponse>(
+          std::mem_fn(&SymmetricService::Service::CbcEncryptString), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      SymmetricService_method_names[4],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< SymmetricService::Service, ::crypto::CbcDecryptStringRequest, ::crypto::CbcDecryptStringResponse>(
+          std::mem_fn(&SymmetricService::Service::CbcDecryptString), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      SymmetricService_method_names[5],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< SymmetricService::Service, ::crypto::EcbEncryptFileRequest, ::crypto::EcbEncryptFileResponse>(
+          std::mem_fn(&SymmetricService::Service::EcbEncryptFile), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      SymmetricService_method_names[6],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< SymmetricService::Service, ::crypto::EcbDecryptFileRequest, ::crypto::EcbDecryptFileResponse>(
+          std::mem_fn(&SymmetricService::Service::EcbDecryptFile), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      SymmetricService_method_names[7],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< SymmetricService::Service, ::crypto::EcbEncryptStringRequest, ::crypto::EcbEncryptStringResponse>(
+          std::mem_fn(&SymmetricService::Service::EcbEncryptString), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      SymmetricService_method_names[8],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< SymmetricService::Service, ::crypto::EcbDecryptStringRequest, ::crypto::EcbDecryptStringResponse>(
+          std::mem_fn(&SymmetricService::Service::EcbDecryptString), this)));
 }
 
 SymmetricService::Service::~Service() {
 }
 
-::grpc::Status SymmetricService::Service::CreateCbcKey(::grpc::ServerContext* context, const ::crypto::CreateCbcKeyRequest* request, ::crypto::CreateCbcKeyResponse* response) {
+::grpc::Status SymmetricService::Service::CreateSymmetricKey(::grpc::ServerContext* context, const ::crypto::CreateSymmetricKeyRequest* request, ::crypto::CreateSymmetricKeyResponse* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -93,6 +183,48 @@ SymmetricService::Service::~Service() {
 }
 
 ::grpc::Status SymmetricService::Service::CbcDecryptFile(::grpc::ServerContext* context, const ::crypto::CbcDecryptFileRequest* request, ::crypto::CbcDecryptFileResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status SymmetricService::Service::CbcEncryptString(::grpc::ServerContext* context, const ::crypto::CbcEncryptStringRequest* request, ::crypto::CbcEncryptStringResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status SymmetricService::Service::CbcDecryptString(::grpc::ServerContext* context, const ::crypto::CbcDecryptStringRequest* request, ::crypto::CbcDecryptStringResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status SymmetricService::Service::EcbEncryptFile(::grpc::ServerContext* context, const ::crypto::EcbEncryptFileRequest* request, ::crypto::EcbEncryptFileResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status SymmetricService::Service::EcbDecryptFile(::grpc::ServerContext* context, const ::crypto::EcbDecryptFileRequest* request, ::crypto::EcbDecryptFileResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status SymmetricService::Service::EcbEncryptString(::grpc::ServerContext* context, const ::crypto::EcbEncryptStringRequest* request, ::crypto::EcbEncryptStringResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status SymmetricService::Service::EcbDecryptString(::grpc::ServerContext* context, const ::crypto::EcbDecryptStringRequest* request, ::crypto::EcbDecryptStringResponse* response) {
   (void) context;
   (void) request;
   (void) response;

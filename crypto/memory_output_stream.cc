@@ -9,13 +9,14 @@ MemoryOutputStream::MemoryOutputStream() {}
 MemoryOutputStream::~MemoryOutputStream() {}
 
 void MemoryOutputStream::Close() {}
-void MemoryOutputStream::Flush() {}
+bool MemoryOutputStream::Flush() { return true; }
 
-void MemoryOutputStream::Write(ByteVector* buffer) {
+int MemoryOutputStream::Write(ByteVector* buffer) {
   data_.insert(data_.end(), buffer->begin(), buffer->end());
+  return buffer->size();
 }
 
-void MemoryOutputStream::Write(ByteVector* buffer,
+int MemoryOutputStream::Write(ByteVector* buffer,
                                size_t offset,
                                size_t length) {
   DCHECK(buffer);
@@ -23,20 +24,25 @@ void MemoryOutputStream::Write(ByteVector* buffer,
     data_.insert(data_.end(),
                  buffer->begin() + offset,
                  buffer->begin() + offset + length);  
+    return length;
   }
+  return 0;
 }
 
-void MemoryOutputStream::Write(Byte* buffer, size_t offset, size_t length) {
+int MemoryOutputStream::Write(Byte* buffer, size_t offset, size_t length) {
   DCHECK(buffer);
   if ((int32_t) offset >= 0 && length > 0) {
     data_.insert(data_.end(),
                  buffer + offset,
                  buffer + offset + length);
+    return length;
   }
+  return 0;
 }
 
-void MemoryOutputStream::Write(Byte byte) {
+int MemoryOutputStream::Write(Byte byte) {
   data_.push_back(byte);
+  return 1;
 }
 
 Byte* MemoryOutputStream::data() {

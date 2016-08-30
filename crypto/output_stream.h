@@ -13,11 +13,11 @@ class OutputStream {
   virtual ~OutputStream() {}
 
   virtual void Close() = 0;
-  virtual void Flush() = 0;
-  virtual void Write(ByteVector* buffer) = 0;
-  virtual void Write(Byte n) = 0;
-  virtual void Write(ByteVector* buffer, size_t offset, size_t length) = 0;
-  virtual void Write(Byte* buffer, size_t offset, size_t length) = 0;
+  virtual bool Flush() = 0;
+  virtual int Write(ByteVector* buffer) = 0;
+  virtual int Write(Byte n) = 0;
+  virtual int Write(ByteVector* buffer, size_t offset, size_t length) = 0;
+  virtual int Write(Byte* buffer, size_t offset, size_t length) = 0;
   virtual std::string ToString() = 0;
 };
 
